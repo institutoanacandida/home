@@ -279,7 +279,8 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(90, 70, 54, 0.8); /* Marrom profundo com transparência */
+            background-color: rgba(90, 70, 54, 0.8);
+            /* Marrom profundo com transparência */
             z-index: 1000;
             justify-content: center;
             align-items: center;
@@ -295,14 +296,21 @@
             max-width: 400px;
             text-align: center;
             border: 2px solid var(--color-dourado-quente);
-            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
             position: relative;
             animation: modalFadeIn 0.3s ease;
         }
 
         @keyframes modalFadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .modal-close {
@@ -488,71 +496,72 @@
 
 </body>
 
-    <!-- Lead Capture Modal -->
-    <div id="captureModal" class="modal-overlay">
-        <div class="modal-content">
-            <button class="modal-close" onclick="closeModal()">&times;</button>
-            <h3 class="modal-title">Quase lá! 🌷</h3>
-            <p class="modal-text">Preencha seus dados para receber o Guia Gratuito de Reconexão Feminina agora mesmo.</p>
-            
-            <form id="leadForm" onsubmit="submitForm(event)">
-                <div class="form-group">
-                    <label class="form-label">Seu Nome</label>
-                    <input type="text" name="nome" class="form-input" placeholder="Como gosta de ser chamada?" required>
-                </div>
-                
-                <div class="form-group">
-                    <label class="form-label">Seu Melhor Email</label>
-                    <input type="email" name="email" class="form-input" placeholder="exemplo@email.com" required>
-                </div>
-                
-                <div class="form-group">
-                    <label class="form-label">WhatsApp (com DDD)</label>
-                    <input type="tel" name="whatsapp" class="form-input" placeholder="(00) 00000-0000" required>
-                </div>
+<!-- Lead Capture Modal -->
+<div id="captureModal" class="modal-overlay">
+    <div class="modal-content">
+        <button class="modal-close" onclick="closeModal()">&times;</button>
+        <h3 class="modal-title">Quase lá! 🌷</h3>
+        <p class="modal-text">Preencha seus dados para receber o Guia Gratuito de Reconexão Feminina agora mesmo.</p>
 
-                <button type="submit" id="submitBtn" class="btn-submit">Liberar Meu Acesso</button>
-            </form>
-        </div>
+        <form id="leadForm" onsubmit="submitForm(event)">
+            <div class="form-group">
+                <label class="form-label">Seu Nome</label>
+                <input type="text" name="nome" class="form-input" placeholder="Como gosta de ser chamada?" required>
+            </div>
+
+            <div class="form-group">
+                <label class="form-label">Seu Melhor Email</label>
+                <input type="email" name="email" class="form-input" placeholder="exemplo@email.com" required>
+            </div>
+
+            <div class="form-group">
+                <label class="form-label">WhatsApp (com DDD)</label>
+                <input type="tel" name="whatsapp" class="form-input" placeholder="(00) 00000-0000" required>
+            </div>
+
+            <button type="submit" id="submitBtn" class="btn-submit">Liberar Meu Acesso</button>
+        </form>
     </div>
+</div>
 
-    <script>
-        const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyFYtsCY4FoNnpODkru-PiwWYyuoh11Os7DBdAk59P3eyp4BlLNJX10pjTpbHcUBKmwtw/exec';
-        const GAMMA_URL = 'https://padroes-emocionais-65uxd4a.gamma.site/';
+<script>
+    const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyFYtsCY4FoNnpODkru-PiwWYyuoh11Os7DBdAk59P3eyp4BlLNJX10pjTpbHcUBKmwtw/exec';
+    const GAMMA_URL = 'https://padroes-emocionais-65uxd4a.gamma.site/';
 
-        function openModal() {
-            document.getElementById('captureModal').style.display = 'flex';
+    function openModal() {
+        document.getElementById('captureModal').style.display = 'flex';
+    }
+
+    function closeModal() {
+        document.getElementById('captureModal').style.display = 'none';
+    }
+
+    // Close on outside click
+    document.getElementById('captureModal').addEventListener('click', function (e) {
+        if (e.target === this) closeModal();
+    });
+
+    function submitForm(e) {
+        e.preventDefault();
+        const btn = document.getElementById('submitBtn');
+        const originalText = btn.innerText;
+
+        btn.disabled = true;
+        btn.innerText = 'Enviando...';
+
+        const form = document.getElementById('leadForm');
+        const formData = new FormData(form);
+        const data = new URLSearchParams();
+
+        for (const pair of formData) {
+            data.append(pair[0], pair[1]);
         }
 
-        function closeModal() {
-            document.getElementById('captureModal').style.display = 'none';
-        }
-
-        // Close on outside click
-        document.getElementById('captureModal').addEventListener('click', function(e) {
-            if (e.target === this) closeModal();
-        });
-
-        function submitForm(e) {
-            e.preventDefault();
-            const btn = document.getElementById('submitBtn');
-            const originalText = btn.innerText;
-            
-            btn.disabled = true;
-            btn.innerText = 'Enviando...';
-
-            const form = document.getElementById('leadForm');
-            const formData = new FormData(form);
-            const data = new URLSearchParams();
-            
-            for (const pair of formData) {
-                data.append(pair[0], pair[1]);
-            }
-
-            fetch(SCRIPT_URL, {
-                method: 'POST',
-                body: data
-            })
+        fetch(SCRIPT_URL, {
+            method: 'POST',
+            mode: 'no-cors',
+            body: data
+        })
             .then(response => {
                 console.log('Success!', response);
                 // Redirect regardless of response text (cors opacity)
@@ -563,7 +572,7 @@
                 // Fallback redirect even on error to not block user
                 window.location.href = GAMMA_URL;
             });
-        }
-    </script>
+    }
+</script>
 
 </html>
