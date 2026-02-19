@@ -270,6 +270,114 @@
             font-size: 1.1rem;
             font-weight: 500;
         }
+
+        /* Lead Capture Modal */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(90, 70, 54, 0.8); /* Marrom profundo com transparência */
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            backdrop-filter: blur(5px);
+        }
+
+        .modal-content {
+            background-color: var(--color-branco-suave);
+            padding: 30px;
+            border-radius: 20px;
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+            border: 2px solid var(--color-dourado-quente);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+            position: relative;
+            animation: modalFadeIn 0.3s ease;
+        }
+
+        @keyframes modalFadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--color-marrom-profundo);
+            cursor: pointer;
+        }
+
+        .modal-title {
+            font-family: var(--font-heading);
+            color: var(--color-dourado-intenso);
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        .modal-text {
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+            color: #666;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+            text-align: left;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 5px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-family: var(--font-body);
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        .form-input:focus {
+            border-color: var(--color-dourado-quente);
+            outline: none;
+        }
+
+        .btn-submit {
+            width: 100%;
+            padding: 14px;
+            background-color: var(--color-dourado-quente);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            font-size: 1rem;
+            margin-top: 10px;
+            transition: background 0.3s;
+        }
+
+        .btn-submit:hover {
+            background-color: var(--color-dourado-intenso);
+        }
+
+        .btn-submit:disabled {
+            background-color: #ccc;
+            cursor: not-allowed;
+        }
     </style>
 </head>
 
@@ -283,9 +391,9 @@
             <h1>Você não está quebrada.<br>Você apenas se desconectou de si.</h1>
             <p>Ajudo mulheres maduras a reconstruírem autoestima, fortalecerem limites e voltarem a se escolher.</p>
 
-            <a href="https://padroes-emocionais-65uxd4a.gamma.site/" class="btn-bio btn-primary-bio">
+            <a href="#" onclick="openModal()" class="btn-bio btn-primary-bio">
                 <span class="btn-main-label">Baixar Guia Gratuito</span>
-                <!-- CTA principal redireciona para a página de vendas -->
+                <!-- CTA principal redireciona para modal -->
             </a>
         </section>
 
@@ -303,7 +411,7 @@
             você encontra aqui:</h2>
         <div class="value-grid">
             <div class="value-card">
-                <i class="fa-solid fa-rose"></i>
+                <span style="font-size: 1.5rem;">🌷</span>
                 <div>
                     <h3>Reconexão Feminina</h3>
                     <p>Conteúdos sobre autoestima e identidade.</p>
@@ -327,7 +435,7 @@
 
         <!-- Links Principais -->
         <section class="links-section">
-            <a href="https://padroes-emocionais-65uxd4a.gamma.site/" class="btn-bio">
+            <a href="#" onclick="openModal()" class="btn-bio">
                 <span class="btn-main-label">Baixar Guia Gratuito</span>
                 <span class="btn-subtext">Inicie sua jornada de reconexão</span>
             </a>
@@ -379,5 +487,83 @@
     </footer>
 
 </body>
+
+    <!-- Lead Capture Modal -->
+    <div id="captureModal" class="modal-overlay">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal()">&times;</button>
+            <h3 class="modal-title">Quase lá! 🌷</h3>
+            <p class="modal-text">Preencha seus dados para receber o Guia Gratuito de Reconexão Feminina agora mesmo.</p>
+            
+            <form id="leadForm" onsubmit="submitForm(event)">
+                <div class="form-group">
+                    <label class="form-label">Seu Nome</label>
+                    <input type="text" name="nome" class="form-input" placeholder="Como gosta de ser chamada?" required>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label">Seu Melhor Email</label>
+                    <input type="email" name="email" class="form-input" placeholder="exemplo@email.com" required>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label">WhatsApp (com DDD)</label>
+                    <input type="tel" name="whatsapp" class="form-input" placeholder="(00) 00000-0000" required>
+                </div>
+
+                <button type="submit" id="submitBtn" class="btn-submit">Liberar Meu Acesso</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyFYtsCY4FoNnpODkru-PiwWYyuoh11Os7DBdAk59P3eyp4BlLNJX10pjTpbHcUBKmwtw/exec';
+        const GAMMA_URL = 'https://padroes-emocionais-65uxd4a.gamma.site/';
+
+        function openModal() {
+            document.getElementById('captureModal').style.display = 'flex';
+        }
+
+        function closeModal() {
+            document.getElementById('captureModal').style.display = 'none';
+        }
+
+        // Close on outside click
+        document.getElementById('captureModal').addEventListener('click', function(e) {
+            if (e.target === this) closeModal();
+        });
+
+        function submitForm(e) {
+            e.preventDefault();
+            const btn = document.getElementById('submitBtn');
+            const originalText = btn.innerText;
+            
+            btn.disabled = true;
+            btn.innerText = 'Enviando...';
+
+            const form = document.getElementById('leadForm');
+            const formData = new FormData(form);
+            const data = new URLSearchParams();
+            
+            for (const pair of formData) {
+                data.append(pair[0], pair[1]);
+            }
+
+            fetch(SCRIPT_URL, {
+                method: 'POST',
+                body: data
+            })
+            .then(response => {
+                console.log('Success!', response);
+                // Redirect regardless of response text (cors opacity)
+                window.location.href = GAMMA_URL;
+            })
+            .catch(error => {
+                console.error('Error!', error.message);
+                // Fallback redirect even on error to not block user
+                window.location.href = GAMMA_URL;
+            });
+        }
+    </script>
 
 </html>
