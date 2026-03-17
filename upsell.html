@@ -119,6 +119,36 @@
         .bonus-badge { background-color: var(--color-dourado-quente); color: #fff; padding: 5px 15px; border-radius: 5px; font-size: 0.8rem; font-weight: 700; display: inline-block; margin-bottom: 15px; }
         .bonus-section h2 { color: var(--color-rosa-nude); }
 
+        /* Video Section */
+        .video-wrapper {
+            max-width: 700px;
+            margin: 40px auto;
+            background: #fff;
+            padding: 15px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            border: 1px solid var(--color-bege-claro);
+        }
+
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            height: 0;
+            overflow: hidden;
+            border-radius: 12px;
+            background: #000;
+        }
+
+        .video-container iframe,
+        .video-container video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
         .testimonials { background-color: var(--color-rosa-nude); padding: 80px 0; margin-top: 60px; }
         .testimonial-card { background: #fff; padding: 30px; border-radius: 15px; margin-bottom: 20px; font-style: italic; }
 
@@ -144,6 +174,14 @@
             <p>Acesso Imediato ao Audiobook + Videobook de Meditações Guiadas e Networking Exclusivo.</p>
             <p style="font-size: 1.1rem; color: var(--color-dourado-intenso); font-weight: 600;">Adquira agora por apenas R$97,00</p>
         </section>
+
+        <!-- Video Section -->
+        <div class="video-wrapper">
+            <div class="video-container">
+                <!-- Substitua o link abaixo pelo link do vídeo da autora (YouTube, Vimeo, etc) -->
+                <iframe src="https://www.youtube.com/embed/PLACEHOLDER" title="Vídeo da Autora" allowfullscreen></iframe>
+            </div>
+        </div>
 
         <!-- Intro -->
         <div class="product-intro">
