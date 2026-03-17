@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acesso Confirmado | Instituto Ana Cândida</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            --color-rosa-nude: #D8C2BB;
+            --color-bege-claro: #F4EDE8;
+            --color-branco-suave: #FAF7F5;
+            --color-dourado-quente: #C49A5A;
+            --color-marrom-profundo: #5A4636;
+            --font-heading: 'Playfair Display', serif;
+            --font-body: 'Montserrat', sans-serif;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: var(--font-body);
+            color: var(--color-marrom-profundo);
+            background-color: var(--color-branco-suave);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .success-card {
+            max-width: 600px;
+            background: #fff;
+            padding: 60px 40px;
+            border-radius: 30px;
+            text-align: center;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.05);
+            border: 1px solid var(--color-bege-claro);
+        }
+
+        .icon-star {
+            width: 80px;
+            height: 80px;
+            background-color: var(--color-bege-claro);
+            color: var(--color-dourado-quente);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.2rem;
+            margin: 0 auto 30px;
+        }
+
+        h1 { font-family: var(--font-heading); font-size: 2.2rem; margin-bottom: 20px; }
+        p { font-size: 1.1rem; color: #666; margin-bottom: 20px; line-height: 1.6; }
+
+        .steps-box {
+            text-align: left;
+            background-color: var(--color-branco-suave);
+            padding: 25px;
+            border-radius: 20px;
+            margin-top: 30px;
+        }
+        .steps-box h3 { font-size: 1rem; margin-bottom: 15px; text-transform: uppercase; letter-spacing: 1px; }
+        .steps-box ul { list-style: none; }
+        .steps-box li { margin-bottom: 10px; display: flex; gap: 10px; font-size: 0.95rem; }
+        .steps-box li i { color: var(--color-dourado-quente); margin-top: 3px; }
+
+        footer { margin-top: 40px; font-size: 0.8rem; opacity: 0.5; }
+    </style>
+</head>
+<body>
+
+    <div class="success-card">
+        <div class="icon-star">
+            <i class="fa-solid fa-star"></i>
+        </div>
+        
+        <h1>Seu pagamento foi confirmado!</h1>
+        
+        <p>Parabéns por dar esse passo na sua jornada com o <strong>Desperte Seu Feminino</strong>.</p>
+        
+        <div class="steps-box">
+            <h3>Próximos Passos:</h3>
+            <ul>
+                <li><i class="fa-solid fa-envelope"></i> Verifique seu e-mail (procure por Hotmart).</li>
+                <li><i class="fa-solid fa-key"></i> Acesse os dados de login enviados.</li>
+                <li><i class="fa-solid fa-heart"></i> Comece sua jornada emocional hoje mesmo!</li>
+            </ul>
+        </div>
+
+        <footer>
+            &copy; 2026 Instituto Ana Cândida. Todos os direitos reservados.
+        </footer>
+    </div>
+
+</body>
+</html>
