@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Oferta especial: Audiobook de Meditações Guiadas + Grupo de Networking.">
+    <title>Oferta Especial | Instituto Ana Cândida</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            --color-rosa-nude: #D8C2BB;
+            --color-rosa-suave: #E9D6CF;
+            --color-bege-claro: #F4EDE8;
+            --color-branco-suave: #FAF7F5;
+            --color-dourado-quente: #C49A5A;
+            --color-dourado-intenso: #B8893F;
+            --color-marrom-profundo: #5A4636;
+            --color-marrom-suave: #7A6253;
+            --font-heading: 'Playfair Display', serif;
+            --font-body: 'Montserrat', sans-serif;
+            --transition: all 0.3s ease;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: var(--font-body);
+            color: var(--color-marrom-profundo);
+            background-color: var(--color-branco-suave);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        section { padding: 60px 0; }
+
+        h1, h2, h3 { font-family: var(--font-heading); font-weight: 700; color: var(--color-marrom-profundo); text-align: center; }
+
+        .hero { text-align: center; padding: 60px 20px 40px; }
+        .hero h1 { font-size: 2.2rem; line-height: 1.2; margin-bottom: 20px; color: var(--color-dourado-intenso); }
+        .hero p { font-size: 1.2rem; color: var(--color-marrom-suave); max-width: 600px; margin: 0 auto 30px; }
+
+        .offer-card {
+            background-color: #fff;
+            border-radius: 30px;
+            padding: 40px;
+            margin-bottom: 40px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.04);
+            border: 1px solid var(--color-bege-claro);
+            text-align: center;
+        }
+
+        .offer-card i {
+            font-size: 3rem;
+            color: var(--color-dourado-quente);
+            margin-bottom: 20px;
+        }
+
+        .price-box {
+            margin: 30px 0;
+            padding: 20px;
+            background-color: var(--color-branco-suave);
+            border-radius: 20px;
+        }
+        .price-old { text-decoration: line-through; color: #888; font-size: 1.1rem; }
+        .price-new { display: block; font-size: 3rem; font-family: var(--font-heading); color: var(--color-marrom-profundo); margin: 5px 0; }
+
+        .btn-cta {
+            display: table;
+            margin: 20px auto 0;
+            background-color: var(--color-dourado-quente);
+            color: #fff;
+            padding: 20px 40px;
+            border-radius: 50px;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 1rem;
+            transition: var(--transition);
+            box-shadow: 0 10px 20px rgba(196, 154, 90, 0.3);
+            text-decoration: none;
+        }
+        .btn-cta:hover { background-color: var(--color-dourado-intenso); transform: translateY(-3px); }
+
+        .decline-link {
+            display: block;
+            margin: 25px auto;
+            text-align: center;
+            font-size: 0.85rem;
+            color: var(--color-marrom-suave);
+            text-decoration: underline;
+            opacity: 0.7;
+        }
+
+        .bonus-highlight {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            justify-content: center;
+            margin-top: 30px;
+            font-weight: 600;
+            color: var(--color-dourado-intenso);
+        }
+
+        footer { text-align: center; padding: 40px 0; font-size: 0.8rem; opacity: 0.5; }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 1.8rem; }
+            .price-new { font-size: 2.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <main class="container">
+        <section class="hero">
+            <h1>Sua evolução não precisa parar aqui...</h1>
+            <p>Eu entendo que talvez o Videobook não seja o que você busca agora, mas não quero que você perca a oportunidade de ter o <strong>Audiobook</strong> e estar no nosso <strong>Grupo de Networking</strong>.</p>
+        </section>
+
+        <div class="offer-card">
+            <i class="fa-solid fa-headphones-simple"></i>
+            <h2>Audiobook de Meditações + Grupo de Networking</h2>
+            <p style="margin-top: 15px;">Leve apenas o material em áudio para ouvir onde quiser e garanta sua vaga na comunidade exclusiva do Instituto Ana Cândida.</p>
+
+            <div class="price-box">
+                <p class="price-old">De R$ 97,00</p>
+                <span class="price-new">R$ 57,00</span>
+            </div>
+
+            <a href="#" class="btn-cta">Sim, quero apenas o Audiobook por R$57!</a>
+            
+            <a href="obrigado.html" class="decline-link">Não, obrigado. Prefiro seguir apenas com o que já adquiri.</a>
+
+            <div class="bonus-highlight">
+                <i class="fa-solid fa-users"></i>
+                Acesso Vitalício ao Grupo Incluso
+            </div>
+        </div>
+
+        <p class="text-center" style="font-size: 0.9rem; opacity: 0.8; text-align: center;">
+            Esta é a sua última chance de garantir esse acesso especial com valor reduzido.
+        </p>
+    </main>
+
+    <footer>
+        &copy; 2026 Instituto Ana Cândida. Todos os direitos reservados.
+    </footer>
+
+</body>
+</html>
