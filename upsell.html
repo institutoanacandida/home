@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Acelere sua cura emocional com o Audiobook e Videobook de Meditações Guiadas.">
+    <title>Upsell Exclusivo | Desperte Seu Feminino</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            --color-rosa-nude: #D8C2BB;
+            --color-rosa-suave: #E9D6CF;
+            --color-bege-claro: #F4EDE8;
+            --color-branco-suave: #FAF7F5;
+            --color-dourado-quente: #C49A5A;
+            --color-dourado-intenso: #B8893F;
+            --color-marrom-profundo: #5A4636;
+            --color-marrom-suave: #7A6253;
+            --font-heading: 'Playfair Display', serif;
+            --font-body: 'Montserrat', sans-serif;
+            --transition: all 0.3s ease;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: var(--font-body);
+            color: var(--color-marrom-profundo);
+            background-color: var(--color-branco-suave);
+            line-height: 1.6;
+        }
+
+        .urgency-bar {
+            background-color: var(--color-marrom-profundo);
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        section { padding: 60px 0; }
+
+        h1, h2, h3 { font-family: var(--font-heading); font-weight: 700; color: var(--color-marrom-profundo); }
+
+        .hero { text-align: center; padding-top: 40px; }
+        .hero h1 { font-size: 2.5rem; line-height: 1.2; margin-bottom: 20px; }
+        .hero p { font-size: 1.2rem; color: var(--color-marrom-suave); margin-bottom: 30px; }
+
+        .product-intro { background-color: var(--color-bege-claro); border-radius: 20px; padding: 40px; margin: 40px 0; }
+        .product-intro p { font-size: 1.1rem; margin-bottom: 20px; }
+
+        .feature-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-top: 30px; }
+        .feature-item { text-align: left; }
+        .feature-item i { color: var(--color-dourado-quente); font-size: 1.5rem; margin-bottom: 15px; }
+        .feature-item h3 { font-size: 1.2rem; margin-bottom: 10px; }
+
+        .benefits-list { list-style: none; margin: 40px 0; }
+        .benefits-list li { margin-bottom: 15px; display: flex; align-items: start; gap: 15px; font-size: 1.1rem; }
+        .benefits-list i { color: var(--color-dourado-quente); margin-top: 5px; }
+
+        .price-box {
+            background: #fff;
+            border: 2px solid var(--color-dourado-quente);
+            border-radius: 20px;
+            padding: 40px;
+            text-align: center;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.05);
+            margin: 40px 0;
+        }
+        .price-old { text-decoration: line-through; color: #888; font-size: 1.2rem; }
+        .price-new { display: block; font-size: 3.5rem; font-family: var(--font-heading); color: var(--color-dourado-intenso); margin: 10px 0; }
+
+        .btn-cta {
+            display: inline-block;
+            background-color: var(--color-dourado-quente);
+            color: #fff;
+            padding: 20px 40px;
+            border-radius: 50px;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 1.1rem;
+            transition: var(--transition);
+            box-shadow: 0 10px 20px rgba(196, 154, 90, 0.3);
+            text-decoration: none;
+            margin-top: 20px;
+        }
+        .btn-cta:hover { background-color: var(--color-dourado-intenso); transform: translateY(-3px); }
+
+        .bonus-section { background-color: var(--color-marrom-profundo); color: #fff; border-radius: 20px; padding: 40px; text-align: center; }
+        .bonus-badge { background-color: var(--color-dourado-quente); color: #fff; padding: 5px 15px; border-radius: 5px; font-size: 0.8rem; font-weight: 700; display: inline-block; margin-bottom: 15px; }
+        .bonus-section h2 { color: var(--color-rosa-nude); }
+
+        .testimonials { background-color: var(--color-rosa-nude); padding: 80px 0; margin-top: 60px; }
+        .testimonial-card { background: #fff; padding: 30px; border-radius: 15px; margin-bottom: 20px; font-style: italic; }
+
+        footer { text-align: center; padding: 40px 0; font-size: 0.9rem; opacity: 0.7; }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 1.8rem; }
+            .feature-grid { grid-template-columns: 1fr; }
+            .price-new { font-size: 2.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="urgency-bar">
+        🕒 Oferta por tempo limitado! Garanta seu acesso hoje.
+    </div>
+
+    <main class="container">
+        <!-- Hero Section -->
+        <section class="hero">
+            <h1>Transforme Sua Jornada de Cura Emocional</h1>
+            <p>Acesso Imediato ao Audiobook + Videobook de Meditações Guiadas e Networking Exclusivo.</p>
+            <p style="font-size: 1.1rem; color: var(--color-dourado-intenso); font-weight: 600;">Adquira agora por apenas R$97,00</p>
+        </section>
+
+        <!-- Intro -->
+        <div class="product-intro">
+            <p>Você começou a jornada com <strong>Desperte Seu Feminino</strong> e está pronta para avançar ainda mais no processo de cura emocional e transformação pessoal.</p>
+            <p>Este Audiobook e Videobook de Meditações Guiadas são a chave para uma experiência profunda, com práticas diárias que vão te ajudar a liberar bloqueios emocionais, fortalecer seu amor-próprio e alinhar sua energia feminina.</p>
+            
+            <div class="feature-grid">
+                <div class="feature-item">
+                    <i class="fa-solid fa-headphones"></i>
+                    <h3>Audiobook</h3>
+                    <p>Aproveite as meditações guiadas para liberação de crenças limitantes e conexão profunda.</p>
+                </div>
+                <div class="feature-item">
+                    <i class="fa-solid fa-video"></i>
+                    <h3>Videobook</h3>
+                    <p>Veja, ouça e pratique com orientação visual para uma imersão total na experiência.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Benefits -->
+        <section>
+            <h2 class="text-center">Por que este material é para você?</h2>
+            <p class="text-center" style="margin-top: 10px;">Cada meditação foi criada com técnicas de Constelação Familiar e autocura.</p>
+            
+            <ul class="benefits-list">
+                <li><i class="fa-solid fa-circle-check"></i> Transformação emocional profunda em poucas semanas.</li>
+                <li><i class="fa-solid fa-circle-check"></i> Ferramentas práticas para curar bloqueios sistêmicos.</li>
+                <li><i class="fa-solid fa-circle-check"></i> Apoio contínuo no grupo exclusivo do Instituto Ana Cândida.</li>
+                <li><i class="fa-solid fa-circle-check"></i> Acesso imediato em qualquer dispositivo.</li>
+            </ul>
+        </section>
+
+        <!-- Bonus -->
+        <div class="bonus-section">
+            <span class="bonus-badge">BÔNUS EXCLUSIVO</span>
+            <h2>Acesso ao Grupo de Networking</h2>
+            <p style="margin-top: 15px;">Ao garantir seu acesso hoje, você entra para o grupo exclusivo do Instituto Ana Cândida. Um espaço único para trocar experiências e receber apoio de outras mulheres em transformação.</p>
+        </div>
+
+        <!-- Price & CTA -->
+        <div class="price-box">
+            <p class="price-old">De R$ 197,00</p>
+            <span class="price-new">R$ 97,00</span>
+            <p>Esta oferta é válida por apenas 24 horas!</p>
+            
+            <a href="#" class="btn-cta">Sim, quero meu acesso agora! 👇</a>
+            
+            <p style="margin-top: 20px; font-size: 0.85rem; opacity: 0.8;">
+                <i class="fa-solid fa-shield-halved"></i> Compra Segura • Acesso Vitalício
+            </p>
+        </div>
+
+        <!-- Testimonials -->
+        <section>
+            <h2 class="text-center" style="margin-bottom: 40px;">O que as alunas estão dizendo</h2>
+            <div class="testimonial-card">
+                "As meditações guiadas foram o divisor de águas que eu precisava. Senti bloqueios de anos sendo liberados em poucos dias. O videobook torna a imersão muito real."
+                <br><strong>— Maria S.</strong>
+            </div>
+            <div class="testimonial-card">
+                "O grupo de networking é maravilhoso! Não me sinto mais sozinha na minha jornada. O audiobook me acompanha no carro e no trabalho, mantendo minha energia elevada."
+                <br><strong>— Carla R.</strong>
+            </div>
+        </section>
+
+        <div class="text-center" style="padding-bottom: 60px;">
+            <a href="#" class="btn-cta">Sim, quero transformar minha vida agora por R$97,00!</a>
+        </div>
+    </main>
+
+    <footer>
+        &copy; 2026 Instituto Ana Cândida. Todos os direitos reservados.
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parabéns! | Instituto Ana Cândida</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            --color-rosa-nude: #D8C2BB;
+            --color-bege-claro: #F4EDE8;
+            --color-branco-suave: #FAF7F5;
+            --color-dourado-quente: #C49A5A;
+            --color-dourado-intenso: #B8893F;
+            --color-marrom-profundo: #5A4636;
+            --font-heading: 'Playfair Display', serif;
+            --font-body: 'Montserrat', sans-serif;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: var(--font-body);
+            color: var(--color-marrom-profundo);
+            background-color: var(--color-branco-suave);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .success-card {
+            max-width: 600px;
+            background: #fff;
+            padding: 60px 40px;
+            border-radius: 30px;
+            text-align: center;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.05);
+            border: 1px solid var(--color-bege-claro);
+        }
+
+        .icon-check {
+            width: 80px;
+            height: 80px;
+            background-color: var(--color-bege-claro);
+            color: var(--color-dourado-quente);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            margin: 0 auto 30px;
+        }
+
+        h1 { font-family: var(--font-heading); font-size: 2.2rem; margin-bottom: 20px; }
+        p { font-size: 1.1rem; color: #666; margin-bottom: 30px; line-height: 1.6; }
+
+        .btn-group {
+            display: inline-block;
+            background-color: #25D366; /* WhatsApp Green for networking */
+            color: #fff;
+            padding: 18px 35px;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 20px rgba(37, 211, 102, 0.2);
+        }
+        .btn-group:hover { transform: translateY(-3px); box-shadow: 0 15px 25px rgba(37, 211, 102, 0.3); }
+        .btn-group i { margin-right: 10px; }
+
+        .access-info {
+            background-color: var(--color-bege-claro);
+            padding: 20px;
+            border-radius: 15px;
+            margin-top: 30px;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="success-card">
+        <div class="icon-check">
+            <i class="fa-solid fa-check"></i>
+        </div>
+        
+        <h1>Parabéns, você fez uma excelente escolha!</h1>
+        
+        <p>Seu Audiobook e Videobook estão disponíveis para acesso imediato. Você deu um passo gigante na sua jornada de transformação emocional.</p>
+        
+        <p><strong>Toque no botão abaixo para entrar no nosso grupo exclusivo:</strong></p>
+        
+        <a href="#" class="btn-group">
+            <i class="fa-brands fa-whatsapp"></i> Acessar Grupo de Networking
+        </a>
+
+        <div class="access-info">
+            <i class="fa-solid fa-envelope"></i> As instruções de acesso também foram enviadas para o seu e-mail de compra.
+        </div>
+    </div>
+
+</body>
+</html>
