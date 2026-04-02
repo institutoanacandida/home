@@ -19,6 +19,17 @@
     <script type="module" crossorigin src="./assets/index-kqu_jrfc.js"></script>
     <link rel="stylesheet" crossorigin href="./assets/index-dct7n55f.css">
     
+    <script>
+      // Fix para o React Router no GitHub Pages (subpasta /home/)
+      // Este script "engana" o roteador fazendo-o acreditar que está na raiz
+      (function() {
+        const repo = '/home';
+        if (window.location.pathname === repo || window.location.pathname === repo + '/') {
+          window.history.replaceState(null, '', repo + '/#/');
+        }
+      })();
+    </script>
+    
     <style>
       /* Ajuste fino para garantir que o site carregue bem no subdiretório */
       #root { min-height: 100vh; }
