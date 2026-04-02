@@ -20,28 +20,25 @@
     <link rel="stylesheet" crossorigin href="./assets/index-dct7n55f.css">
     
     <script type="text/javascript">
-      // Script de recuperação de roteamento para SPA no GitHub Pages
+      // Script de Correção de Rota - Ana Cândida
       (function(l) {
+        var repo = '/home';
+        // Se viemos do 404, recuperamos a rota real
         if (l.search[1] === '/' ) {
           var decoded = l.search.slice(1).split('&').map(function(s) { 
             return s.replace(/~and~/g, '&')
           }).join('?');
-          window.history.replaceState(null, null,
-              l.pathname.slice(0, -1) + decoded + l.hash
-          );
+          window.history.replaceState(null, null, repo + decoded + l.hash);
         }
-      }(window.location));
-
-      // Hash fallback para garantir que o roteador não veja "/home/"
-      (function() {
-        const repo = '/home';
-        if (window.location.pathname === repo || window.location.pathname === repo + '/') {
-          // Se estamos na raiz do repo, forçamos o Hash para o Router
-          if (!window.location.hash) {
-            window.history.replaceState(null, '', repo + '/#/');
+        
+        // Hack para o React Router (ignorando o prefixo /home/ para o roteador interno)
+        // Redireciona o estado inicial para Hash se estiver na raiz puramente
+        if (l.pathname === repo || l.pathname === repo + '/') {
+          if (!l.hash || l.hash === '#/') {
+            window.history.replaceState(null, null, repo + '/#/');
           }
         }
-      })();
+      }(window.location));
     </script>
     
     <style>
