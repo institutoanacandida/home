@@ -4,547 +4,230 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Instituto Ana Cândida | Referência em Terapia Sistêmica</title>
-    <meta name="description" content="Especialista em Constelação Familiar, Terapia Sistêmica e Renascimento. Atendimentos presenciais em Campinas e Online para todo o mundo.">
+    <meta name="description" content="Cuidado relacional com base na Terapia Sistêmica. Atendimento para casais, famílias e pessoas em momentos de transição em Goiânia-GO.">
     
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <!-- Original CSS mapping -->
+    <link rel="stylesheet" href="/home/assets/style.css">
     
-    <!-- CSS Moderno -->
-    <style>
-        :root {
-            --brand-50: #faf9f6;
-            --brand-100: #f5f0e6;
-            --brand-200: #e8dbc5;
-            --brand-400: #cfa276;
-            --brand-500: #b0895e;
-            --brand-600: #967045;
-            --brand-700: #755536;
-            --brand-800: #5c422d;
-            --brand-900: #423022;
-            --accent-50: #fcfbf9;
-            --accent-100: #f2ebe5;
-            --white: #ffffff;
-            --black: #1a1a1a;
-            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: 'Lato', sans-serif;
-            background-color: var(--brand-50);
-            color: var(--brand-800);
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-
-        h1, h2, h3, h4 {
-            font-family: 'Playfair Display', serif;
-            color: var(--brand-900);
-            font-weight: 700;
-        }
-
-        /* --- Tipografia --- */
-        .text-accent { color: var(--brand-600); }
-        .text-center { text-align: center; }
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        /* --- Header --- */
-        header {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: rgba(250, 249, 246, 0.95);
-            backdrop-filter: blur(10px);
-            z-index: 1000;
-            border-bottom: 1px solid var(--brand-100);
-            transition: var(--transition);
-        }
-
-        header .container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            height: 80px;
-        }
-
-        .logo {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--brand-900);
-            text-decoration: none;
-        }
-
-        nav ul {
-            display: flex;
-            list-style: none;
-            gap: 30px;
-        }
-
-        nav a {
-            text-decoration: none;
-            color: var(--brand-800);
-            font-weight: 400;
-            font-size: 0.95rem;
-            transition: var(--transition);
-        }
-
-        nav a:hover {
-            color: var(--brand-500);
-        }
-
-        .btn-header {
-            background-color: var(--brand-600);
-            color: var(--white);
-            padding: 10px 20px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-size: 0.9rem;
-            font-weight: 700;
-            transition: var(--transition);
-        }
-
-        .btn-header:hover {
-            background-color: var(--brand-800);
-            transform: translateY(-2px);
-        }
-
-        /* --- Hero Section --- */
-        .hero {
-            padding-top: 160px;
-            padding-bottom: 100px;
-            text-align: center;
-            background: linear-gradient(180deg, var(--brand-100) 0%, var(--brand-50) 100%);
-        }
-
-        .hero h1 {
-            font-size: 3.5rem;
-            max-width: 800px;
-            margin: 0 auto 20px;
-            line-height: 1.2;
-        }
-
-        .hero p {
-            font-size: 1.25rem;
-            color: var(--brand-700);
-            max-width: 650px;
-            margin: 0 auto 40px;
-        }
-
-        .hero .ctas {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-        }
-
-        /* --- Botões --- */
-        .btn {
-            display: inline-block;
-            padding: 18px 36px;
-            border-radius: 50px;
-            font-weight: 700;
-            text-decoration: none;
-            transition: var(--transition);
-            cursor: pointer;
-        }
-
-        .btn-primary {
-            background-color: var(--brand-600);
-            color: var(--white);
-            border: 1px solid var(--brand-600);
-        }
-
-        .btn-primary:hover {
-            background-color: var(--brand-800);
-            border-color: var(--brand-800);
-            transform: scale(1.05);
-        }
-
-        .btn-secondary {
-            background-color: transparent;
-            color: var(--brand-800);
-            border: 1px solid var(--brand-200);
-        }
-
-        .btn-secondary:hover {
-            background-color: var(--brand-100);
-            border-color: var(--brand-400);
-        }
-
-        /* --- Sections Generics --- */
-        section {
-            padding: 100px 0;
-        }
-
-        .section-title {
-            text-align: center;
-            margin-bottom: 60px;
-        }
-
-        .section-title h2 {
-            font-size: 2.5rem;
-            margin-bottom: 15px;
-        }
-
-        .section-title p {
-            color: var(--brand-600);
-            font-size: 1.1rem;
-        }
-
-        /* --- Sobre --- */
-        .about-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 80px;
-            align-items: center;
-        }
-
-        .about-img {
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 20px 40px rgba(92, 66, 45, 0.1);
-        }
-
-        .about-img img {
-            width: 100%;
-            display: block;
-            filter: grayscale(20%);
-        }
-
-        .about-content h3 {
-            font-size: 2rem;
-            margin-bottom: 25px;
-        }
-
-        .about-content p {
-            margin-bottom: 20px;
-            color: var(--brand-700);
-        }
-
-        /* --- Serviços --- */
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
-        }
-
-        .service-card {
-            background: var(--white);
-            padding: 40px;
-            border-radius: 20px;
-            border: 1px solid var(--brand-100);
-            transition: var(--transition);
-        }
-
-        .service-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(92, 66, 45, 0.05);
-            border-color: var(--brand-200);
-        }
-
-        .service-card .icon {
-            font-size: 2rem;
-            margin-bottom: 20px;
-            display: block;
-        }
-
-        .service-card h4 {
-            font-size: 1.5rem;
-            margin-bottom: 15px;
-        }
-
-        .service-card p {
-            font-size: 0.95rem;
-            color: var(--brand-700);
-            margin-bottom: 25px;
-        }
-
-        .service-link {
-            text-decoration: none;
-            color: var(--brand-600);
-            font-weight: 700;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        /* --- FAQ --- */
-        .faq-container {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .faq-item {
-            margin-bottom: 20px;
-            border: 1px solid var(--brand-100);
-            border-radius: 12px;
-            background: var(--white);
-            overflow: hidden;
-        }
-
-        .faq-question {
-            padding: 24px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            cursor: pointer;
-            font-weight: 600;
-            color: var(--brand-900);
-            transition: var(--transition);
-        }
-
-        .faq-question:hover {
-            background: var(--brand-50);
-        }
-
-        .faq-answer {
-            padding: 0 24px;
-            height: 0;
-            overflow: hidden;
-            transition: var(--transition);
-            color: var(--brand-700);
-        }
-
-        .faq-item.active .faq-answer {
-            height: auto;
-            padding-bottom: 24px;
-        }
-
-        /* --- Footer --- */
-        footer {
-            background-color: var(--brand-900);
-            color: var(--white);
-            padding: 80px 0 40px;
-        }
-
-        footer h2, footer h3, footer a {
-            color: var(--white);
-        }
-
-        .footer-grid {
-            display: grid;
-            grid-template-columns: 2fr 1fr 1fr;
-            gap: 60px;
-            margin-bottom: 60px;
-        }
-
-        .footer-logo {
-            font-size: 2rem;
-            margin-bottom: 20px;
-            display: block;
-        }
-
-        .footer-links h4 {
-            margin-bottom: 25px;
-            text-transform: uppercase;
-            font-size: 0.8rem;
-            letter-spacing: 2px;
-            color: var(--brand-400);
-        }
-
-        .footer-links ul {
-            list-style: none;
-        }
-
-        .footer-links li {
-            margin-bottom: 12px;
-        }
-
-        .footer-links a {
-            text-decoration: none;
-            font-size: 0.9rem;
-            color: var(--brand-100);
-            transition: var(--transition);
-        }
-
-        .footer-links a:hover {
-            color: var(--brand-400);
-        }
-
-        .footer-bottom {
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            padding-top: 40px;
-            text-align: center;
-            font-size: 0.8rem;
-            color: var(--brand-400);
-        }
-
-        /* --- Mobile --- */
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 2.5rem; }
-            .about-grid { grid-template-columns: 1fr; gap: 40px; }
-            .hero .ctas { flex-direction: column; }
-            nav { display: none; }
-            .footer-grid { grid-template-columns: 1fr; gap: 40px; }
-        }
-    </style>
+    <!-- Favicon placeholder (matches original style if possible) -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌷</text></svg>">
 </head>
-<body>
-
-    <header id="header">
-        <div class="container">
-            <a href="/home/" class="logo">ANA CÂNDIDA</a>
-            <nav>
-                <ul>
-                    <li><a href="#inicio">Início</a></li>
-                    <li><a href="#sobre">O Instituto</a></li>
-                    <li><a href="#servicos">Atendimentos</a></li>
-                    <li><a href="#faq">Dúvidas</a></li>
-                    <li><a href="/home/renascimento/">Links</a></li>
-                </ul>
-            </nav>
-            <a href="https://wa.me/5511993425332" target="_blank" class="btn-header">Agendar</a>
+<body class="bg-brand-50 font-sans text-brand-800">
+    <!-- Header/Navigation -->
+    <header class="bg-white/95 backdrop-blur-md sticky top-0 z-50 border-b border-brand-100">
+        <nav class="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8" aria-label="Global">
+            <div class="flex lg:flex-1">
+                <a href="/home/" class="-m-1.5 p-1.5 font-serif text-2xl font-bold text-brand-700">
+                    Instituto <span class="text-brand-600">Ana Cândida</span>
+                </a>
+            </div>
+            <!-- Mobile Menu Toggle (Simplified for static) -->
+            <div class="flex lg:hidden">
+                <button type="button" class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">
+                    <span class="sr-only">Abrir menu</span>
+                    <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                    </svg>
+                </button>
+            </div>
+            <!-- Desktop Links -->
+            <div class="hidden lg:flex lg:gap-x-8">
+                <a href="/home/o-instituto" class="flex items-center gap-1 text-sm font-medium leading-6 transition-colors py-2 text-gray-600 hover:text-brand-500">O Instituto</a>
+                <a href="/home/terapia-sistemica" class="flex items-center gap-1 text-sm font-medium leading-6 transition-colors py-2 text-gray-600 hover:text-brand-500">Terapia Sistêmica</a>
+                <a href="/home/atendimentos" class="flex items-center gap-1 text-sm font-medium leading-6 transition-colors py-2 text-gray-600 hover:text-brand-500">Atendimentos</a>
+                <a href="/home/equipe" class="flex items-center gap-1 text-sm font-medium leading-6 transition-colors py-2 text-gray-600 hover:text-brand-500">Equipe</a>
+                <a href="/home/galeria" class="flex items-center gap-1 text-sm font-medium leading-6 transition-colors py-2 text-gray-600 hover:text-brand-500">Galeria</a>
+                <a href="/home/conteudos" class="flex items-center gap-1 text-sm font-medium leading-6 transition-colors py-2 text-gray-600 hover:text-brand-500">Conteúdos</a>
+                <a href="/home/contato" class="flex items-center gap-1 text-sm font-medium leading-6 transition-colors py-2 text-gray-600 hover:text-brand-500">Contato</a>
+            </div>
+            <div class="hidden lg:flex lg:flex-1 lg:justify-end">
+                <a href="https://wa.me/5562981838006" target="_blank" class="inline-flex items-center justify-center rounded-md font-medium transition-colors bg-brand-500 text-white hover:bg-brand-600 shadow-sm h-9 px-3 text-sm">Agendar</a>
+            </div>
+        </nav>
+        <!-- Mobile Menu (Hidden by default) -->
+        <div id="mobile-menu" class="hidden lg:hidden" role="dialog" aria-modal="true">
+            <div class="fixed inset-0 z-50"></div>
+            <div class="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
+                <div class="flex items-center justify-between">
+                    <a href="/home/" class="-m-1.5 p-1.5 font-serif text-xl font-bold text-brand-700">
+                        Instituto <span class="text-brand-600">Ana Cândida</span>
+                    </a>
+                    <button type="button" class="-m-2.5 rounded-md p-2.5 text-gray-700" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">
+                        <span class="sr-only">Fechar menu</span>
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </button>
+                </div>
+                <div class="mt-6 flow-root">
+                    <div class="-my-6 divide-y divide-gray-500/10">
+                        <div class="space-y-2 py-6">
+                            <a href="/home/o-instituto" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">O Instituto</a>
+                            <a href="/home/terapia-sistemica" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Terapia Sistêmica</a>
+                            <a href="/home/atendimentos" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Atendimentos</a>
+                            <a href="/home/equipe" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Equipe</a>
+                            <a href="/home/galeria" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Galeria</a>
+                            <a href="/home/conteudos" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Conteúdos</a>
+                            <a href="/home/contato" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Contato</a>
+                        </div>
+                        <div class="py-6">
+                            <a href="https://wa.me/5562981838006" target="_blank" class="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-brand-600 hover:bg-gray-50">Agendar</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </header>
 
     <main>
-        <!-- Home Section -->
-        <section id="inicio" class="hero">
-            <div class="container">
-                <h1>Referência em Terapia Sistêmica e Constelação Familiar</h1>
-                <p>Especialista em auxiliar mulheres a despertarem seu poder pessoal através do renascimento e do olhar sistêmico.</p>
-                <div class="ctas">
-                    <a href="https://wa.me/5511993425332" target="_blank" class="btn btn-primary">Falar com Especialista</a>
-                    <a href="/home/jornada/" class="btn btn-secondary">Conhecer a Jornada</a>
-                </div>
-            </div>
-        </section>
-
-        <!-- Sobre Section -->
-        <section id="sobre">
-            <div class="container">
-                <div class="about-grid">
-                    <div class="about-img">
-                        <img src="https://images.unsplash.com/photo-1544126592-807daa215a05?q=80&w=2070&auto=format&fit=crop" alt="Ana Cândida">
+        <!-- Hero Section -->
+        <section class="relative isolate overflow-hidden bg-brand-50 py-24 sm:py-32">
+            <div class="mx-auto max-w-7xl px-6 lg:px-8">
+                <div class="lg:grid lg:grid-cols-12 lg:gap-x-12 lg:items-center">
+                    <div class="lg:col-span-7">
+                        <h1 class="font-serif text-5xl font-bold tracking-tight text-gray-900 sm:text-7xl">
+                            Cuidado relacional com base na <span class="text-brand-700 italic">Terapia Sistêmica</span>
+                        </h1>
+                        <p class="mt-8 text-lg leading-8 text-gray-600 max-w-2xl">
+                            Atendimento para casais, famílias e pessoas em momentos de transição, com acolhimento, ética e ciência. Construa relações mais saudáveis e encontre novos caminhos.
+                        </p>
+                        <div class="mt-10 flex items-center gap-x-6">
+                            <a href="https://wa.me/5562981838006" target="_blank" class="inline-flex items-center justify-center rounded-md font-medium transition-colors bg-brand-500 text-white hover:bg-brand-600 shadow-sm h-14 px-8 text-lg">Agendar conversa inicial</a>
+                            <a href="/home/contato" class="inline-flex items-center justify-center rounded-md font-medium transition-colors border border-brand-200 bg-transparent hover:bg-brand-50 text-brand-700 h-14 px-8 text-lg">Ver localização</a>
+                        </div>
                     </div>
-                    <div class="about-content">
-                        <span class="text-accent">O Instituto</span>
-                        <h3>Guiando você em direção à sua essência</h3>
-                        <p>No Instituto Ana Cândida, acreditamos que a cura vem da compreensão profunda das ordens do amor e do sistema familiar de onde viemos.</p>
-                        <p>Nossa missão é oferecer um espaço seguro e acolhedor para que você encontre as respostas que já habitam em sua alma, integrando passado e presente para um futuro de maior leveza e propósito.</p>
-                        <a href="https://wa.me/5511993425332" target="_blank" class="btn btn-secondary">Conheça nossa história</a>
+                    <div class="mt-16 sm:mt-24 lg:mt-0 lg:col-span-5">
+                        <div class="relative">
+                            <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2069&auto=format&fit=crop" 
+                                 alt="Instituto Ana Cândida" 
+                                 class="aspect-[4/5] w-full rounded-2xl object-cover shadow-xl">
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Serviços Section -->
-        <section id="servicos">
-            <div class="container">
-                <div class="section-title">
-                    <h2>Nossos Atendimentos</h2>
-                    <p>Caminhos transformadores para sua evolução pessoal</p>
+        <!-- Services Section Preview -->
+        <section class="py-24 bg-white">
+            <div class="mx-auto max-w-7xl px-6 lg:px-8">
+                <div class="mx-auto max-w-2xl text-center">
+                    <h2 class="text-base font-semibold leading-7 text-brand-600 uppercase tracking-wide">Como podemos ajudar?</h2>
+                    <p class="mt-2 text-3xl font-serif font-bold tracking-tight text-gray-900 sm:text-4xl">Modalidades de Atendimento</p>
                 </div>
-                <div class="services-grid">
-                    <div class="service-card">
-                        <span class="icon">✨</span>
-                        <h4>Constelação Familiar</h4>
-                        <p>Revele as dinâmicas ocultas que impedem seu progresso e encontre o seu lugar certo no seu sistema familiar.</p>
-                        <a href="https://wa.me/5511993425332" target="_blank" class="service-link">Saiba mais <span>→</span></a>
-                    </div>
-                    <div class="service-card">
-                        <span class="icon">🌸</span>
-                        <h4>Jornada Desperte</h4>
-                        <p>Um mergulho profundo no feminino para resgatar sua força e autoconfiança de forma leve e estruturada.</p>
-                        <a href="/home/jornada/" class="service-link">Ver detalhes <span>→</span></a>
-                    </div>
-                    <div class="service-card">
-                        <span class="icon">💨</span>
-                        <h4>Renascimento</h4>
-                        <p>Técnica de respiração consciente que permite liberar traumas de nascimento e bloqueios emocionais profundos.</p>
-                        <a href="https://wa.me/5511993425332" target="_blank" class="service-link">Quero agendar <span>→</span></a>
+                <div class="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-none">
+                    <div class="grid grid-cols-1 gap-12 sm:grid-cols-2 lg:grid-cols-4">
+                        <div class="relative p-8 rounded-2xl border border-brand-100 hover:border-brand-300 transition-all hover:shadow-md">
+                            <div class="h-12 w-12 bg-brand-100 rounded-lg flex items-center justify-center mb-6 text-brand-600">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                            </div>
+                            <h3 class="text-xl font-bold mb-4">Terapia Individual</h3>
+                            <p class="text-gray-600">Focamos na sua singularidade e em como você se relaciona com seu mundo.</p>
+                        </div>
+                        <div class="relative p-8 rounded-2xl border border-brand-100 hover:border-brand-300 transition-all hover:shadow-md">
+                            <div class="h-12 w-12 bg-brand-100 rounded-lg flex items-center justify-center mb-6 text-brand-600">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M22 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                            </div>
+                            <h3 class="text-xl font-bold mb-4">Terapia de Casal</h3>
+                            <p class="text-gray-600">Construindo pontes de comunicação e reencontros afetivos.</p>
+                        </div>
+                        <div class="relative p-8 rounded-2xl border border-brand-100 hover:border-brand-300 transition-all hover:shadow-md">
+                            <div class="h-12 w-12 bg-brand-100 rounded-lg flex items-center justify-center mb-6 text-brand-600">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                            </div>
+                            <h3 class="text-xl font-bold mb-4">Terapia Familiar</h3>
+                            <p class="text-gray-600">Cuidando dos laços e das dinâmicas que unem a todos.</p>
+                        </div>
+                        <div class="relative p-8 rounded-2xl border border-brand-100 hover:border-brand-300 transition-all hover:shadow-md">
+                            <div class="h-12 w-12 bg-brand-100 rounded-lg flex items-center justify-center mb-6 text-brand-600">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M7 11V7l5-5 5 5v4"></path><path d="M12 18v4"></path></svg>
+                            </div>
+                            <h3 class="text-xl font-bold mb-4">Parentalidade</h3>
+                            <p class="text-gray-600">Apoio em todas as fases do desenvolvimento e criação de filhos.</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- FAQ Section -->
-        <section id="faq" style="background-color: var(--brand-100);">
-            <div class="container">
-                <div class="section-title">
-                    <h2>Perguntas Frequentes</h2>
-                    <p>Tudo o que você precisa saber sobre nossos atendimentos</p>
-                </div>
-                <div class="faq-container">
-                    <div class="faq-item" onclick="toggleFaq(this)">
-                        <div class="faq-question">Preciso de experiência prévia para fazer uma constelação?<span class="icon">⌄</span></div>
-                        <div class="faq-answer">Não é necessária nenhuma experiência. O trabalho sistêmico é fenomenológico e se baseia na entrega e presença do cliente.</div>
+        <!-- Process Section -->
+        <section class="py-24 bg-brand-50">
+            <div class="mx-auto max-w-7xl px-6 lg:px-8">
+                <div class="lg:grid lg:grid-cols-2 lg:gap-16 lg:items-center">
+                    <div>
+                        <h2 class="text-3xl font-serif font-bold tracking-tight text-gray-900 sm:text-4xl">Como funciona o processo terapêutico?</h2>
+                        <p class="mt-4 text-lg text-gray-600">
+                            A Terapia Sistêmica foca nas relações e nos contextos em que você está inserido. O processo é colaborativo, voltado para a compreensão de padrões e a construção de novas possibilidades.
+                        </p>
+                        <div class="mt-8 space-y-4">
+                            <div class="flex items-start gap-4">
+                                <div class="flex-none h-8 w-8 bg-brand-500 text-white rounded-full flex items-center justify-center font-bold text-sm">1</div>
+                                <div>
+                                    <h4 class="font-bold">Contato Inicial</h4>
+                                    <p class="text-gray-600">Breve conversa para entender sua necessidade e agendar a primeira sessão.</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-4">
+                                <div class="flex-none h-8 w-8 bg-brand-500 text-white rounded-full flex items-center justify-center font-bold text-sm">2</div>
+                                <div>
+                                    <h4 class="font-bold">Primeira Sessão</h4>
+                                    <p class="text-gray-600">Momento de acolhimento e escuta profunda sobre o contexto atual.</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-4">
+                                <div class="flex-none h-8 w-8 bg-brand-500 text-white rounded-full flex items-center justify-center font-bold text-sm">3</div>
+                                <div>
+                                    <h4 class="font-bold">Plano de Cuidado</h4>
+                                    <p class="text-gray-600">Juntos, traçamos os objetivos e a frequência dos encontros.</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-4">
+                                <div class="flex-none h-8 w-8 bg-brand-500 text-white rounded-full flex items-center justify-center font-bold text-sm">4</div>
+                                <div>
+                                    <h4 class="font-bold">Acompanhamento</h4>
+                                    <p class="text-gray-600">Sessões regulares focadas na mudança e no fortalecimento pessoal/relacional.</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="faq-item" onclick="toggleFaq(this)">
-                        <div class="faq-question">Os atendimentos são presenciais ou online?<span class="icon">⌄</span></div>
-                        <div class="faq-answer">Oferecemos ambas as modalidades. Presencial em nossa sede em Campinas ou online via videochamada para todo o mundo.</div>
-                    </div>
-                    <div class="faq-item" onclick="toggleFaq(this)">
-                        <div class="faq-question">Qual a duração de uma sessão?<span class="icon">⌄</span></div>
-                        <div class="faq-answer">Em média, os atendimentos de Constelação duram entre 1h e 1h30m. Sessões de Renascimento duram cerca de 1 hora.</div>
+                    <div class="mt-16 lg:mt-0">
+                        <img src="https://images.unsplash.com/photo-1513694203232-719a280e022f?q=80&w=2069&auto=format&fit=crop" 
+                             alt="Processo Terapêutico" 
+                             class="rounded-2xl shadow-xl overflow-hidden">
                     </div>
                 </div>
             </div>
         </section>
     </main>
 
-    <footer>
-        <div class="container">
-            <div class="footer-grid">
-                <div>
-                    <a href="/home/" class="footer-logo">ANA CÂNDIDA</a>
-                    <p style="color: var(--brand-400); margin-bottom: 20px;">Transformando vidas através do olhar sistêmico e do acolhimento da alma.</p>
+    <!-- Footer Mockup (To be expanded) -->
+    <footer class="bg-brand-900 text-white py-12">
+        <div class="mx-auto max-w-7xl px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12">
+                <div class="col-span-2">
+                    <h3 class="font-serif text-2xl font-bold mb-6">Instituto Ana Cândida</h3>
+                    <p class="text-brand-200 max-w-md">Especialistas em Terapia Sistêmica, acompanhando indivíduos, casais e famílias em sua trajetória de saúde emocional.</p>
                 </div>
-                <div class="footer-links">
-                    <h4>Links Úteis</h4>
-                    <ul>
-                        <li><a href="/home/jornada/">Jornada Desperte</a></li>
-                        <li><a href="/home/renascimento/">Links de Bio</a></li>
-                        <li><a href="/home/upsell/">Ofertas Especiais</a></li>
-                        <li><a href="/home/obrigado/">Parabéns</a></li>
+                <div>
+                    <h4 class="font-bold mb-6">Menu</h4>
+                    <ul class="space-y-4 text-brand-300">
+                        <li><a href="/home/o-instituto" class="hover:text-white transition-colors">O Instituto</a></li>
+                        <li><a href="/home/equipe" class="hover:text-white transition-colors">Equipe</a></li>
+                        <li><a href="/home/galeria" class="hover:text-white transition-colors">Galeria</a></li>
+                        <li><a href="/home/contato" class="hover:text-white transition-colors">Contato</a></li>
                     </ul>
                 </div>
-                <div class="footer-links">
-                    <h4>Contato</h4>
-                    <ul>
-                        <li><a href="mailto:contato@ana.candida.com">E-mail</a></li>
-                        <li><a href="https://wa.me/5511993425332" target="_blank">WhatsApp</a></li>
-                        <li><a href="#">Instagram</a></li>
+                <div>
+                    <h4 class="font-bold mb-6">Redes</h4>
+                    <ul class="space-y-4 text-brand-300">
+                        <li><a href="https://instagram.com/institutoanacandida" target="_blank" class="hover:text-white transition-colors">Instagram</a></li>
+                        <li><a href="https://wa.me/5562981838006" target="_blank" class="hover:text-white transition-colors">WhatsApp</a></li>
                     </ul>
                 </div>
             </div>
-            <div class="footer-bottom">
-                <p>&copy; 2024 Instituto Ana Cândida. Todos os direitos reservados. CNPJ: 20.879.944/0001-20</p>
+            <div class="mt-12 pt-8 border-t border-brand-800 text-center text-brand-400 text-sm">
+                <p>&copy; 2026 Instituto Ana Cândida. Todos os direitos reservados.</p>
             </div>
         </div>
     </footer>
-
-    <script>
-        function toggleFaq(element) {
-            element.classList.toggle('active');
-        }
-
-        // Header color change on scroll
-        window.addEventListener('scroll', function() {
-            const header = document.getElementById('header');
-            if (window.scrollY > 50) {
-                header.style.background = 'rgba(255, 255, 255, 0.98)';
-                header.style.boxShadow = '0 5px 20px rgba(0,0,0,0.05)';
-            } else {
-                header.style.background = 'rgba(250, 249, 246, 0.95)';
-                header.style.boxShadow = 'none';
-            }
-        });
-    </script>
 </body>
 </html>
