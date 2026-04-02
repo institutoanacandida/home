@@ -19,13 +19,27 @@
     <script type="module" crossorigin src="./assets/index-kqu_jrfc.js"></script>
     <link rel="stylesheet" crossorigin href="./assets/index-dct7n55f.css">
     
-    <script>
-      // Fix para o React Router no GitHub Pages (subpasta /home/)
-      // Este script "engana" o roteador fazendo-o acreditar que está na raiz
+    <script type="text/javascript">
+      // Script de recuperação de roteamento para SPA no GitHub Pages
+      (function(l) {
+        if (l.search[1] === '/' ) {
+          var decoded = l.search.slice(1).split('&').map(function(s) { 
+            return s.replace(/~and~/g, '&')
+          }).join('?');
+          window.history.replaceState(null, null,
+              l.pathname.slice(0, -1) + decoded + l.hash
+          );
+        }
+      }(window.location));
+
+      // Hash fallback para garantir que o roteador não veja "/home/"
       (function() {
         const repo = '/home';
         if (window.location.pathname === repo || window.location.pathname === repo + '/') {
-          window.history.replaceState(null, '', repo + '/#/');
+          // Se estamos na raiz do repo, forçamos o Hash para o Router
+          if (!window.location.hash) {
+            window.history.replaceState(null, '', repo + '/#/');
+          }
         }
       })();
     </script>
