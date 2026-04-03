@@ -1,4 +1,4 @@
-# Script to fix headers and footers globally with CLEAN replacement (no duplicates)
+# Dynamic Script (Robust Version) to fix headers and footers globally
 $root = "c:\Users\Usuario\.gemini\antigravity\playground\nascimento-familiar"
 
 # Standard Header Template (Compact Design)
@@ -8,80 +8,51 @@ function Get-Header($depthPath) {
     <header id="main-header" style="background-color: white; border-bottom: 1px solid var(--brand-100); transition: all 0.3s ease;">
         <nav class="container-custom" style="padding: 0.75rem 2rem;">
             <div style="display: flex; align-items: center; width: 100%; gap: 3rem;">
-                <!-- Logo -->
                 <a href="$depthPath" class="logo-link" style="flex-shrink: 0; font-size: 1.25rem;">
                     <span style="color: var(--brand-900);">Instituto</span>
                     <span style="color: var(--brand-500);">Ana Cândida</span>
                 </a>
-
-                <!-- Desktop Navigation Items -->
                 <div class="hidden lg:flex items-center" style="gap: 1.75rem;">
                     <div class="nav-item">
-                        <a href="${depthPath}o-instituto" class="nav-link" style="font-size: 0.9rem; font-weight: 500;">
-                            O Instituto
-                            <i data-lucide="chevron-down" style="width: 14px; height: 14px; opacity: 0.5;"></i>
-                        </a>
+                        <a href="${depthPath}o-instituto" class="nav-link" style="font-size: 0.9rem; font-weight: 500;">O Instituto <i data-lucide="chevron-down" style="width: 14px; height: 14px; opacity: 0.5;"></i></a>
                         <div class="dropdown-menu">
                             <a href="${depthPath}o-instituto" class="dropdown-item">Sobre Nós</a>
                             <a href="${depthPath}o-instituto#missao" class="dropdown-item">Missão e Valores</a>
                             <a href="${depthPath}o-instituto#trabalho" class="dropdown-item">Como Trabalhamos</a>
                         </div>
                     </div>
-
                     <div class="nav-item">
-                        <a href="${depthPath}terapia-sistemica" class="nav-link" style="font-size: 0.9rem; font-weight: 500;">
-                            Terapia Sistêmica
-                            <i data-lucide="chevron-down" style="width: 14px; height: 14px; opacity: 0.5;"></i>
-                        </a>
+                        <a href="${depthPath}terapia-sistemica" class="nav-link" style="font-size: 0.9rem; font-weight: 500;">Terapia Sistêmica <i data-lucide="chevron-down" style="width: 14px; height: 14px; opacity: 0.5;"></i></a>
                         <div class="dropdown-menu">
                             <a href="${depthPath}terapia-sistemica" class="dropdown-item">O que é</a>
                             <a href="${depthPath}terapia-sistemica#para-quem" class="dropdown-item">Para quem é</a>
-                            <a href="${depthPath}terapia-sistemica#primeira-sessao" class="dropdown-item">Primeira Sessão</a>
                         </div>
                     </div>
-
                     <div class="nav-item">
-                        <a href="${depthPath}atendimentos" class="nav-link" style="font-size: 0.9rem; font-weight: 500;">
-                            Atendimentos
-                            <i data-lucide="chevron-down" style="width: 14px; height: 14px; opacity: 0.5;"></i>
-                        </a>
+                        <a href="${depthPath}atendimentos" class="nav-link" style="font-size: 0.9rem; font-weight: 500;">Atendimentos <i data-lucide="chevron-down" style="width: 14px; height: 14px; opacity: 0.5;"></i></a>
                         <div class="dropdown-menu">
                             <a href="${depthPath}atendimentos#individual" class="dropdown-item">Terapia Individual</a>
                             <a href="${depthPath}atendimentos#casal" class="dropdown-item">Terapia de Casal</a>
-                            <a href="${depthPath}atendimentos#familiar" class="dropdown-item">Terapia Familiar</a>
-                            <a href="${depthPath}atendimentos#parentalidade" class="dropdown-item">Parentalidade</a>
                         </div>
                     </div>
-
                     <a href="${depthPath}equipe" class="nav-link" style="font-size: 0.9rem; font-weight: 500;">Equipe</a>
                     <a href="${depthPath}galeria" class="nav-link" style="font-size: 0.9rem; font-weight: 500;">Galeria</a>
                     <a href="${depthPath}conteudos" class="nav-link" style="font-size: 0.9rem; font-weight: 500;">Conteúdos</a>
                     <a href="${depthPath}contato" class="nav-link" style="font-size: 0.9rem; font-weight: 500;">Contato</a>
                 </div>
-
-                <!-- Agendar Button (Pushed to the right) -->
                 <div class="hidden lg:block" style="margin-left: auto;">
                     <a href="https://wa.me/5562981838006" target="_blank" class="btn btn-primary btn-sm" style="padding: 0.5rem 1.25rem; font-size: 0.85rem;">Agendar</a>
                 </div>
-
-                <!-- Mobile Menu Button -->
                 <button class="lg:hidden" style="margin-left: auto; background: none; border: none; cursor: pointer; color: var(--brand-900);" onclick="toggleMobileMenu()">
                     <i data-lucide="menu"></i>
                 </button>
             </div>
         </nav>
     </header>
-
-    <!-- Mobile Menu Overlay -->
     <div id="mobile-menu" class="hidden">
         <div class="flex justify-between items-center" style="margin-bottom: 2rem;">
-            <a href="$depthPath" class="logo-link">
-                <span>Instituto</span>
-                <span style="color: var(--brand-500);">Ana Cândida</span>
-            </a>
-            <button style="background: none; border: none; cursor: pointer;" onclick="toggleMobileMenu()">
-                <i data-lucide="x"></i>
-            </button>
+            <a href="$depthPath" class="logo-link"><span>Instituto</span><span style="color: var(--brand-500);">Ana Cândida</span></a>
+            <button style="background: none; border: none; cursor: pointer;" onclick="toggleMobileMenu()"><i data-lucide="x"></i></button>
         </div>
         <div class="flex flex-col">
             <a href="${depthPath}o-instituto" class="mobile-nav-link">O Instituto</a>
@@ -100,28 +71,17 @@ function Get-Header($depthPath) {
 # Standard Footer Template (5-Column Original Model with SVG Icons)
 function Get-Footer($depthPath) {
     return @"
-    <!-- Premium Footer -->
     <footer style="background-color: var(--brand-900); color: #FDFBFA; padding: 5rem 0 3rem; position: relative; z-index: 50;">
         <div class="container-custom">
-            <!-- Footer Grid -->
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 3rem; margin-bottom: 4rem;">
-                <!-- Col 1: Brand & Social -->
                 <div>
                     <h3 style="font-family: 'Playfair Display', serif; font-size: 1.5rem; margin-bottom: 1.5rem; font-weight: 700; color: #FDFBFA;">Instituto Ana Cândida</h3>
-                    <p style="opacity: 0.9; line-height: 1.6; margin-bottom: 2rem; font-size: 0.95rem; color: #FDFBFA;">
-                        Cuidado relacional com base na Terapia Sistêmica. Acolhimento, ética e ciência para casais e famílias.
-                    </p>
+                    <p style="opacity: 0.9; line-height: 1.6; margin-bottom: 2rem; font-size: 0.95rem; color: #FDFBFA;">Cuidado relacional com base na Terapia Sistêmica. Acolhimento, ética e ciência para casais e famílias.</p>
                     <div style="display: flex; gap: 1.5rem; align-items: center;">
-                        <a href="https://instagram.com" target="_blank" style="color: #FDFBFA; text-decoration: none; opacity: 1;" aria-label="Instagram">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
-                        </a>
-                        <a href="https://linkedin.com" target="_blank" style="color: #FDFBFA; text-decoration: none; opacity: 1;" aria-label="LinkedIn">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
-                        </a>
+                        <a href="https://instagram.com/institutoanacandida" target="_blank" style="color: #FDFBFA; text-decoration: none;"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></a>
+                        <a href="https://linkedin.com" target="_blank" style="color: #FDFBFA; text-decoration: none;"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg></a>
                     </div>
                 </div>
-
-                <!-- Col 2: Institucional -->
                 <div>
                     <h4 style="font-family: 'Playfair Display', serif; font-size: 1.1rem; margin-bottom: 1.5rem; font-weight: 700; color: #FDFBFA;">Institucional</h4>
                     <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.8rem;">
@@ -131,50 +91,28 @@ function Get-Footer($depthPath) {
                         <li><a href="${depthPath}conteudos" style="color: #FDFBFA; text-decoration: none; opacity: 0.8;">Blog</a></li>
                     </ul>
                 </div>
-
-                <!-- Col 3: Contato -->
                 <div>
                     <h4 style="font-family: 'Playfair Display', serif; font-size: 1.1rem; margin-bottom: 1.5rem; font-weight: 700; color: #FDFBFA;">Contato</h4>
                     <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 1.2rem;">
-                        <li style="display: flex; align-items: flex-start; gap: 0.75rem; color: #FDFBFA; opacity: 0.9;">
-                            <i data-lucide="map-pin" size="18" style="flex-shrink: 0; margin-top: 0.2rem;"></i>
-                            <span>Village, Goiânia-GO</span>
-                        </li>
-                        <li style="display: flex; align-items: center; gap: 0.75rem; color: #FDFBFA; opacity: 0.9;">
-                            <i data-lucide="phone" size="18" style="flex-shrink: 0;"></i>
-                            <span>(62) 98183-8006</span>
-                        </li>
-                        <li style="display: flex; align-items: flex-start; gap: 0.75rem; color: #FDFBFA; opacity: 0.9;">
-                            <i data-lucide="mail" size="18" style="flex-shrink: 0; margin-top: 0.2rem;"></i>
-                            <span style="word-break: break-all;">contato@institutoanacandida.com.br</span>
-                        </li>
+                        <li style="display: flex; align-items: flex-start; gap: 0.75rem; color: #FDFBFA;"><i data-lucide="map-pin" size="18"></i><span>Village, Goiânia-GO</span></li>
+                        <li style="display: flex; align-items: center; gap: 0.75rem; color: #FDFBFA;"><i data-lucide="phone" size="18"></i><span>(62) 98183-8006</span></li>
+                        <li style="display: flex; align-items: flex-start; gap: 0.75rem; color: #FDFBFA;"><i data-lucide="mail" size="18"></i><span style="word-break: break-all;">contato@institutoanacandida.com.br</span></li>
                     </ul>
                 </div>
-
-                <!-- Col 4: Legal -->
                 <div>
                     <h4 style="font-family: 'Playfair Display', serif; font-size: 1.1rem; margin-bottom: 1.5rem; font-weight: 700; color: #FDFBFA;">Legal</h4>
                     <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.8rem;">
-                        <li><a href="#" style="color: #FDFBFA; text-decoration: none; opacity: 0.8;">Privacidade (LGPD)</a></li>
-                        <li><a href="#" style="color: #FDFBFA; text-decoration: none; opacity: 0.8;">Termos de Uso</a></li>
-                        <li><a href="#" style="color: #FDFBFA; text-decoration: none; opacity: 0.8;">Política de Remarcação</a></li>
+                        <li><a href="${depthPath}privacidade" style="color: #FDFBFA; text-decoration: none; opacity: 0.8;">Privacidade (LGPD)</a></li>
+                        <li><a href="${depthPath}termos" style="color: #FDFBFA; text-decoration: none; opacity: 0.8;">Termos de Uso</a></li>
                     </ul>
                 </div>
-
-                <!-- Col 5: Aviso Importante -->
                 <div>
                     <h4 style="font-family: 'Playfair Display', serif; font-size: 1.1rem; margin-bottom: 1.5rem; font-weight: 700; color: #FDFBFA;">Aviso Importante</h4>
-                    <p style="opacity: 0.9; line-height: 1.6; font-size: 0.9rem; color: #FDFBFA;">
-                        Este site não oferece atendimento de emergência. Em caso de crise, procure o hospital mais próximo ou ligue 188 (CVV).
-                    </p>
+                    <p style="opacity: 0.9; line-height: 1.6; font-size: 0.9rem; color: #FDFBFA;">Este site não oferece atendimento de emergência. Em caso de crise, procure o hospital mais próximo ou ligue 188 (CVV).</p>
                 </div>
             </div>
-
-            <!-- Separator Line -->
             <div style="border-top: 1px solid rgba(253, 251, 250, 0.1); padding-top: 2rem;">
-                <p style="opacity: 0.7; font-size: 0.875rem; color: #FDFBFA;">
-                    &copy; 2026 Instituto Ana Cândida. Todos os direitos reservados.
-                </p>
+                <p style="opacity: 0.7; font-size: 0.875rem; color: #FDFBFA;">&copy; 2026 Instituto Ana Cândida. Todos os direitos reservados.</p>
             </div>
         </div>
     </footer>
@@ -184,132 +122,53 @@ function Get-Footer($depthPath) {
 $scriptBlock = @"
     <script src="https://unpkg.com/lucide@latest"></script>
     <script>
-        // Initialize Lucide Icons
         document.addEventListener('DOMContentLoaded', () => {
             lucide.createIcons();
         });
-
         function toggleMobileMenu() {
             const menu = document.getElementById('mobile-menu');
             menu.classList.toggle('hidden');
         }
-
-        // Header Scroll Effect
         window.addEventListener('scroll', () => {
             const header = document.getElementById('main-header');
-            const scrollTopBtn = document.getElementById('scroll-top');
-            
-            if (window.scrollY > 20) {
-                header.classList.add('scrolled');
-            } else {
-                header.classList.remove('scrolled');
-            }
-
-            if (scrollTopBtn) {
-                if (window.scrollY > 500) {
-                    scrollTopBtn.classList.add('show');
-                } else {
-                    scrollTopBtn.classList.remove('show');
-                }
-            }
+            if (header && window.scrollY > 20) { header.classList.add('scrolled'); } 
+            else if (header) { header.classList.remove('scrolled'); }
         });
-
-        // FAQ Accordion Toggle
-        function toggleAccordion(element) {
-            const isActive = element.classList.contains('active');
-            
-            // Close all other items
-            document.querySelectorAll('.accordion-item').forEach(item => {
-                item.classList.remove('active');
-            });
-
-            // Toggle current
-            if (!isActive) {
-                element.classList.add('active');
-            }
-        }
     </script>
 "@
 
-$depth1Files = @(
-    "agendar/index.html",
-    "atendimentos/index.html",
-    "contato/index.html",
-    "conteudos/index.html",
-    "equipe/index.html",
-    "galeria/index.html",
-    "o-instituto/index.html",
-    "terapia-sistemica/index.html"
-)
+$allFiles = Get-ChildItem -Path $root -Recurse -Filter index.html | Where-Object { $_.FullName -notmatch "\\.git\\" }
 
-$depth2Files = @(
-    "atendimentos/terapia-individual/index.html",
-    "atendimentos/terapia-casal/index.html",
-    "atendimentos/terapia-familiar/index.html",
-    "atendimentos/parentalidade/index.html",
-    "equipe/ana-candida/index.html",
-    "equipe/mariana-silva/index.html",
-    "equipe/roberto-mendes/index.html"
-)
+foreach ($f in $allFiles) {
+    Write-Host "Updating: $($f.FullName)"
+    $content = Get-Content $f.FullName -Raw
+    
+    # Simple depth calculation
+    $rel = $f.FullName.Replace($root, "").Replace("/", "\").TrimStart("\")
+    $levels = ($rel -split "\\").Count - 1
+    
+    $depthPath = "./"
+    if ($levels -gt 0) { $depthPath = "../" * $levels }
 
-foreach ($f in $depth1Files) {
-    $path = Join-Path $root $f
-    if (Test-Path $path) {
-        $content = Get-Content $path -Raw
-        $header = Get-Header "../"
-        $footer = Get-Footer "../"
-        
-        # Robust replacement: find <header> tag or comment
-        if ($content -match '(?s)<!-- Premium Header -->.*?<main>') {
-            $content = $content -replace '(?s)<!-- Premium Header -->.*?<main>', "$header`n    <main>"
-        } else {
-            $content = $content -replace '(?s)<header.*?>.*?</header>', $header
-        }
-
-        # Robust replacement for footer (even if comment is missing)
-        if ($content -match '(?s)<!-- Premium Footer -->.*?</footer>') {
-            $content = $content -replace '(?s)<!-- Premium Footer -->.*?</footer>', $footer
-        } else {
-            $content = $content -replace '(?s)<footer.*?>.*?</footer>', $footer
-        }
-        
-        # Robust replacement for Mobile Menu overlay
-        $content = $content -replace '(?s)<div id="mobile-menu".*?>.*?</div>', ""
-
-        # Robust script replacement
-        $content = $content -replace '(?s)<script src="https://unpkg.com/lucide@latest"></script>.*?<script>.*?</script>', $scriptBlock
-        
-        Set-Content $path $content
+    $headerT = Get-Header $depthPath
+    $footerT = Get-Footer $depthPath
+    
+    # Replacement with fallback
+    if ($content -match '(?s)<!-- Premium Header -->.*?<main>') {
+        $content = $content -replace '(?s)<!-- Premium Header -->.*?<main>', "$headerT`n    <main>"
+    } else {
+        $content = $content -replace '(?s)<header.*?>.*?</header>', $headerT
     }
-}
 
-foreach ($f in $depth2Files) {
-    $path = Join-Path $root $f
-    if (Test-Path $path) {
-        $content = Get-Content $path -Raw
-        $header = Get-Header "../../"
-        $footer = Get-Footer "../../"
-        
-        # Robust replacement for header
-        if ($content -match '(?s)<!-- Premium Header -->.*?<main>') {
-            $content = $content -replace '(?s)<!-- Premium Header -->.*?<main>', "$header`n    <main>"
-        } else {
-            $content = $content -replace '(?s)<header.*?>.*?</header>', $header
-        }
-
-        # Robust footer replacement
-        if ($content -match '(?s)<!-- Premium Footer -->.*?</footer>') {
-            $content = $content -replace '(?s)<!-- Premium Footer -->.*?</footer>', $footer
-        } else {
-            $content = $content -replace '(?s)<footer.*?>.*?</footer>', $footer
-        }
-
-        # Mobile Menu
-        $content = $content -replace '(?s)<div id="mobile-menu".*?>.*?</div>', ""
-
-        # Scripts
-        $content = $content -replace '(?s)<script src="https://unpkg.com/lucide@latest"></script>.*?<script>.*?</script>', $scriptBlock
-        
-        Set-Content $path $content
+    if ($content -match '(?s)<!-- Premium Footer -->.*?</footer>') {
+        $content = $content -replace '(?s)<!-- Premium Footer -->.*?</footer>', $footerT
+    } else {
+        $content = $content -replace '(?s)<footer.*?>.*?</footer>', $footerT
     }
+    
+    $content = $content -replace '(?s)<div id="mobile-menu".*?>.*?</div>', ""
+    $content = $content -replace '(?s)<script src="https://unpkg.com/lucide@latest"></script>.*?<script>.*?</script>', $scriptBlock
+    
+    Set-Content $f.FullName $content
 }
+Write-Host "Site-wide update complete!"
