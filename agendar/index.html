@@ -10,21 +10,22 @@
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌷</text></svg>">
 </head>
 <body style="background-color: white; font-family: var(--font-sans); color: var(--brand-800);">
-        <!-- Premium Header -->
-    <header id="main-header">
-        <nav class="container-custom">
-            <div class="flex justify-between items-center" style="width: 100%;">
-                <a href="../" class="logo-link">
+            <!-- Premium Header -->
+    <header id="main-header" style="background-color: white; border-bottom: 1px solid var(--brand-100); transition: all 0.3s ease;">
+        <nav class="container-custom" style="padding: 1rem 2rem;">
+            <div style="display: flex; align-items: center; width: 100%; gap: 3rem;">
+                <!-- Logo -->
+                <a href="../" class="logo-link" style="flex-shrink: 0;">
                     <span style="color: var(--brand-900);">Instituto</span>
                     <span style="color: var(--brand-500);">Ana Cândida</span>
                 </a>
 
-                <!-- Desktop Navigation -->
-                <div class="hidden lg:flex items-center" style="gap: 2.5rem;">
+                <!-- Desktop Navigation Items (Centered/Left-aligned next to logo) -->
+                <div class="hidden lg:flex items-center" style="gap: 2rem;">
                     <div class="nav-item">
                         <a href="../o-instituto" class="nav-link">
                             O Instituto
-                            <i data-lucide="chevron-down" class="nav-chevron" style="width: 16px; height: 16px;"></i>
+                            <i data-lucide="chevron-down" style="width: 14px; height: 14px; opacity: 0.5;"></i>
                         </a>
                         <div class="dropdown-menu">
                             <a href="../o-instituto" class="dropdown-item">Sobre Nós</a>
@@ -36,7 +37,7 @@
                     <div class="nav-item">
                         <a href="../terapia-sistemica" class="nav-link">
                             Terapia Sistêmica
-                            <i data-lucide="chevron-down" class="nav-chevron" style="width: 16px; height: 16px;"></i>
+                            <i data-lucide="chevron-down" style="width: 14px; height: 14px; opacity: 0.5;"></i>
                         </a>
                         <div class="dropdown-menu">
                             <a href="../terapia-sistemica" class="dropdown-item">O que é</a>
@@ -48,7 +49,7 @@
                     <div class="nav-item">
                         <a href="../atendimentos" class="nav-link">
                             Atendimentos
-                            <i data-lucide="chevron-down" class="nav-chevron" style="width: 16px; height: 16px;"></i>
+                            <i data-lucide="chevron-down" style="width: 14px; height: 14px; opacity: 0.5;"></i>
                         </a>
                         <div class="dropdown-menu">
                             <a href="../atendimentos#individual" class="dropdown-item">Terapia Individual</a>
@@ -62,17 +63,43 @@
                     <a href="../galeria" class="nav-link">Galeria</a>
                     <a href="../conteudos" class="nav-link">Conteúdos</a>
                     <a href="../contato" class="nav-link">Contato</a>
+                </div>
 
+                <!-- Agendar Button (Pushed to the right) -->
+                <div class="hidden lg:block" style="margin-left: auto;">
                     <a href="https://wa.me/5562981838006" target="_blank" class="btn btn-primary btn-sm">Agendar</a>
                 </div>
 
                 <!-- Mobile Menu Button -->
-                <button class="lg:hidden" style="background: none; border: none; cursor: pointer; color: var(--brand-900);" onclick="toggleMobileMenu()">
+                <button class="lg:hidden" style="margin-left: auto; background: none; border: none; cursor: pointer; color: var(--brand-900);" onclick="toggleMobileMenu()">
                     <i data-lucide="menu"></i>
                 </button>
             </div>
         </nav>
     </header>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu" class="hidden">
+        <div class="flex justify-between items-center" style="margin-bottom: 2rem;">
+            <a href="../" class="logo-link">
+                <span>Instituto</span>
+                <span style="color: var(--brand-500);">Ana Cândida</span>
+            </a>
+            <button style="background: none; border: none; cursor: pointer;" onclick="toggleMobileMenu()">
+                <i data-lucide="x"></i>
+            </button>
+        </div>
+        <div class="flex flex-col">
+            <a href="../o-instituto" class="mobile-nav-link">O Instituto</a>
+            <a href="../terapia-sistemica" class="mobile-nav-link">Terapia Sistêmica</a>
+            <a href="../atendimentos" class="mobile-nav-link">Atendimentos</a>
+            <a href="../equipe" class="mobile-nav-link">Equipe</a>
+            <a href="../galeria" class="mobile-nav-link">Galeria</a>
+            <a href="../conteudos" class="mobile-nav-link">Conteúdos</a>
+            <a href="../contato" class="mobile-nav-link">Contato</a>
+            <a href="https://wa.me/5562981838006" target="_blank" class="btn btn-primary" style="margin-top: 1.5rem; width: 100%; justify-content: center;">Agendar Agora</a>
+        </div>
+    </div>
 
     <!-- Mobile Menu Overlay -->
     <div id="mobile-menu" class="hidden">
@@ -232,7 +259,7 @@
         </div>
     </footer>
 
-        <script src="https://unpkg.com/lucide@latest"></script>
+            <script src="https://unpkg.com/lucide@latest"></script>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             lucide.createIcons();
@@ -254,4 +281,5 @@
     </script>
 </body>
 </html>
+
 

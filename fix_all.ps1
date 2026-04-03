@@ -1,24 +1,25 @@
-# Script to fix headers and footers globally with relative paths
+# Script to fix headers and footers globally with the SPECIFIC layout requested
 $root = "c:\Users\Usuario\.gemini\antigravity\playground\nascimento-familiar"
 
-# Standard Header Template (with Placeholder for Depth-specific path)
+# Standard Header Template (Updated for the requested layout)
 function Get-Header($depthPath) {
     return @"
     <!-- Premium Header -->
-    <header id="main-header">
-        <nav class="container-custom">
-            <div class="flex justify-between items-center" style="width: 100%;">
-                <a href="$depthPath" class="logo-link">
+    <header id="main-header" style="background-color: white; border-bottom: 1px solid var(--brand-100); transition: all 0.3s ease;">
+        <nav class="container-custom" style="padding: 1rem 2rem;">
+            <div style="display: flex; align-items: center; width: 100%; gap: 3rem;">
+                <!-- Logo -->
+                <a href="$depthPath" class="logo-link" style="flex-shrink: 0;">
                     <span style="color: var(--brand-900);">Instituto</span>
                     <span style="color: var(--brand-500);">Ana Cândida</span>
                 </a>
 
-                <!-- Desktop Navigation -->
-                <div class="hidden lg:flex items-center" style="gap: 2.5rem;">
+                <!-- Desktop Navigation Items (Centered/Left-aligned next to logo) -->
+                <div class="hidden lg:flex items-center" style="gap: 2rem;">
                     <div class="nav-item">
                         <a href="${depthPath}o-instituto" class="nav-link">
                             O Instituto
-                            <i data-lucide="chevron-down" class="nav-chevron" style="width: 16px; height: 16px;"></i>
+                            <i data-lucide="chevron-down" style="width: 14px; height: 14px; opacity: 0.5;"></i>
                         </a>
                         <div class="dropdown-menu">
                             <a href="${depthPath}o-instituto" class="dropdown-item">Sobre Nós</a>
@@ -30,7 +31,7 @@ function Get-Header($depthPath) {
                     <div class="nav-item">
                         <a href="${depthPath}terapia-sistemica" class="nav-link">
                             Terapia Sistêmica
-                            <i data-lucide="chevron-down" class="nav-chevron" style="width: 16px; height: 16px;"></i>
+                            <i data-lucide="chevron-down" style="width: 14px; height: 14px; opacity: 0.5;"></i>
                         </a>
                         <div class="dropdown-menu">
                             <a href="${depthPath}terapia-sistemica" class="dropdown-item">O que é</a>
@@ -42,7 +43,7 @@ function Get-Header($depthPath) {
                     <div class="nav-item">
                         <a href="${depthPath}atendimentos" class="nav-link">
                             Atendimentos
-                            <i data-lucide="chevron-down" class="nav-chevron" style="width: 16px; height: 16px;"></i>
+                            <i data-lucide="chevron-down" style="width: 14px; height: 14px; opacity: 0.5;"></i>
                         </a>
                         <div class="dropdown-menu">
                             <a href="${depthPath}atendimentos#individual" class="dropdown-item">Terapia Individual</a>
@@ -56,12 +57,15 @@ function Get-Header($depthPath) {
                     <a href="${depthPath}galeria" class="nav-link">Galeria</a>
                     <a href="${depthPath}conteudos" class="nav-link">Conteúdos</a>
                     <a href="${depthPath}contato" class="nav-link">Contato</a>
+                </div>
 
+                <!-- Agendar Button (Pushed to the right) -->
+                <div class="hidden lg:block" style="margin-left: auto;">
                     <a href="https://wa.me/5562981838006" target="_blank" class="btn btn-primary btn-sm">Agendar</a>
                 </div>
 
                 <!-- Mobile Menu Button -->
-                <button class="lg:hidden" style="background: none; border: none; cursor: pointer; color: var(--brand-900);" onclick="toggleMobileMenu()">
+                <button class="lg:hidden" style="margin-left: auto; background: none; border: none; cursor: pointer; color: var(--brand-900);" onclick="toggleMobileMenu()">
                     <i data-lucide="menu"></i>
                 </button>
             </div>
@@ -147,6 +151,7 @@ $scriptBlock = @"
     </script>
 "@
 
+$rootFiles = @("index.html")
 $depth1Files = @(
     "agendar/index.html",
     "atendimentos/index.html",
@@ -154,6 +159,7 @@ $depth1Files = @(
     "conteudos/index.html",
     "equipe/index.html",
     "galeria/index.html",
+    "o-instituto/index.html",
     "terapia-sistemica/index.html"
 )
 
@@ -167,43 +173,43 @@ $depth2Files = @(
     "equipe/roberto-mendes/index.html"
 )
 
+# Root Update
+foreach ($f in $rootFiles) {
+    $path = Join-Path $root $f
+    $content = Get-Content $path -Raw
+    $header = Get-Header "./"
+    $footer = Get-Footer "./"
+    $content = $content -replace '(?s)<!-- Premium Header -->.*?Header>', $header
+    $content = $content -replace '(?s)<!-- Mobile Menu Overlay -->.*?</div>\s+<main>', "$header`n    <main>" # Cleanup if duplicated
+    $content = $content -replace '(?s)<!-- Premium Footer -->.*?</footer>', $footer
+    $content = $content -replace '(?s)<script src="https://unpkg.com/lucide@latest"></script>.*?<script>.*?</script>', $scriptBlock
+    Set-Content $path $content
+}
+
+# Depth 1 Update
 foreach ($f in $depth1Files) {
     $path = Join-Path $root $f
     if (Test-Path $path) {
         $content = Get-Content $path -Raw
-        # Replace CSS link
-        $content = $content -replace '<link rel="stylesheet" href="/home/assets/style.css">', '<link rel="stylesheet" href="../assets/style.css">'
-        # Replace Header
         $header = Get-Header "../"
-        $content = $content -replace '(?s)<!-- Premium Header -->.*?Header Placeholder -->', $header
-        $content = $content -replace '(?s)<!-- Premium Header -->.*?Header>', $header
-        # Replace Footer
         $footer = Get-Footer "../"
+        $content = $content -replace '(?s)<!-- Premium Header -->.*?Header>', $header
         $content = $content -replace '(?s)<!-- Premium Footer -->.*?</footer>', $footer
-        # Replace Script
         $content = $content -replace '(?s)<script src="https://unpkg.com/lucide@latest"></script>.*?<script>.*?</script>', $scriptBlock
-        
         Set-Content $path $content
     }
 }
 
+# Depth 2 Update
 foreach ($f in $depth2Files) {
     $path = Join-Path $root $f
     if (Test-Path $path) {
         $content = Get-Content $path -Raw
-        # Replace CSS link
-        $content = $content -replace '<link rel="stylesheet" href="/home/assets/style.css">', '<link rel="stylesheet" href="../../assets/style.css">'
-        $content = $content -replace '<link rel="stylesheet" href="/home/assets/style.css">', '<link rel="stylesheet" href="../../assets/style.css">'
-        # Replace Header
         $header = Get-Header "../../"
-        $content = $content -replace '(?s)<!-- Premium Header -->.*?Header Placeholder -->', $header
-        $content = $content -replace '(?s)<!-- Premium Header -->.*?Header>', $header
-        # Replace Footer
         $footer = Get-Footer "../../"
+        $content = $content -replace '(?s)<!-- Premium Header -->.*?Header>', $header
         $content = $content -replace '(?s)<!-- Premium Footer -->.*?</footer>', $footer
-        # Replace Script
         $content = $content -replace '(?s)<script src="https://unpkg.com/lucide@latest"></script>.*?<script>.*?</script>', $scriptBlock
-        
         Set-Content $path $content
     }
 }
