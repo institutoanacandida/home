@@ -153,14 +153,17 @@ header:not(.scrolled) {
     box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
     opacity: 0;
     visibility: hidden;
+    display: none; /* Adicionado para garantir que não apareça */
     transform: translateY(10px);
     transition: all 0.2s;
     padding: 0.5rem 0;
+    z-index: 100;
 }
 
 .nav-item:hover .dropdown-menu {
     opacity: 1;
     visibility: visible;
+    display: block; /* Mostra no hover */
     transform: translateY(0);
 }
 
@@ -185,4 +188,53 @@ header:not(.scrolled) {
 
 .nav-item:hover .nav-chevron {
     transform: rotate(180deg);
+}
+
+/* Responsive Utilities (Tailwind-like) */
+.hidden { display: none !important; }
+.flex { display: flex !important; }
+.flex-col { flex-direction: column !important; }
+.items-center { align-items: center !important; }
+.justify-between { justify-content: space-between !important; }
+.gap-2 { gap: 0.5rem !important; }
+.gap-4 { gap: 1rem !important; }
+.w-full { width: 100% !important; }
+
+@media (min-width: 1024px) {
+    .lg\:flex { display: flex !important; }
+    .lg\:hidden { display: none !important; }
+    .lg\:flex-row { flex-direction: row !important; }
+    .lg\:items-center { align-items: center !important; }
+    .lg\:justify-between { justify-content: space-between !important; }
+    
+    /* Garantir que o menu desktop seja flex-row */
+    header .container-custom > div {
+        display: flex !important;
+        flex-direction: row !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+    }
+}
+
+/* Mobile Menu Overlay */
+#mobile-menu {
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    background-color: white;
+    padding: 2rem;
+    transition: transform 0.3s ease-in-out;
+}
+
+#mobile-menu.hidden {
+    display: none !important;
+}
+
+.mobile-nav-link {
+    display: block;
+    padding: 1rem 0;
+    font-size: 1.25rem;
+    color: var(--brand-900);
+    text-decoration: none;
+    border-bottom: 1px solid var(--brand-100);
 }
