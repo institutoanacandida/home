@@ -37,7 +37,7 @@ function Get-StyleBlock {
 
         /* Forced 5-Column Footer Grid */
         .footer-grid { 
-            display: grid; grid-template-columns: 1fr; gap: 3rem; margin-bottom: 4rem; 
+            display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; margin-bottom: 4rem; 
         }
         @media (min-width: 1024px) {
             .footer-grid { grid-template-columns: repeat(5, 1fr); }
@@ -70,7 +70,7 @@ function Get-Header($depthPath) {
     return @"
     <!-- Premium Header -->
     <header id="main-header" style="background-color: #FFFFFF; border-bottom: 1px solid #EAE1D8; position: sticky; top: 0; z-index: 1000;">
-        <nav class="container-custom" style="padding: 0 2rem;">
+        <nav class="container-custom" style="padding: 0 1rem;">
             <div style="display: flex; align-items: center; width: 100%; justify-content: space-between; height: 80px;">
                 <a href="$depthPath" style="display: flex; align-items: center; text-decoration: none; height: 100%;">
                     <img src="https://i.ibb.co/vvPV65rT/ana-candida-s-f.png" alt="Instituto Ana Cândida" style="height: 70px; width: auto; object-fit: contain;">
