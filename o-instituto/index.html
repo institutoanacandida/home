@@ -8,70 +8,46 @@
     
         <link rel="stylesheet" href="../assets/style.css">
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌷</text></svg>">
+    <style>
+        /* FAQ Accordion Styles */
+        .faq-container { background: white; border-radius: 1.5rem; border: 1px solid #EAE1D8; padding: 1rem 1.5rem; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.02); }
+        .accordion-item { border-bottom: 1px solid #EAE1D8; }
+        .accordion-item:last-child { border-bottom: none; }
+        .accordion-header { width: 100%; display: flex; justify-content: space-between; align-items: center; background: none; border: none; padding: 1.5rem 0; text-align: left; cursor: pointer; font-size: 1rem; font-weight: 500; color: #483525; transition: all 0.3s; }
+        .accordion-header:hover { color: #9C7C5F; }
+        .accordion-content { max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out; color: #666; line-height: 1.6; font-size: 0.9375rem; }
+        .accordion-item.active .accordion-content { max-height: 400px; padding-bottom: 1.5rem; }
+        .accordion-item.active .chevron { transform: rotate(180deg); color: #9C7C5F; }
+        .chevron { transition: transform 0.3s; opacity: 0.5; }
+
+        /* Floating Scroll-to-top Button */
+        #scroll-top { position: fixed; bottom: 2rem; right: 2rem; width: 48px; height: 48px; background: #483525; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1); cursor: pointer; transition: all 0.3s; z-index: 100; opacity: 0; visibility: hidden; border: none; }
+        #scroll-top.show { opacity: 1; visibility: visible; }
+        #scroll-top:hover { transform: translateY(-5px); background: #9C7C5F; }
+    </style>
 </head>
 <body style="background-color: white; font-family: var(--font-sans); color: var(--brand-800);">
                 <!-- Premium Header -->
-    <header id="main-header" style="background-color: white; border-bottom: 1px solid var(--brand-100); transition: all 0.3s ease;">
+    <header id="main-header" style="background-color: #FFFFFF !important; border-bottom: 1px solid #EAE1D8 !important; transition: all 0.3s ease; position: sticky; top: 0; z-index: 1000;">
         <nav class="container-custom" style="padding: 0.75rem 2rem;">
-            <div style="display: flex; align-items: center; width: 100%; gap: 3rem;">
-                <!-- Logo -->
-                <a href="../" class="logo-link" style="flex-shrink: 0; font-size: 1.25rem;">
-                    <span style="color: var(--brand-900);">Instituto</span>
-                    <span style="color: var(--brand-500);">Ana Cândida</span>
+            <div style="display: flex; align-items: center; width: 100%; gap: 4rem;">
+                <a href="../" style="flex-shrink: 0; font-size: 1.25rem; text-decoration: none; font-family: 'Playfair Display', serif; font-weight: 700; color: #483525 !important;">
+                    <span style="color: #483525 !important;">Instituto</span>
+                    <span style="color: #9C7C5F !important;">Ana Cândida</span>
                 </a>
-
-                <!-- Desktop Navigation Items -->
-                <div class="hidden lg:flex items-center" style="gap: 1.75rem;">
-                    <div class="nav-item">
-                        <a href="../o-instituto" class="nav-link" style="font-size: 0.9rem; font-weight: 500;">
-                            O Instituto
-                            <i data-lucide="chevron-down" style="width: 14px; height: 14px; opacity: 0.5;"></i>
-                        </a>
-                        <div class="dropdown-menu">
-                            <a href="../o-instituto" class="dropdown-item">Sobre Nós</a>
-                            <a href="../o-instituto#missao" class="dropdown-item">Missão e Valores</a>
-                            <a href="../o-instituto#trabalho" class="dropdown-item">Como Trabalhamos</a>
-                        </div>
-                    </div>
-
-                    <div class="nav-item">
-                        <a href="../terapia-sistemica" class="nav-link" style="font-size: 0.9rem; font-weight: 500;">
-                            Terapia Sistêmica
-                            <i data-lucide="chevron-down" style="width: 14px; height: 14px; opacity: 0.5;"></i>
-                        </a>
-                        <div class="dropdown-menu">
-                            <a href="../terapia-sistemica" class="dropdown-item">O que é</a>
-                            <a href="../terapia-sistemica#para-quem" class="dropdown-item">Para quem é</a>
-                            <a href="../terapia-sistemica#primeira-sessao" class="dropdown-item">Primeira Sessão</a>
-                        </div>
-                    </div>
-
-                    <div class="nav-item">
-                        <a href="../atendimentos" class="nav-link" style="font-size: 0.9rem; font-weight: 500;">
-                            Atendimentos
-                            <i data-lucide="chevron-down" style="width: 14px; height: 14px; opacity: 0.5;"></i>
-                        </a>
-                        <div class="dropdown-menu">
-                            <a href="../atendimentos#individual" class="dropdown-item">Terapia Individual</a>
-                            <a href="../atendimentos#casal" class="dropdown-item">Terapia de Casal</a>
-                            <a href="../atendimentos#familiar" class="dropdown-item">Terapia Familiar</a>
-                            <a href="../atendimentos#parentalidade" class="dropdown-item">Parentalidade</a>
-                        </div>
-                    </div>
-
-                    <a href="../equipe" class="nav-link" style="font-size: 0.9rem; font-weight: 500;">Equipe</a>
-                    <a href="../galeria" class="nav-link" style="font-size: 0.9rem; font-weight: 500;">Galeria</a>
-                    <a href="../conteudos" class="nav-link" style="font-size: 0.9rem; font-weight: 500;">Conteúdos</a>
-                    <a href="../contato" class="nav-link" style="font-size: 0.9rem; font-weight: 500;">Contato</a>
+                <div class="hidden lg:flex items-center" style="gap: 1.75rem; display: flex;">
+                    <a href="../o-instituto" style="font-size: 0.9rem; font-weight: 500; color: #483525 !important; text-decoration: none; font-family: 'Montserrat', sans-serif;">O Instituto</a>
+                    <a href="../terapia-sistemica" style="font-size: 0.9rem; font-weight: 500; color: #483525 !important; text-decoration: none; font-family: 'Montserrat', sans-serif;">Terapia Sistêmica</a>
+                    <a href="../atendimentos" style="font-size: 0.9rem; font-weight: 500; color: #483525 !important; text-decoration: none; font-family: 'Montserrat', sans-serif;">Atendimentos</a>
+                    <a href="../equipe" style="font-size: 0.9rem; font-weight: 500; color: #483525 !important; text-decoration: none; font-family: 'Montserrat', sans-serif;">Equipe</a>
+                    <a href="../galeria" style="font-size: 0.9rem; font-weight: 500; color: #483525 !important; text-decoration: none; font-family: 'Montserrat', sans-serif;">Galeria</a>
+                    <a href="../conteudos" style="font-size: 0.9rem; font-weight: 500; color: #483525 !important; text-decoration: none; font-family: 'Montserrat', sans-serif;">Conteúdos</a>
+                    <a href="../contato" style="font-size: 0.9rem; font-weight: 500; color: #483525 !important; text-decoration: none; font-family: 'Montserrat', sans-serif;">Contato</a>
                 </div>
-
-                <!-- Agendar Button (Pushed to the right) -->
                 <div class="hidden lg:block" style="margin-left: auto;">
-                    <a href="https://wa.me/5562981838006" target="_blank" class="btn btn-primary btn-sm" style="padding: 0.5rem 1.25rem; font-size: 0.85rem;">Agendar</a>
+                    <a href="https://wa.me/5562981838006" target="_blank" style="background-color: #483525 !important; color: #FDFBFA !important; padding: 0.5rem 1.25rem; border-radius: 9999px; text-decoration: none; font-size: 0.85rem; font-weight: 600; font-family: 'Montserrat', sans-serif;">Agendar</a>
                 </div>
-
-                <!-- Mobile Menu Button -->
-                <button class="lg:hidden" style="margin-left: auto; background: none; border: none; cursor: pointer; color: var(--brand-900);" onclick="toggleMobileMenu()">
+                <button class="lg:hidden" style="margin-left: auto; background: none; border: none; cursor: pointer; color: #483525 !important;" onclick="toggleMobileMenu()">
                     <i data-lucide="menu"></i>
                 </button>
             </div>
@@ -79,25 +55,25 @@
     </header>
 
     <!-- Mobile Menu Overlay -->
-    <div id="mobile-menu" class="hidden">
-        <div class="flex justify-between items-center" style="margin-bottom: 2rem;">
-            <a href="../" class="logo-link">
+    <div id="mobile-menu" class="hidden" style="position: fixed; inset: 0; background: white; z-index: 2000; padding: 2rem; display: none; flex-direction: column;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
+            <a href="../" style="font-size: 1.25rem; text-decoration: none; font-family: 'Playfair Display', serif; font-weight: 700; color: #483525;">
                 <span>Instituto</span>
-                <span style="color: var(--brand-500);">Ana Cândida</span>
+                <span style="color: #9C7C5F;">Ana Cândida</span>
             </a>
-            <button style="background: none; border: none; cursor: pointer;" onclick="toggleMobileMenu()">
+            <button style="background: none; border: none; cursor: pointer; color: #483525;" onclick="toggleMobileMenu()">
                 <i data-lucide="x"></i>
             </button>
         </div>
-        <div class="flex flex-col">
-            <a href="../o-instituto" class="mobile-nav-link">O Instituto</a>
-            <a href="../terapia-sistemica" class="mobile-nav-link">Terapia Sistêmica</a>
-            <a href="../atendimentos" class="mobile-nav-link">Atendimentos</a>
-            <a href="../equipe" class="mobile-nav-link">Equipe</a>
-            <a href="../galeria" class="mobile-nav-link">Galeria</a>
-            <a href="../conteudos" class="mobile-nav-link">Conteúdos</a>
-            <a href="../contato" class="mobile-nav-link">Contato</a>
-            <a href="https://wa.me/5562981838006" target="_blank" class="btn btn-primary" style="margin-top: 1.5rem; width: 100%; justify-content: center;">Agendar Agora</a>
+        <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+            <a href="../o-instituto" style="text-decoration: none; color: #483525; font-size: 1.1rem; font-weight: 500;">O Instituto</a>
+            <a href="../terapia-sistemica" style="text-decoration: none; color: #483525; font-size: 1.1rem; font-weight: 500;">Terapia Sistêmica</a>
+            <a href="../atendimentos" style="text-decoration: none; color: #483525; font-size: 1.1rem; font-weight: 500;">Atendimentos</a>
+            <a href="../equipe" style="text-decoration: none; color: #483525; font-size: 1.1rem; font-weight: 500;">Equipe</a>
+            <a href="../galeria" style="text-decoration: none; color: #483525; font-size: 1.1rem; font-weight: 500;">Galeria</a>
+            <a href="../conteudos" style="text-decoration: none; color: #483525; font-size: 1.1rem; font-weight: 500;">Conteúdos</a>
+            <a href="../contato" style="text-decoration: none; color: #483525; font-size: 1.1rem; font-weight: 500;">Contato</a>
+            <a href="https://wa.me/5562981838006" target="_blank" style="background-color: #483525; color: white; padding: 1rem; border-radius: 0.75rem; text-align: center; text-decoration: none; font-weight: 600; margin-top: 1rem;">Agendar Agora</a>
         </div>
     </div>
     <main>
@@ -250,51 +226,37 @@
         </div>
     </footer>
 
-                <script src="https://unpkg.com/lucide@latest"></script>
+    <button id="scroll-top" title="Voltar ao topo">
+        <i data-lucide="chevron-up"></i>
+    </button>
+
+    <script src="https://unpkg.com/lucide@latest"></script>
     <script>
-        // Initialize Lucide Icons
-        document.addEventListener('DOMContentLoaded', () => {
-            lucide.createIcons();
-        });
-
-        function toggleMobileMenu() {
-            const menu = document.getElementById('mobile-menu');
-            menu.classList.toggle('hidden');
-        }
-
-        // Header Scroll Effect
-        window.addEventListener('scroll', () => {
-            const header = document.getElementById('main-header');
-            const scrollTopBtn = document.getElementById('scroll-top');
-            
-            if (window.scrollY > 20) {
-                header.classList.add('scrolled');
+        document.addEventListener('DOMContentLoaded', () => { lucide.createIcons(); });
+        function toggleMobileMenu() { 
+            const m = document.getElementById('mobile-menu'); 
+            const isHidden = m.classList.contains('hidden');
+            if(isHidden) {
+                m.classList.remove('hidden');
+                m.style.display = 'flex';
             } else {
-                header.classList.remove('scrolled');
+                m.classList.add('hidden');
+                m.style.display = 'none';
             }
-
-            if (scrollTopBtn) {
-                if (window.scrollY > 500) {
-                    scrollTopBtn.classList.add('show');
-                } else {
-                    scrollTopBtn.classList.remove('show');
-                }
-            }
+        }
+        window.addEventListener('scroll', () => { 
+            const header = document.getElementById('main-header');
+            const b = document.getElementById('scroll-top'); 
+            if(window.scrollY > 20) header.classList.add('scrolled'); else header.classList.remove('scrolled');
+            if(window.scrollY > 500) b.classList.add('show'); else b.classList.remove('show'); 
         });
+        document.getElementById('scroll-top')?.addEventListener('click', () => window.scrollTo({top: 0, behavior: 'smooth'}));
 
-        // FAQ Accordion Toggle
+        // FAQ Toggle
         function toggleAccordion(element) {
             const isActive = element.classList.contains('active');
-            
-            // Close all other items
-            document.querySelectorAll('.accordion-item').forEach(item => {
-                item.classList.remove('active');
-            });
-
-            // Toggle current
-            if (!isActive) {
-                element.classList.add('active');
-            }
+            document.querySelectorAll('.accordion-item').forEach(item => item.classList.remove('active'));
+            if (!isActive) element.classList.add('active');
         }
     </script>
 </body>
