@@ -147,8 +147,9 @@
         </div>
     </footer>
 
-                <script src="https://unpkg.com/lucide@latest"></script>
+                    <script src="https://unpkg.com/lucide@latest"></script>
     <script>
+        // Initialize Lucide Icons
         document.addEventListener('DOMContentLoaded', () => {
             lucide.createIcons();
         });
@@ -158,17 +159,44 @@
             menu.classList.toggle('hidden');
         }
 
+        // Header Scroll Effect
         window.addEventListener('scroll', () => {
             const header = document.getElementById('main-header');
+            const scrollTopBtn = document.getElementById('scroll-top');
+            
             if (window.scrollY > 20) {
                 header.classList.add('scrolled');
             } else {
                 header.classList.remove('scrolled');
             }
+
+            if (scrollTopBtn) {
+                if (window.scrollY > 500) {
+                    scrollTopBtn.classList.add('show');
+                } else {
+                    scrollTopBtn.classList.remove('show');
+                }
+            }
         });
+
+        // FAQ Accordion Toggle
+        function toggleAccordion(element) {
+            const isActive = element.classList.contains('active');
+            
+            // Close all other items
+            document.querySelectorAll('.accordion-item').forEach(item => {
+                item.classList.remove('active');
+            });
+
+            // Toggle current
+            if (!isActive) {
+                element.classList.add('active');
+            }
+        }
     </script>
 </body>
 </html>
+
 
 
 
