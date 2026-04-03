@@ -87,36 +87,87 @@
         }
     </style>
 </head>
-<body>
+<body style="background-color: #FAF7F5; min-height: 100vh; display: flex; flex-direction: column;">
 
-    <div class="success-card">
-        <div class="icon-check">
-            <i class="fa-solid fa-check"></i>
+    <!-- Premium Header -->
+    <header id="main-header" style="background-color: #FFFFFF !important; border-bottom: 1px solid #EAE1D8 !important; transition: all 0.3s ease; position: sticky; top: 0; z-index: 1000;">
+        <nav class="container-custom" style="padding: 0.75rem 2rem; max-width: 1200px; margin: 0 auto; display: flex; align-items: center; width: 100%; gap: 3rem;">
+            <a href="../" style="flex-shrink: 0; font-size: 1.25rem; text-decoration: none; font-family: 'Playfair Display', serif; font-weight: 700; color: #483525 !important;">
+                <span style="color: #483525 !important;">Instituto</span>
+                <span style="color: #9C7C5F !important;">Ana Cândida</span>
+            </a>
+            <div class="hidden lg:flex items-center" style="gap: 1.75rem; display: flex;">
+                <a href="../o-instituto" style="font-size: 0.9rem; font-weight: 500; color: #483525 !important; text-decoration: none; font-family: 'Montserrat', sans-serif;">O Instituto</a>
+                <a href="../terapia-sistemica" style="font-size: 0.9rem; font-weight: 500; color: #483525 !important; text-decoration: none; font-family: 'Montserrat', sans-serif;">Terapia Sistêmica</a>
+                <a href="../atendimentos" style="font-size: 0.9rem; font-weight: 500; color: #483525 !important; text-decoration: none; font-family: 'Montserrat', sans-serif;">Atendimentos</a>
+                <a href="../equipe" style="font-size: 0.9rem; font-weight: 500; color: #483525 !important; text-decoration: none; font-family: 'Montserrat', sans-serif;">Equipe</a>
+                <a href="../galeria" style="font-size: 0.9rem; font-weight: 500; color: #483525 !important; text-decoration: none; font-family: 'Montserrat', sans-serif;">Galeria</a>
+                <a href="../conteudos" style="font-size: 0.9rem; font-weight: 500; color: #483525 !important; text-decoration: none; font-family: 'Montserrat', sans-serif;">Conteúdos</a>
+                <a href="../contato" style="font-size: 0.9rem; font-weight: 500; color: #483525 !important; text-decoration: none; font-family: 'Montserrat', sans-serif;">Contato</a>
+            </div>
+        </nav>
+    </header>
+
+    <main style="flex: 1; display: flex; align-items: center; justify-content: center; padding: 60px 20px;">
+        <div class="success-card">
+            <div class="icon-check">
+                <i class="fa-solid fa-check"></i>
+            </div>
+            
+            <h1 style="color: #483525;">Parabéns por priorizar você!</h1>
+            
+            <p>Suas aquisições já estão disponíveis! Você deu um passo gigante na sua jornada de transformação emocional e estamos muito felizes em ter você conosco.</p>
+            
+            <div style="background: #F4EDE8; padding: 20px; border-radius: 15px; margin-bottom: 30px; border: 1px dashed #C49A5A;">
+                <p style="margin-bottom: 10px; color: #5A4636; font-weight: 600;">🎁 Presente Especial:</p>
+                <p style="font-size: 0.95rem;">Como você já faz parte da nossa comunidade, você liberou o seu <strong>Acesso Exclusivo à nossa Rede de Networking</strong> por tempo limitado.</p>
+            </div>
+
+            <a href="https://chat.whatsapp.com/PLACEHOLDER" class="btn-group" target="_blank" style="background-color: #25D366; color: #fff;">
+                <i class="fa-brands fa-whatsapp"></i> Entrar no Grupo de Networking
+            </a>
+
+            <div class="access-info">
+                <i class="fa-solid fa-envelope"></i> O link de acesso geral e instruções também foram enviados para o seu e-mail.
+            </div>
+
+            <p style="margin-top: 30px; font-size: 0.85rem; opacity: 0.7;">
+                <a href="../" style="text-decoration: underline; color: #483525;">Voltar para o Início</a>
+            </p>
         </div>
-        
-        <h1>Parabéns por priorizar você!</h1>
-        
-        <p>Suas aquisições já estão disponíveis! Você deu um passo gigante na sua jornada de transformação emocional e estamos muito felizes em ter você conosco.</p>
-        
-        <div style="background: var(--color-bege-claro); padding: 20px; border-radius: 15px; margin-bottom: 30px; border: 1px dashed var(--color-dourado-quente);">
-            <p style="margin-bottom: 10px; color: var(--color-marrom-profundo); font-weight: 600;">🎁 Presente Especial:</p>
-            <p style="font-size: 0.95rem;">Como você já faz parte da nossa comunidade, você liberou o seu <strong>Acesso Exclusivo à nossa Rede de Networking</strong> por tempo limitado.</p>
+    </main>
+
+    <!-- Premium Footer -->
+    <footer style="background-color: #483525 !important; color: #FDFBFA !important; padding: 5rem 0 3rem; width: 100%;">
+        <div style="max-width: 1100px; margin: 0 auto; padding: 0 2rem;">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 3rem; margin-bottom: 4rem;">
+                <div>
+                    <h3 style="font-family: 'Playfair Display', serif; font-size: 1.5rem; margin-bottom: 1.5rem; font-weight: 700; color: #FDFBFA !important;">Instituto Ana Cândida</h3>
+                    <p style="opacity: 0.9; line-height: 1.6; margin-bottom: 2rem; font-size: 0.95rem; color: #FDFBFA !important;">Cuidado relacional com base na Terapia Sistêmica.</p>
+                </div>
+                <div>
+                    <h4 style="font-family: 'Playfair Display', serif; font-size: 1.1rem; margin-bottom: 1.5rem; font-weight: 700; color: #FDFBFA !important;">Contato</h4>
+                    <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 1.2rem;">
+                        <li style="display: flex; align-items: center; gap: 0.75rem;"><i data-lucide="phone" size="18"></i><span>(62) 98183-8006</span></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 style="font-family: 'Playfair Display', serif; font-size: 1.1rem; margin-bottom: 1.5rem; font-weight: 700; color: #FDFBFA !important;">Aviso Importante</h4>
+                    <p style="opacity: 0.9; line-height: 1.6; font-size: 0.9rem; color: #FDFBFA !important;">Em caso de crise, procure o hospital mais próximo ou ligue 188 (CVV).</p>
+                </div>
+            </div>
+            <div style="border-top: 1px solid rgba(253, 251, 250, 0.1); padding-top: 2rem; text-align: center;">
+                <p style="opacity: 0.7; font-size: 0.875rem; color: #FDFBFA !important;">&copy; 2026 Instituto Ana Cândida. Todos os direitos reservados.</p>
+            </div>
         </div>
+    </footer>
 
-        <a href="https://chat.whatsapp.com/PLACEHOLDER" class="btn-group" target="_blank">
-            <i class="fa-brands fa-whatsapp"></i> Entrar no Grupo de Networking
-        </a>
-
-        <div class="access-info">
-            <i class="fa-solid fa-envelope"></i> O link de acesso geral e instruções também foram enviados para o seu e-mail.
-        </div>
-
-        <p style="margin-top: 30px; font-size: 0.85rem; opacity: 0.7;">
-            <a href="/home/" style="text-decoration: underline; color: inherit;">Conheça o Instituto Ana Cândida</a>
-        </p>
-    </div>
-
-</body>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            lucide.createIcons();
+        });
+    </script>
 </html>
 
 
