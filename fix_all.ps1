@@ -197,7 +197,7 @@ function Get-Footer($depthPath) {
                 <!-- Col 1: Brand & Social -->
                 <div>
                     <a href="${depthPath}" style="display: block; margin-bottom: 1.5rem;">
-                        <img src="https://i.ibb.co/vvPV65rT/ana-candida-s-f.png" alt="Instituto Ana Cândida" style="height: 50px; width: auto; object-fit: contain; filter: brightness(0) invert(1);">
+                        <img src="https://i.ibb.co/pBFQK4ZY/Design-sem-nome-64.png" alt="Instituto Ana Cândida" style="height: 70px; width: auto; object-fit: contain;">
                     </a>
                     <p style="opacity: 0.9; line-height: 1.6; margin-bottom: 2rem; font-size: 0.95rem; color: #FDFBFA !important;">Cuidado relacional com base na Terapia Sistêmica. Acolhimento, ética e ciência para casais e famílias.</p>
                     <div style="display: flex; gap: 1.5rem; align-items: center;">
@@ -248,7 +248,6 @@ function Get-Footer($depthPath) {
             </div>
         </div>
     </footer>
-    <button id="scroll-top" title="Voltar ao topo"><i data-lucide="chevron-up"></i></button>
 "@
 }
 
@@ -277,6 +276,7 @@ function Process-File($f, $depthPath) {
         
         # Scripts
         $s = @"
+    <button id="scroll-top" title="Voltar ao topo"><i data-lucide="chevron-up"></i></button>
     <script src="https://unpkg.com/lucide@latest"></script>
     <script>
         document.addEventListener('DOMContentLoaded', () => { lucide.createIcons(); });
@@ -297,7 +297,7 @@ function Process-File($f, $depthPath) {
         document.getElementById('scroll-top')?.addEventListener('click', () => window.scrollTo({top: 0, behavior: 'smooth'}));
     </script>
 "@
-        $content = $content -replace '(?s)<script src="https://unpkg.com/lucide@latest"></script>.*?<script>.*?</script>', $s
+        $content = $content -replace '(?s)(?:<button id="scroll-top".*?</button>\s*)?<script src="https://unpkg.com/lucide@latest"></script>.*?<script>.*?</script>', $s
         
         Set-Content $path $content
     }
