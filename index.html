@@ -10,9 +10,18 @@
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌷</text></svg>">
     <style>
         /* FAQ Accordion Styles */
+        .faq-container {
+            background: white;
+            border-radius: 1.5rem;
+            border: 1px solid var(--brand-100);
+            padding: 1rem 2rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.02);
+        }
         .accordion-item {
             border-bottom: 1px solid var(--brand-100);
-            padding: 1rem 0;
+        }
+        .accordion-item:last-child {
+            border-bottom: none;
         }
         .accordion-header {
             width: 100%;
@@ -21,33 +30,66 @@
             align-items: center;
             background: none;
             border: none;
-            padding: 1rem 0;
+            padding: 1.5rem 0;
             text-align: left;
             cursor: pointer;
-            font-size: 1.125rem;
-            font-weight: 600;
-            color: var(--brand-900);
-            transition: color 0.3s;
+            font-size: 1rem;
+            font-weight: 500;
+            color: var(--brand-800);
+            transition: all 0.3s;
         }
         .accordion-header:hover {
-            color: var(--brand-600);
+            color: var(--brand-500);
         }
         .accordion-content {
             max-height: 0;
             overflow: hidden;
             transition: max-height 0.3s ease-out;
-            color: var(--brand-800);
+            color: #666;
             line-height: 1.6;
+            font-size: 0.9375rem;
         }
         .accordion-item.active .accordion-content {
-            max-height: 200px;
-            padding-bottom: 1rem;
+            max-height: 300px;
+            padding-bottom: 1.5rem;
         }
         .accordion-item.active .chevron {
             transform: rotate(180deg);
+            color: var(--brand-500);
         }
         .chevron {
             transition: transform 0.3s;
+            opacity: 0.5;
+        }
+
+        /* Floating Button */
+        #scroll-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 48px;
+            height: 48px;
+            background: var(--brand-500);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            transition: all 0.3s;
+            z-index: 100;
+            opacity: 0;
+            visibility: hidden;
+            border: none;
+        }
+        #scroll-top.show {
+            opacity: 1;
+            visibility: visible;
+        }
+        #scroll-top:hover {
+            transform: translateY(-5px);
+            background: var(--brand-600);
         }
     </style>
 </head>
@@ -310,58 +352,65 @@
         </section>
 
         <!-- Perguntas Frequentes (FAQ) -->
-        <section style="padding: 100px 0; background-color: var(--accent-50);">
-            <div class="container-custom" style="max-width: 800px;">
-                <h2 style="font-size: 2.5rem; color: var(--brand-900); text-align: center; margin-bottom: 5rem;">Perguntas Frequentes</h2>
-                <div class="faq-accordion">
-                    <div class="accordion-item" onclick="toggleAccordion(this)">
-                        <button class="accordion-header">
-                            Vocês aceitam convênios?
-                            <i data-lucide="chevron-down" class="chevron" size="20"></i>
-                        </button>
-                        <div class="accordion-content">
-                            <p>Trabalhamos com sistema de reembolso. Emitimos recibo para que você possa solicitar o reembolso junto ao seu plano de saúde, conforme as regras do seu contrato.</p>
+        <section style="padding: 100px 0; background-color: #FDFBFA;">
+            <div class="container-custom" style="max-width: 900px;">
+                <h2 style="font-size: 2.25rem; color: var(--brand-900); text-align: center; margin-bottom: 4rem; font-family: var(--font-serif); font-weight: 700;">Perguntas Frequentes</h2>
+                <div class="faq-container">
+                    <div class="faq-accordion">
+                        <div class="accordion-item" onclick="toggleAccordion(this)">
+                            <button class="accordion-header">
+                                Vocês aceitam convênios?
+                                <i data-lucide="chevron-down" class="chevron" size="18"></i>
+                            </button>
+                            <div class="accordion-content">
+                                <p>Trabalhamos com sistema de reembolso. Emitimos recibo para que você possa solicitar o reembolso junto ao seu plano de saúde, conforme as regras do seu contrato.</p>
+                            </div>
                         </div>
-                    </div>
-                    <div class="accordion-item" onclick="toggleAccordion(this)">
-                        <button class="accordion-header">
-                            Qual a duração das sessões?
-                            <i data-lucide="chevron-down" class="chevron" size="20"></i>
-                        </button>
-                        <div class="accordion-content">
-                            <p>As sessões individuais têm duração média de 50 minutos. Sessões de casal e família podem variar entre 60 a 90 minutos, dependendo do acordo terapêutico.</p>
+                        <div class="accordion-item" onclick="toggleAccordion(this)">
+                            <button class="accordion-header">
+                                Qual a duração das sessões?
+                                <i data-lucide="chevron-down" class="chevron" size="18"></i>
+                            </button>
+                            <div class="accordion-content">
+                                <p>As sessões individuais têm duração média de 50 minutos. Sessões de casal e família podem variar entre 60 a 90 minutos, dependendo do acordo terapêutico.</p>
+                            </div>
                         </div>
-                    </div>
-                    <div class="accordion-item" onclick="toggleAccordion(this)">
-                        <button class="accordion-header">
-                            O atendimento é online ou presencial?
-                            <i data-lucide="chevron-down" class="chevron" size="20"></i>
-                        </button>
-                        <div class="accordion-content">
-                            <p>Oferecemos ambas as modalidades. O presencial acontece em nossa sede no setor Village em Goiânia, e o online atende pessoas de qualquer lugar do mundo via plataformas seguras.</p>
+                        <div class="accordion-item" onclick="toggleAccordion(this)">
+                            <button class="accordion-header">
+                                O atendimento é online ou presencial?
+                                <i data-lucide="chevron-down" class="chevron" size="18"></i>
+                            </button>
+                            <div class="accordion-content">
+                                <p>Oferecemos ambas as modalidades. O presencial acontece em nossa sede no setor Village em Goiânia, e o online atende pessoas de qualquer lugar do mundo via plataformas seguras.</p>
+                            </div>
                         </div>
-                    </div>
-                    <div class="accordion-item" onclick="toggleAccordion(this)">
-                        <button class="accordion-header">
-                            Como agendar uma primeira consulta?
-                            <i data-lucide="chevron-down" class="chevron" size="20"></i>
-                        </button>
-                        <div class="accordion-content">
-                            <p>Você pode agendar diretamente pelo WhatsApp clicando no botão no topo do site ou acessando nossa página de contato para mais detalhes.</p>
+                        <div class="accordion-item" onclick="toggleAccordion(this)">
+                            <button class="accordion-header">
+                                Como agendar uma primeira consulta?
+                                <i data-lucide="chevron-down" class="chevron" size="18"></i>
+                            </button>
+                            <div class="accordion-content">
+                                <p>Você pode agendar diretamente pelo WhatsApp clicando no botão no topo do site ou acessando nossa página de contato para mais detalhes.</p>
+                            </div>
                         </div>
-                    </div>
-                    <div class="accordion-item" onclick="toggleAccordion(this)">
-                        <button class="accordion-header">
-                            O que acontece se eu precisar faltar?
-                            <i data-lucide="chevron-down" class="chevron" size="20"></i>
-                        </button>
-                        <div class="accordion-content">
-                            <p>Pedimos que remarcações sejam feitas com 24 horas de antecedência. Faltas sem aviso prévio impossibilitam que outro paciente seja atendido e são cobradas integralmente.</p>
+                        <div class="accordion-item" onclick="toggleAccordion(this)">
+                            <button class="accordion-header">
+                                O que acontece se eu precisar faltar?
+                                <i data-lucide="chevron-down" class="chevron" size="18"></i>
+                            </button>
+                            <div class="accordion-content">
+                                <p>Pedimos que remarcações sejam feitas com 24 horas de antecedência. Faltas sem aviso prévio impossibilitam que outro paciente seja atendido e são cobradas integralmente.</p>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
+
+        <!-- Back to Top Button -->
+        <button id="scroll-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+            <i data-lucide="arrow-up" size="24"></i>
+        </button>
 
         <!-- CTA Final -->
         <section style="padding: 100px 0; background-color: white; text-align: center;">
@@ -428,10 +477,18 @@
         // Header Scroll Effect
         window.addEventListener('scroll', () => {
             const header = document.getElementById('main-header');
+            const scrollTopBtn = document.getElementById('scroll-top');
+            
             if (window.scrollY > 20) {
                 header.classList.add('scrolled');
             } else {
                 header.classList.remove('scrolled');
+            }
+
+            if (window.scrollY > 500) {
+                scrollTopBtn.classList.add('show');
+            } else {
+                scrollTopBtn.classList.remove('show');
             }
         });
 
