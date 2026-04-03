@@ -91,6 +91,19 @@
             transform: translateY(-5px);
             background: var(--brand-600);
         }
+
+        /* Forced 5-Column Footer Grid */
+        .footer-grid { 
+            display: grid; 
+            grid-template-columns: 1fr; 
+            gap: 2rem; 
+            margin-bottom: 4rem; 
+        }
+        @media (min-width: 768px) {
+            .footer-grid { 
+                grid-template-columns: repeat(5, 1fr); 
+            }
+        }
     </style>
 </head>
 <body style="font-family: var(--font-sans); color: var(--brand-800); background-color: white;">
@@ -404,7 +417,7 @@
     <footer style="background-color: var(--brand-900); color: #FDFBFA; padding: 5rem 0 3rem; position: relative; z-index: 50;">
         <div class="container-custom">
             <!-- Footer Grid -->
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 3rem; margin-bottom: 4rem;">
+            <div class="footer-grid">
                 
                 <!-- Col 1: Brand & Social -->
                 <div style="grid-column: span 1;">

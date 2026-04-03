@@ -14,114 +14,7 @@
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-    <style>
-        :root {
-            --color-rosa-nude: #D8C2BB;
-            --color-rosa-suave: #E9D6CF;
-            --color-bege-claro: #F4EDE8;
-            --color-branco-suave: #FAF7F5;
-            --color-dourado-quente: #C49A5A;
-            --color-dourado-intenso: #B8893F;
-            --color-marrom-profundo: #5A4636;
-            --color-marrom-suave: #7A6253;
-            --font-heading: 'Playfair Display', serif;
-            --font-body: 'Montserrat', sans-serif;
-            --transition: all 0.3s ease;
-        }
-
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-
-        body {
-            font-family: var(--font-body);
-            color: var(--color-marrom-profundo);
-            background-color: var(--color-branco-suave);
-            line-height: 1.6;
-        }
-
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        section { padding: 60px 0; }
-
-        h1, h2, h3 { font-family: var(--font-heading); font-weight: 700; color: var(--color-marrom-profundo); text-align: center; }
-
-        .hero { text-align: center; padding: 60px 20px 40px; }
-        .hero h1 { font-size: 2.2rem; line-height: 1.2; margin-bottom: 20px; color: var(--color-dourado-intenso); }
-        .hero p { font-size: 1.2rem; color: var(--color-marrom-suave); max-width: 600px; margin: 0 auto 30px; }
-
-        .offer-card {
-            background-color: #fff;
-            border-radius: 30px;
-            padding: 40px;
-            margin-bottom: 40px;
-            box-shadow: 0 15px 40px rgba(0,0,0,0.04);
-            border: 1px solid var(--color-bege-claro);
-            text-align: center;
-        }
-
-        .offer-card i {
-            font-size: 3rem;
-            color: var(--color-dourado-quente);
-            margin-bottom: 20px;
-        }
-
-        .price-box {
-            margin: 30px 0;
-            padding: 20px;
-            background-color: var(--color-branco-suave);
-            border-radius: 20px;
-        }
-        .price-old { text-decoration: line-through; color: #888; font-size: 1.1rem; }
-        .price-new { display: block; font-size: 3rem; font-family: var(--font-heading); color: var(--color-marrom-profundo); margin: 5px 0; }
-
-        .btn-cta {
-            display: table;
-            margin: 20px auto 0;
-            background-color: var(--color-dourado-quente);
-            color: #fff;
-            padding: 20px 40px;
-            border-radius: 50px;
-            font-weight: 600;
-            text-transform: uppercase;
-            font-size: 1rem;
-            transition: var(--transition);
-            box-shadow: 0 10px 20px rgba(196, 154, 90, 0.3);
-            text-decoration: none;
-        }
-        .btn-cta:hover { background-color: var(--color-dourado-intenso); transform: translateY(-3px); }
-
-        .decline-link {
-            display: block;
-            margin: 25px auto;
-            text-align: center;
-            font-size: 0.85rem;
-            color: var(--color-marrom-suave);
-            text-decoration: underline;
-            opacity: 0.7;
-        }
-
-        .bonus-highlight {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            justify-content: center;
-            margin-top: 30px;
-            font-weight: 600;
-            color: var(--color-dourado-intenso);
-        }
-
-        footer { text-align: center; padding: 40px 0; font-size: 0.8rem; opacity: 0.5; }
-
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 1.8rem; }
-            .price-new { font-size: 2.5rem; }
-        }
-    </style>
-
-    <style>
+            <style>
         /* FAQ Accordion Styles */
         .faq-container { background: white; border-radius: 1.5rem; border: 1px solid #EAE1D8; padding: 1rem 1.5rem; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.02); }
         .accordion-item { border-bottom: 1px solid #EAE1D8; }
@@ -137,11 +30,26 @@
         #scroll-top { position: fixed; bottom: 2rem; right: 2rem; width: 48px; height: 48px; background: #483525; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1); cursor: pointer; transition: all 0.3s; z-index: 100; opacity: 0; visibility: hidden; border: none; }
         #scroll-top.show { opacity: 1; visibility: visible; }
         #scroll-top:hover { transform: translateY(-5px); background: #9C7C5F; }
+
+        /* Forced 5-Column Footer Grid */
+        .footer-grid { 
+            display: grid; 
+            grid-template-columns: 1fr; 
+            gap: 2rem; 
+            margin-bottom: 4rem; 
+        }
+        @media (min-width: 768px) {
+            .footer-grid { 
+                grid-template-columns: repeat(5, 1fr); 
+            }
+        }
     </style>
 </head>
 <body>
 
     <!-- Premium Header -->
+        <!-- Premium Header -->
+        <!-- Premium Header -->
         <!-- Premium Header -->
     <header id="main-header" style="background-color: #FFFFFF !important; border-bottom: 1px solid #EAE1D8 !important; transition: all 0.3s ease; position: sticky; top: 0; z-index: 1000;">
         <nav class="container-custom" style="padding: 0.75rem 2rem;">
@@ -192,6 +100,52 @@
         </div>
     </div>
 
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu" class="hidden" style="position: fixed; inset: 0; background: white; z-index: 2000; padding: 2rem; display: none; flex-direction: column;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
+            <a href="../" style="font-size: 1.25rem; text-decoration: none; font-family: 'Playfair Display', serif; font-weight: 700; color: #483525;">
+                <span>Instituto</span>
+                <span style="color: #9C7C5F;">Ana Cândida</span>
+            </a>
+            <button style="background: none; border: none; cursor: pointer; color: #483525;" onclick="toggleMobileMenu()">
+                <i data-lucide="x"></i>
+            </button>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+            <a href="../o-instituto" style="text-decoration: none; color: #483525; font-size: 1.1rem; font-weight: 500;">O Instituto</a>
+            <a href="../terapia-sistemica" style="text-decoration: none; color: #483525; font-size: 1.1rem; font-weight: 500;">Terapia Sistêmica</a>
+            <a href="../atendimentos" style="text-decoration: none; color: #483525; font-size: 1.1rem; font-weight: 500;">Atendimentos</a>
+            <a href="../equipe" style="text-decoration: none; color: #483525; font-size: 1.1rem; font-weight: 500;">Equipe</a>
+            <a href="../galeria" style="text-decoration: none; color: #483525; font-size: 1.1rem; font-weight: 500;">Galeria</a>
+            <a href="../conteudos" style="text-decoration: none; color: #483525; font-size: 1.1rem; font-weight: 500;">Conteúdos</a>
+            <a href="../contato" style="text-decoration: none; color: #483525; font-size: 1.1rem; font-weight: 500;">Contato</a>
+            <a href="https://wa.me/5562981838006" target="_blank" style="background-color: #483525; color: white; padding: 1rem; border-radius: 0.75rem; text-align: center; text-decoration: none; font-weight: 600; margin-top: 1rem;">Agendar Agora</a>
+        </div>
+    </div>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu" class="hidden" style="position: fixed; inset: 0; background: white; z-index: 2000; padding: 2rem; display: none; flex-direction: column;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
+            <a href="../" style="font-size: 1.25rem; text-decoration: none; font-family: 'Playfair Display', serif; font-weight: 700; color: #483525;">
+                <span>Instituto</span>
+                <span style="color: #9C7C5F;">Ana Cândida</span>
+            </a>
+            <button style="background: none; border: none; cursor: pointer; color: #483525;" onclick="toggleMobileMenu()">
+                <i data-lucide="x"></i>
+            </button>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+            <a href="../o-instituto" style="text-decoration: none; color: #483525; font-size: 1.1rem; font-weight: 500;">O Instituto</a>
+            <a href="../terapia-sistemica" style="text-decoration: none; color: #483525; font-size: 1.1rem; font-weight: 500;">Terapia Sistêmica</a>
+            <a href="../atendimentos" style="text-decoration: none; color: #483525; font-size: 1.1rem; font-weight: 500;">Atendimentos</a>
+            <a href="../equipe" style="text-decoration: none; color: #483525; font-size: 1.1rem; font-weight: 500;">Equipe</a>
+            <a href="../galeria" style="text-decoration: none; color: #483525; font-size: 1.1rem; font-weight: 500;">Galeria</a>
+            <a href="../conteudos" style="text-decoration: none; color: #483525; font-size: 1.1rem; font-weight: 500;">Conteúdos</a>
+            <a href="../contato" style="text-decoration: none; color: #483525; font-size: 1.1rem; font-weight: 500;">Contato</a>
+            <a href="https://wa.me/5562981838006" target="_blank" style="background-color: #483525; color: white; padding: 1rem; border-radius: 0.75rem; text-align: center; text-decoration: none; font-weight: 600; margin-top: 1rem;">Agendar Agora</a>
+        </div>
+    </div>
+
     <main class="container">
         <section class="hero">
             <h1>Sua evolução não precisa parar aqui...</h1>
@@ -218,11 +172,11 @@
         </div>
     </main>
 
-        <!-- Premium Footer -->
+                <!-- Premium Footer -->
         <!-- Premium Footer -->
     <footer style="background-color: #483525 !important; color: #FDFBFA !important; padding: 5rem 0 3rem; position: relative; z-index: 50; width: 100%;">
         <div style="max-width: 1100px; margin: 0 auto; padding: 0 2rem;">
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 3rem; margin-bottom: 4rem;">
+            <div class="footer-grid">
                 <div>
                     <h3 style="font-family: 'Playfair Display', serif; font-size: 1.5rem; margin-bottom: 1.5rem; font-weight: 700; color: #FDFBFA !important;">Instituto Ana Cândida</h3>
                     <p style="opacity: 0.9; line-height: 1.6; margin-bottom: 2rem; font-size: 0.95rem; color: #FDFBFA !important;">Cuidado relacional com base na Terapia Sistêmica. Acolhimento, ética e ciência para casais e famílias.</p>
@@ -267,8 +221,20 @@
         <button id="scroll-top" title="Voltar ao topo">
         <i data-lucide="chevron-up"></i>
     </button>
+        <button id="scroll-top" title="Voltar ao topo">
+        <i data-lucide="chevron-up"></i>
+    </button>
+        <button id="scroll-top" title="Voltar ao topo">
+        <i data-lucide="chevron-up"></i>
+    </button>
+        <button id="scroll-top" title="Voltar ao topo">
+        <i data-lucide="chevron-up"></i>
+    </button>
+        <button id="scroll-top" title="Voltar ao topo">
+        <i data-lucide="chevron-up"></i>
+    </button>
 
-        <script src="https://unpkg.com/lucide@latest"></script>
+                <script src="https://unpkg.com/lucide@latest"></script>
     <script>
         document.addEventListener('DOMContentLoaded', () => { lucide.createIcons(); });
         function toggleMobileMenu() { const m = document.getElementById('mobile-menu'); m.style.display = m.style.display === 'flex' ? 'none' : 'flex'; }
@@ -278,6 +244,8 @@
 
 </body>
 </html>
+
+
 
 
 

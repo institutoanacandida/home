@@ -1,7 +1,7 @@
 # Universal Design Synchronization Script
 $root = "c:\Users\Usuario\.gemini\antigravity\playground\nascimento-familiar"
 
-# 1. Universal Style Block (Floating Button, FAQ, Design Tokens)
+# 1. Universal Style Block (Floating Button, FAQ, Design Tokens, Footer Grid)
 function Get-StyleBlock() {
     return @"
     <style>
@@ -20,6 +20,19 @@ function Get-StyleBlock() {
         #scroll-top { position: fixed; bottom: 2rem; right: 2rem; width: 48px; height: 48px; background: #483525; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1); cursor: pointer; transition: all 0.3s; z-index: 100; opacity: 0; visibility: hidden; border: none; }
         #scroll-top.show { opacity: 1; visibility: visible; }
         #scroll-top:hover { transform: translateY(-5px); background: #9C7C5F; }
+
+        /* Forced 5-Column Footer Grid */
+        .footer-grid { 
+            display: grid; 
+            grid-template-columns: 1fr; 
+            gap: 2rem; 
+            margin-bottom: 4rem; 
+        }
+        @media (min-width: 768px) {
+            .footer-grid { 
+                grid-template-columns: repeat(5, 1fr); 
+            }
+        }
     </style>
 "@
 }
@@ -85,7 +98,7 @@ function Get-Footer($depthPath) {
     <!-- Premium Footer -->
     <footer style="background-color: #483525 !important; color: #FDFBFA !important; padding: 5rem 0 3rem; position: relative; z-index: 50; width: 100%;">
         <div style="max-width: 1100px; margin: 0 auto; padding: 0 2rem;">
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 3rem; margin-bottom: 4rem;">
+            <div class="footer-grid">
                 <div>
                     <h3 style="font-family: 'Playfair Display', serif; font-size: 1.5rem; margin-bottom: 1.5rem; font-weight: 700; color: #FDFBFA !important;">Instituto Ana Cândida</h3>
                     <p style="opacity: 0.9; line-height: 1.6; margin-bottom: 2rem; font-size: 0.95rem; color: #FDFBFA !important;">Cuidado relacional com base na Terapia Sistêmica. Acolhimento, ética e ciência para casais e famílias.</p>

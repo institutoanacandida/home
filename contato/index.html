@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="../assets/style.css">
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌷</text></svg>">
 
-    <style>
+            <style>
         /* FAQ Accordion Styles */
         .faq-container { background: white; border-radius: 1.5rem; border: 1px solid #EAE1D8; padding: 1rem 1.5rem; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.02); }
         .accordion-item { border-bottom: 1px solid #EAE1D8; }
@@ -25,10 +25,23 @@
         #scroll-top { position: fixed; bottom: 2rem; right: 2rem; width: 48px; height: 48px; background: #483525; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1); cursor: pointer; transition: all 0.3s; z-index: 100; opacity: 0; visibility: hidden; border: none; }
         #scroll-top.show { opacity: 1; visibility: visible; }
         #scroll-top:hover { transform: translateY(-5px); background: #9C7C5F; }
+
+        /* Forced 5-Column Footer Grid */
+        .footer-grid { 
+            display: grid; 
+            grid-template-columns: 1fr; 
+            gap: 2rem; 
+            margin-bottom: 4rem; 
+        }
+        @media (min-width: 768px) {
+            .footer-grid { 
+                grid-template-columns: repeat(5, 1fr); 
+            }
+        }
     </style>
 </head>
 <body style="background-color: var(--brand-50); font-family: var(--font-sans); color: var(--brand-800);">
-                                            <!-- Premium Header -->
+                                                    <!-- Premium Header -->
         <!-- Premium Header -->
     <header id="main-header" style="background-color: #FFFFFF !important; border-bottom: 1px solid #EAE1D8 !important; transition: all 0.3s ease; position: sticky; top: 0; z-index: 1000;">
         <nav class="container-custom" style="padding: 0.75rem 2rem;">
@@ -169,11 +182,11 @@
         </section>
     </main>
 
-                                <!-- Premium Footer -->
+                                        <!-- Premium Footer -->
         <!-- Premium Footer -->
     <footer style="background-color: #483525 !important; color: #FDFBFA !important; padding: 5rem 0 3rem; position: relative; z-index: 50; width: 100%;">
         <div style="max-width: 1100px; margin: 0 auto; padding: 0 2rem;">
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 3rem; margin-bottom: 4rem;">
+            <div class="footer-grid">
                 <div>
                     <h3 style="font-family: 'Playfair Display', serif; font-size: 1.5rem; margin-bottom: 1.5rem; font-weight: 700; color: #FDFBFA !important;">Instituto Ana Cândida</h3>
                     <p style="opacity: 0.9; line-height: 1.6; margin-bottom: 2rem; font-size: 0.95rem; color: #FDFBFA !important;">Cuidado relacional com base na Terapia Sistêmica. Acolhimento, ética e ciência para casais e famílias.</p>
@@ -218,8 +231,20 @@
         <button id="scroll-top" title="Voltar ao topo">
         <i data-lucide="chevron-up"></i>
     </button>
+        <button id="scroll-top" title="Voltar ao topo">
+        <i data-lucide="chevron-up"></i>
+    </button>
+        <button id="scroll-top" title="Voltar ao topo">
+        <i data-lucide="chevron-up"></i>
+    </button>
+        <button id="scroll-top" title="Voltar ao topo">
+        <i data-lucide="chevron-up"></i>
+    </button>
+        <button id="scroll-top" title="Voltar ao topo">
+        <i data-lucide="chevron-up"></i>
+    </button>
 
-                                                <script src="https://unpkg.com/lucide@latest"></script>
+                                                        <script src="https://unpkg.com/lucide@latest"></script>
     <script>
         document.addEventListener('DOMContentLoaded', () => { lucide.createIcons(); });
         function toggleMobileMenu() { const m = document.getElementById('mobile-menu'); m.style.display = m.style.display === 'flex' ? 'none' : 'flex'; }
@@ -228,6 +253,8 @@
     </script>
 </body>
 </html>
+
+
 
 
 
