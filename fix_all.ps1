@@ -73,7 +73,7 @@ function Get-Header($depthPath) {
         <nav class="container-custom" style="padding: 0 1rem;">
             <div style="display: flex; align-items: center; width: 100%; justify-content: space-between; height: 80px;">
                 <a href="$depthPath" style="display: flex; align-items: center; text-decoration: none; height: 100%;">
-                    <img src="https://i.ibb.co/vvPV65rT/ana-candida-s-f.png" alt="Instituto Ana Cândida" style="height: 70px; width: auto; object-fit: contain;">
+                    <img src="https://i.ibb.co/pBFQK4ZY/Design-sem-nome-64.png" alt="Instituto Ana Cândida" style="height: 70px; width: auto; object-fit: contain;">
                 </a>
                 
                 <div class="hidden lg:flex items-center" style="gap: 2.2rem; height: 100%;">
@@ -131,7 +131,7 @@ function Get-Header($depthPath) {
     <div id="mobile-menu" class="hidden" style="position: fixed; inset: 0; background: white; z-index: 2000; padding: 2rem; display: none; flex-direction: column; overflow-y: auto;">
         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
             <a href="$depthPath" style="display: flex; align-items: center; text-decoration: none; margin-bottom: 1rem;">
-                <img src="https://i.ibb.co/vvPV65rT/ana-candida-s-f.png" alt="Instituto Ana Cândida" style="height: 60px; width: auto; object-fit: contain;">
+                <img src="https://i.ibb.co/pBFQK4ZY/Design-sem-nome-64.png" alt="Instituto Ana Cândida" style="height: 60px; width: auto; object-fit: contain;">
             </a>
             <button onclick="toggleMobileMenu()" style="background: none; border: none; cursor: pointer; color: #483525;"><i data-lucide="x"></i></button>
         </div>
