@@ -53,20 +53,21 @@
 </head>
 <body style="font-family: var(--font-sans); color: var(--brand-800); background-color: white;">
     <!-- Premium Header -->
-    <header id="main-header">
-        <nav class="container-custom">
-            <div class="flex justify-between items-center" style="width: 100%;">
-                <a href="./" class="logo-link">
+    <header id="main-header" style="background-color: white; border-bottom: 1px solid var(--brand-100); transition: all 0.3s ease;">
+        <nav class="container-custom" style="padding: 1rem 2rem;">
+            <div style="display: flex; align-items: center; width: 100%; gap: 4rem;">
+                <!-- Logo -->
+                <a href="./" class="logo-link" style="flex-shrink: 0;">
                     <span style="color: var(--brand-900);">Instituto</span>
                     <span style="color: var(--brand-500);">Ana Cândida</span>
                 </a>
 
                 <!-- Desktop Navigation -->
-                <div class="hidden lg:flex items-center" style="gap: 2.5rem;">
+                <div class="hidden lg:flex items-center" style="gap: 2rem;">
                     <div class="nav-item">
                         <a href="./o-instituto" class="nav-link">
                             O Instituto
-                            <i data-lucide="chevron-down" class="nav-chevron" style="width: 16px; height: 16px;"></i>
+                            <i data-lucide="chevron-down" style="width: 14px; height: 14px; opacity: 0.5;"></i>
                         </a>
                         <div class="dropdown-menu">
                             <a href="./o-instituto" class="dropdown-item">Sobre Nós</a>
@@ -78,7 +79,7 @@
                     <div class="nav-item">
                         <a href="./terapia-sistemica" class="nav-link">
                             Terapia Sistêmica
-                            <i data-lucide="chevron-down" class="nav-chevron" style="width: 16px; height: 16px;"></i>
+                            <i data-lucide="chevron-down" style="width: 14px; height: 14px; opacity: 0.5;"></i>
                         </a>
                         <div class="dropdown-menu">
                             <a href="./terapia-sistemica" class="dropdown-item">O que é</a>
@@ -90,7 +91,7 @@
                     <div class="nav-item">
                         <a href="./atendimentos" class="nav-link">
                             Atendimentos
-                            <i data-lucide="chevron-down" class="nav-chevron" style="width: 16px; height: 16px;"></i>
+                            <i data-lucide="chevron-down" style="width: 14px; height: 14px; opacity: 0.5;"></i>
                         </a>
                         <div class="dropdown-menu">
                             <a href="./atendimentos#individual" class="dropdown-item">Terapia Individual</a>
@@ -104,12 +105,15 @@
                     <a href="./galeria" class="nav-link">Galeria</a>
                     <a href="./conteudos" class="nav-link">Conteúdos</a>
                     <a href="./contato" class="nav-link">Contato</a>
+                </div>
 
+                <!-- Agendar Button (Pushed Right) -->
+                <div class="hidden lg:block" style="margin-left: auto;">
                     <a href="https://wa.me/5562981838006" target="_blank" class="btn btn-primary btn-sm">Agendar</a>
                 </div>
 
                 <!-- Mobile Menu Button -->
-                <button class="lg:hidden" style="background: none; border: none; cursor: pointer; color: var(--brand-900);" onclick="toggleMobileMenu()">
+                <button class="lg:hidden" style="margin-left: auto; background: none; border: none; cursor: pointer; color: var(--brand-900);" onclick="toggleMobileMenu()">
                     <i data-lucide="menu"></i>
                 </button>
             </div>

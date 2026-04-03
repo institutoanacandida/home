@@ -1,20 +1,20 @@
-# Script to fix headers and footers globally with the SPECIFIC layout requested
+# Script to fix headers and footers globally with CLEAN replacement (no duplicates)
 $root = "c:\Users\Usuario\.gemini\antigravity\playground\nascimento-familiar"
 
-# Standard Header Template (Updated for the requested layout)
+# Standard Header Template
 function Get-Header($depthPath) {
     return @"
     <!-- Premium Header -->
     <header id="main-header" style="background-color: white; border-bottom: 1px solid var(--brand-100); transition: all 0.3s ease;">
         <nav class="container-custom" style="padding: 1rem 2rem;">
-            <div style="display: flex; align-items: center; width: 100%; gap: 3rem;">
+            <div style="display: flex; align-items: center; width: 100%; gap: 4rem;">
                 <!-- Logo -->
                 <a href="$depthPath" class="logo-link" style="flex-shrink: 0;">
                     <span style="color: var(--brand-900);">Instituto</span>
                     <span style="color: var(--brand-500);">Ana Cândida</span>
                 </a>
 
-                <!-- Desktop Navigation Items (Centered/Left-aligned next to logo) -->
+                <!-- Desktop Navigation Items -->
                 <div class="hidden lg:flex items-center" style="gap: 2rem;">
                     <div class="nav-item">
                         <a href="${depthPath}o-instituto" class="nav-link">
@@ -151,7 +151,6 @@ $scriptBlock = @"
     </script>
 "@
 
-$rootFiles = @("index.html")
 $depth1Files = @(
     "agendar/index.html",
     "atendimentos/index.html",
@@ -173,41 +172,27 @@ $depth2Files = @(
     "equipe/roberto-mendes/index.html"
 )
 
-# Root Update
-foreach ($f in $rootFiles) {
-    $path = Join-Path $root $f
-    $content = Get-Content $path -Raw
-    $header = Get-Header "./"
-    $footer = Get-Footer "./"
-    $content = $content -replace '(?s)<!-- Premium Header -->.*?Header>', $header
-    $content = $content -replace '(?s)<!-- Mobile Menu Overlay -->.*?</div>\s+<main>', "$header`n    <main>" # Cleanup if duplicated
-    $content = $content -replace '(?s)<!-- Premium Footer -->.*?</footer>', $footer
-    $content = $content -replace '(?s)<script src="https://unpkg.com/lucide@latest"></script>.*?<script>.*?</script>', $scriptBlock
-    Set-Content $path $content
-}
-
-# Depth 1 Update
 foreach ($f in $depth1Files) {
     $path = Join-Path $root $f
     if (Test-Path $path) {
         $content = Get-Content $path -Raw
         $header = Get-Header "../"
         $footer = Get-Footer "../"
-        $content = $content -replace '(?s)<!-- Premium Header -->.*?Header>', $header
+        # Regex to replace EVERYTHING from Premium Header comment until the start of <main>
+        $content = $content -replace '(?s)<!-- Premium Header -->.*?<main>', "$header`n    <main>"
         $content = $content -replace '(?s)<!-- Premium Footer -->.*?</footer>', $footer
         $content = $content -replace '(?s)<script src="https://unpkg.com/lucide@latest"></script>.*?<script>.*?</script>', $scriptBlock
         Set-Content $path $content
     }
 }
 
-# Depth 2 Update
 foreach ($f in $depth2Files) {
     $path = Join-Path $root $f
     if (Test-Path $path) {
         $content = Get-Content $path -Raw
         $header = Get-Header "../../"
         $footer = Get-Footer "../../"
-        $content = $content -replace '(?s)<!-- Premium Header -->.*?Header>', $header
+        $content = $content -replace '(?s)<!-- Premium Header -->.*?<main>', "$header`n    <main>"
         $content = $content -replace '(?s)<!-- Premium Footer -->.*?</footer>', $footer
         $content = $content -replace '(?s)<script src="https://unpkg.com/lucide@latest"></script>.*?<script>.*?</script>', $scriptBlock
         Set-Content $path $content
