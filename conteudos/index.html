@@ -14,36 +14,112 @@
 </head>
 <body class="bg-brand-50 font-sans text-brand-800">
     <!-- Header/Navigation -->
-    <header class="bg-white/95 backdrop-blur-md sticky top-0 z-50 border-b border-brand-100">
-        <nav class="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8" aria-label="Global">
+    <header class="bg-white/95 backdrop-blur-md sticky top-0 z-50 border-b border-gray-100 font-sans-body">
+        <nav class="mx-auto flex max-w-7xl items-center justify-between p-4 lg:px-8" aria-label="Global">
             <div class="flex lg:flex-1">
-                <a href="/home/" class="-m-1.5 p-1.5 font-serif text-2xl font-bold text-brand-700">
-                    Instituto <span class="text-brand-600">Ana Cândida</span>
+                <a href="/home/" class="font-serif-header text-xl md:text-2xl font-bold text-[#423022] tracking-tight">
+                    Instituto Ana Cândida
                 </a>
             </div>
-            <!-- Mobile Menu Toggle -->
+            
             <div class="flex lg:hidden">
                 <button type="button" class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">
                     <span class="sr-only">Abrir menu</span>
-                    <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                    <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
                     </svg>
                 </button>
             </div>
-            <!-- Desktop Links -->
-            <div class="hidden lg:flex lg:gap-x-8">
-                <a href="/home/o-instituto" class="flex items-center gap-1 text-sm font-medium leading-6 transition-colors py-2 text-gray-600 hover:text-brand-500">O Instituto</a>
-                <a href="/home/terapia-sistemica" class="flex items-center gap-1 text-sm font-medium leading-6 transition-colors py-2 text-gray-600 hover:text-brand-500">Terapia Sistêmica</a>
-                <a href="/home/atendimentos" class="flex items-center gap-1 text-sm font-medium leading-6 transition-colors py-2 text-gray-600 hover:text-brand-500">Atendimentos</a>
-                <a href="/home/equipe" class="flex items-center gap-1 text-sm font-medium leading-6 transition-colors py-2 text-gray-600 hover:text-brand-500">Equipe</a>
-                <a href="/home/galeria" class="flex items-center gap-1 text-sm font-medium leading-6 transition-colors py-2 text-gray-600 hover:text-brand-500">Galeria</a>
-                <a href="/home/conteudos" class="flex items-center gap-1 text-sm font-medium leading-6 transition-colors py-2 text-brand-600 hover:text-brand-500 font-bold border-b-2 border-brand-500">Conteúdos</a>
-                <a href="/home/contato" class="flex items-center gap-1 text-sm font-medium leading-6 transition-colors py-2 text-gray-600 hover:text-brand-500">Contato</a>
+
+            <div class="hidden lg:flex lg:gap-x-8 items-center">
+                <div class="relative group">
+                    <button class="flex items-center gap-1 text-sm font-medium text-gray-600 hover:text-[#bd9a77] transition-colors py-2">
+                        O Instituto
+                        <svg class="w-4 h-4 text-gray-400 group-hover:text-[#bd9a77] transition-colors" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd" />
+                        </svg>
+                    </button>
+                    <div class="dropdown-menu absolute left-0 top-full w-48 bg-white rounded-lg shadow-xl border border-gray-100 py-2 mt-1">
+                        <a href="/home/o-instituto" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-[#bd9a77]">Sobre Nós</a>
+                        <a href="/home/o-instituto#missao" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-[#bd9a77]">Missão e Valores</a>
+                        <a href="/home/o-instituto#trabalho" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-[#bd9a77]">Como Trabalhamos</a>
+                    </div>
+                </div>
+
+                <div class="relative group">
+                    <button class="flex items-center gap-1 text-sm font-medium text-gray-600 hover:text-[#bd9a77] transition-colors py-2">
+                        Terapia Sistêmica
+                        <svg class="w-4 h-4 text-gray-400 group-hover:text-[#bd9a77] transition-colors" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd" />
+                        </svg>
+                    </button>
+                    <div class="dropdown-menu absolute left-0 top-full w-48 bg-white rounded-lg shadow-xl border border-gray-100 py-2 mt-1">
+                        <a href="/home/terapia-sistemica" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-[#bd9a77]">O que é</a>
+                        <a href="/home/terapia-sistemica#para-quem" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-[#bd9a77]">Para quem é</a>
+                        <a href="/home/terapia-sistemica#primeira-sessao" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-[#bd9a77]">Primeira Sessão</a>
+                    </div>
+                </div>
+
+                <div class="relative group">
+                    <button class="flex items-center gap-1 text-sm font-medium text-gray-600 hover:text-[#bd9a77] transition-colors py-2">
+                        Atendimentos
+                        <svg class="w-4 h-4 text-gray-400 group-hover:text-[#bd9a77] transition-colors" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd" />
+                        </svg>
+                    </button>
+                    <div class="dropdown-menu absolute left-0 top-full w-48 bg-white rounded-lg shadow-xl border border-gray-100 py-2 mt-1">
+                        <a href="/home/atendimentos#individual" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-[#bd9a77]">Terapia Individual</a>
+                        <a href="/home/atendimentos#casal" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-[#bd9a77]">Terapia de Casal</a>
+                        <a href="/home/atendimentos#familiar" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-[#bd9a77]">Terapia Familiar</a>
+                    </div>
+                </div>
+
+                <a href="/home/equipe" class="text-sm font-medium text-gray-600 hover:text-[#bd9a77] transition-colors py-2">Equipe</a>
+                <a href="/home/galeria" class="text-sm font-medium text-gray-600 hover:text-[#bd9a77] transition-colors py-2">Galeria</a>
+                <a href="/home/conteudos" class="text-sm font-bold text-[#bd9a77] border-b-2 border-[#bd9a77] transition-colors py-2">Conteúdos</a>
+                <a href="/home/contato" class="text-sm font-medium text-gray-600 hover:text-[#bd9a77] transition-colors py-2">Contato</a>
             </div>
+
             <div class="hidden lg:flex lg:flex-1 lg:justify-end">
-                <a href="https://wa.me/5562981838006" target="_blank" class="inline-flex items-center justify-center rounded-md font-medium transition-colors bg-brand-500 text-white hover:bg-brand-600 shadow-sm h-9 px-3 text-sm">Agendar</a>
+                <a href="https://wa.me/5562981838006" target="_blank" class="btn-primary rounded-md px-6 py-2 text-sm font-semibold shadow-sm text-white">
+                    Agendar
+                </a>
             </div>
         </nav>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden lg:hidden" role="dialog" aria-modal="true">
+            <div class="fixed inset-0 z-50 bg-black/20 backdrop-blur-sm" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')"></div>
+            <div class="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10 shadow-2xl">
+                <div class="flex items-center justify-between">
+                    <a href="/home/" class="font-serif-header text-xl font-bold text-[#423022]">
+                        Instituto Ana Cândida
+                    </a>
+                    <button type="button" class="-m-2.5 rounded-md p-2.5 text-gray-700" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">
+                        <span class="sr-only">Fechar menu</span>
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </button>
+                </div>
+                <div class="mt-6 flow-root">
+                    <div class="-my-6 divide-y divide-gray-500/10">
+                        <div class="space-y-1 py-6">
+                            <a href="/home/o-instituto" class="block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">O Instituto</a>
+                            <a href="/home/terapia-sistemica" class="block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Terapia Sistêmica</a>
+                            <a href="/home/atendimentos" class="block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Atendimentos</a>
+                            <a href="/home/equipe" class="block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Equipe</a>
+                            <a href="/home/galeria" class="block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Galeria</a>
+                            <a href="/home/conteudos" class="block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Conteúdos</a>
+                            <a href="/home/contato" class="block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Contato</a>
+                        </div>
+                        <div class="py-6">
+                            <a href="https://wa.me/5562981838006" target="_blank" class="block rounded-md bg-[#bd9a77] px-3 py-4 text-center text-base font-semibold leading-7 text-white shadow-sm">Agendar</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </header>
 
     <main>
