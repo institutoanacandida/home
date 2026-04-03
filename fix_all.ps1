@@ -258,10 +258,27 @@ foreach ($f in $depth1Files) {
         $content = Get-Content $path -Raw
         $header = Get-Header "../"
         $footer = Get-Footer "../"
-        # Regex to replace EVERYTHING from Premium Header comment until the start of <main>
-        $content = $content -replace '(?s)<!-- Premium Header -->.*?<main>', "$header`n    <main>"
-        $content = $content -replace '(?s)<!-- Premium Footer -->.*?</footer>', $footer
+        
+        # Robust replacement: find <header> tag or comment
+        if ($content -match '(?s)<!-- Premium Header -->.*?<main>') {
+            $content = $content -replace '(?s)<!-- Premium Header -->.*?<main>', "$header`n    <main>"
+        } else {
+            $content = $content -replace '(?s)<header.*?>.*?</header>', $header
+        }
+
+        # Robust replacement for footer (even if comment is missing)
+        if ($content -match '(?s)<!-- Premium Footer -->.*?</footer>') {
+            $content = $content -replace '(?s)<!-- Premium Footer -->.*?</footer>', $footer
+        } else {
+            $content = $content -replace '(?s)<footer.*?>.*?</footer>', $footer
+        }
+        
+        # Robust replacement for Mobile Menu overlay
+        $content = $content -replace '(?s)<div id="mobile-menu".*?>.*?</div>', ""
+
+        # Robust script replacement
         $content = $content -replace '(?s)<script src="https://unpkg.com/lucide@latest"></script>.*?<script>.*?</script>', $scriptBlock
+        
         Set-Content $path $content
     }
 }
@@ -272,9 +289,27 @@ foreach ($f in $depth2Files) {
         $content = Get-Content $path -Raw
         $header = Get-Header "../../"
         $footer = Get-Footer "../../"
-        $content = $content -replace '(?s)<!-- Premium Header -->.*?<main>', "$header`n    <main>"
-        $content = $content -replace '(?s)<!-- Premium Footer -->.*?</footer>', $footer
+        
+        # Robust replacement for header
+        if ($content -match '(?s)<!-- Premium Header -->.*?<main>') {
+            $content = $content -replace '(?s)<!-- Premium Header -->.*?<main>', "$header`n    <main>"
+        } else {
+            $content = $content -replace '(?s)<header.*?>.*?</header>', $header
+        }
+
+        # Robust footer replacement
+        if ($content -match '(?s)<!-- Premium Footer -->.*?</footer>') {
+            $content = $content -replace '(?s)<!-- Premium Footer -->.*?</footer>', $footer
+        } else {
+            $content = $content -replace '(?s)<footer.*?>.*?</footer>', $footer
+        }
+
+        # Mobile Menu
+        $content = $content -replace '(?s)<div id="mobile-menu".*?>.*?</div>', ""
+
+        # Scripts
         $content = $content -replace '(?s)<script src="https://unpkg.com/lucide@latest"></script>.*?<script>.*?</script>', $scriptBlock
+        
         Set-Content $path $content
     }
 }
