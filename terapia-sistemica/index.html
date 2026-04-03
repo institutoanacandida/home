@@ -4,284 +4,189 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Terapia Sistêmica | Instituto Ana Cândida</title>
-    <meta name="description" content="Entenda como a Terapia Sistêmica pode ajudar você, seu casal ou sua família a construir relações mais saudáveis.">
+    <meta name="description" content="Entenda o que é a Terapia Sistêmica e como ela pode ajudar nas relações familiares e conjugais.">
     
-    <!-- Original CSS mapping -->
     <link rel="stylesheet" href="/home/assets/style.css">
-    
-    <!-- Favicon placeholder -->
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌷</text></svg>">
 </head>
-<body class="bg-brand-50 font-sans text-brand-800">
-    <!-- Header/Navigation -->
-    <header class="bg-white/95 backdrop-blur-md sticky top-0 z-50 border-b border-gray-100 font-sans-body">
-        <nav class="mx-auto flex max-w-7xl items-center justify-between p-4 lg:px-8" aria-label="Global">
-            <div class="flex lg:flex-1">
-                <a href="/home/" class="font-serif-header text-xl md:text-2xl font-bold tracking-tight logo-title">
-                    <span class="text-dark">Instituto</span>
-                    <span class="text-light">Ana Cândida</span>
+<body style="background-color: white; font-family: var(--font-sans); color: var(--brand-800);">
+    <!-- Premium Header -->
+    <header id="main-header" style="position: sticky; top: 0; z-index: 50; background-color: white; transition: all 0.3s ease; padding: 1rem 0; border-bottom: 1px solid var(--brand-100);">
+        <nav class="container-custom">
+            <div style="display: flex; align-items: center; justify-content: space-between;">
+                <a href="/home/" class="logo-link">
+                    <span style="color: var(--brand-900);">Instituto</span>
+                    <span style="color: var(--brand-500);">Ana Cândida</span>
                 </a>
-            </div>
-            
-            <div class="flex lg:hidden">
-                <button type="button" class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">
-                    <span class="sr-only">Abrir menu</span>
-                    <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-                    </svg>
+
+                <!-- Desktop Navigation -->
+                <div class="hidden lg:flex" style="gap: 2.5rem; align-items: center;">
+                    <div class="nav-item">
+                        <a href="/home/o-instituto" class="nav-link">
+                            O Instituto
+                            <svg class="nav-chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+                        </a>
+                        <div class="dropdown-menu">
+                            <a href="/home/o-instituto" class="dropdown-item">Sobre Nós</a>
+                            <a href="/home/o-instituto#missao" class="dropdown-item">Missão e Valores</a>
+                            <a href="/home/o-instituto#trabalho" class="dropdown-item">Como Trabalhamos</a>
+                        </div>
+                    </div>
+
+                    <div class="nav-item">
+                        <a href="/home/terapia-sistemica" class="nav-link" style="color: var(--brand-500); font-weight: 700;">
+                            Terapia Sistêmica
+                            <svg class="nav-chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+                        </a>
+                        <div class="dropdown-menu">
+                            <a href="/home/terapia-sistemica" class="dropdown-item">O que é</a>
+                            <a href="/home/terapia-sistemica#para-quem" class="dropdown-item">Para quem é</a>
+                            <a href="/home/terapia-sistemica#primeira-sessao" class="dropdown-item">Primeira Sessão</a>
+                        </div>
+                    </div>
+
+                    <div class="nav-item">
+                        <a href="/home/atendimentos" class="nav-link">
+                            Atendimentos
+                            <svg class="nav-chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+                        </a>
+                        <div class="dropdown-menu">
+                            <a href="/home/atendimentos#individual" class="dropdown-item">Terapia Individual</a>
+                            <a href="/home/atendimentos#casal" class="dropdown-item">Terapia de Casal</a>
+                            <a href="/home/atendimentos#familiar" class="dropdown-item">Terapia Familiar</a>
+                            <a href="/home/atendimentos#parentalidade" class="dropdown-item">Parentalidade</a>
+                        </div>
+                    </div>
+
+                    <a href="/home/equipe" class="nav-link">Equipe</a>
+                    <a href="/home/galeria" class="nav-link">Galeria</a>
+                    <a href="/home/conteudos" class="nav-link">Conteúdos</a>
+                    <a href="/home/contato" class="nav-link">Contato</a>
+
+                    <a href="https://wa.me/5562981838006" target="_blank" class="btn btn-primary btn-sm">Agendar</a>
+                </div>
+
+                <button class="lg:hidden" style="background: none; border: none; cursor: pointer; color: var(--brand-900);" onclick="toggleMobileMenu()">
+                    <i data-lucide="menu"></i>
                 </button>
             </div>
-
-            <div class="hidden lg:flex lg:gap-x-10 items-center">
-                <div class="relative group">
-                    <button class="flex items-center gap-1.5 text-sm font-medium text-gray-700 hover:text-[#bd9a77] transition-colors py-2">
-                        O Instituto
-                        <svg class="w-2.5 h-2.5 nav-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
-                        </svg>
-                    </button>
-                    <div class="dropdown-menu absolute left-0 top-full w-48 bg-white rounded-lg shadow-xl border border-gray-100 py-2 mt-1">
-                        <a href="/home/o-instituto" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-[#bd9a77]">Sobre Nós</a>
-                        <a href="/home/o-instituto#missao" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-[#bd9a77]">Missão e Valores</a>
-                        <a href="/home/o-instituto#trabalho" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-[#bd9a77]">Como Trabalhamos</a>
-                    </div>
-                </div>
-
-                <div class="relative group">
-                    <button class="flex items-center gap-1.5 text-sm font-bold text-[#bd9a77] py-2">
-                        Terapia Sistêmica
-                        <svg class="w-2.5 h-2.5 nav-chevron text-[#bd9a77] opacity-100" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
-                        </svg>
-                    </button>
-                    <div class="dropdown-menu absolute left-0 top-full w-48 bg-white rounded-lg shadow-xl border border-gray-100 py-2 mt-1">
-                        <a href="/home/terapia-sistemica" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-[#bd9a77]">O que é</a>
-                        <a href="/home/terapia-sistemica#para-quem" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-[#bd9a77]">Para quem é</a>
-                        <a href="/home/terapia-sistemica#primeira-sessao" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-[#bd9a77]">Primeira Sessão</a>
-                    </div>
-                </div>
-
-                <div class="relative group">
-                    <button class="flex items-center gap-1.5 text-sm font-medium text-gray-700 hover:text-[#bd9a77] transition-colors py-2">
-                        Atendimentos
-                        <svg class="w-2.5 h-2.5 nav-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
-                        </svg>
-                    </button>
-                    <div class="dropdown-menu absolute left-0 top-full w-48 bg-white rounded-lg shadow-xl border border-gray-100 py-2 mt-1">
-                        <a href="/home/atendimentos#individual" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-[#bd9a77]">Terapia Individual</a>
-                        <a href="/home/atendimentos#casal" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-[#bd9a77]">Terapia de Casal</a>
-                        <a href="/home/atendimentos#familiar" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-[#bd9a77]">Terapia Familiar</a>
-                    </div>
-                </div>
-
-                <a href="/home/equipe" class="text-sm font-medium text-gray-700 hover:text-[#bd9a77] transition-colors py-2">Equipe</a>
-                <a href="/home/galeria" class="text-sm font-medium text-gray-700 hover:text-[#bd9a77] transition-colors py-2">Galeria</a>
-                <a href="/home/conteudos" class="text-sm font-medium text-gray-700 hover:text-[#bd9a77] transition-colors py-2">Conteúdos</a>
-                <a href="/home/contato" class="text-sm font-medium text-gray-700 hover:text-[#bd9a77] transition-colors py-2">Contato</a>
-            </div>
-
-            <div class="hidden lg:flex lg:flex-1 lg:justify-end">
-                <a href="https://wa.me/5562981838006" target="_blank" class="btn-primary rounded-md px-6 py-2 text-sm font-semibold shadow-sm text-white">
-                    Agendar
-                </a>
-            </div>
         </nav>
-
-        <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden lg:hidden" role="dialog" aria-modal="true">
-            <div class="fixed inset-0 z-50 bg-black/20 backdrop-blur-sm" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')"></div>
-            <div class="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-9                <div class="flex items-center justify-between">
-                    <a href="/home/" class="font-serif-header text-xl font-bold logo-title">
-                        <span class="text-dark">Instituto</span>
-                        <span class="text-light">Ana Cândida</span>
-                    </a>
-                    <button type="button" class="-m-2.5 rounded-md p-2.5 text-gray-700" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">
-                        <span class="sr-only">Fechar menu</span>
-                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-                        </svg>
-                    </button>
-                </div>
-                <div class="mt-6 flow-root">
-                    <div class="-my-6 divide-y divide-gray-500/10">
-                        <div class="space-y-1 py-6">
-                            <!-- O Instituto Mobile Dropdown -->
-                            <div class="-mx-3">
-                                <button type="button" class="flex w-full items-center justify-between rounded-lg py-2 pl-3 pr-3.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50" onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('svg').classList.toggle('rotate-180')">
-                                    O Instituto
-                                    <svg class="h-5 w-5 flex-none transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
-                                    </svg>
-                                </button>
-                                <div class="hidden mt-2 space-y-2 ml-4">
-                                    <a href="/home/o-instituto" class="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-gray-50">Sobre Nós</a>
-                                    <a href="/home/o-instituto#missao" class="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-gray-50">Missão e Valores</a>
-                                    <a href="/home/o-instituto#trabalho" class="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-gray-50">Como Trabalhamos</a>
-                                </div>
-                            </div>
-
-                            <!-- Terapia Sistêmica Mobile Dropdown -->
-                            <div class="-mx-3">
-                                <button type="button" class="flex w-full items-center justify-between rounded-lg py-2 pl-3 pr-3.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50" onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('svg').classList.toggle('rotate-180')">
-                                    Terapia Sistêmica
-                                    <svg class="h-5 w-5 flex-none transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
-                                    </svg>
-                                </button>
-                                <div class="hidden mt-2 space-y-2 ml-4">
-                                    <a href="/home/terapia-sistemica" class="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-gray-50">O que é</a>
-                                    <a href="/home/terapia-sistemica#para-quem" class="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-gray-50">Para quem é</a>
-                                    <a href="/home/terapia-sistemica#primeira-sessao" class="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-gray-50">Primeira Sessão</a>
-                                </div>
-                            </div>
-
-                            <!-- Atendimentos Mobile Dropdown -->
-                            <div class="-mx-3">
-                                <button type="button" class="flex w-full items-center justify-between rounded-lg py-2 pl-3 pr-3.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50" onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('svg').classList.toggle('rotate-180')">
-                                    Atendimentos
-                                    <svg class="h-5 w-5 flex-none transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
-                                    </svg>
-                                </button>
-                                <div class="hidden mt-2 space-y-2 ml-4">
-                                    <a href="/home/atendimentos#individual" class="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-gray-50">Terapia Individual</a>
-                                    <a href="/home/atendimentos#casal" class="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-gray-50">Terapia de Casal</a>
-                                    <a href="/home/atendimentos#familiar" class="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-gray-50">Terapia Familiar</a>
-                                </div>
-                            </div>
-
-                            <a href="/home/equipe" class="block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Equipe</a>
-                            <a href="/home/galeria" class="block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Galeria</a>
-                            <a href="/home/conteudos" class="block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Conteúdos</a>
-                            <a href="/home/contato" class="block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Contato</a>
-                        </div>
-               </div>
-                        <div class="py-6">
-                            <a href="https://wa.me/5562981838006" target="_blank" class="block rounded-md bg-[#bd9a77] px-3 py-4 text-center text-base font-semibold leading-7 text-white shadow-sm">Agendar</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
     </header>
 
-    <main class="flex-grow">
-        <!-- Hero Section -->
-        <div class="bg-white py-24 sm:py-32">
-            <div class="mx-auto max-w-7xl px-6 lg:px-8">
-                <div class="mx-auto max-w-2xl text-center">
-                    <h1 class="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl font-serif">Terapia Sistêmica</h1>
-                    <p class="mt-6 text-lg leading-8 text-gray-600">Uma abordagem que olha para o todo, não apenas para as partes.</p>
+    <main>
+        <!-- Page Hero -->
+        <section style="background-color: var(--brand-50); padding: 6rem 0; text-align: center;">
+            <div class="container-custom">
+                <h1 style="font-size: clamp(2.5rem, 5vw, 3.5rem); color: var(--brand-900); margin-bottom: 1.5rem; font-family: var(--font-serif);">Terapia Sistêmica</h1>
+                <p style="font-size: 1.25rem; color: var(--brand-800); max-width: 750px; margin: 0 auto; line-height: 1.6; opacity: 0.8;">
+                    Uma abordagem que olha para o todo, não apenas para as partes.
+                </p>
+            </div>
+        </section>
+
+        <!-- Content Section -->
+        <section style="padding: 100px 0;">
+            <div class="container-custom" style="max-width: 900px;">
+                <div class="prose" style="color: var(--brand-800); line-height: 1.8; font-size: 1.125rem;">
+                    <h2 style="font-family: var(--font-serif); font-size: 2rem; color: var(--brand-900); margin-bottom: 1.5rem;">O que é?</h2>
+                    <p style="margin-bottom: 2rem;">
+                        A Terapia Sistêmica é uma abordagem da psicologia que compreende o indivíduo integrado ao seu contexto e às suas relações. Imagine um móbile: se você toca em uma peça, todas as outras se movimentam. Assim funcionam as famílias e os relacionamentos.
+                    </p>
+                    <p style="margin-bottom: 3rem;">
+                        Não buscamos "culpados", mas sim entender os padrões de funcionamento que estão gerando sofrimento e buscar novas formas de interação mais saudáveis.
+                    </p>
+
+                    <h2 style="font-family: var(--font-serif); font-size: 2rem; color: var(--brand-900); margin-bottom: 1.5rem;">Como ajuda?</h2>
+                    <p style="margin-bottom: 1.5rem;">Esta abordagem é especialmente eficaz para:</p>
+                    <ul style="list-style: none; padding-left: 0; margin-bottom: 3rem; display: flex; flex-direction: column; gap: 1rem;">
+                        <li style="display: flex; align-items: flex-start; gap: 1rem;">
+                            <i data-lucide="check-circle" style="color: var(--brand-500); margin-top: 5px;"></i>
+                            <span>Melhorar a comunicação entre casais e familiares.</span>
+                        </li>
+                        <li style="display: flex; align-items: flex-start; gap: 1rem;">
+                            <i data-lucide="check-circle" style="color: var(--brand-500); margin-top: 5px;"></i>
+                            <span>Atravessar momentos de crise (divórcio, luto, perda de emprego).</span>
+                        </li>
+                        <li style="display: flex; align-items: flex-start; gap: 1rem;">
+                            <i data-lucide="check-circle" style="color: var(--brand-500); margin-top: 5px;"></i>
+                            <span>Lidar com problemas de comportamento em crianças e adolescentes.</span>
+                        </li>
+                        <li style="display: flex; align-items: flex-start; gap: 1rem;">
+                            <i data-lucide="check-circle" style="color: var(--brand-500); margin-top: 5px;"></i>
+                            <span>Compreender padrões repetitivos na sua vida.</span>
+                        </li>
+                    </ul>
+
+                    <h2 style="font-family: var(--font-serif); font-size: 2rem; color: var(--brand-900); margin-bottom: 1.5rem;">O que esperar da primeira sessão?</h2>
+                    <p style="margin-bottom: 3rem;">
+                        A primeira sessão é um momento de conhecimento mútuo. O terapeuta irá ouvir sua história, entender o motivo da busca por ajuda e explicar como o processo funciona. É um espaço seguro, sem julgamentos.
+                    </p>
+
+                    <h2 style="font-family: var(--font-serif); font-size: 2rem; color: var(--brand-900); margin-bottom: 1.5rem;">Quando buscar ajuda?</h2>
+                    <p style="margin-bottom: 4rem;">
+                        Se você sente que os conflitos estão constantes, que a comunicação travou, ou que está passando por um momento de mudança difícil de gerenciar sozinho, a terapia pode ser um grande suporte.
+                    </p>
                 </div>
 
-                <!-- Content Grid -->
-                <div class="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-none">
-                    <dl class="grid max-w-xl grid-cols-1 gap-x-8 gap-y-16 lg:max-w-none lg:grid-cols-3">
-                        
-                        <!-- O que é? -->
-                        <div class="flex flex-col">
-                            <dt class="flex items-center gap-x-3 text-base font-semibold leading-7 text-gray-900">
-                                <div class="h-10 w-10 flex-none items-center justify-center rounded-lg bg-brand-500 text-white flex">
-                                    <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0121 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0112 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 013 12c0-.856.12-1.683.342-2.466" />
-                                    </svg>
-                                </div>
-                                O que é?
-                            </dt>
-                            <dd class="mt-4 flex flex-auto flex-col text-base leading-7 text-gray-600">
-                                <p class="flex-auto">A Terapia Sistêmica é uma abordagem da psicologia que compreende o indivíduo integrado ao seu contexto e às suas relações. Imagine um móbile: se você toca em uma peça, todas as outras se movimentam. Assim funcionam as famílias e os relacionamentos.</p>
-                                <p class="mt-4">Não buscamos "culpados", mas sim entender os padrões de funcionamento que estão gerando sofrimento e buscar novas formas de interação mais saudáveis.</p>
-                            </dd>
-                        </div>
-
-                        <!-- Como ajuda? -->
-                        <div class="flex flex-col">
-                            <dt class="flex items-center gap-x-3 text-base font-semibold leading-7 text-gray-900">
-                                <div class="h-10 w-10 flex-none items-center justify-center rounded-lg bg-brand-500 text-white flex">
-                                    <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="M18 18.72a9.094 9.094 0 003.741-4.72M15 10.5V1.5M12 18a3 3 0 003-3v-4.5a3 3 0 00-3-3 3 3 0 00-3 3V15a3 3 0 003 3zM3 13.5a9.094 9.094 0 003.741 4.72M9 10.5V1.5m-3 12a3 3 0 10-6 0v1.5a3 3 0 003 3h3a3 3 0 003-3v-1.5z" />
-                                    </svg>
-                                </div>
-                                Como ajuda?
-                            </dt>
-                            <dd class="mt-4 flex flex-auto flex-col text-base leading-7 text-gray-600">
-                                <p class="flex-auto">Esta abordagem é especialmente eficaz para:</p>
-                                <ul class="mt-4 space-y-3">
-                                    <li class="flex gap-x-3">
-                                        <span class="text-brand-500">•</span>
-                                        <span>Melhorar a comunicação entre casais e familiares.</span>
-                                    </li>
-                                    <li class="flex gap-x-3">
-                                        <span class="text-brand-500">•</span>
-                                        <span>Atravessar momentos de crise (divórcio, luto, perda de emprego).</span>
-                                    </li>
-                                    <li class="flex gap-x-3">
-                                        <span class="text-brand-500">•</span>
-                                        <span>Lidar com problemas de comportamento em crianças e adolescentes.</span>
-                                    </li>
-                                    <li class="flex gap-x-3">
-                                        <span class="text-brand-500">•</span>
-                                        <span>Compreender padrões repetitivos na sua vida.</span>
-                                    </li>
-                                </ul>
-                            </dd>
-                        </div>
-
-                        <!-- O que esperar? -->
-                        <div class="flex flex-col">
-                            <dt class="flex items-center gap-x-3 text-base font-semibold leading-7 text-gray-900">
-                                <div class="h-10 w-10 flex-none items-center justify-center rounded-lg bg-brand-500 text-white flex">
-                                    <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="M15.19 3.07a11.953 11.953 0 015.23 5.23M18.72 9l.445.71a2.25 2.25 0 010 2.39l-.445.71m-2.83 2.83l-.71-.445a2.25 2.25 0 00-2.39 0l-.71.445m-2.83-2.83l.445-.71a2.25 2.25 0 000-2.39L9 9m2.83-2.83l.71.445a2.25 2.25 0 012.39 0l.71-.445m-4.243 4.243a4.5 4.5 0 116.364 6.364 4.5 4.5 0 01-6.364-6.364z" />
-                                    </svg>
-                                </div>
-                                O que esperar?
-                            </dt>
-                            <dd class="mt-4 flex flex-auto flex-col text-base leading-7 text-gray-600">
-                                <p class="flex-auto">A primeira sessão é um momento de conhecimento mútuo. O terapeuta irá ouvir sua história, entender o motivo da busca por ajuda e explicar como o processo funciona. É um espaço seguro, sem julgamentos.</p>
-                            </dd>
-                        </div>
-                    </dl>
+                <!-- Warning Block -->
+                <div style="background-color: #fffbeb; border-left: 4px solid #facc15; padding: 2rem; border-radius: 0 1rem 1rem 0; display: flex; gap: 1.5rem; margin-bottom: 4rem;">
+                    <i data-lucide="alert-triangle" style="color: #ca8a04; flex-shrink: 0;"></i>
+                    <div>
+                        <h3 style="color: #854d0e; font-weight: 700; margin-bottom: 0.5rem; font-size: 1.125rem;">Aviso Importante</h3>
+                        <p style="color: #a16207; font-size: 0.9375rem; line-height: 1.5;">
+                            Este site é informativo. A terapia é um processo de médio a longo prazo. Em caso de emergência psiquiátrica ou risco de vida, não aguarde: procure imediatamente um pronto-socorro ou ligue 188 (CVV).
+                        </p>
+                    </div>
                 </div>
 
-                <!-- Call to Action -->
-                <div class="mt-16 flex justify-center">
-                    <a href="https://wa.me/5562981838006" target="_blank" class="inline-flex items-center justify-center rounded-md font-medium transition-colors bg-brand-500 text-white hover:bg-brand-600 shadow-sm h-14 px-8 text-lg">Agendar Consulta</a>
+                <div style="text-align: center;">
+                    <a href="/home/agendar" class="btn btn-primary btn-lg">Agendar Consulta Inicial</a>
                 </div>
             </div>
-        </div>
+        </section>
     </main>
 
-    <!-- Footer -->
-    <footer class="bg-brand-900 text-white py-12">
-        <div class="mx-auto max-w-7xl px-6 lg:px-8">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-12">
-                <div class="col-span-2">
-                    <h3 class="font-serif text-2xl font-bold mb-6">Instituto <span class="text-brand-400">Ana Cândida</span></h3>
-                    <p class="text-brand-200 max-w-md">Especialistas em Terapia Sistêmica, acompanhando indivíduos, casais e famílias em sua trajetória de saúde emocional e fortalecimento de vínculos.</p>
+    <!-- Premium Footer -->
+    <footer style="background-color: var(--brand-900); color: white; padding: 80px 0 40px 0;">
+        <div class="container-custom">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 4rem; margin-bottom: 60px;">
+                <div style="grid-column: span 1.5;">
+                    <a href="/home/" class="logo-link" style="font-size: 1.75rem; margin-bottom: 1.5rem; display: block;">
+                        <span style="color: white;">Instituto</span>
+                        <span style="color: var(--brand-400);">Ana Cândida</span>
+                    </a>
                 </div>
                 <div>
-                    <h4 class="font-bold mb-6">Menu</h4>
-                    <ul class="space-y-4 text-brand-300">
-                        <li><a href="/home/o-instituto" class="hover:text-white transition-colors">O Instituto</a></li>
-                        <li><a href="/home/equipe" class="hover:text-white transition-colors">Equipe</a></li>
-                        <li><a href="/home/galeria" class="hover:text-white transition-colors">Galeria</a></li>
-                        <li><a href="/home/contato" class="hover:text-white transition-colors">Contato</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="font-bold mb-6">Redes</h4>
-                    <ul class="space-y-4 text-brand-300">
-                        <li><a href="https://instagram.com/institutoanacandida" target="_blank" class="hover:text-white transition-colors">Instagram</a></li>
-                        <li><a href="https://wa.me/5562981838006" target="_blank" class="hover:text-white transition-colors">WhatsApp</a></li>
+                    <h4 style="font-family: var(--font-serif); font-size: 1.25rem; margin-bottom: 2rem; color: white;">Atendimentos</h4>
+                    <ul style="list-style: none; display: flex; flex-direction: column; gap: 1rem;">
+                        <li><a href="/home/atendimentos#individual" style="color: var(--brand-200); text-decoration: none;">Terapia Individual</a></li>
+                        <li><a href="/home/atendimentos#casal" style="color: var(--brand-200); text-decoration: none;">Terapia de Casal</a></li>
+                        <li><a href="/home/atendimentos#familiar" style="color: var(--brand-200); text-decoration: none;">Terapia Familiar</a></li>
                     </ul>
                 </div>
             </div>
-            <div class="mt-12 pt-8 border-t border-brand-800 text-center text-brand-400 text-sm">
+            <div style="border-top: 1px solid rgba(255,255,255,0.1); padding-top: 40px; text-align: center; font-size: 0.875rem; color: var(--brand-300);">
                 <p>&copy; 2026 Instituto Ana Cândida. Todos os direitos reservados.</p>
             </div>
         </div>
     </footer>
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        lucide.createIcons();
+        
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('main-header');
+            if (window.scrollY > 20) {
+                header.style.backgroundColor = 'rgba(255, 255, 255, 0.95)';
+                header.style.backdropFilter = 'blur(8px)';
+                header.style.boxShadow = '0 1px 3px rgba(0,0,0,0.1)';
+            } else {
+                header.style.backgroundColor = 'white';
+                header.style.backdropFilter = 'none';
+                header.style.boxShadow = 'none';
+            }
+        });
+    </script>
 </body>
 </html>
