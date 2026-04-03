@@ -64,8 +64,8 @@ function Get-Header($depthPath) {
     <header id="main-header" style="background-color: #FFFFFF; border-bottom: 1px solid #EAE1D8; position: sticky; top: 0; z-index: 1000;">
         <nav class="container-custom" style="padding: 0 2rem;">
             <div style="display: flex; align-items: center; width: 100%; justify-content: space-between; height: 80px;">
-                <a href="$depthPath" style="flex-shrink: 0; font-size: 1.25rem; text-decoration: none; font-family: 'Playfair Display', serif; font-weight: 700; color: #483525;">
-                    <span>Instituto</span> <span style="color: #9C7C5F;">Ana Cândida</span>
+                <a href="$depthPath" style="display: flex; align-items: center; text-decoration: none; height: 100%;">
+                    <img src="https://i.ibb.co/vvPV65rT/ana-candida-s-f.png" alt="Instituto Ana Cândida" style="height: 48px; width: auto; object-fit: contain;">
                 </a>
                 
                 <div class="hidden lg:flex items-center" style="gap: 2.2rem; height: 100%;">
@@ -122,8 +122,8 @@ function Get-Header($depthPath) {
     <!-- Mobile Menu Overlay -->
     <div id="mobile-menu" class="hidden" style="position: fixed; inset: 0; background: white; z-index: 2000; padding: 2rem; display: none; flex-direction: column; overflow-y: auto;">
         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
-            <a href="$depthPath" style="font-size: 1.25rem; font-family: 'Playfair Display', serif; font-weight: 700; color: #483525; text-decoration: none;">
-                <span>Instituto</span> <span style="color: #9C7C5F;">Ana Cândida</span>
+            <a href="$depthPath" style="display: flex; align-items: center; text-decoration: none; margin-bottom: 1rem;">
+                <img src="https://i.ibb.co/vvPV65rT/ana-candida-s-f.png" alt="Instituto Ana Cândida" style="height: 45px; width: auto; object-fit: contain;">
             </a>
             <button onclick="toggleMobileMenu()" style="background: none; border: none; cursor: pointer; color: #483525;"><i data-lucide="x"></i></button>
         </div>
@@ -150,7 +150,9 @@ function Get-Footer($depthPath) {
             <div class="footer-grid">
                 <!-- Col 1: Brand & Social -->
                 <div>
-                    <h3 style="font-family: 'Playfair Display', serif; font-size: 1.5rem; margin-bottom: 1.5rem; font-weight: 700; color: #FDFBFA !important;">Instituto Ana Cândida</h3>
+                    <a href="${depthPath}" style="display: block; margin-bottom: 1.5rem;">
+                        <img src="https://i.ibb.co/vvPV65rT/ana-candida-s-f.png" alt="Instituto Ana Cândida" style="height: 50px; width: auto; object-fit: contain; filter: brightness(0) invert(1);">
+                    </a>
                     <p style="opacity: 0.9; line-height: 1.6; margin-bottom: 2rem; font-size: 0.95rem; color: #FDFBFA !important;">Cuidado relacional com base na Terapia Sistêmica. Acolhimento, ética e ciência para casais e famílias.</p>
                     <div style="display: flex; gap: 1.5rem; align-items: center;">
                         <a href="https://instagram.com" target="_blank" style="color: #FDFBFA !important; text-decoration: none;" aria-label="Instagram">

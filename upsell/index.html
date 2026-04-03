@@ -14,151 +14,55 @@
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-    <style>
+        <style>
         :root {
-            --color-rosa-nude: #D8C2BB;
-            --color-rosa-suave: #E9D6CF;
-            --color-bege-claro: #F4EDE8;
-            --color-branco-suave: #FAF7F5;
-            --color-dourado-quente: #C49A5A;
-            --color-dourado-intenso: #B8893F;
-            --color-marrom-profundo: #5A4636;
-            --color-marrom-suave: #7A6253;
-            --font-heading: 'Playfair Display', serif;
-            --font-body: 'Montserrat', sans-serif;
-            --transition: all 0.3s ease;
+            --brand-900: #483525;
+            --brand-800: #5D4632;
+            --brand-500: #9C7C5F;
+            --brand-100: #EAE1D8;
+            --brand-50: #FDFBFA;
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+        /* Fixed Interactive Dropdowns */
+        .nav-item-dropdown { position: relative; padding: 1rem 0; cursor: pointer; }
+        .nav-link-main { display: flex; align-items: center; gap: 0.4rem; font-size: 0.9rem; font-weight: 500; color: #483525; text-decoration: none; font-family: 'Montserrat', sans-serif; }
+        .dropdown-menu { 
+            position: absolute; top: 100%; left: 50%; transform: translateX(-50%) translateY(10px);
+            min-width: 260px; background: white; border: 1px solid var(--brand-100); 
+            border-radius: 1rem; box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1);
+            opacity: 0; visibility: hidden; transition: all 0.25s ease; z-index: 9999; padding: 0.75rem 0;
+            pointer-events: none;
+        }
+        /* Hover Area Bridge to prevent closing */
+        .nav-item-dropdown::after { content: ''; position: absolute; top: 80%; left: 0; width: 100%; height: 25px; }
+        .nav-item-dropdown:hover .dropdown-menu { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0); pointer-events: auto; }
+        
+        .dropdown-item { 
+            display: block; padding: 0.75rem 1.5rem; font-size: 0.875rem; color: var(--brand-900); 
+            text-decoration: none; transition: all 0.2s; font-family: 'Montserrat', sans-serif; font-weight: 500;
+        }
+        .dropdown-item:hover { background: var(--brand-50); color: var(--brand-500); padding-left: 1.75rem; }
+        .chevron-icon { width: 14px; height: 14px; opacity: 0.5; transition: transform 0.3s; }
+        .nav-item-dropdown:hover .chevron-icon { transform: rotate(180deg); opacity: 1; color: var(--brand-500); }
 
-        body {
-            font-family: var(--font-body);
-            color: var(--color-marrom-profundo);
-            background-color: var(--color-branco-suave);
-            line-height: 1.6;
+        /* Forced 5-Column Footer Grid */
+        .footer-grid { 
+            display: grid; grid-template-columns: 1fr; gap: 3rem; margin-bottom: 4rem; 
+        }
+        @media (min-width: 1024px) {
+            .footer-grid { grid-template-columns: repeat(5, 1fr); }
         }
 
-        .urgency-bar {
-            background-color: var(--color-marrom-profundo);
-            color: #fff;
-            text-align: center;
-            padding: 10px;
-            font-size: 0.85rem;
-            font-weight: 500;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-        }
+        /* FAQ Accordion */
+        .faq-container { background: white; border-radius: 1.5rem; border: 1px solid var(--brand-100); padding: 1rem 1.5rem; }
+        .accordion-item { border-bottom: 1px solid var(--brand-100); }
+        .accordion-header { width: 100%; display: flex; justify-content: space-between; align-items: center; background: none; border: none; padding: 1.5rem 0; text-align: left; cursor: pointer; font-size: 1rem; font-weight: 500; color: var(--brand-900); }
+        .accordion-content { max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out; color: #666; line-height: 1.6; }
+        .accordion-item.active .accordion-content { max-height: 400px; padding-bottom: 1.5rem; }
 
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        section { padding: 60px 0; }
-
-        h1, h2, h3 { font-family: var(--font-heading); font-weight: 700; color: var(--color-marrom-profundo); }
-
-        .hero { text-align: center; padding-top: 40px; }
-        .hero h1 { font-size: 2.5rem; line-height: 1.2; margin-bottom: 20px; }
-        .hero p { font-size: 1.2rem; color: var(--color-marrom-suave); margin-bottom: 30px; }
-
-        .product-intro { background-color: var(--color-bege-claro); border-radius: 20px; padding: 40px; margin: 40px 0; }
-        .product-intro p { font-size: 1.1rem; margin-bottom: 20px; }
-
-        .feature-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-top: 30px; }
-        .feature-item { text-align: left; }
-        .feature-item i { color: var(--color-dourado-quente); font-size: 1.5rem; margin-bottom: 15px; }
-        .feature-item h3 { font-size: 1.2rem; margin-bottom: 10px; }
-
-        .benefits-list { list-style: none; margin: 40px 0; }
-        .benefits-list li { margin-bottom: 15px; display: flex; align-items: start; gap: 15px; font-size: 1.1rem; }
-        .benefits-list i { color: var(--color-dourado-quente); margin-top: 5px; }
-
-        .price-box {
-            background: #fff;
-            border: 2px solid var(--color-dourado-quente);
-            border-radius: 20px;
-            padding: 40px;
-            text-align: center;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.05);
-            margin: 40px 0;
-        }
-        .price-old { text-decoration: line-through; color: #888; font-size: 1.2rem; }
-        .price-new { display: block; font-size: 3.5rem; font-family: var(--font-heading); color: var(--color-dourado-intenso); margin: 10px 0; }
-
-        .btn-cta {
-            display: table;
-            margin: 20px auto 0;
-            background-color: var(--color-dourado-quente);
-            color: #fff;
-            padding: 20px 40px;
-            border-radius: 50px;
-            font-weight: 600;
-            text-transform: uppercase;
-            font-size: 1.1rem;
-            transition: var(--transition);
-            box-shadow: 0 10px 20px rgba(196, 154, 90, 0.3);
-            text-decoration: none;
-        }
-        .btn-cta:hover { background-color: var(--color-dourado-intenso); transform: translateY(-3px); }
-
-        .decline-link {
-            display: block;
-            margin: 20px auto;
-            text-align: center;
-            font-size: 0.85rem;
-            color: var(--color-marrom-suave);
-            text-decoration: underline;
-            opacity: 0.7;
-            transition: var(--transition);
-        }
-        .decline-link:hover { opacity: 1; color: var(--color-marrom-profundo); }
-
-        .bonus-section { background-color: var(--color-marrom-profundo); color: #fff; border-radius: 20px; padding: 40px; text-align: center; }
-        .bonus-badge { background-color: var(--color-dourado-quente); color: #fff; padding: 5px 15px; border-radius: 5px; font-size: 0.8rem; font-weight: 700; display: inline-block; margin-bottom: 15px; }
-        .bonus-section h2 { color: var(--color-rosa-nude); }
-
-        /* Video Section */
-        .video-wrapper {
-            max-width: 700px;
-            margin: 40px auto;
-            background: #fff;
-            padding: 15px;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-            border: 1px solid var(--color-bege-claro);
-        }
-
-        .video-container {
-            position: relative;
-            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
-            height: 0;
-            overflow: hidden;
-            border-radius: 12px;
-            background: #000;
-        }
-
-        .video-container iframe,
-        .video-container video {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border: 0;
-        }
-
-        .testimonials { background-color: var(--color-rosa-nude); padding: 80px 0; margin-top: 60px; }
-        .testimonial-card { background: #fff; padding: 30px; border-radius: 15px; margin-bottom: 20px; font-style: italic; }
-
-        footer { text-align: center; padding: 40px 0; font-size: 0.9rem; opacity: 0.7; }
-
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 1.8rem; }
-            .feature-grid { grid-template-columns: 1fr; }
-            .price-new { font-size: 2.5rem; }
-        }
+        /* Floating Button */
+        #scroll-top { position: fixed; bottom: 2rem; right: 2rem; width: 48px; height: 48px; background: var(--brand-900); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1); cursor: pointer; transition: all 0.3s; z-index: 100; opacity: 0; visibility: hidden; border: none; }
+        #scroll-top.show { opacity: 1; visibility: visible; }
     </style>
 </head>
 <body>
@@ -243,21 +147,25 @@
         </div>
     </main>
 
-    <!-- Premium Footer -->
-    <footer style="background-color: #483525 !important; color: #FDFBFA !important; padding: 5rem 0 3rem; position: relative; z-index: 50; width: 100%;">
-        <div style="max-width: 1100px; margin: 0 auto; padding: 0 2rem;">
-            <!-- Footer Grid -->
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 3rem; margin-bottom: 4rem;">
+        <!-- Premium Footer -->
+    <footer style="background-color: var(--brand-900); color: #FDFBFA !important; padding: 5rem 0 3rem; position: relative; z-index: 50; width: 100%;">
+        <div class="container-custom">
+            <div class="footer-grid">
                 <!-- Col 1: Brand & Social -->
                 <div>
-                    <h3 style="font-family: 'Playfair Display', serif; font-size: 1.5rem; margin-bottom: 1.5rem; font-weight: 700; color: #FDFBFA !important;">Instituto Ana Cândida</h3>
+                    <a href="../" style="display: block; margin-bottom: 1.5rem;">
+                        <img src="https://i.ibb.co/vvPV65rT/ana-candida-s-f.png" alt="Instituto Ana Cândida" style="height: 50px; width: auto; object-fit: contain; filter: brightness(0) invert(1);">
+                    </a>
                     <p style="opacity: 0.9; line-height: 1.6; margin-bottom: 2rem; font-size: 0.95rem; color: #FDFBFA !important;">Cuidado relacional com base na Terapia Sistêmica. Acolhimento, ética e ciência para casais e famílias.</p>
                     <div style="display: flex; gap: 1.5rem; align-items: center;">
-                        <a href="https://instagram.com/institutoanacandida" target="_blank" style="color: #FDFBFA !important; text-decoration: none;"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></a>
-                        <a href="https://linkedin.com" target="_blank" style="color: #FDFBFA !important; text-decoration: none;"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg></a>
+                        <a href="https://instagram.com" target="_blank" style="color: #FDFBFA !important; text-decoration: none;" aria-label="Instagram">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                        </a>
+                        <a href="https://linkedin.com" target="_blank" style="color: #FDFBFA !important; text-decoration: none;" aria-label="LinkedIn">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+                        </a>
                     </div>
                 </div>
-
                 <!-- Col 2: Institucional -->
                 <div>
                     <h4 style="font-family: 'Playfair Display', serif; font-size: 1.1rem; margin-bottom: 1.5rem; font-weight: 700; color: #FDFBFA !important;">Institucional</h4>
@@ -268,53 +176,52 @@
                         <li><a href="../conteudos" style="color: #FDFBFA !important; text-decoration: none; opacity: 0.8;">Blog</a></li>
                     </ul>
                 </div>
-
                 <!-- Col 3: Contato -->
                 <div>
                     <h4 style="font-family: 'Playfair Display', serif; font-size: 1.1rem; margin-bottom: 1.5rem; font-weight: 700; color: #FDFBFA !important;">Contato</h4>
                     <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 1.2rem;">
-                        <li style="display: flex; align-items: flex-start; gap: 0.75rem; color: #FDFBFA !important; opacity: 0.9;">
-                            <i data-lucide="map-pin" size="18"></i>
-                            <span>Village, Goiânia-GO</span>
-                        </li>
-                        <li style="display: flex; align-items: center; gap: 0.75rem; color: #FDFBFA !important; opacity: 0.9;">
-                            <i data-lucide="phone" size="18"></i>
-                            <span>(62) 98183-8006</span>
-                        </li>
+                        <li style="display: flex; align-items: flex-start; gap: 0.75rem; color: #FDFBFA !important; opacity: 0.9;"><i data-lucide="map-pin" style="width: 18px; height: 18px; flex-shrink: 0; margin-top: 0.2rem;"></i><span>Village, Goiânia-GO</span></li>
+                        <li style="display: flex; align-items: center; gap: 0.75rem; color: #FDFBFA !important; opacity: 0.9;"><i data-lucide="phone" style="width: 18px; height: 18px; flex-shrink: 0;"></i><span>(62) 98183-8006</span></li>
+                        <li style="display: flex; align-items: flex-start; gap: 0.75rem; color: #FDFBFA !important; opacity: 0.9;"><i data-lucide="mail" style="width: 18px; height: 18px; flex-shrink: 0; margin-top: 0.2rem;"></i><span style="word-break: break-all;">contato@institutoanacandida.com.br</span></li>
                     </ul>
                 </div>
-
                 <!-- Col 4: Legal -->
                 <div>
                     <h4 style="font-family: 'Playfair Display', serif; font-size: 1.1rem; margin-bottom: 1.5rem; font-weight: 700; color: #FDFBFA !important;">Legal</h4>
                     <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.8rem;">
                         <li><a href="../privacidade" style="color: #FDFBFA !important; text-decoration: none; opacity: 0.8;">Privacidade (LGPD)</a></li>
                         <li><a href="../termos" style="color: #FDFBFA !important; text-decoration: none; opacity: 0.8;">Termos de Uso</a></li>
+                        <li><a href="#" style="color: #FDFBFA !important; text-decoration: none; opacity: 0.8;">Política de Remarcação</a></li>
                     </ul>
                 </div>
-
-                <!-- Col 5: Aviso Importante -->
+                <!-- Col 5: Aviso Important -->
                 <div>
                     <h4 style="font-family: 'Playfair Display', serif; font-size: 1.1rem; margin-bottom: 1.5rem; font-weight: 700; color: #FDFBFA !important;">Aviso Importante</h4>
                     <p style="opacity: 0.9; line-height: 1.6; font-size: 0.9rem; color: #FDFBFA !important;">Este site não oferece atendimento de emergência. Em caso de crise, procure o hospital mais próximo ou ligue 188 (CVV).</p>
                 </div>
             </div>
-
-            <!-- Separator -->
             <div style="border-top: 1px solid rgba(253, 251, 250, 0.1); padding-top: 2rem; text-align: center;">
                 <p style="opacity: 0.7; font-size: 0.875rem; color: #FDFBFA !important;">&copy; 2026 Instituto Ana Cândida. Todos os direitos reservados.</p>
             </div>
         </div>
     </footer>
+    <button id="scroll-top" title="Voltar ao topo"><i data-lucide="chevron-up"></i></button>
 
-    <script src="https://unpkg.com/lucide@latest"></script>
+        <script src="https://unpkg.com/lucide@latest"></script>
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            lucide.createIcons();
+        document.addEventListener('DOMContentLoaded', () => { lucide.createIcons(); });
+        function toggleMobileMenu() { const m = document.getElementById('mobile-menu'); m.style.display = (m.style.display === 'flex') ? 'none' : 'flex'; }
+        window.addEventListener('scroll', () => { 
+            const header = document.getElementById('main-header');
+            const b = document.getElementById('scroll-top'); 
+            if(window.scrollY > 20) header.classList.add('scrolled'); else header.classList.remove('scrolled');
+            if(window.scrollY > 500) b.classList.add('show'); else b.classList.remove('show'); 
         });
+        document.getElementById('scroll-top')?.addEventListener('click', () => window.scrollTo({top: 0, behavior: 'smooth'}));
     </script>
 
 </body>
 </html>
+
 
 
