@@ -8,7 +8,7 @@
     
     <link rel="stylesheet" href="../assets/style.css">
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌷</text></svg>">
-        <style>
+            <style>
         :root {
             --brand-900: #483525;
             --brand-800: #5D4632;
@@ -57,10 +57,18 @@
         /* Floating Button */
         #scroll-top { position: fixed; bottom: 2rem; right: 2rem; width: 48px; height: 48px; background: var(--brand-900); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1); cursor: pointer; transition: all 0.3s; z-index: 100; opacity: 0; visibility: hidden; border: none; }
         #scroll-top.show { opacity: 1; visibility: visible; }
+
+        /* Mobile Accordion Styles */
+        .mobile-nav-item { border-bottom: 1px solid #f0f0f0; }
+        .mobile-nav-btn { width: 100%; display: flex; justify-content: space-between; align-items: center; padding: 1rem 0; background: none; border: none; font-family: 'Montserrat', sans-serif; font-weight: 600; color: #483525; font-size: 1rem; cursor: pointer; text-align: left; }
+        .mobile-nav-content { max-height: 0; overflow: hidden; transition: all 0.3s ease; display: flex; flex-direction: column; padding-left: 1rem; background: #fafafa; border-radius: 0.5rem; }
+        .mobile-nav-item.active .mobile-nav-content { max-height: 300px; padding-bottom: 1rem; margin-bottom: 0.5rem; }
+        .mobile-nav-item.active .chevron-mobile { transform: rotate(180deg); }
+        .mobile-link-sub { display: block; padding: 0.75rem 0; color: #5D4632; text-decoration: none; font-size: 0.9rem; font-family: 'Montserrat', sans-serif; }
     </style>
 </head>
 <body style="background-color: white; font-family: var(--font-sans); color: var(--brand-800);">
-        <!-- Premium Header -->
+            <!-- Premium Header -->
     <header id="main-header" style="background-color: #FFFFFF; border-bottom: 1px solid #EAE1D8; position: sticky; top: 0; z-index: 1000;">
         <nav class="container-custom" style="padding: 0 2rem;">
             <div style="display: flex; align-items: center; width: 100%; justify-content: space-between; height: 80px;">
@@ -127,15 +135,53 @@
             </a>
             <button onclick="toggleMobileMenu()" style="background: none; border: none; cursor: pointer; color: #483525;"><i data-lucide="x"></i></button>
         </div>
-        <div style="display: flex; flex-direction: column; gap: 1rem;">
-            <a href="../o-instituto" style="font-weight: 600; color: #483525; text-decoration: none; padding: 0.5rem 0; border-bottom: 1px solid #f0f0f0;">O Instituto</a>
-            <a href="../terapia-sistemica" style="font-weight: 600; color: #483525; text-decoration: none; padding: 0.5rem 0; border-bottom: 1px solid #f0f0f0;">Terapia Sistêmica</a>
-            <a href="../atendimentos" style="font-weight: 600; color: #483525; text-decoration: none; padding: 0.5rem 0; border-bottom: 1px solid #f0f0f0;">Atendimentos</a>
-            <a href="../equipe" style="color: #483525; text-decoration: none; padding: 0.5rem 0;">Equipe</a>
-            <a href="../galeria" style="color: #483525; text-decoration: none; padding: 0.5rem 0;">Galeria</a>
-            <a href="../conteudos" style="color: #483525; text-decoration: none; padding: 0.5rem 0;">Conteúdos</a>
-            <a href="../contato" style="color: #483525; text-decoration: none; padding: 0.5rem 0;">Contato</a>
-            <a href="https://wa.me/5562981838006" target="_blank" style="background-color: #483525; color: white; padding: 1rem; border-radius: 0.75rem; text-align: center; text-decoration: none; font-weight: 600; margin-top: 1rem;">Agendar Agora</a>
+        
+        <div style="display: flex; flex-direction: column;">
+            <!-- O Instituto Mobile -->
+            <div class="mobile-nav-item">
+                <button class="mobile-nav-btn" onclick="toggleMobileAccordion(this)">
+                    O Instituto <i data-lucide="chevron-down" class="chevron-mobile" style="width: 18px; height: 18px;"></i>
+                </button>
+                <div class="mobile-nav-content">
+                    <a href="../o-instituto" class="mobile-link-sub">Visão Geral</a>
+                    <a href="../o-instituto#sobre" class="mobile-link-sub">Sobre nós</a>
+                    <a href="../o-instituto#missao" class="mobile-link-sub">Missão e Valores</a>
+                    <a href="../o-instituto#como-trabalhamos" class="mobile-link-sub">Como Trabalhamos</a>
+                </div>
+            </div>
+
+            <!-- Terapia Sistêmica Mobile -->
+            <div class="mobile-nav-item">
+                <button class="mobile-nav-btn" onclick="toggleMobileAccordion(this)">
+                    Terapia Sistêmica <i data-lucide="chevron-down" class="chevron-mobile" style="width: 18px; height: 18px;"></i>
+                </button>
+                <div class="mobile-nav-content">
+                    <a href="../terapia-sistemica" class="mobile-link-sub">Visão Geral</a>
+                    <a href="../terapia-sistemica#que-e" class="mobile-link-sub">O que é</a>
+                    <a href="../terapia-sistemica#para-quem" class="mobile-link-sub">Para quem é</a>
+                    <a href="../terapia-sistemica#primeira-sessao" class="mobile-link-sub">Primeira Sessão</a>
+                </div>
+            </div>
+
+            <!-- Atendimentos Mobile -->
+            <div class="mobile-nav-item">
+                <button class="mobile-nav-btn" onclick="toggleMobileAccordion(this)">
+                    Atendimentos <i data-lucide="chevron-down" class="chevron-mobile" style="width: 18px; height: 18px;"></i>
+                </button>
+                <div class="mobile-nav-content">
+                    <a href="../atendimentos/terapia-individual" class="mobile-link-sub">Terapia Individual</a>
+                    <a href="../atendimentos/terapia-casal" class="mobile-link-sub">Terapia de Casal</a>
+                    <a href="../atendimentos/terapia-familiar" class="mobile-link-sub">Terapia Familiar</a>
+                    <a href="../atendimentos/parentalidade" class="mobile-link-sub">Parentalidade</a>
+                </div>
+            </div>
+
+            <a href="../equipe" style="font-weight: 600; color: #483525; text-decoration: none; padding: 1.25rem 0; border-bottom: 1px solid #f0f0f0; font-family: 'Montserrat', sans-serif;">Equipe</a>
+            <a href="../galeria" style="font-weight: 600; color: #483525; text-decoration: none; padding: 1.25rem 0; border-bottom: 1px solid #f0f0f0; font-family: 'Montserrat', sans-serif;">Galeria</a>
+            <a href="../conteudos" style="font-weight: 600; color: #483525; text-decoration: none; padding: 1.25rem 0; border-bottom: 1px solid #f0f0f0; font-family: 'Montserrat', sans-serif;">Conteúdos</a>
+            <a href="../contato" style="font-weight: 600; color: #483525; text-decoration: none; padding: 1.25rem 0; border-bottom: 1px solid #f0f0f0; font-family: 'Montserrat', sans-serif;">Contato</a>
+            
+            <a href="https://wa.me/5562981838006" target="_blank" style="background-color: #483525; color: white; padding: 1rem; border-radius: 0.75rem; text-align: center; text-decoration: none; font-weight: 600; margin-top: 2rem; font-family: 'Montserrat', sans-serif;">Agendar Agora</a>
         </div>
     </div>
     <main>
@@ -258,10 +304,17 @@
     </footer>
     <button id="scroll-top" title="Voltar ao topo"><i data-lucide="chevron-up"></i></button>
 
-        <script src="https://unpkg.com/lucide@latest"></script>
+            <script src="https://unpkg.com/lucide@latest"></script>
     <script>
         document.addEventListener('DOMContentLoaded', () => { lucide.createIcons(); });
         function toggleMobileMenu() { const m = document.getElementById('mobile-menu'); m.style.display = (m.style.display === 'flex') ? 'none' : 'flex'; }
+        function toggleMobileAccordion(btn) { 
+            const item = btn.parentElement; 
+            const isActive = item.classList.contains('active');
+            document.querySelectorAll('.mobile-nav-item').forEach(i => i.classList.remove('active'));
+            if(!isActive) item.classList.add('active');
+            setTimeout(() => { lucide.createIcons(); }, 10);
+        }
         window.addEventListener('scroll', () => { 
             const header = document.getElementById('main-header');
             const b = document.getElementById('scroll-top'); 
@@ -272,4 +325,5 @@
     </script>
 </body>
 </html>
+
 

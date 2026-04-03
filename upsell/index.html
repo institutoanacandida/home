@@ -14,7 +14,7 @@
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-        <style>
+            <style>
         :root {
             --brand-900: #483525;
             --brand-800: #5D4632;
@@ -63,6 +63,14 @@
         /* Floating Button */
         #scroll-top { position: fixed; bottom: 2rem; right: 2rem; width: 48px; height: 48px; background: var(--brand-900); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1); cursor: pointer; transition: all 0.3s; z-index: 100; opacity: 0; visibility: hidden; border: none; }
         #scroll-top.show { opacity: 1; visibility: visible; }
+
+        /* Mobile Accordion Styles */
+        .mobile-nav-item { border-bottom: 1px solid #f0f0f0; }
+        .mobile-nav-btn { width: 100%; display: flex; justify-content: space-between; align-items: center; padding: 1rem 0; background: none; border: none; font-family: 'Montserrat', sans-serif; font-weight: 600; color: #483525; font-size: 1rem; cursor: pointer; text-align: left; }
+        .mobile-nav-content { max-height: 0; overflow: hidden; transition: all 0.3s ease; display: flex; flex-direction: column; padding-left: 1rem; background: #fafafa; border-radius: 0.5rem; }
+        .mobile-nav-item.active .mobile-nav-content { max-height: 300px; padding-bottom: 1rem; margin-bottom: 0.5rem; }
+        .mobile-nav-item.active .chevron-mobile { transform: rotate(180deg); }
+        .mobile-link-sub { display: block; padding: 0.75rem 0; color: #5D4632; text-decoration: none; font-size: 0.9rem; font-family: 'Montserrat', sans-serif; }
     </style>
 </head>
 <body>
@@ -147,7 +155,7 @@
         </div>
     </main>
 
-        <!-- Premium Footer -->
+            <!-- Premium Footer -->
     <footer style="background-color: var(--brand-900); color: #FDFBFA !important; padding: 5rem 0 3rem; position: relative; z-index: 50; width: 100%;">
         <div class="container-custom">
             <div class="footer-grid">
@@ -206,11 +214,19 @@
         </div>
     </footer>
     <button id="scroll-top" title="Voltar ao topo"><i data-lucide="chevron-up"></i></button>
+    <button id="scroll-top" title="Voltar ao topo"><i data-lucide="chevron-up"></i></button>
 
-        <script src="https://unpkg.com/lucide@latest"></script>
+            <script src="https://unpkg.com/lucide@latest"></script>
     <script>
         document.addEventListener('DOMContentLoaded', () => { lucide.createIcons(); });
         function toggleMobileMenu() { const m = document.getElementById('mobile-menu'); m.style.display = (m.style.display === 'flex') ? 'none' : 'flex'; }
+        function toggleMobileAccordion(btn) { 
+            const item = btn.parentElement; 
+            const isActive = item.classList.contains('active');
+            document.querySelectorAll('.mobile-nav-item').forEach(i => i.classList.remove('active'));
+            if(!isActive) item.classList.add('active');
+            setTimeout(() => { lucide.createIcons(); }, 10);
+        }
         window.addEventListener('scroll', () => { 
             const header = document.getElementById('main-header');
             const b = document.getElementById('scroll-top'); 
@@ -222,6 +238,7 @@
 
 </body>
 </html>
+
 
 
 
