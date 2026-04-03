@@ -8,7 +8,7 @@
     
     <link rel="stylesheet" href="./assets/style.css">
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌷</text></svg>">
-            <style>
+                                            <style>
         :root {
             --brand-900: #483525;
             --brand-800: #5D4632;
@@ -41,7 +41,7 @@
 
         /* Forced 5-Column Footer Grid */
         .footer-grid { 
-            display: grid; grid-template-columns: 1fr; gap: 3rem; margin-bottom: 4rem; 
+            display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; margin-bottom: 4rem; 
         }
         @media (min-width: 1024px) {
             .footer-grid { grid-template-columns: repeat(5, 1fr); }
@@ -68,9 +68,9 @@
     </style>
 </head>
 <body style="background-color: white; font-family: var(--font-sans); color: var(--brand-800);">
-                <!-- Premium Header -->
+                                            <!-- Premium Header -->
     <header id="main-header" style="background-color: #FFFFFF; border-bottom: 1px solid #EAE1D8; position: sticky; top: 0; z-index: 1000;">
-        <nav class="container-custom" style="padding: 0 2rem;">
+        <nav class="container-custom" style="padding: 0 1rem;">
             <div style="display: flex; align-items: center; width: 100%; justify-content: space-between; height: 110px;">
                 <a href="./" style="display: flex; align-items: center; text-decoration: none; height: 100%;">
                     <img src="https://i.ibb.co/vvPV65rT/ana-candida-s-f.png" alt="Instituto Ana Cândida" style="height: 95px; width: auto; object-fit: contain;">
@@ -193,8 +193,8 @@
                         <h1 style="font-family: 'Playfair Display', serif; font-size: clamp(2.2rem, 5vw, 3.8rem); color: var(--brand-900); line-height: 1.1; margin-bottom: 1.5rem;">Cuidado relacional com base na Terapia Sistêmica</h1>
                         <p style="font-size: 1.25rem; color: var(--brand-800); margin-bottom: 2.5rem; line-height: 1.6; opacity: 0.9;">Atendimento para casais, famílias e pessoas em momentos de transição, com acolhimento, ética e ciência. Construa relações mais saudáveis e encontre novos caminhos.</p>
                         <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
-                            <a href="https://wa.me/5562981838006" style="background-color: var(--brand-900); color: white; padding: 1rem 2rem; border-radius: 9999px; text-decoration: none; font-weight: 700; transition: 0.3s; box-shadow: 0 10px 20px rgba(72,53,37,0.15);">Agendar Consulta</a>
-                            <a href="./o-instituto" style="background-color: white; color: var(--brand-900); border: 2px solid var(--brand-900); padding: 1rem 2rem; border-radius: 9999px; text-decoration: none; font-weight: 700; transition: 0.3s;">Conhecer o Instituto</a>
+                            <a href="https://wa.me/5562981838006" style="background-color: var(--brand-900); color: white; padding: 1rem 2rem; border-radius: 9999px; text-decoration: none; font-weight: 700; transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); box-shadow: 0 10px 20px rgba(72,53,37,0.15);" onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 15px 25px rgba(72,53,37,0.25)';" onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 10px 20px rgba(72,53,37,0.15)';">Agendar Consulta</a>
+                            <a href="./o-instituto" style="background-color: transparent; color: var(--brand-900); border: 2px solid var(--brand-900); padding: 1rem 2rem; border-radius: 9999px; text-decoration: none; font-weight: 700; transition: all 0.3s ease;" onmouseover="this.style.backgroundColor='var(--brand-900)'; this.style.color='white';" onmouseout="this.style.backgroundColor='transparent'; this.style.color='var(--brand-900)';">Conhecer o Instituto</a>
                         </div>
                     </div>
                     <!-- Coluna Imagem -->
@@ -460,9 +460,8 @@
             </div>
         </div>
     </footer>
-    <button id="scroll-top" title="Voltar ao topo"><i data-lucide="chevron-up"></i></button>
-
-            <script src="https://unpkg.com/lucide@latest"></script>
+                        <button id="scroll-top" title="Voltar ao topo"><i data-lucide="chevron-up"></i></button>
+    <script src="https://unpkg.com/lucide@latest"></script>
     <script>
         document.addEventListener('DOMContentLoaded', () => { lucide.createIcons(); });
         function toggleMobileMenu() { const m = document.getElementById('mobile-menu'); m.style.display = (m.style.display === 'flex') ? 'none' : 'flex'; }
@@ -483,6 +482,13 @@
     </script>
 </body>
 </html>
+
+
+
+
+
+
+
 
 
 

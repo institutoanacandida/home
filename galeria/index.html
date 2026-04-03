@@ -39,38 +39,50 @@
         .chevron-icon { width: 14px; height: 14px; opacity: 0.5; transition: transform 0.3s; }
         .nav-item-dropdown:hover .chevron-icon { transform: rotate(180deg); opacity: 1; color: var(--brand-500); }
 
-        /* Forced 5-Column Footer Grid */
-        .footer-grid { 
-            display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; margin-bottom: 4rem; 
+        /* Filter Buttons Style (Match Screenshot) */
+        .filter-btn {
+            padding: 0.7rem 2.2rem;
+            border-radius: 99px;
+            border: 1px solid #eee;
+            background: white;
+            color: #483525;
+            cursor: pointer;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            font-family: 'Montserrat', sans-serif;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
         }
-        @media (min-width: 1024px) {
-            .footer-grid { grid-template-columns: repeat(5, 1fr); }
+        .filter-btn:hover {
+            border-color: var(--brand-500);
+            color: var(--brand-500);
+        }
+        .filter-btn.active {
+            background-color: #9c7c5f !important;
+            color: white !important;
+            border-color: #9c7c5f !important;
+            box-shadow: 0 4px 12px rgba(156, 124, 95, 0.3);
         }
 
-        /* FAQ Accordion */
-        .faq-container { background: white; border-radius: 1.5rem; border: 1px solid var(--brand-100); padding: 1rem 1.5rem; }
-        .accordion-item { border-bottom: 1px solid var(--brand-100); }
-        .accordion-header { width: 100%; display: flex; justify-content: space-between; align-items: center; background: none; border: none; padding: 1.5rem 0; text-align: left; cursor: pointer; font-size: 1rem; font-weight: 500; color: var(--brand-900); }
-        .accordion-content { max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out; color: #666; line-height: 1.6; }
-        .accordion-item.active .accordion-content { max-height: 400px; padding-bottom: 1.5rem; }
-
-        /* Floating Button */
-        #scroll-top { position: fixed; bottom: 2rem; right: 2rem; width: 48px; height: 48px; background: var(--brand-900); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1); cursor: pointer; transition: all 0.3s; z-index: 100; opacity: 0; visibility: hidden; border: none; }
-        #scroll-top.show { opacity: 1; visibility: visible; }
-
-        /* Mobile Accordion Styles */
-        .mobile-nav-item { border-bottom: 1px solid #f0f0f0; }
-        .mobile-nav-btn { width: 100%; display: flex; justify-content: space-between; align-items: center; padding: 1rem 0; background: none; border: none; font-family: 'Montserrat', sans-serif; font-weight: 600; color: #483525; font-size: 1rem; cursor: pointer; text-align: left; }
-        .mobile-nav-content { max-height: 0; overflow: hidden; transition: all 0.3s ease; display: flex; flex-direction: column; padding-left: 1rem; background: #fafafa; border-radius: 0.5rem; }
-        .mobile-nav-item.active .mobile-nav-content { max-height: 300px; padding-bottom: 1rem; margin-bottom: 0.5rem; }
-        .mobile-nav-item.active .chevron-mobile { transform: rotate(180deg); }
-        .mobile-link-sub { display: block; padding: 0.75rem 0; color: #5D4632; text-decoration: none; font-size: 0.9rem; font-family: 'Montserrat', sans-serif; }
+        /* Gallery Item Smoothness */
+        .gallery-item {
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .gallery-item img {
+            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .gallery-item:hover img {
+            transform: scale(1.08);
+        }
+        .gallery-item:hover .overlay {
+            opacity: 1 !important;
+        }
     </style>
 </head>
 <body style="background-color: var(--brand-50); font-family: var(--font-sans); color: var(--brand-800);">
-                                                <!-- Premium Header -->
+                                                    <!-- Premium Header -->
     <header id="main-header" style="background-color: #FFFFFF; border-bottom: 1px solid #EAE1D8; position: sticky; top: 0; z-index: 1000;">
-        <nav class="container-custom" style="padding: 0 1rem;">
+        <nav class="container-custom" style="padding: 0 2rem;">
             <div style="display: flex; align-items: center; width: 100%; justify-content: space-between; height: 110px;">
                 <a href="../" style="display: flex; align-items: center; text-decoration: none; height: 100%;">
                     <img src="https://i.ibb.co/vvPV65rT/ana-candida-s-f.png" alt="Instituto Ana Cândida" style="height: 95px; width: auto; object-fit: contain;">
@@ -186,23 +198,25 @@
     </div>
     <main>
         <!-- Page Hero -->
-        <section style="background-color: var(--brand-50); padding: 5rem 0; text-align: center;">
+        <section style="background-color: var(--brand-50); padding: 80px 0 40px 0; text-align: center;">
             <div class="container-custom">
-                <h1 style="font-size: clamp(2.5rem, 5vw, 3.5rem); color: var(--brand-900); margin-bottom: 1.5rem; font-family: 'Playfair Display', serif;">Nossa Galeria</h1>
-                <p style="font-size: 1.25rem; color: var(--brand-800); max-width: 650px; margin: 0 auto; opacity: 0.8;">Um ambiente pensado para acolher. Conheça nosso espaço e nossa rotina.</p>
+                <h1 style="font-size: clamp(2.8rem, 6vw, 4rem); color: var(--brand-900); margin-bottom: 1.5rem; font-family: 'Playfair Display', serif; font-weight: 700;">Nossa Galeria</h1>
+                <p style="font-size: 1.2rem; color: var(--brand-800); max-width: 650px; margin: 0 auto; opacity: 0.8; line-height: 1.6;">Um ambiente pensado para acolher. Conheça nosso espaço e nossa rotina.</p>
             </div>
         </section>
 
         <!-- Filters -->
-        <section style="padding: 60px 0 20px 0; background: white;">
+        <section style="padding: 20px 0 40px 0; background: var(--brand-50);">
             <div class="container-custom">
-                <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem; margin-bottom: 4rem;">
-                    <button class="filter-btn active" onclick="filterGallery('todos', this)" style="padding: 0.6rem 2rem; border-radius: 99px; border: 1px solid var(--brand-100); background: white; cursor: pointer; font-weight: 600; transition: all 0.3s;">Todos</button>
-                    <button class="filter-btn" onclick="filterGallery('espaco', this)" style="padding: 0.6rem 2rem; border-radius: 99px; border: 1px solid var(--brand-100); background: white; cursor: pointer; font-weight: 600; transition: all 0.3s;">Espaço</button>
-                    <button class="filter-btn" onclick="filterGallery('equipe', this)" style="padding: 0.6rem 2rem; border-radius: 99px; border: 1px solid var(--brand-100); background: white; cursor: pointer; font-weight: 600; transition: all 0.3s;">Equipe</button>
-                    <button class="filter-btn" onclick="filterGallery('eventos', this)" style="padding: 0.6rem 2rem; border-radius: 99px; border: 1px solid var(--brand-100); background: white; cursor: pointer; font-weight: 600; transition: all 0.3s;">Eventos</button>
-                    <button class="filter-btn" onclick="filterGallery('bastidores', this)" style="padding: 0.6rem 2rem; border-radius: 99px; border: 1px solid var(--brand-100); background: white; cursor: pointer; font-weight: 600; transition: all 0.3s;">Bastidores</button>
+                <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 1.2rem; margin-bottom: 2rem;">
+                    <button class="filter-btn active" onclick="filterGallery('todos', this)">Todos</button>
+                    <button class="filter-btn" onclick="filterGallery('espaco', this)">Espaço</button>
+                    <button class="filter-btn" onclick="filterGallery('equipe', this)">Equipe</button>
+                    <button class="filter-btn" onclick="filterGallery('eventos', this)">Eventos</button>
+                    <button class="filter-btn" onclick="filterGallery('bastidores', this)">Bastidores</button>
                 </div>
+            </div>
+        </section>
 
                 <div id="gallery-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem;">
                     <div class="gallery-item" data-category="espaco" onclick="openLightbox(0)" style="position: relative; aspect-ratio: 1/1; cursor: pointer; overflow: hidden; border-radius: 1.5rem;">
@@ -322,9 +336,39 @@
             if(window.scrollY > 500) b.classList.add('show'); else b.classList.remove('show'); 
         });
         document.getElementById('scroll-top')?.addEventListener('click', () => window.scrollTo({top: 0, behavior: 'smooth'}));
+
+        /* Advanced Gallery Filter */
+        function filterGallery(category, btn) {
+            // Update Active Button
+            document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+
+            const items = document.querySelectorAll('.gallery-item');
+            
+            if (category === 'todos') {
+                items.forEach(item => {
+                    item.style.display = 'block';
+                    setTimeout(() => item.style.opacity = '1', 10);
+                    setTimeout(() => item.style.transform = 'scale(1)', 10);
+                });
+            } else {
+                items.forEach(item => {
+                    if (item.getAttribute('data-category') === category) {
+                        item.style.display = 'block';
+                        setTimeout(() => item.style.opacity = '1', 10);
+                        setTimeout(() => item.style.transform = 'scale(1)', 10);
+                    } else {
+                        item.style.opacity = '0';
+                        item.style.transform = 'scale(0.9)';
+                        setTimeout(() => item.style.display = 'none', 400);
+                    }
+                });
+            }
+        }
     </script>
 </body>
 </html>
+
 
 
 

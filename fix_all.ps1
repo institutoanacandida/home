@@ -70,7 +70,7 @@ function Get-Header($depthPath) {
     return @"
     <!-- Premium Header -->
     <header id="main-header" style="background-color: #FFFFFF; border-bottom: 1px solid #EAE1D8; position: sticky; top: 0; z-index: 1000;">
-        <nav class="container-custom" style="padding: 0 1rem;">
+        <nav class="container-custom" style="padding: 0 2rem;">
             <div style="display: flex; align-items: center; width: 100%; justify-content: space-between; height: 110px;">
                 <a href="$depthPath" style="display: flex; align-items: center; text-decoration: none; height: 100%;">
                     <img src="https://i.ibb.co/vvPV65rT/ana-candida-s-f.png" alt="Instituto Ana Cândida" style="height: 95px; width: auto; object-fit: contain;">
@@ -260,44 +260,11 @@ function Process-File($f, $depthPath) {
     if (Test-Path $path) {
         $content = Get-Content $path -Raw
         
-        # Style Update
-        $style = Get-StyleBlock
-        if ($content -match '(?s)<style>.*?</style>') {
-            $content = $content -replace '(?s)<style>.*?</style>', $style
-        } else {
-            $content = $content -replace "</head>", "`n$style`n</head>"
-        }
-
         # Header/Footer Injection
         $header = Get-Header $depthPath
         $footer = Get-Footer $depthPath
         $content = $content -replace '(?s)<!-- Premium Header -->.*?<main>', "$header`n    <main>"
         $content = $content -replace '(?s)<!-- Premium Footer -->.*?</footer>', $footer
-        
-        # Scripts
-        $s = @"
-    <button id="scroll-top" title="Voltar ao topo"><i data-lucide="chevron-up"></i></button>
-    <script src="https://unpkg.com/lucide@latest"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', () => { lucide.createIcons(); });
-        function toggleMobileMenu() { const m = document.getElementById('mobile-menu'); m.style.display = (m.style.display === 'flex') ? 'none' : 'flex'; }
-        function toggleMobileAccordion(btn) { 
-            const item = btn.parentElement; 
-            const isActive = item.classList.contains('active');
-            document.querySelectorAll('.mobile-nav-item').forEach(i => i.classList.remove('active'));
-            if(!isActive) item.classList.add('active');
-            setTimeout(() => { lucide.createIcons(); }, 10);
-        }
-        window.addEventListener('scroll', () => { 
-            const header = document.getElementById('main-header');
-            const b = document.getElementById('scroll-top'); 
-            if(window.scrollY > 20) header.classList.add('scrolled'); else header.classList.remove('scrolled');
-            if(window.scrollY > 500) b.classList.add('show'); else b.classList.remove('show'); 
-        });
-        document.getElementById('scroll-top')?.addEventListener('click', () => window.scrollTo({top: 0, behavior: 'smooth'}));
-    </script>
-"@
-        $content = $content -replace '(?s)(?:<button id="scroll-top".*?</button>\s*)?<script src="https://unpkg.com/lucide@latest"></script>.*?<script>.*?</script>', $s
         
         Set-Content $path $content
     }
