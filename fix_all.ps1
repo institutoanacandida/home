@@ -65,6 +65,21 @@ function Get-StyleBlock {
         /* Prevent horizontal overflow */
         body, main { overflow-x: hidden; max-width: 100%; }
         .container-custom { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; }
+
+        /* Responsive Grids */
+        .grid-2col, .grid-2col-equal { 
+            display: flex; flex-direction: column; gap: 3rem; 
+        }
+        @media (min-width: 1024px) {
+            .grid-2col { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+            .grid-2col-equal { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; }
+        }
+
+        /* Section Specifics */
+        .como-trab-inner { padding: 0; }
+        @media (min-width: 1024px) {
+            .como-trab-inner { padding: 0 5rem; }
+        }
     </style>
 "@
 }
