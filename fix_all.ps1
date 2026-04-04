@@ -25,7 +25,7 @@ function Get-StyleBlock {
         }
         /* Hover Area Bridge to prevent closing */
         .nav-item-dropdown::after { content: ''; position: absolute; top: 80%; left: 0; width: 100%; height: 25px; }
-        .nav-item-dropdown:hover .dropdown-menu { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0); pointer-events: auto; }
+        .nav-item-dropdown:hover .dropdown-menu { opacity: 1; visibility: visible; display: block !important; transform: translateX(-50%) translateY(0); pointer-events: auto; }
         
         .dropdown-item { 
             display: block; padding: 0.75rem 1.5rem; font-size: 0.875rem; color: var(--brand-900); 
@@ -128,7 +128,8 @@ function Get-Header($depthPath) {
     </header>
 
     <!-- Mobile Menu Overlay -->
-    <div id="mobile-menu" class="hidden" style="position: fixed; inset: 0; background: white; z-index: 2000; padding: 2rem; display: none; flex-direction: column; overflow-y: auto;">
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu" class="hidden" style="position: fixed; inset: 0; background: white; z-index: 2000; padding: 2rem; flex-direction: column; overflow-y: auto;">
         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
             <a href="$depthPath" style="display: flex; align-items: center; text-decoration: none; margin-bottom: 1rem;">
                 <img src="https://i.ibb.co/vvPV65rT/ana-candida-s-f.png" alt="Instituto Ana Cândida" style="height: 75px; width: auto; object-fit: contain;">
@@ -251,6 +252,49 @@ function Get-Footer($depthPath) {
 "@
 }
 
+# 4. Script Template
+function Get-ScriptBlock {
+    return @"
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => { lucide.createIcons(); });
+        function toggleMobileMenu() { 
+            const m = document.getElementById('mobile-menu'); 
+            if(!m) return;
+            m.classList.toggle('hidden'); 
+            if(!m.classList.contains('hidden')) {
+                m.style.setProperty('display', 'flex', 'important');
+                lucide.createIcons();
+            } else {
+                m.style.setProperty('display', 'none', 'important');
+            }
+        }
+        
+        function toggleAccordion(btn) {
+            const item = btn.parentElement;
+            const isActive = item.classList.contains('active');
+            document.querySelectorAll('.accordion-item').forEach(i => i.classList.remove('active'));
+            if(!isActive) item.classList.add('active');
+        }
+
+        function toggleMobileAccordion(btn) { 
+            const item = btn.parentElement; 
+            const isActive = item.classList.contains('active');
+            document.querySelectorAll('.mobile-nav-item').forEach(i => i.classList.remove('active'));
+            if(!isActive) item.classList.add('active');
+            setTimeout(() => { lucide.createIcons(); }, 10);
+        }
+        window.addEventListener('scroll', () => { 
+            const header = document.getElementById('main-header');
+            const b = document.getElementById('scroll-top'); 
+            if(window.scrollY > 20) header.classList.add('scrolled'); else header.classList.remove('scrolled');
+            if(window.scrollY > 500) b.classList.add('show'); else b.classList.remove('show'); 
+        });
+        document.getElementById('scroll-top')?.addEventListener('click', () => window.scrollTo({top: 0, behavior: 'smooth'}));
+    </script>
+"@
+}
+
 # --- Execution ---
 $lvl1 = @("agendar/index.html", "atendimentos/index.html", "contato/index.html", "conteudos/index.html", "equipe/index.html", "galeria/index.html", "o-instituto/index.html", "terapia-sistemica/index.html", "upsell/index.html", "downsell/index.html")
 $lvl2 = @("atendimentos/terapia-individual/index.html", "atendimentos/terapia-casal/index.html", "atendimentos/terapia-familiar/index.html", "atendimentos/parentalidade/index.html")
@@ -260,11 +304,16 @@ function Process-File($f, $depthPath) {
     if (Test-Path $path) {
         $content = Get-Content $path -Raw
         
-        # Header/Footer Injection
+        # Header/Footer/Style/Script Injection
+        $style = Get-StyleBlock
         $header = Get-Header $depthPath
         $footer = Get-Footer $depthPath
+        $script = Get-ScriptBlock
+        
+        $content = $content -replace '(?s)<style>.*?</style>', $style
         $content = $content -replace '(?s)<!-- Premium Header -->.*?<main>', "$header`n    <main>"
         $content = $content -replace '(?s)<!-- Premium Footer -->.*?</footer>', $footer
+        $content = $content -replace '(?s)<script src="https://unpkg.com/lucide@latest">.*?</script>.*?</html>', "$script`n</body>`n</html>"
         
         Set-Content $path $content
     }

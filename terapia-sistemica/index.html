@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="../assets/style.css">
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌷</text></svg>">
 
-                                                                        <style>
+                                                                            <style>
         :root {
             --brand-900: #483525;
             --brand-800: #5D4632;
@@ -30,7 +30,7 @@
         }
         /* Hover Area Bridge to prevent closing */
         .nav-item-dropdown::after { content: ''; position: absolute; top: 80%; left: 0; width: 100%; height: 25px; }
-        .nav-item-dropdown:hover .dropdown-menu { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0); pointer-events: auto; }
+        .nav-item-dropdown:hover .dropdown-menu { opacity: 1; visibility: visible; display: block !important; transform: translateX(-50%) translateY(0); pointer-events: auto; }
         
         .dropdown-item { 
             display: block; padding: 0.75rem 1.5rem; font-size: 0.875rem; color: var(--brand-900); 
@@ -68,7 +68,7 @@
         .mobile-link-sub { display: block; padding: 0.75rem 0; color: #5D4632; text-decoration: none; font-size: 0.9rem; font-family: 'Montserrat', sans-serif; }
     </style>
 
-                                                                <style>
+                                                                    <style>
         :root {
             --brand-900: #483525;
             --brand-800: #5D4632;
@@ -89,7 +89,7 @@
         }
         /* Hover Area Bridge to prevent closing */
         .nav-item-dropdown::after { content: ''; position: absolute; top: 80%; left: 0; width: 100%; height: 25px; }
-        .nav-item-dropdown:hover .dropdown-menu { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0); pointer-events: auto; }
+        .nav-item-dropdown:hover .dropdown-menu { opacity: 1; visibility: visible; display: block !important; transform: translateX(-50%) translateY(0); pointer-events: auto; }
         
         .dropdown-item { 
             display: block; padding: 0.75rem 1.5rem; font-size: 0.875rem; color: var(--brand-900); 
@@ -128,7 +128,7 @@
     </style>
 </head>
 <body style="background-color: white; font-family: var(--font-sans); color: var(--brand-800);">
-                                                                                                                        <!-- Premium Header -->
+                                                                                                                            <!-- Premium Header -->
     <header id="main-header" style="background-color: #FFFFFF; border-bottom: 1px solid #EAE1D8; position: sticky; top: 0; z-index: 1000;">
         <nav class="container-custom" style="padding: 0 2rem;">
             <div style="display: flex; align-items: center; width: 100%; justify-content: space-between; height: 110px;">
@@ -188,7 +188,8 @@
     </header>
 
     <!-- Mobile Menu Overlay -->
-    <div id="mobile-menu" class="hidden" style="position: fixed; inset: 0; background: white; z-index: 2000; padding: 2rem; display: none; flex-direction: column; overflow-y: auto;">
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu" class="hidden" style="position: fixed; inset: 0; background: white; z-index: 2000; padding: 2rem; flex-direction: column; overflow-y: auto;">
         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
             <a href="../" style="display: flex; align-items: center; text-decoration: none; margin-bottom: 1rem;">
                 <img src="https://i.ibb.co/vvPV65rT/ana-candida-s-f.png" alt="Instituto Ana Cândida" style="height: 75px; width: auto; object-fit: contain;">
@@ -317,7 +318,7 @@
         </section>
     </main>
 
-                                                                                                            <!-- Premium Footer -->
+                                                                                                                <!-- Premium Footer -->
     <footer style="background-color: var(--brand-900); color: #FDFBFA !important; padding: 5rem 0 3rem; position: relative; z-index: 50; width: 100%;">
         <div class="container-custom">
             <div class="footer-grid">
@@ -376,10 +377,28 @@
         </div>
     </footer>
                             <button id="scroll-top" title="Voltar ao topo"><i data-lucide="chevron-up"></i></button>
-    <script src="https://unpkg.com/lucide@latest"></script>
+        <script src="https://unpkg.com/lucide@latest"></script>
     <script>
         document.addEventListener('DOMContentLoaded', () => { lucide.createIcons(); });
-        function toggleMobileMenu() { const m = document.getElementById('mobile-menu'); m.style.display = (m.style.display === 'flex') ? 'none' : 'flex'; }
+        function toggleMobileMenu() { 
+            const m = document.getElementById('mobile-menu'); 
+            if(!m) return;
+            m.classList.toggle('hidden'); 
+            if(!m.classList.contains('hidden')) {
+                m.style.setProperty('display', 'flex', 'important');
+                lucide.createIcons();
+            } else {
+                m.style.setProperty('display', 'none', 'important');
+            }
+        }
+        
+        function toggleAccordion(btn) {
+            const item = btn.parentElement;
+            const isActive = item.classList.contains('active');
+            document.querySelectorAll('.accordion-item').forEach(i => i.classList.remove('active'));
+            if(!isActive) item.classList.add('active');
+        }
+
         function toggleMobileAccordion(btn) { 
             const item = btn.parentElement; 
             const isActive = item.classList.contains('active');
@@ -397,6 +416,7 @@
     </script>
 </body>
 </html>
+
 
 
 
