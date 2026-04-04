@@ -14,7 +14,7 @@
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-                                                                                    <style>
+                                                                                        <style>
         :root {
             --brand-900: #483525;
             --brand-800: #5D4632;
@@ -71,9 +71,13 @@
         .mobile-nav-item.active .mobile-nav-content { max-height: 300px; padding-bottom: 1rem; margin-bottom: 0.5rem; }
         .mobile-nav-item.active .chevron-mobile { transform: rotate(180deg); }
         .mobile-link-sub { display: block; padding: 0.75rem 0; color: #5D4632; text-decoration: none; font-size: 0.9rem; font-family: 'Montserrat', sans-serif; }
+
+        /* Prevent horizontal overflow */
+        body, main { overflow-x: hidden; max-width: 100%; }
+        .container-custom { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; }
     </style>
 
-                                                                            <style>
+                                                                                <style>
         :root {
             --brand-900: #483525;
             --brand-800: #5D4632;
@@ -130,6 +134,10 @@
         .mobile-nav-item.active .mobile-nav-content { max-height: 300px; padding-bottom: 1rem; margin-bottom: 0.5rem; }
         .mobile-nav-item.active .chevron-mobile { transform: rotate(180deg); }
         .mobile-link-sub { display: block; padding: 0.75rem 0; color: #5D4632; text-decoration: none; font-size: 0.9rem; font-family: 'Montserrat', sans-serif; }
+
+        /* Prevent horizontal overflow */
+        body, main { overflow-x: hidden; max-width: 100%; }
+        .container-custom { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; }
     </style>
 </head>
 <body>
@@ -259,7 +267,7 @@
         </div>
     </main>
 
-                                                                                                <!-- Premium Footer -->
+                                                                                                    <!-- Premium Footer -->
     <footer style="background-color: var(--brand-900); color: #FDFBFA !important; padding: 5rem 0 3rem; position: relative; z-index: 50; width: 100%;">
         <div class="container-custom">
             <div class="footer-grid">
@@ -318,7 +326,7 @@
         </div>
     </footer>
                             <button id="scroll-top" title="Voltar ao topo"><i data-lucide="chevron-up"></i></button>
-                <script src="https://unpkg.com/lucide@latest"></script>
+                    <script src="https://unpkg.com/lucide@latest"></script>
     <script>
         document.addEventListener('DOMContentLoaded', () => { lucide.createIcons(); });
         function toggleMobileMenu() { 
@@ -357,6 +365,7 @@
     </script>
 </body>
 </html>
+
 
 
 

@@ -61,6 +61,10 @@ function Get-StyleBlock {
         .mobile-nav-item.active .mobile-nav-content { max-height: 300px; padding-bottom: 1rem; margin-bottom: 0.5rem; }
         .mobile-nav-item.active .chevron-mobile { transform: rotate(180deg); }
         .mobile-link-sub { display: block; padding: 0.75rem 0; color: #5D4632; text-decoration: none; font-size: 0.9rem; font-family: 'Montserrat', sans-serif; }
+
+        /* Prevent horizontal overflow */
+        body, main { overflow-x: hidden; max-width: 100%; }
+        .container-custom { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; }
     </style>
 "@
 }
