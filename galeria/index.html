@@ -39,6 +39,14 @@
         .chevron-icon { width: 14px; height: 14px; opacity: 0.5; transition: transform 0.3s; }
         .nav-item-dropdown:hover .chevron-icon { transform: rotate(180deg); opacity: 1; color: var(--brand-500); }
 
+        /* Mobile Accordion Styles */
+        .mobile-nav-item { border-bottom: 1px solid #f0f0f0; }
+        .mobile-nav-btn { width: 100%; display: flex; justify-content: space-between; align-items: center; padding: 1rem 0; background: none; border: none; font-family: 'Montserrat', sans-serif; font-weight: 600; color: #483525; font-size: 1rem; cursor: pointer; text-align: left; }
+        .mobile-nav-content { max-height: 0; overflow: hidden; transition: all 0.3s ease; display: flex; flex-direction: column; padding-left: 1rem; background: #fafafa; border-radius: 0.5rem; }
+        .mobile-nav-item.active .mobile-nav-content { max-height: 300px; padding-bottom: 1rem; margin-bottom: 0.5rem; }
+        .mobile-nav-item.active .chevron-mobile { transform: rotate(180deg); }
+        .mobile-link-sub { display: block; padding: 0.75rem 0; color: #5D4632; text-decoration: none; font-size: 0.9rem; font-family: 'Montserrat', sans-serif; }
+
         /* Filter Buttons Style (Match Screenshot) */
         .filter-btn {
             padding: 0.7rem 2.2rem;
@@ -157,7 +165,7 @@
     </header>
 
     <!-- Mobile Menu Overlay -->
-    <div id="mobile-menu" class="hidden" style="position: fixed; inset: 0; background: white; z-index: 2000; padding: 2rem; display: none; flex-direction: column; overflow-y: auto;">
+    <div id="mobile-menu" class="hidden" style="position: fixed; inset: 0; background: white; z-index: 2000; padding: 2rem; flex-direction: column; overflow-y: auto;">
         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
             <a href="../" style="display: flex; align-items: center; text-decoration: none; margin-bottom: 1rem;">
                 <img src="https://i.ibb.co/vvPV65rT/ana-candida-s-f.png" alt="Instituto Ana Cândida" style="height: 75px; width: auto; object-fit: contain;">
@@ -347,7 +355,25 @@
     <script src="https://unpkg.com/lucide@latest"></script>
     <script>
         document.addEventListener('DOMContentLoaded', () => { lucide.createIcons(); });
-        function toggleMobileMenu() { const m = document.getElementById('mobile-menu'); m.style.display = (m.style.display === 'flex') ? 'none' : 'flex'; }
+        function toggleMobileMenu() { 
+            const m = document.getElementById('mobile-menu'); 
+            m.classList.toggle('hidden'); 
+            if(!m.classList.contains('hidden')) {
+                m.style.display = 'flex';
+                lucide.createIcons();
+            } else {
+                m.style.display = 'none';
+            }
+        }
+
+        
+        function toggleAccordion(btn) {
+            const item = btn.parentElement;
+            const isActive = item.classList.contains('active');
+            document.querySelectorAll('.accordion-item').forEach(i => i.classList.remove('active'));
+            if(!isActive) item.classList.add('active');
+        }
+
         function toggleMobileAccordion(btn) { 
             const item = btn.parentElement; 
             const isActive = item.classList.contains('active');
