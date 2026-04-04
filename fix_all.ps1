@@ -107,7 +107,6 @@ function Get-Header($depthPath) {
                             <a href="${depthPath}atendimentos/terapia-casal" class="dropdown-item">Terapia de Casal</a>
                             <a href="${depthPath}atendimentos/terapia-familiar" class="dropdown-item">Terapia Familiar</a>
                             <a href="${depthPath}atendimentos/parentalidade" class="dropdown-item">Parentalidade</a>
-                            <a href="${depthPath}atendimentos/triagem-encaminhamento" class="dropdown-item">Triagem e Encaminhamento</a>
                         </div>
                     </div>
 
@@ -175,7 +174,6 @@ function Get-Header($depthPath) {
                     <a href="${depthPath}atendimentos/terapia-casal" class="mobile-link-sub">Terapia de Casal</a>
                     <a href="${depthPath}atendimentos/terapia-familiar" class="mobile-link-sub">Terapia Familiar</a>
                     <a href="${depthPath}atendimentos/parentalidade" class="mobile-link-sub">Parentalidade</a>
-                    <a href="${depthPath}atendimentos/triagem-encaminhamento" class="mobile-link-sub">Triagem e Encaminhamento</a>
                 </div>
             </div>
 
