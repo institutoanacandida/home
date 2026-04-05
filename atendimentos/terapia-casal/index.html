@@ -117,6 +117,14 @@
         body, main { overflow-x: hidden; max-width: 100%; }
         .container-custom { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; }
 
+        /* Hero Responsive Fix */
+        .hero-container { 
+            display: flex; flex-direction: column; gap: 5rem; align-items: flex-start; 
+        }
+        @media (min-width: 1024px) {
+            .hero-container { flex-direction: row; align-items: center; }
+        }
+
         /* Responsive Grids */
         .grid-2col, .grid-2col-equal { 
             display: flex; flex-direction: column; gap: 3rem; 
