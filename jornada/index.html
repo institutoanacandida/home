@@ -16,9 +16,10 @@
         rel="stylesheet">
 
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-                <style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="../assets/style.css">
+    <link rel="stylesheet" href="../assets/style.css">
+    <style>
         :root {
             --brand-900: #483525;
             --brand-800: #5D4632;
@@ -27,15 +28,20 @@
             --brand-50: #FDFBFA;
         }
 
-        /* Interactive Dropdowns */
-        .nav-item-dropdown { position: relative; display: flex; align-items: center; gap: 0.4rem; cursor: pointer; padding: 0.5rem 0; }
+        /* Fixed Interactive Dropdowns */
+        .nav-item-dropdown { position: relative; padding: 1rem 0; cursor: pointer; }
+        .nav-link-main { display: flex; align-items: center; gap: 0.4rem; font-size: 0.9rem; font-weight: 500; color: #483525; text-decoration: none; font-family: 'Montserrat', sans-serif; }
         .dropdown-menu { 
-            position: absolute; top: calc(100% + 5px); left: 50%; transform: translateX(-50%) translateY(10px);
-            min-width: 240px; background: white; border: 1px solid var(--brand-100); 
-            border-radius: 1rem; box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1), 0 10px 10px -5px rgba(0,0,0,0.04);
-            opacity: 0; visibility: hidden; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); z-index: 2000; padding: 1rem 0;
+            position: absolute; top: 100%; left: 50%; transform: translateX(-50%) translateY(10px);
+            min-width: 260px; background: white; border: 1px solid var(--brand-100); 
+            border-radius: 1rem; box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1);
+            opacity: 0; visibility: hidden; transition: all 0.25s ease; z-index: 9999; padding: 0.75rem 0;
+            pointer-events: none;
         }
-        .nav-item-dropdown:hover .dropdown-menu { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0); }
+        /* Hover Area Bridge to prevent closing */
+        .nav-item-dropdown::after { content: ''; position: absolute; top: 80%; left: 0; width: 100%; height: 25px; }
+        .nav-item-dropdown:hover .dropdown-menu { opacity: 1; visibility: visible; display: block !important; transform: translateX(-50%) translateY(0); pointer-events: auto; }
+        
         .dropdown-item { 
             display: block; padding: 0.75rem 1.5rem; font-size: 0.875rem; color: var(--brand-900); 
             text-decoration: none; transition: all 0.2s; font-family: 'Montserrat', sans-serif; font-weight: 500;
@@ -46,100 +52,137 @@
 
         /* Forced 5-Column Footer Grid */
         .footer-grid { 
-            display: grid; 
-            grid-template-columns: 1fr; 
-            gap: 3rem; 
-            margin-bottom: 4rem; 
+            display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; margin-bottom: 4rem; 
         }
         @media (min-width: 1024px) {
-            .footer-grid { 
-                grid-template-columns: repeat(5, 1fr); 
-            }
+            .footer-grid { grid-template-columns: repeat(5, 1fr); }
         }
 
-        /* FAQ & Common UI */
+        /* FAQ Accordion */
         .faq-container { background: white; border-radius: 1.5rem; border: 1px solid var(--brand-100); padding: 1rem 1.5rem; }
         .accordion-item { border-bottom: 1px solid var(--brand-100); }
-        .accordion-item:last-child { border-bottom: none; }
-        .accordion-header { width: 100%; display: flex; justify-content: space-between; align-items: center; background: none; border: none; padding: 1.5rem 0; text-align: left; cursor: pointer; font-size: 1rem; font-weight: 500; color: var(--brand-900); transition: all 0.3s; }
-        .accordion-header:hover { color: var(--brand-500); }
-        .accordion-content { max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out; color: #666; line-height: 1.6; font-size: 0.9375rem; }
+        .accordion-header { width: 100%; display: flex; justify-content: space-between; align-items: center; background: none; border: none; padding: 1.5rem 0; text-align: left; cursor: pointer; font-size: 1rem; font-weight: 500; color: var(--brand-900); }
+        .accordion-content { max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out; color: #666; line-height: 1.6; }
         .accordion-item.active .accordion-content { max-height: 400px; padding-bottom: 1.5rem; }
+
+        /* Floating Button */
         #scroll-top { position: fixed; bottom: 2rem; right: 2rem; width: 48px; height: 48px; background: var(--brand-900); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1); cursor: pointer; transition: all 0.3s; z-index: 100; opacity: 0; visibility: hidden; border: none; }
         #scroll-top.show { opacity: 1; visibility: visible; }
-        #scroll-top:hover { transform: translateY(-5px); background: var(--brand-500); }
-    </style>
 
-        <style>
-        :root {
-            --brand-900: #483525;
-            --brand-800: #5D4632;
-            --brand-500: #9C7C5F;
-            --brand-100: #EAE1D8;
-            --brand-50: #FDFBFA;
+        /* Mobile Accordion Styles */
+        .mobile-nav-item { border-bottom: 1px solid #f0f0f0; }
+        .mobile-nav-btn { width: 100%; display: flex; justify-content: space-between; align-items: center; padding: 1rem 0; background: none; border: none; font-family: 'Montserrat', sans-serif; font-weight: 600; color: #483525; font-size: 1rem; cursor: pointer; text-align: left; }
+        .mobile-nav-content { max-height: 0; overflow: hidden; transition: all 0.3s ease; display: flex; flex-direction: column; padding-left: 1rem; background: #fafafa; border-radius: 0.5rem; }
+        .mobile-nav-item.active .mobile-nav-content { max-height: 300px; padding-bottom: 1rem; margin-bottom: 0.5rem; }
+        .mobile-nav-item.active .chevron-mobile { transform: rotate(180deg); }
+        .mobile-link-sub { display: block; padding: 0.75rem 0; color: #5D4632; text-decoration: none; font-size: 0.9rem; font-family: 'Montserrat', sans-serif; }
+
+        /* Premium Buttons */
+        .btn-primary {
+            background-color: #483525;
+            color: white !important;
+            padding: 1rem 2.2rem;
+            border-radius: 9999px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 10px 15px -3px rgba(72, 53, 37, 0.2);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border: none;
+            cursor: pointer;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.9rem;
+        }
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 20px 25px -5px rgba(72, 53, 37, 0.3);
+            filter: brightness(1.1);
+        }
+        .btn-outline {
+            background-color: transparent;
+            color: #483525 !important;
+            border: 2px solid #483525;
+            padding: 1rem 2.2rem;
+            border-radius: 9999px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.9rem;
+        }
+        .btn-outline:hover {
+            background-color: #483525;
+            color: white !important;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
         }
 
-        /* Interactive Dropdowns */
-        .nav-item-dropdown { position: relative; display: flex; align-items: center; gap: 0.4rem; cursor: pointer; padding: 0.5rem 0; }
-        .dropdown-menu { 
-            position: absolute; top: calc(100% + 5px); left: 50%; transform: translateX(-50%) translateY(10px);
-            min-width: 240px; background: white; border: 1px solid var(--brand-100); 
-            border-radius: 1rem; box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1), 0 10px 10px -5px rgba(0,0,0,0.04);
-            opacity: 0; visibility: hidden; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); z-index: 2000; padding: 1rem 0;
-        }
-        .nav-item-dropdown:hover .dropdown-menu { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0); }
-        .dropdown-item { 
-            display: block; padding: 0.75rem 1.5rem; font-size: 0.875rem; color: var(--brand-900); 
-            text-decoration: none; transition: all 0.2s; font-family: 'Montserrat', sans-serif; font-weight: 500;
-        }
-        .dropdown-item:hover { background: var(--brand-50); color: var(--brand-500); padding-left: 1.75rem; }
-        .chevron-icon { width: 14px; height: 14px; opacity: 0.5; transition: transform 0.3s; }
-        .nav-item-dropdown:hover .chevron-icon { transform: rotate(180deg); opacity: 1; color: var(--brand-500); }
+        /* Prevent horizontal overflow */
+        body, main { overflow-x: hidden; max-width: 100%; }
+        .container-custom { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; }
 
-        /* Forced 5-Column Footer Grid */
-        .footer-grid { 
-            display: grid; 
-            grid-template-columns: 1fr; 
-            gap: 3rem; 
-            margin-bottom: 4rem; 
+        /* Responsive Grids */
+        .grid-2col, .grid-2col-equal { 
+            display: flex; flex-direction: column; gap: 3rem; 
         }
         @media (min-width: 1024px) {
-            .footer-grid { 
-                grid-template-columns: repeat(5, 1fr); 
-            }
+            .grid-2col { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+            .grid-2col-equal { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; }
         }
 
-        /* FAQ & Common UI */
-        .faq-container { background: white; border-radius: 1.5rem; border: 1px solid var(--brand-100); padding: 1rem 1.5rem; }
-        .accordion-item { border-bottom: 1px solid var(--brand-100); }
-        .accordion-item:last-child { border-bottom: none; }
-        .accordion-header { width: 100%; display: flex; justify-content: space-between; align-items: center; background: none; border: none; padding: 1.5rem 0; text-align: left; cursor: pointer; font-size: 1rem; font-weight: 500; color: var(--brand-900); transition: all 0.3s; }
-        .accordion-header:hover { color: var(--brand-500); }
-        .accordion-content { max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out; color: #666; line-height: 1.6; font-size: 0.9375rem; }
-        .accordion-item.active .accordion-content { max-height: 400px; padding-bottom: 1.5rem; }
-        #scroll-top { position: fixed; bottom: 2rem; right: 2rem; width: 48px; height: 48px; background: var(--brand-900); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1); cursor: pointer; transition: all 0.3s; z-index: 100; opacity: 0; visibility: hidden; border: none; }
-        #scroll-top.show { opacity: 1; visibility: visible; }
-        #scroll-top:hover { transform: translateY(-5px); background: var(--brand-500); }
+        /* Section Specifics */
+        .como-trab-inner { padding: 0; }
+        @media (min-width: 1024px) {
+            .como-trab-inner { padding: 0 5rem; }
+        }
+
+        /* Bio-Link Specifics (Renascimento) */
+        .bio-container { max-width: 680px; margin: 0 auto; padding: 4rem 1.5rem; text-align: center; display: flex; flex-direction: column; align-items: center; }
+        .profile-img-bio { width: 150px; height: 150px; border-radius: 50%; object-fit: cover; border: 4px solid white; box-shadow: 0 15px 35px rgba(72,53,37,0.15); margin-bottom: 2rem; }
+        .btn-bio-card { background: white !important; border: 1px solid var(--brand-100) !important; padding: 1.5rem !important; border-radius: 1.25rem !important; text-decoration: none !important; display: flex !important; flex-direction: column !important; align-items: center !important; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05) !important; width: 100% !important; margin-bottom: 1.2rem !important; }
+        .btn-bio-card:hover { transform: translateY(-4px) !important; border-color: var(--brand-500) !important; box-shadow: 0 20px 25px -5px rgba(72,53,37,0.1) !important; }
+        .btn-bio-label { font-weight: 700; color: var(--brand-900); font-size: 1.1rem; margin-bottom: 0.25rem; }
+        .btn-bio-subtext { font-size: 0.85rem; color: var(--brand-500); opacity: 0.8; }
+        .awareness-card { background: rgba(234, 225, 216, 0.3); padding: 3rem; border-radius: 2rem; margin-bottom: 4rem; border: 1px dashed var(--brand-100); width: 100%; }
+        .value-grid-bio { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1.5rem; width: 100%; margin-bottom: 4rem; }
+        .value-item-bio { padding: 2rem 1.5rem; background: white; border-radius: 1.25rem; border: 1px solid var(--brand-100); transition: 0.3s; }
+        .value-item-bio:hover { border-color: var(--brand-500); transform: translateY(-2px); }
+
+        /* Lead Capture Modal Styles */
+        .modal-overlay { display: none; position: fixed; inset: 0; background: rgba(72, 53, 37, 0.6); backdrop-filter: blur(8px); z-index: 3000; align-items: center; justify-content: center; padding: 1rem; }
+        .modal-content { background: white; padding: 3rem; border-radius: 2rem; max-width: 480px; width: 100%; position: relative; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25); }
+        .modal-close { position: absolute; top: 1.5rem; right: 1.5rem; background: none; border: none; font-size: 1.5rem; cursor: pointer; color: var(--brand-500); }
+        .modal-title { font-family: 'Playfair Display', serif; font-size: 1.75rem; color: var(--brand-900); margin-bottom: 1rem; }
+        .modal-text { color: var(--brand-800); opacity: 0.8; margin-bottom: 2rem; font-size: 0.95rem; }
+        .form-group { margin-bottom: 1.5rem; text-align: left; }
+        .form-label { display: block; font-size: 0.85rem; font-weight: 600; color: var(--brand-900); margin-bottom: 0.5rem; }
+        .form-input { width: 100%; padding: 0.875rem 1rem; border: 1px solid var(--brand-100); border-radius: 0.75rem; font-family: inherit; transition: 0.3s; }
+        .btn-submit { width: 100%; padding: 1rem; background: var(--brand-900); color: white; border: none; border-radius: 9999px; font-weight: 700; cursor: pointer; transition: 0.3s; margin-top: 1rem; }
     </style>
 </head>
 
-<body>
+<body style="background-color: var(--brand-50);">
 
-    <!-- Header -->
-                                        <!-- Premium Header -->
+            <!-- Premium Header -->
     <header id="main-header" style="background-color: #FFFFFF; border-bottom: 1px solid #EAE1D8; position: sticky; top: 0; z-index: 1000;">
-        <nav class="container-custom" style="padding: 0.75rem 2rem;">
-            <div style="display: flex; align-items: center; width: 100%; justify-content: space-between;">
-                <a href="../" style="flex-shrink: 0; font-size: 1.25rem; text-decoration: none; font-family: 'Playfair Display', serif; font-weight: 700; color: #483525;">
-                    <span>Instituto</span> <span style="color: #9C7C5F;">Ana Cândida</span>
+        <nav class="container-custom" style="padding: 0 2rem;">
+            <div style="display: flex; align-items: center; width: 100%; justify-content: space-between; height: 110px;">
+                <a href="../" style="display: flex; align-items: center; text-decoration: none; height: 100%;">
+                    <img src="https://i.ibb.co/vvPV65rT/ana-candida-s-f.png" alt="Instituto Ana Cândida" style="height: 95px; width: auto; object-fit: contain;">
                 </a>
                 
-                <div class="hidden lg:flex items-center" style="gap: 2.5rem; margin-left: 2rem;">
+                <div class="hidden lg:flex items-center" style="gap: 2.2rem; height: 100%;">
                     <!-- O Instituto Dropdown -->
                     <div class="nav-item-dropdown">
-                        <a href="../o-instituto" style="font-size: 0.9rem; font-weight: 500; color: #483525; text-decoration: none; font-family: 'Montserrat', sans-serif;">O Instituto</a>
-                        <i data-lucide="chevron-down" class="chevron-icon"></i>
+                        <span class="nav-link-main">O Instituto <i data-lucide="chevron-down" class="chevron-icon"></i></span>
                         <div class="dropdown-menu">
+                            <a href="../o-instituto" class="dropdown-item">Visão Geral</a>
                             <a href="../o-instituto#sobre" class="dropdown-item">Sobre nós</a>
                             <a href="../o-instituto#missao" class="dropdown-item">Missão e Valores</a>
                             <a href="../o-instituto#como-trabalhamos" class="dropdown-item">Como Trabalhamos</a>
@@ -148,9 +191,9 @@
 
                     <!-- Terapia Sistêmica Dropdown -->
                     <div class="nav-item-dropdown">
-                        <a href="../terapia-sistemica" style="font-size: 0.9rem; font-weight: 500; color: #483525; text-decoration: none; font-family: 'Montserrat', sans-serif;">Terapia Sistêmica</a>
-                        <i data-lucide="chevron-down" class="chevron-icon"></i>
+                        <span class="nav-link-main">Terapia Sistêmica <i data-lucide="chevron-down" class="chevron-icon"></i></span>
                         <div class="dropdown-menu">
+                            <a href="../terapia-sistemica" class="dropdown-item">Visão Geral</a>
                             <a href="../terapia-sistemica#que-e" class="dropdown-item">O que é</a>
                             <a href="../terapia-sistemica#para-quem" class="dropdown-item">Para quem é</a>
                             <a href="../terapia-sistemica#primeira-sessao" class="dropdown-item">Primeira Sessão</a>
@@ -159,8 +202,7 @@
 
                     <!-- Atendimentos Dropdown -->
                     <div class="nav-item-dropdown">
-                        <a href="../atendimentos" style="font-size: 0.9rem; font-weight: 500; color: #483525; text-decoration: none; font-family: 'Montserrat', sans-serif;">Atendimentos</a>
-                        <i data-lucide="chevron-down" class="chevron-icon"></i>
+                        <span class="nav-link-main">Atendimentos <i data-lucide="chevron-down" class="chevron-icon"></i></span>
                         <div class="dropdown-menu">
                             <a href="../atendimentos/terapia-individual" class="dropdown-item">Terapia Individual</a>
                             <a href="../atendimentos/terapia-casal" class="dropdown-item">Terapia de Casal</a>
@@ -176,7 +218,7 @@
                 </div>
 
                 <div class="hidden lg:block">
-                    <a href="https://wa.me/5562981838006" target="_blank" style="background-color: #483525; color: white; padding: 0.6rem 1.5rem; border-radius: 9999px; text-decoration: none; font-size: 0.85rem; font-weight: 600; font-family: 'Montserrat', sans-serif;">Agendar</a>
+                    <a href="https://wa.me/5562981838006" target="_blank" class="btn-primary" style="padding: 0.6rem 1.5rem; font-size: 0.85rem;">Agendar</a>
                 </div>
                 
                 <button class="lg:hidden" style="background: none; border: none; cursor: pointer; color: #483525;" onclick="toggleMobileMenu()">
@@ -186,25 +228,124 @@
         </nav>
     </header>
 
-    <!-- Mobile Menu -->
-    <div id="mobile-menu" class="hidden" style="position: fixed; inset: 0; background: white; z-index: 2000; padding: 2rem; overflow-y: auto; display: none; flex-direction: column;">
+    <!-- Mobile Menu Overlay -->
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu" class="hidden" style="position: fixed; inset: 0; background: white; z-index: 2000; padding: 2rem; flex-direction: column; overflow-y: auto;">
         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
-            <a href="../" style="font-size: 1.25rem; font-family: 'Playfair Display', serif; font-weight: 700; color: #483525; text-decoration: none;">
-                <span>Instituto</span> <span style="color: #9C7C5F;">Ana Cândida</span>
+            <a href="../" style="display: flex; align-items: center; text-decoration: none; margin-bottom: 1rem;">
+                <img src="https://i.ibb.co/vvPV65rT/ana-candida-s-f.png" alt="Instituto Ana Cândida" style="height: 75px; width: auto; object-fit: contain;">
             </a>
             <button onclick="toggleMobileMenu()" style="background: none; border: none; cursor: pointer; color: #483525;"><i data-lucide="x"></i></button>
         </div>
-        <div style="display: flex; flex-direction: column; gap: 1rem;">
-            <a href="../o-instituto" style="font-weight: 600; color: #483525; text-decoration: none; padding: 0.5rem 0;">O Instituto</a>
-            <a href="../terapia-sistemica" style="font-weight: 600; color: #483525; text-decoration: none; padding: 0.5rem 0;">Terapia Sistêmica</a>
-            <a href="../atendimentos" style="font-weight: 600; color: #483525; text-decoration: none; padding: 0.5rem 0;">Atendimentos</a>
-            <a href="../equipe" style="color: #483525; text-decoration: none; padding: 0.5rem 0;">Equipe</a>
-            <a href="../galeria" style="color: #483525; text-decoration: none; padding: 0.5rem 0;">Galeria</a>
-            <a href="../conteudos" style="color: #483525; text-decoration: none; padding: 0.5rem 0;">Conteúdos</a>
-            <a href="../contato" style="color: #483525; text-decoration: none; padding: 0.5rem 0;">Contato</a>
-            <a href="https://wa.me/5562981838006" target="_blank" style="background-color: #483525; color: white; padding: 1rem; border-radius: 0.75rem; text-align: center; text-decoration: none; font-weight: 600; margin-top: 1rem;">Agendar Agora</a>
+        
+        <div style="display: flex; flex-direction: column;">
+            <!-- O Instituto Mobile -->
+            <div class="mobile-nav-item">
+                <button class="mobile-nav-btn" onclick="toggleMobileAccordion(this)">
+                    O Instituto <i data-lucide="chevron-down" class="chevron-mobile" style="width: 18px; height: 18px;"></i>
+                </button>
+                <div class="mobile-nav-content">
+                    <a href="../o-instituto" class="mobile-link-sub">Visão Geral</a>
+                    <a href="../o-instituto#sobre" class="mobile-link-sub">Sobre nós</a>
+                    <a href="../o-instituto#missao" class="mobile-link-sub">Missão e Valores</a>
+                    <a href="../o-instituto#como-trabalhamos" class="mobile-link-sub">Como Trabalhamos</a>
+                </div>
+            </div>
+
+            <!-- Terapia Sistêmica Mobile -->
+            <div class="mobile-nav-item">
+                <button class="mobile-nav-btn" onclick="toggleMobileAccordion(this)">
+                    Terapia Sistêmica <i data-lucide="chevron-down" class="chevron-mobile" style="width: 18px; height: 18px;"></i>
+                </button>
+                <div class="mobile-nav-content">
+                    <a href="../terapia-sistemica" class="mobile-link-sub">Visão Geral</a>
+                    <a href="../terapia-sistemica#que-e" class="mobile-link-sub">O que é</a>
+                    <a href="../terapia-sistemica#para-quem" class="mobile-link-sub">Para quem é</a>
+                    <a href="../terapia-sistemica#primeira-sessao" class="mobile-link-sub">Primeira Sessão</a>
+                </div>
+            </div>
+
+            <!-- Atendimentos Mobile -->
+            <div class="mobile-nav-item">
+                <button class="mobile-nav-btn" onclick="toggleMobileAccordion(this)">
+                    Atendimentos <i data-lucide="chevron-down" class="chevron-mobile" style="width: 18px; height: 18px;"></i>
+                </button>
+                <div class="mobile-nav-content">
+                    <a href="../atendimentos/terapia-individual" class="mobile-link-sub">Terapia Individual</a>
+                    <a href="../atendimentos/terapia-casal" class="mobile-link-sub">Terapia de Casal</a>
+                    <a href="../atendimentos/terapia-familiar" class="mobile-link-sub">Terapia Familiar</a>
+                    <a href="../atendimentos/parentalidade" class="mobile-link-sub">Parentalidade</a>
+                </div>
+            </div>
+
+            <a href="../equipe" style="font-weight: 600; color: #483525; text-decoration: none; padding: 1.25rem 0; border-bottom: 1px solid #f0f0f0; font-family: 'Montserrat', sans-serif;">Equipe</a>
+            <a href="../galeria" style="font-weight: 600; color: #483525; text-decoration: none; padding: 1.25rem 0; border-bottom: 1px solid #f0f0f0; font-family: 'Montserrat', sans-serif;">Galeria</a>
+            <a href="../conteudos" style="font-weight: 600; color: #483525; text-decoration: none; padding: 1.25rem 0; border-bottom: 1px solid #f0f0f0; font-family: 'Montserrat', sans-serif;">Conteúdos</a>
+            <a href="../contato" style="font-weight: 600; color: #483525; text-decoration: none; padding: 1.25rem 0; border-bottom: 1px solid #f0f0f0; font-family: 'Montserrat', sans-serif;">Contato</a>
+            
+            <a href="https://wa.me/5562981838006" target="_blank" style="background-color: #483525; color: white; padding: 1rem; border-radius: 0.75rem; text-align: center; text-decoration: none; font-weight: 600; margin-top: 2rem; font-family: 'Montserrat', sans-serif;">Agendar Agora</a>
         </div>
     </div>
+
+    <!-- Mobile Menu Overlay -->
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu" class="hidden" style="position: fixed; inset: 0; background: white; z-index: 2000; padding: 2rem; flex-direction: column; overflow-y: auto;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
+            <a href="../" style="display: flex; align-items: center; text-decoration: none; margin-bottom: 1rem;">
+                <img src="https://i.ibb.co/vvPV65rT/ana-candida-s-f.png" alt="Instituto Ana Cândida" style="height: 75px; width: auto; object-fit: contain;">
+            </a>
+            <button onclick="toggleMobileMenu()" style="background: none; border: none; cursor: pointer; color: #483525;"><i data-lucide="x"></i></button>
+        </div>
+        
+        <div style="display: flex; flex-direction: column;">
+            <!-- O Instituto Mobile -->
+            <div class="mobile-nav-item">
+                <button class="mobile-nav-btn" onclick="toggleMobileAccordion(this)">
+                    O Instituto <i data-lucide="chevron-down" class="chevron-mobile" style="width: 18px; height: 18px;"></i>
+                </button>
+                <div class="mobile-nav-content">
+                    <a href="../o-instituto" class="mobile-link-sub">Visão Geral</a>
+                    <a href="../o-instituto#sobre" class="mobile-link-sub">Sobre nós</a>
+                    <a href="../o-instituto#missao" class="mobile-link-sub">Missão e Valores</a>
+                    <a href="../o-instituto#como-trabalhamos" class="mobile-link-sub">Como Trabalhamos</a>
+                </div>
+            </div>
+
+            <!-- Terapia Sistêmica Mobile -->
+            <div class="mobile-nav-item">
+                <button class="mobile-nav-btn" onclick="toggleMobileAccordion(this)">
+                    Terapia Sistêmica <i data-lucide="chevron-down" class="chevron-mobile" style="width: 18px; height: 18px;"></i>
+                </button>
+                <div class="mobile-nav-content">
+                    <a href="../terapia-sistemica" class="mobile-link-sub">Visão Geral</a>
+                    <a href="../terapia-sistemica#que-e" class="mobile-link-sub">O que é</a>
+                    <a href="../terapia-sistemica#para-quem" class="mobile-link-sub">Para quem é</a>
+                    <a href="../terapia-sistemica#primeira-sessao" class="mobile-link-sub">Primeira Sessão</a>
+                </div>
+            </div>
+
+            <!-- Atendimentos Mobile -->
+            <div class="mobile-nav-item">
+                <button class="mobile-nav-btn" onclick="toggleMobileAccordion(this)">
+                    Atendimentos <i data-lucide="chevron-down" class="chevron-mobile" style="width: 18px; height: 18px;"></i>
+                </button>
+                <div class="mobile-nav-content">
+                    <a href="../atendimentos/terapia-individual" class="mobile-link-sub">Terapia Individual</a>
+                    <a href="../atendimentos/terapia-casal" class="mobile-link-sub">Terapia de Casal</a>
+                    <a href="../atendimentos/terapia-familiar" class="mobile-link-sub">Terapia Familiar</a>
+                    <a href="../atendimentos/parentalidade" class="mobile-link-sub">Parentalidade</a>
+                </div>
+            </div>
+
+            <a href="../equipe" style="font-weight: 600; color: #483525; text-decoration: none; padding: 1.25rem 0; border-bottom: 1px solid #f0f0f0; font-family: 'Montserrat', sans-serif;">Equipe</a>
+            <a href="../galeria" style="font-weight: 600; color: #483525; text-decoration: none; padding: 1.25rem 0; border-bottom: 1px solid #f0f0f0; font-family: 'Montserrat', sans-serif;">Galeria</a>
+            <a href="../conteudos" style="font-weight: 600; color: #483525; text-decoration: none; padding: 1.25rem 0; border-bottom: 1px solid #f0f0f0; font-family: 'Montserrat', sans-serif;">Conteúdos</a>
+            <a href="../contato" style="font-weight: 600; color: #483525; text-decoration: none; padding: 1.25rem 0; border-bottom: 1px solid #f0f0f0; font-family: 'Montserrat', sans-serif;">Contato</a>
+            
+            <a href="https://wa.me/5562981838006" target="_blank" style="background-color: #483525; color: white; padding: 1rem; border-radius: 0.75rem; text-align: center; text-decoration: none; font-weight: 600; margin-top: 2rem; font-family: 'Montserrat', sans-serif;">Agendar Agora</a>
+        </div>
+    </div>
+
     <main>
         <section class="hero">
             <div class="container">
@@ -452,157 +593,110 @@
             </div>
         </section>
 
-        <!-- Footer -->
-                                            <!-- Premium Footer -->
-    <footer style="background-color: var(--brand-900); color: #FDFBFA; padding: 5rem 0 3rem; position: relative; z-index: 50;">
+    </main>
+
+            <!-- Premium Footer -->
+    <footer style="background-color: var(--brand-900); color: #FDFBFA !important; padding: 5rem 0 3rem; position: relative; z-index: 50; width: 100%;">
         <div class="container-custom">
             <div class="footer-grid">
                 <!-- Col 1: Brand & Social -->
                 <div>
-                    <h3 style="font-family: 'Playfair Display', serif; font-size: 1.5rem; margin-bottom: 1.5rem; font-weight: 700; color: #FDFBFA;">Instituto Ana Cândida</h3>
-                    <p style="opacity: 0.9; line-height: 1.6; margin-bottom: 2rem; font-size: 0.95rem; color: #FDFBFA;">Cuidado relacional com base na Terapia Sistêmica. Acolhimento, ética e ciência para casais e famílias.</p>
-                    <div style="display: flex; gap: 1rem;">
-                        <a href="#" style="color: white; opacity: 0.8; transition: 0.3s;"><i data-lucide="instagram" size="20"></i></a>
-                        <a href="#" style="color: white; opacity: 0.8; transition: 0.3s;"><i data-lucide="linkedin" size="20"></i></a>
+                    <a href="../" style="display: block; margin-bottom: 1.5rem;">
+                        <img src="https://i.ibb.co/pBFQK4ZY/Design-sem-nome-64.png" alt="Instituto Ana Cândida" style="height: 70px; width: auto; object-fit: contain;">
+                    </a>
+                    <p style="opacity: 0.9; line-height: 1.6; margin-bottom: 2rem; font-size: 0.95rem; color: #FDFBFA !important;">Cuidado relacional com base na Terapia Sistêmica. Acolhimento, ética e ciência para casais e famílias.</p>
+                    <div style="display: flex; gap: 1.5rem; align-items: center;">
+                        <a href="https://instagram.com" target="_blank" style="color: #FDFBFA !important; text-decoration: none;" aria-label="Instagram">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                        </a>
+                        <a href="https://linkedin.com" target="_blank" style="color: #FDFBFA !important; text-decoration: none;" aria-label="LinkedIn">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+                        </a>
                     </div>
                 </div>
                 <!-- Col 2: Institucional -->
                 <div>
-                    <h4 style="font-family: 'Playfair Display', serif; font-size: 1.1rem; margin-bottom: 1.5rem; font-weight: 700; color: #FDFBFA;">Institucional</h4>
+                    <h4 style="font-family: 'Playfair Display', serif; font-size: 1.1rem; margin-bottom: 1.5rem; font-weight: 700; color: #FDFBFA !important;">Institucional</h4>
                     <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.8rem;">
-                        <li><a href="../o-instituto" style="color: #FDFBFA; text-decoration: none; opacity: 0.8;">Sobre nós</a></li>
-                        <li><a href="../equipe" style="color: #FDFBFA; text-decoration: none; opacity: 0.8;">Equipe</a></li>
-                        <li><a href="../atendimentos" style="color: #FDFBFA; text-decoration: none; opacity: 0.8;">Serviços</a></li>
-                        <li><a href="../conteudos" style="color: #FDFBFA; text-decoration: none; opacity: 0.8;">Blog</a></li>
+                        <li><a href="../o-instituto" style="color: #FDFBFA !important; text-decoration: none; opacity: 0.8;">Sobre nós</a></li>
+                        <li><a href="../equipe" style="color: #FDFBFA !important; text-decoration: none; opacity: 0.8;">Equipe</a></li>
+                        <li><a href="../atendimentos" style="color: #FDFBFA !important; text-decoration: none; opacity: 0.8;">Serviços</a></li>
+                        <li><a href="../conteudos" style="color: #FDFBFA !important; text-decoration: none; opacity: 0.8;">Blog</a></li>
                     </ul>
                 </div>
                 <!-- Col 3: Contato -->
                 <div>
-                    <h4 style="font-family: 'Playfair Display', serif; font-size: 1.1rem; margin-bottom: 1.5rem; font-weight: 700; color: #FDFBFA;">Contato</h4>
+                    <h4 style="font-family: 'Playfair Display', serif; font-size: 1.1rem; margin-bottom: 1.5rem; font-weight: 700; color: #FDFBFA !important;">Contato</h4>
                     <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 1.2rem;">
-                        <li style="display: flex; align-items: flex-start; gap: 0.75rem; color: #FDFBFA; opacity: 0.9;"><i data-lucide="map-pin" size="18"></i><span>Village, Goiânia-GO</span></li>
-                        <li style="display: flex; align-items: center; gap: 0.75rem; color: #FDFBFA; opacity: 0.9;"><i data-lucide="phone" size="18"></i><span>(62) 98183-8006</span></li>
-                        <li style="display: flex; align-items: flex-start; gap: 0.75rem; color: #FDFBFA; opacity: 0.9;"><i data-lucide="mail" size="18"></i><span style="word-break: break-all;">contato@institutoanacandida.com.br</span></li>
+                        <li style="display: flex; align-items: flex-start; gap: 0.75rem; color: #FDFBFA !important; opacity: 0.9;"><i data-lucide="map-pin" style="width: 18px; height: 18px; flex-shrink: 0; margin-top: 0.2rem;"></i><span>Village, Goiânia-GO</span></li>
+                        <li style="display: flex; align-items: center; gap: 0.75rem; color: #FDFBFA !important; opacity: 0.9;"><i data-lucide="phone" style="width: 18px; height: 18px; flex-shrink: 0;"></i><span>(62) 98183-8006</span></li>
+                        <li style="display: flex; align-items: flex-start; gap: 0.75rem; color: #FDFBFA !important; opacity: 0.9;"><i data-lucide="mail" style="width: 18px; height: 18px; flex-shrink: 0; margin-top: 0.2rem;"></i><span style="word-break: break-all;">contato@institutoanacandida.com.br</span></li>
                     </ul>
                 </div>
                 <!-- Col 4: Legal -->
                 <div>
-                    <h4 style="font-family: 'Playfair Display', serif; font-size: 1.1rem; margin-bottom: 1.5rem; font-weight: 700; color: #FDFBFA;">Legal</h4>
+                    <h4 style="font-family: 'Playfair Display', serif; font-size: 1.1rem; margin-bottom: 1.5rem; font-weight: 700; color: #FDFBFA !important;">Legal</h4>
                     <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.8rem;">
-                        <li><a href="../privacidade" style="color: #FDFBFA; text-decoration: none; opacity: 0.8;">Privacidade (LGPD)</a></li>
-                        <li><a href="../termos" style="color: #FDFBFA; text-decoration: none; opacity: 0.8;">Termos de Uso</a></li>
+                        <li><a href="../privacidade" style="color: #FDFBFA !important; text-decoration: none; opacity: 0.8;">Privacidade (LGPD)</a></li>
+                        <li><a href="../termos" style="color: #FDFBFA !important; text-decoration: none; opacity: 0.8;">Termos de Uso</a></li>
+                        <li><a href="#" style="color: #FDFBFA !important; text-decoration: none; opacity: 0.8;">Política de Remarcação</a></li>
                     </ul>
                 </div>
                 <!-- Col 5: Aviso Important -->
                 <div>
-                    <h4 style="font-family: 'Playfair Display', serif; font-size: 1.1rem; margin-bottom: 1.5rem; font-weight: 700; color: #FDFBFA;">Aviso Importante</h4>
-                    <p style="opacity: 0.9; line-height: 1.6; font-size: 0.9rem; color: #FDFBFA;">Este site não oferece atendimento de emergência. Em caso de crise, procure o hospital mais próximo ou ligue 188 (CVV).</p>
+                    <h4 style="font-family: 'Playfair Display', serif; font-size: 1.1rem; margin-bottom: 1.5rem; font-weight: 700; color: #FDFBFA !important;">Aviso Importante</h4>
+                    <p style="opacity: 0.9; line-height: 1.6; font-size: 0.9rem; color: #FDFBFA !important;">Este site não oferece atendimento de emergência. Em caso de crise, procure o hospital mais próximo ou ligue 188 (CVV).</p>
                 </div>
             </div>
             <div style="border-top: 1px solid rgba(253, 251, 250, 0.1); padding-top: 2rem; text-align: center;">
-                <p style="opacity: 0.7; font-size: 0.875rem; color: #FDFBFA;">&copy; 2026 Instituto Ana Cândida. Todos os direitos reservados.</p>
+                <p style="opacity: 0.7; font-size: 0.875rem; color: #FDFBFA !important;">&copy; 2026 Instituto Ana Cândida. Todos os direitos reservados.</p>
             </div>
         </div>
     </footer>
-    <button id="scroll-top" title="Voltar ao topo"><i data-lucide="chevron-up"></i></button>
-    <button id="scroll-top" title="Voltar ao topo"><i data-lucide="chevron-up"></i></button>
-        <button id="scroll-top" title="Voltar ao topo">
-        <i data-lucide="chevron-up"></i>
-    </button>
-        <button id="scroll-top" title="Voltar ao topo">
-        <i data-lucide="chevron-up"></i>
-    </button>
-        <button id="scroll-top" title="Voltar ao topo">
-        <i data-lucide="chevron-up"></i>
-    </button>
-        <button id="scroll-top" title="Voltar ao topo">
-        <i data-lucide="chevron-up"></i>
-    </button>
-        <button id="scroll-top" title="Voltar ao topo">
-        <i data-lucide="chevron-up"></i>
-    </button>
-        <button id="scroll-top" title="Voltar ao topo">
-        <i data-lucide="chevron-up"></i>
-    </button>
+            <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => { lucide.createIcons(); });
+        function toggleMobileMenu() { 
+            const m = document.getElementById('mobile-menu'); 
+            if(!m) return;
+            m.classList.toggle('hidden'); 
+            if(!m.classList.contains('hidden')) {
+                m.style.setProperty('display', 'flex', 'important');
+                lucide.createIcons();
+            } else {
+                m.style.setProperty('display', 'none', 'important');
+            }
+        }
+        
+        function toggleAccordion(btn) {
+            const item = btn.parentElement;
+            const isActive = item.classList.contains('active');
+            document.querySelectorAll('.accordion-item').forEach(i => i.classList.remove('active'));
+            if(!isActive) item.classList.add('active');
+        }
 
-        <!-- Script -->
-        <script>
-            // Script.js
-            document.addEventListener('DOMContentLoaded', () => {
-                // Scroll suave para links internos
-                document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                    anchor.addEventListener('click', function (e) {
-                        e.preventDefault();
-                        const target = document.querySelector(this.getAttribute('href'));
-                        if (target) {
-                            target.scrollIntoView({
-                                behavior: 'smooth'
-                            });
-                        }
-                    });
-                });
-
-                // Animação ao rolar (Intersection Observer)
-                const observer = new IntersectionObserver((entries) => {
-                    entries.forEach(entry => {
-                        if (entry.isIntersecting) {
-                            entry.target.classList.add('visible');
-                        }
-                    });
-                }, { threshold: 0.1 });
-
-                document.querySelectorAll('.animate-on-scroll').forEach(el => observer.observe(el));
-
-                // FAQ Accordion
-                const faqQuestions = document.querySelectorAll('.faq-question');
-
-                faqQuestions.forEach(question => {
-                    question.addEventListener('click', () => {
-                        const answer = question.nextElementSibling;
-
-                        // Toggle active class
-                        question.classList.toggle('active');
-
-                        // Toggle answer visibility
-                        if (question.classList.contains('active')) {
-                            answer.style.maxHeight = answer.scrollHeight + 'px';
-                        } else {
-                            answer.style.maxHeight = 0;
-                        }
-
-                        // Optional: Close other answers
-                        faqQuestions.forEach(otherQuestion => {
-                            if (otherQuestion !== question) {
-                                otherQuestion.classList.remove('active');
-                                otherQuestion.nextElementSibling.style.maxHeight = 0;
-                            }
-                        });
-                    });
-                });
-
-                // Mobile Menu Toggle
-                const mobileBtn = document.querySelector('.mobile-menu-btn');
-                const nav = document.querySelector('.nav');
-
-                if (mobileBtn) {
-                    mobileBtn.addEventListener('click', () => {
-                        nav.classList.toggle('active');
-                    });
-                }
-
-                // Close mobile menu when clicking a link
-                document.querySelectorAll('.nav-link, .btn-header').forEach(link => {
-                    link.addEventListener('click', () => {
-                        if (nav.classList.contains('active')) {
-                            nav.classList.remove('active');
-                        }
-                    });
-                });
-            });
-        </script>
+        function toggleMobileAccordion(btn) { 
+            const item = btn.parentElement; 
+            const isActive = item.classList.contains('active');
+            document.querySelectorAll('.mobile-nav-item').forEach(i => i.classList.remove('active'));
+            if(!isActive) item.classList.add('active');
+            setTimeout(() => { lucide.createIcons(); }, 10);
+        }
+        window.addEventListener('scroll', () => { 
+            const header = document.getElementById('main-header');
+            const b = document.getElementById('scroll-top'); 
+            if(window.scrollY > 20) header.classList.add('scrolled'); else header.classList.remove('scrolled');
+            if(window.scrollY > 500) { if(b) b.classList.add('show'); } else { if(b) b.classList.remove('show'); } 
+        });
+        document.getElementById('scroll-top')?.addEventListener('click', () => window.scrollTo({top: 0, behavior: 'smooth'}));
+    </script>
+    <script src="js/script.js"></script>
 </body>
-
 </html>
+
+
+
+
 
 
 

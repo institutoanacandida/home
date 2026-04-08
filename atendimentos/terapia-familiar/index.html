@@ -10,6 +10,8 @@
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌷</text></svg>">
 
                                                                                                                         <link rel="stylesheet" href="../../assets/style.css">
+    <link rel="stylesheet" href="../../assets/style.css">
+    <link rel="stylesheet" href="../../assets/style.css">
     <style>
         :root {
             --brand-900: #483525;
@@ -158,6 +160,8 @@
     </style>
 
                                                                                                                 <link rel="stylesheet" href="../../assets/style.css">
+    <link rel="stylesheet" href="../../assets/style.css">
+    <link rel="stylesheet" href="../../assets/style.css">
     <style>
         :root {
             --brand-900: #483525;
@@ -307,7 +311,7 @@
 </head>
 <body style="background-color: white; font-family: var(--font-sans); color: var(--brand-800);">
     <!-- Header -->
-                                                                                                                                                                <!-- Premium Header -->
+                                                                                                                                                                        <!-- Premium Header -->
     <header id="main-header" style="background-color: #FFFFFF; border-bottom: 1px solid #EAE1D8; position: sticky; top: 0; z-index: 1000;">
         <nav class="container-custom" style="padding: 0 2rem;">
             <div style="display: flex; align-items: center; width: 100%; justify-content: space-between; height: 110px;">
@@ -542,6 +546,124 @@
             <a href="https://wa.me/5562981838006" target="_blank" style="background-color: #483525; color: white; padding: 1rem; border-radius: 0.75rem; text-align: center; text-decoration: none; font-weight: 600; margin-top: 2rem; font-family: 'Montserrat', sans-serif;">Agendar Agora</a>
         </div>
     </div>
+
+    <!-- Mobile Menu Overlay -->
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu" class="hidden" style="position: fixed; inset: 0; background: white; z-index: 2000; padding: 2rem; flex-direction: column; overflow-y: auto;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
+            <a href="../../" style="display: flex; align-items: center; text-decoration: none; margin-bottom: 1rem;">
+                <img src="https://i.ibb.co/vvPV65rT/ana-candida-s-f.png" alt="Instituto Ana Cândida" style="height: 75px; width: auto; object-fit: contain;">
+            </a>
+            <button onclick="toggleMobileMenu()" style="background: none; border: none; cursor: pointer; color: #483525;"><i data-lucide="x"></i></button>
+        </div>
+        
+        <div style="display: flex; flex-direction: column;">
+            <!-- O Instituto Mobile -->
+            <div class="mobile-nav-item">
+                <button class="mobile-nav-btn" onclick="toggleMobileAccordion(this)">
+                    O Instituto <i data-lucide="chevron-down" class="chevron-mobile" style="width: 18px; height: 18px;"></i>
+                </button>
+                <div class="mobile-nav-content">
+                    <a href="../../o-instituto" class="mobile-link-sub">Visão Geral</a>
+                    <a href="../../o-instituto#sobre" class="mobile-link-sub">Sobre nós</a>
+                    <a href="../../o-instituto#missao" class="mobile-link-sub">Missão e Valores</a>
+                    <a href="../../o-instituto#como-trabalhamos" class="mobile-link-sub">Como Trabalhamos</a>
+                </div>
+            </div>
+
+            <!-- Terapia Sistêmica Mobile -->
+            <div class="mobile-nav-item">
+                <button class="mobile-nav-btn" onclick="toggleMobileAccordion(this)">
+                    Terapia Sistêmica <i data-lucide="chevron-down" class="chevron-mobile" style="width: 18px; height: 18px;"></i>
+                </button>
+                <div class="mobile-nav-content">
+                    <a href="../../terapia-sistemica" class="mobile-link-sub">Visão Geral</a>
+                    <a href="../../terapia-sistemica#que-e" class="mobile-link-sub">O que é</a>
+                    <a href="../../terapia-sistemica#para-quem" class="mobile-link-sub">Para quem é</a>
+                    <a href="../../terapia-sistemica#primeira-sessao" class="mobile-link-sub">Primeira Sessão</a>
+                </div>
+            </div>
+
+            <!-- Atendimentos Mobile -->
+            <div class="mobile-nav-item">
+                <button class="mobile-nav-btn" onclick="toggleMobileAccordion(this)">
+                    Atendimentos <i data-lucide="chevron-down" class="chevron-mobile" style="width: 18px; height: 18px;"></i>
+                </button>
+                <div class="mobile-nav-content">
+                    <a href="../../atendimentos/terapia-individual" class="mobile-link-sub">Terapia Individual</a>
+                    <a href="../../atendimentos/terapia-casal" class="mobile-link-sub">Terapia de Casal</a>
+                    <a href="../../atendimentos/terapia-familiar" class="mobile-link-sub">Terapia Familiar</a>
+                    <a href="../../atendimentos/parentalidade" class="mobile-link-sub">Parentalidade</a>
+                </div>
+            </div>
+
+            <a href="../../equipe" style="font-weight: 600; color: #483525; text-decoration: none; padding: 1.25rem 0; border-bottom: 1px solid #f0f0f0; font-family: 'Montserrat', sans-serif;">Equipe</a>
+            <a href="../../galeria" style="font-weight: 600; color: #483525; text-decoration: none; padding: 1.25rem 0; border-bottom: 1px solid #f0f0f0; font-family: 'Montserrat', sans-serif;">Galeria</a>
+            <a href="../../conteudos" style="font-weight: 600; color: #483525; text-decoration: none; padding: 1.25rem 0; border-bottom: 1px solid #f0f0f0; font-family: 'Montserrat', sans-serif;">Conteúdos</a>
+            <a href="../../contato" style="font-weight: 600; color: #483525; text-decoration: none; padding: 1.25rem 0; border-bottom: 1px solid #f0f0f0; font-family: 'Montserrat', sans-serif;">Contato</a>
+            
+            <a href="https://wa.me/5562981838006" target="_blank" style="background-color: #483525; color: white; padding: 1rem; border-radius: 0.75rem; text-align: center; text-decoration: none; font-weight: 600; margin-top: 2rem; font-family: 'Montserrat', sans-serif;">Agendar Agora</a>
+        </div>
+    </div>
+
+    <!-- Mobile Menu Overlay -->
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu" class="hidden" style="position: fixed; inset: 0; background: white; z-index: 2000; padding: 2rem; flex-direction: column; overflow-y: auto;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
+            <a href="../../" style="display: flex; align-items: center; text-decoration: none; margin-bottom: 1rem;">
+                <img src="https://i.ibb.co/vvPV65rT/ana-candida-s-f.png" alt="Instituto Ana Cândida" style="height: 75px; width: auto; object-fit: contain;">
+            </a>
+            <button onclick="toggleMobileMenu()" style="background: none; border: none; cursor: pointer; color: #483525;"><i data-lucide="x"></i></button>
+        </div>
+        
+        <div style="display: flex; flex-direction: column;">
+            <!-- O Instituto Mobile -->
+            <div class="mobile-nav-item">
+                <button class="mobile-nav-btn" onclick="toggleMobileAccordion(this)">
+                    O Instituto <i data-lucide="chevron-down" class="chevron-mobile" style="width: 18px; height: 18px;"></i>
+                </button>
+                <div class="mobile-nav-content">
+                    <a href="../../o-instituto" class="mobile-link-sub">Visão Geral</a>
+                    <a href="../../o-instituto#sobre" class="mobile-link-sub">Sobre nós</a>
+                    <a href="../../o-instituto#missao" class="mobile-link-sub">Missão e Valores</a>
+                    <a href="../../o-instituto#como-trabalhamos" class="mobile-link-sub">Como Trabalhamos</a>
+                </div>
+            </div>
+
+            <!-- Terapia Sistêmica Mobile -->
+            <div class="mobile-nav-item">
+                <button class="mobile-nav-btn" onclick="toggleMobileAccordion(this)">
+                    Terapia Sistêmica <i data-lucide="chevron-down" class="chevron-mobile" style="width: 18px; height: 18px;"></i>
+                </button>
+                <div class="mobile-nav-content">
+                    <a href="../../terapia-sistemica" class="mobile-link-sub">Visão Geral</a>
+                    <a href="../../terapia-sistemica#que-e" class="mobile-link-sub">O que é</a>
+                    <a href="../../terapia-sistemica#para-quem" class="mobile-link-sub">Para quem é</a>
+                    <a href="../../terapia-sistemica#primeira-sessao" class="mobile-link-sub">Primeira Sessão</a>
+                </div>
+            </div>
+
+            <!-- Atendimentos Mobile -->
+            <div class="mobile-nav-item">
+                <button class="mobile-nav-btn" onclick="toggleMobileAccordion(this)">
+                    Atendimentos <i data-lucide="chevron-down" class="chevron-mobile" style="width: 18px; height: 18px;"></i>
+                </button>
+                <div class="mobile-nav-content">
+                    <a href="../../atendimentos/terapia-individual" class="mobile-link-sub">Terapia Individual</a>
+                    <a href="../../atendimentos/terapia-casal" class="mobile-link-sub">Terapia de Casal</a>
+                    <a href="../../atendimentos/terapia-familiar" class="mobile-link-sub">Terapia Familiar</a>
+                    <a href="../../atendimentos/parentalidade" class="mobile-link-sub">Parentalidade</a>
+                </div>
+            </div>
+
+            <a href="../../equipe" style="font-weight: 600; color: #483525; text-decoration: none; padding: 1.25rem 0; border-bottom: 1px solid #f0f0f0; font-family: 'Montserrat', sans-serif;">Equipe</a>
+            <a href="../../galeria" style="font-weight: 600; color: #483525; text-decoration: none; padding: 1.25rem 0; border-bottom: 1px solid #f0f0f0; font-family: 'Montserrat', sans-serif;">Galeria</a>
+            <a href="../../conteudos" style="font-weight: 600; color: #483525; text-decoration: none; padding: 1.25rem 0; border-bottom: 1px solid #f0f0f0; font-family: 'Montserrat', sans-serif;">Conteúdos</a>
+            <a href="../../contato" style="font-weight: 600; color: #483525; text-decoration: none; padding: 1.25rem 0; border-bottom: 1px solid #f0f0f0; font-family: 'Montserrat', sans-serif;">Contato</a>
+            
+            <a href="https://wa.me/5562981838006" target="_blank" style="background-color: #483525; color: white; padding: 1rem; border-radius: 0.75rem; text-align: center; text-decoration: none; font-weight: 600; margin-top: 2rem; font-family: 'Montserrat', sans-serif;">Agendar Agora</a>
+        </div>
+    </div>
     <main>
         <section style="background-color: var(--brand-50); padding: 5rem 0;">
             <div class="container-custom">
@@ -589,7 +711,7 @@
         </section>
     </main>
 
-                                                                                                                                                                <!-- Premium Footer -->
+                                                                                                                                                                        <!-- Premium Footer -->
     <footer style="background-color: var(--brand-900); color: #FDFBFA !important; padding: 5rem 0 3rem; position: relative; z-index: 50; width: 100%;">
         <div class="container-custom">
             <div class="footer-grid">
@@ -648,7 +770,7 @@
         </div>
     </footer>
                             <button id="scroll-top" title="Voltar ao topo"><i data-lucide="chevron-up"></i></button>
-                                                            <script src="https://unpkg.com/lucide@latest"></script>
+                                                                    <script src="https://unpkg.com/lucide@latest"></script>
     <script>
         document.addEventListener('DOMContentLoaded', () => { lucide.createIcons(); });
         function toggleMobileMenu() { 
@@ -681,12 +803,14 @@
             const header = document.getElementById('main-header');
             const b = document.getElementById('scroll-top'); 
             if(window.scrollY > 20) header.classList.add('scrolled'); else header.classList.remove('scrolled');
-            if(window.scrollY > 500) b.classList.add('show'); else b.classList.remove('show'); 
+            if(window.scrollY > 500) { if(b) b.classList.add('show'); } else { if(b) b.classList.remove('show'); } 
         });
         document.getElementById('scroll-top')?.addEventListener('click', () => window.scrollTo({top: 0, behavior: 'smooth'}));
     </script>
 </body>
 </html>
+
+
 
 
 

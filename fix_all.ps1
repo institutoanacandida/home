@@ -341,8 +341,8 @@ function Get-Footer($depthPath) {
 }
 
 # 4. Script Template
-function Get-ScriptBlock {
-    return @"
+function Get-ScriptBlock($hasLocalScript) {
+    $baseScript = @"
     <script src="https://unpkg.com/lucide@latest"></script>
     <script>
         document.addEventListener('DOMContentLoaded', () => { lucide.createIcons(); });
@@ -376,15 +376,19 @@ function Get-ScriptBlock {
             const header = document.getElementById('main-header');
             const b = document.getElementById('scroll-top'); 
             if(window.scrollY > 20) header.classList.add('scrolled'); else header.classList.remove('scrolled');
-            if(window.scrollY > 500) b.classList.add('show'); else b.classList.remove('show'); 
+            if(window.scrollY > 500) { if(b) b.classList.add('show'); } else { if(b) b.classList.remove('show'); } 
         });
         document.getElementById('scroll-top')?.addEventListener('click', () => window.scrollTo({top: 0, behavior: 'smooth'}));
     </script>
 "@
+    if ($hasLocalScript) {
+        $baseScript += "`n    <script src=`"js/script.js`"></script>"
+    }
+    return $baseScript
 }
 
 # --- Execution ---
-$lvl1 = @("agendar/index.html", "atendimentos/index.html", "contato/index.html", "conteudos/index.html", "equipe/index.html", "galeria/index.html", "o-instituto/index.html", "terapia-sistemica/index.html", "upsell/index.html", "downsell/index.html", "renascimento/index.html")
+$lvl1 = @("agendar/index.html", "atendimentos/index.html", "contato/index.html", "conteudos/index.html", "equipe/index.html", "galeria/index.html", "o-instituto/index.html", "terapia-sistemica/index.html", "upsell/index.html", "downsell/index.html", "renascimento/index.html", "jornada/index.html")
 $lvl2 = @("atendimentos/terapia-individual/index.html", "atendimentos/terapia-casal/index.html", "atendimentos/terapia-familiar/index.html", "atendimentos/parentalidade/index.html")
 
 function Process-File($f, $depthPath) {
@@ -397,7 +401,8 @@ function Process-File($f, $depthPath) {
         $cssLink = "<link rel=""stylesheet"" href=""${depthPath}assets/style.css"">"
         $header = Get-Header $depthPath
         $footer = Get-Footer $depthPath
-        $script = Get-ScriptBlock
+        $hasLocalScript = Test-Path (Join-Path (Split-Path $path) "js\script.js")
+        $script = Get-ScriptBlock $hasLocalScript
         
         $content = $content -replace '(?s)<style>.*?</style>', "$cssLink`n$style"
         $content = $content -replace '(?s)<!-- Premium Header -->.*?</header>', $header
