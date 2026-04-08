@@ -1,387 +1,365 @@
 <!DOCTYPE html>
-<!-- Cache Bust: Fixed Gamma & WhatsApp Links - Force Push v3.1 -->
 <html lang="pt-BR">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description"
-        content="Jornada de Reconexão Feminina com Ana Cândida. Guia Gratuito, Atendimentos e Conteúdos.">
-    <title>Ana Cândida | Links</title>
-
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600&display=swap"
-        rel="stylesheet">
-
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-                <style>
-        :root {
-            --brand-900: #483525;
-            --brand-800: #5D4632;
-            --brand-500: #9C7C5F;
-            --brand-100: #EAE1D8;
-            --brand-50: #FDFBFA;
+    <title>Renascimento | Instituto Ana Cândida</title>
+    <meta name="description" content="Jornada de Reconexão Feminina com Ana Cândida. Guia Gratuito, Atendimentos e Conteúdos.">
+    
+    <link rel="stylesheet" href="../../assets/style.css">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌷</text></svg>">
+    
+    <style>
+        .bio-container {
+            max-width: 680px;
+            margin: 0 auto;
+            padding: 4rem 1.5rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        .profile-img-wrap {
+            position: relative;
+            margin-bottom: 2rem;
+        }
+        .profile-img-bio {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid white;
+            box-shadow: 0 15px 35px rgba(72,53,37,0.15);
+        }
+        .bio-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            color: var(--brand-900);
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+        }
+        .bio-subtitle {
+            color: var(--brand-800);
+            opacity: 0.8;
+            margin-bottom: 3rem;
+            max-width: 500px;
+            line-height: 1.6;
+            font-size: 1.1rem;
+        }
+        .links-grid {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+            margin-bottom: 4rem;
+        }
+        .btn-bio-card {
+            background: white;
+            border: 1px solid var(--brand-100);
+            padding: 1.5rem;
+            border-radius: 1.25rem;
+            text-decoration: none;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+        }
+        .btn-bio-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--brand-500);
+            box-shadow: 0 20px 25px -5px rgba(72,53,37,0.1);
+        }
+        .btn-bio-label {
+            font-weight: 700;
+            color: var(--brand-900);
+            font-size: 1.1rem;
+            margin-bottom: 0.25rem;
+        }
+        .btn-bio-subtext {
+            font-size: 0.85rem;
+            color: var(--brand-500);
+            opacity: 0.8;
+        }
+        .awareness-card {
+            background: rgba(234, 225, 216, 0.3);
+            padding: 3rem;
+            border-radius: 2rem;
+            margin-bottom: 4rem;
+            border: 1px dashed var(--brand-100);
+            width: 100%;
+        }
+        .value-grid-bio {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1.5rem;
+            width: 100%;
+            margin-bottom: 4rem;
+        }
+        .value-item-bio {
+            padding: 2rem 1.5rem;
+            background: white;
+            border-radius: 1.25rem;
+            border: 1px solid var(--brand-100);
+            transition: 0.3s;
+        }
+        .value-item-bio:hover {
+            border-color: var(--brand-500);
+            transform: translateY(-2px);
         }
 
-        /* Interactive Dropdowns */
-        .nav-item-dropdown { position: relative; display: flex; align-items: center; gap: 0.4rem; cursor: pointer; padding: 0.5rem 0; }
-        .dropdown-menu { 
-            position: absolute; top: calc(100% + 5px); left: 50%; transform: translateX(-50%) translateY(10px);
-            min-width: 240px; background: white; border: 1px solid var(--brand-100); 
-            border-radius: 1rem; box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1), 0 10px 10px -5px rgba(0,0,0,0.04);
-            opacity: 0; visibility: hidden; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); z-index: 2000; padding: 1rem 0;
+        /* Lead Capture Modal Styles */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(72, 53, 37, 0.6);
+            backdrop-filter: blur(8px);
+            z-index: 3000;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
         }
-        .nav-item-dropdown:hover .dropdown-menu { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0); }
-        .dropdown-item { 
-            display: block; padding: 0.75rem 1.5rem; font-size: 0.875rem; color: var(--brand-900); 
-            text-decoration: none; transition: all 0.2s; font-family: 'Montserrat', sans-serif; font-weight: 500;
+        .modal-content {
+            background: white;
+            padding: 3rem;
+            border-radius: 2rem;
+            max-width: 480px;
+            width: 100%;
+            position: relative;
+            box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25);
         }
-        .dropdown-item:hover { background: var(--brand-50); color: var(--brand-500); padding-left: 1.75rem; }
-        .chevron-icon { width: 14px; height: 14px; opacity: 0.5; transition: transform 0.3s; }
-        .nav-item-dropdown:hover .chevron-icon { transform: rotate(180deg); opacity: 1; color: var(--brand-500); }
-
-        /* Forced 5-Column Footer Grid */
-        .footer-grid { 
-            display: grid; 
-            grid-template-columns: 1fr; 
-            gap: 3rem; 
-            margin-bottom: 4rem; 
+        .modal-close {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--brand-500);
         }
-        @media (min-width: 1024px) {
-            .footer-grid { 
-                grid-template-columns: repeat(5, 1fr); 
-            }
+        .modal-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.75rem;
+            color: var(--brand-900);
+            margin-bottom: 1rem;
         }
-
-        /* FAQ & Common UI */
-        .faq-container { background: white; border-radius: 1.5rem; border: 1px solid var(--brand-100); padding: 1rem 1.5rem; }
-        .accordion-item { border-bottom: 1px solid var(--brand-100); }
-        .accordion-item:last-child { border-bottom: none; }
-        .accordion-header { width: 100%; display: flex; justify-content: space-between; align-items: center; background: none; border: none; padding: 1.5rem 0; text-align: left; cursor: pointer; font-size: 1rem; font-weight: 500; color: var(--brand-900); transition: all 0.3s; }
-        .accordion-header:hover { color: var(--brand-500); }
-        .accordion-content { max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out; color: #666; line-height: 1.6; font-size: 0.9375rem; }
-        .accordion-item.active .accordion-content { max-height: 400px; padding-bottom: 1.5rem; }
-        #scroll-top { position: fixed; bottom: 2rem; right: 2rem; width: 48px; height: 48px; background: var(--brand-900); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1); cursor: pointer; transition: all 0.3s; z-index: 100; opacity: 0; visibility: hidden; border: none; }
-        #scroll-top.show { opacity: 1; visibility: visible; }
-        #scroll-top:hover { transform: translateY(-5px); background: var(--brand-500); }
-    </style>
-
-        <style>
-        :root {
-            --brand-900: #483525;
-            --brand-800: #5D4632;
-            --brand-500: #9C7C5F;
-            --brand-100: #EAE1D8;
-            --brand-50: #FDFBFA;
+        .modal-text {
+            color: var(--brand-800);
+            opacity: 0.8;
+            margin-bottom: 2rem;
+            font-size: 0.95rem;
         }
-
-        /* Interactive Dropdowns */
-        .nav-item-dropdown { position: relative; display: flex; align-items: center; gap: 0.4rem; cursor: pointer; padding: 0.5rem 0; }
-        .dropdown-menu { 
-            position: absolute; top: calc(100% + 5px); left: 50%; transform: translateX(-50%) translateY(10px);
-            min-width: 240px; background: white; border: 1px solid var(--brand-100); 
-            border-radius: 1rem; box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1), 0 10px 10px -5px rgba(0,0,0,0.04);
-            opacity: 0; visibility: hidden; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); z-index: 2000; padding: 1rem 0;
+        .form-group {
+            margin-bottom: 1.5rem;
+            text-align: left;
         }
-        .nav-item-dropdown:hover .dropdown-menu { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0); }
-        .dropdown-item { 
-            display: block; padding: 0.75rem 1.5rem; font-size: 0.875rem; color: var(--brand-900); 
-            text-decoration: none; transition: all 0.2s; font-family: 'Montserrat', sans-serif; font-weight: 500;
+        .form-label {
+            display: block;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--brand-900);
+            margin-bottom: 0.5rem;
         }
-        .dropdown-item:hover { background: var(--brand-50); color: var(--brand-500); padding-left: 1.75rem; }
-        .chevron-icon { width: 14px; height: 14px; opacity: 0.5; transition: transform 0.3s; }
-        .nav-item-dropdown:hover .chevron-icon { transform: rotate(180deg); opacity: 1; color: var(--brand-500); }
-
-        /* Forced 5-Column Footer Grid */
-        .footer-grid { 
-            display: grid; 
-            grid-template-columns: 1fr; 
-            gap: 3rem; 
-            margin-bottom: 4rem; 
+        .form-input {
+            width: 100%;
+            padding: 0.875rem 1rem;
+            border: 1px solid var(--brand-100);
+            border-radius: 0.75rem;
+            font-family: inherit;
+            transition: 0.3s;
         }
-        @media (min-width: 1024px) {
-            .footer-grid { 
-                grid-template-columns: repeat(5, 1fr); 
-            }
+        .form-input:focus {
+            outline: none;
+            border-color: var(--brand-500);
+            box-shadow: 0 0 0 4px rgba(156, 124, 95, 0.1);
         }
-
-        /* FAQ & Common UI */
-        .faq-container { background: white; border-radius: 1.5rem; border: 1px solid var(--brand-100); padding: 1rem 1.5rem; }
-        .accordion-item { border-bottom: 1px solid var(--brand-100); }
-        .accordion-item:last-child { border-bottom: none; }
-        .accordion-header { width: 100%; display: flex; justify-content: space-between; align-items: center; background: none; border: none; padding: 1.5rem 0; text-align: left; cursor: pointer; font-size: 1rem; font-weight: 500; color: var(--brand-900); transition: all 0.3s; }
-        .accordion-header:hover { color: var(--brand-500); }
-        .accordion-content { max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out; color: #666; line-height: 1.6; font-size: 0.9375rem; }
-        .accordion-item.active .accordion-content { max-height: 400px; padding-bottom: 1.5rem; }
-        #scroll-top { position: fixed; bottom: 2rem; right: 2rem; width: 48px; height: 48px; background: var(--brand-900); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1); cursor: pointer; transition: all 0.3s; z-index: 100; opacity: 0; visibility: hidden; border: none; }
-        #scroll-top.show { opacity: 1; visibility: visible; }
-        #scroll-top:hover { transform: translateY(-5px); background: var(--brand-500); }
+        .btn-submit {
+            width: 100%;
+            padding: 1rem;
+            background: var(--brand-900);
+            color: white;
+            border: none;
+            border-radius: 9999px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: 0.3s;
+            margin-top: 1rem;
+        }
+        .btn-submit:hover {
+            background: var(--brand-800);
+            transform: translateY(-2px);
+        }
     </style>
 </head>
+<body style="background-color: var(--brand-50);">
+    <!-- Premium Header -->
+    <header id="main-header" style="background-color: #FFFFFF; border-bottom: 1px solid #EAE1D8; position: sticky; top: 0; z-index: 1000;"></header>
 
-<body>
+    <main class="bio-container">
+        <!-- Hero Section -->
+        <div class="profile-img-wrap">
+            <img src="https://i.ibb.co/PZ83sDs3/Anna.png" alt="Ana Cândida" class="profile-img-bio">
+        </div>
+        
+        <h1 class="bio-title">Você não está quebrada.<br>Você apenas se desconectou de si.</h1>
+        <p class="bio-subtitle">Ajudo mulheres maduras a reconstruírem autoestima, fortalecerem limites e voltarem a se escolher.</p>
 
-    <main class="container">
+        <div style="margin-bottom: 3.5rem;">
+            <a href="#" onclick="openModal()" class="btn-primary" style="padding: 1.2rem 3rem;">Baixar Guia Gratuito</a>
+        </div>
 
-        <!-- Hero -->
-        <section class="hero">
-            <img src="https://i.ibb.co/PZ83sDs3/Anna.png" alt="Ana Cândida" class="profile-img">
-            <h1>Você não está quebrada.<br>Você apenas se desconectou de si.</h1>
-            <p>Ajudo mulheres maduras a reconstruírem autoestima, fortalecerem limites e voltarem a se escolher.</p>
-
-            <a href="#" onclick="openModal()" class="btn-bio btn-primary-bio">
-                <span class="btn-main-label">Baixar Guia Gratuito</span>
-                <!-- CTA principal redireciona para modal -->
-            </a>
-        </section>
-
-        <!-- Conscientização -->
-        <section class="awareness-bio">
-            <p>"O problema nunca foi amar demais.<br>Foi se abandonar enquanto amava."</p>
-            <p style="font-size: 0.9rem; font-style: normal; font-family: var(--font-body); margin-top: 15px;">
-                Talvez você esteja cansada de ser forte o tempo todo. Você não precisa se reconstruir do zero. Precisa
-                despertar.
+        <!-- Awareness Quote -->
+        <div class="awareness-card">
+            <p style="font-family: 'Playfair Display', serif; font-size: 1.4rem; font-style: italic; color: var(--brand-900); margin-bottom: 1.5rem; line-height: 1.4;">
+                "O problema nunca foi amar demais.<br>Foi se abandonar enquanto amava."
             </p>
-        </section>
+            <p style="font-size: 1rem; opacity: 0.8; max-width: 450px; margin: 0 auto;">
+                Talvez você esteja cansada de ser forte o tempo todo. Você não precisa se reconstruir do zero. Precisa despertar.
+            </p>
+        </div>
 
-        <!-- O que encontrar aqui -->
-        <h2 class="text-center" style="font-family: var(--font-heading); font-size: 1.3rem; margin-bottom: 20px;">O que
-            você encontra aqui:</h2>
-        <div class="value-grid">
-            <div class="value-card">
-                <span style="font-size: 1.5rem;">🌷</span>
-                <div>
-                    <h3>Reconexão Feminina</h3>
-                    <p>Conteúdos sobre autoestima e identidade.</p>
-                </div>
+        <!-- Links Grid -->
+        <div class="links-grid">
+            <a href="#" onclick="openModal()" class="btn-bio-card">
+                <span class="btn-bio-label">Baixar Guia Gratuito</span>
+                <span class="btn-bio-subtext">Inicie sua jornada de reconexão feminina</span>
+            </a>
+
+            <a href="https://api.whatsapp.com/send/?phone=556281838006&text=Oi%21+Vi+sobre+o+evento+Renascendo+a+Dois+e+senti+que+%C3%A9+pra+mim%E2%80%A6" target="_blank" class="btn-bio-card">
+                <span class="btn-bio-label">Falar no WhatsApp</span>
+                <span class="btn-bio-subtext">Atendimento humanizado e acolhedor</span>
+            </a>
+
+            <a href="../jornada/" class="btn-bio-card">
+                <span class="btn-bio-label">Jornada 7 Dias</span>
+                <span class="btn-bio-subtext">Um caminho guiado para despertar seu feminino</span>
+            </a>
+
+            <a href="../" class="btn-bio-card">
+                <span class="btn-bio-label">Site Oficial</span>
+                <span class="btn-bio-subtext">Conheça o Instituto Ana Cândida</span>
+            </a>
+        </div>
+
+        <!-- Value Proposition Grid -->
+        <h2 style="font-family: 'Playfair Display', serif; font-size: 1.6rem; margin-bottom: 2.5rem; color: var(--brand-900);">O que você encontra aqui:</h2>
+        <div class="value-grid-bio">
+            <div class="value-item-bio">
+                <span style="font-size: 2rem; display: block; margin-bottom: 1rem;">🌷</span>
+                <h3 style="font-size: 1.1rem; margin-bottom: 0.75rem; color: var(--brand-900);">Reconexão</h3>
+                <p style="font-size: 0.9rem; opacity: 0.8; line-height: 1.5;">Autoestima e resgate da sua verdadeira essência.</p>
             </div>
-            <div class="value-card">
-                <i class="fa-solid fa-shield-heart"></i>
-                <div>
-                    <h3>Limites Saudáveis</h3>
-                    <p>Como parar de se anular sem culpa.</p>
-                </div>
+            <div class="value-item-bio">
+                <span style="font-size: 2rem; display: block; margin-bottom: 1rem;">🛡️</span>
+                <h3 style="font-size: 1.1rem; margin-bottom: 0.75rem; color: var(--brand-900);">Limites</h3>
+                <p style="font-size: 0.9rem; opacity: 0.8; line-height: 1.5;">Aprenda a estabelecer limites sem sentir culpa.</p>
             </div>
-            <div class="value-card">
-                <i class="fa-solid fa-dove"></i>
-                <div>
-                    <h3>Maturidade Emocional</h3>
-                    <p>Relacionamentos mais equilibrados.</p>
-                </div>
+            <div class="value-item-bio">
+                <span style="font-size: 2rem; display: block; margin-bottom: 1rem;">🕊️</span>
+                <h3 style="font-size: 1.1rem; margin-bottom: 0.75rem; color: var(--brand-900);">Maturidade</h3>
+                <p style="font-size: 0.9rem; opacity: 0.8; line-height: 1.5;">Relacionamentos mais equilibrados e saudáveis.</p>
             </div>
         </div>
 
-        <!-- Links Principais -->
-        <section class="links-section">
-            <a href="#" onclick="openModal()" class="btn-bio">
-                <span class="btn-main-label">Baixar Guia Gratuito</span>
-                <span class="btn-subtext">Inicie sua jornada de reconexão</span>
-            </a>
-
-            <a href="https://api.whatsapp.com/send/?phone=556281838006&text=Oi%21+Vi+sobre+o+evento+Renascendo+a+Dois+e+senti+que+%C3%A9+pra+mim%E2%80%A6+Pode+me+contar+mais+sobre+como+funciona+e+como+garantir+minha+vaga%3F&type=phone_number&app_absent=0&utm_source=ig"
-                class="btn-bio"> <!-- Link do WhatsApp -->
-                <span class="btn-main-label">Falar no WhatsApp</span>
-                <span class="btn-subtext">Atendimento humanizado</span>
-            </a>
-
-            <a href="/home/jornada/" class="btn-bio">
-                <span class="btn-main-label">Jornada 7 Dias</span>
-                <span class="btn-subtext">Desperte Seu Feminino</span>
-            </a>
-
-            <a href="/home/" class="btn-bio">
-                <span class="btn-main-label">Site Oficial</span>
-                <span class="btn-subtext">Instituto Ana Cândida</span>
-            </a>
-
-            <a href="#" class="btn-bio"> <!-- Link do YouTube -->
-                <span class="btn-main-label">Canal no YouTube</span>
-                <span class="btn-subtext">Conteúdos semanais</span>
-            </a>
-        </section>
-
-        <!-- Autoridade -->
-        <section class="authority-bio" style="margin-top: 50px;">
-            <h2>Sou Ana Cândida</h2>
-            <p>Terapeuta Especialista em Reconexão Feminina.</p>
-            <p style="font-size: 0.9rem; color: #666; max-width: 90%; margin: 0 auto;">
-                Acompanho mulheres que se perderam emocionalmente em relacionamentos e hoje desejam voltar a se escolher
-                com maturidade e consciência.
+        <!-- Authority Section -->
+        <div style="margin-top: 3rem; border-top: 1px solid var(--brand-100); padding-top: 4rem; width: 100%;">
+            <h2 style="font-family: 'Playfair Display', serif; font-size: 2rem; margin-bottom: 1.5rem; color: var(--brand-900);">Sou Ana Cândida</h2>
+            <p style="font-size: 1.05rem; line-height: 1.8; opacity: 0.8; max-width: 600px; margin: 0 auto;">
+                Terapeuta Especialista em Reconexão Feminina. Acompanho mulheres que se perderam emocionalmente e hoje desejam voltar a se escolher com maturidade e consciência, resgatando o protagonismo de suas vidas.
             </p>
-            <p style="font-size: 0.9rem; color: var(--color-dourado-quente); margin-top: 15px; font-weight: 500;">
-                Sem misticismo exagerado. Com método estruturado.
-            </p>
-        </section>
-
+        </div>
     </main>
 
-    <!-- Footer Reflexão -->
-                                        <!-- Premium Footer -->
-    <footer style="background-color: var(--brand-900); color: #FDFBFA; padding: 5rem 0 3rem; position: relative; z-index: 50;">
-        <div class="container-custom">
-            <div class="footer-grid">
-                <!-- Col 1: Brand & Social -->
-                <div>
-                    <h3 style="font-family: 'Playfair Display', serif; font-size: 1.5rem; margin-bottom: 1.5rem; font-weight: 700; color: #FDFBFA;">Instituto Ana Cândida</h3>
-                    <p style="opacity: 0.9; line-height: 1.6; margin-bottom: 2rem; font-size: 0.95rem; color: #FDFBFA;">Cuidado relacional com base na Terapia Sistêmica. Acolhimento, ética e ciência para casais e famílias.</p>
-                    <div style="display: flex; gap: 1rem;">
-                        <a href="#" style="color: white; opacity: 0.8; transition: 0.3s;"><i data-lucide="instagram" size="20"></i></a>
-                        <a href="#" style="color: white; opacity: 0.8; transition: 0.3s;"><i data-lucide="linkedin" size="20"></i></a>
-                    </div>
+    <!-- Premium Footer -->
+    <footer style="background-color: var(--brand-900); color: #FDFBFA; padding: 5rem 0 3rem; position: relative; z-index: 50;"></footer>
+
+    <button id="scroll-top" title="Voltar ao topo"><i data-lucide="chevron-up"></i></button>
+
+    <!-- Lead Capture Modal -->
+    <div id="captureModal" class="modal-overlay">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal()">&times;</button>
+            <h3 class="modal-title">Quase lá! 🌷</h3>
+            <p class="modal-text">Preencha seus dados para receber o Guia Gratuito de Reconexão Feminina agora mesmo.</p>
+
+            <form id="leadForm" onsubmit="submitForm(event)">
+                <div class="form-group">
+                    <label class="form-label">Seu Nome</label>
+                    <input type="text" name="nome" class="form-input" placeholder="Como gosta de ser chamada?" required>
                 </div>
-                <!-- Col 2: Institucional -->
-                <div>
-                    <h4 style="font-family: 'Playfair Display', serif; font-size: 1.1rem; margin-bottom: 1.5rem; font-weight: 700; color: #FDFBFA;">Institucional</h4>
-                    <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.8rem;">
-                        <li><a href="../o-instituto" style="color: #FDFBFA; text-decoration: none; opacity: 0.8;">Sobre nós</a></li>
-                        <li><a href="../equipe" style="color: #FDFBFA; text-decoration: none; opacity: 0.8;">Equipe</a></li>
-                        <li><a href="../atendimentos" style="color: #FDFBFA; text-decoration: none; opacity: 0.8;">Serviços</a></li>
-                        <li><a href="../conteudos" style="color: #FDFBFA; text-decoration: none; opacity: 0.8;">Blog</a></li>
-                    </ul>
+
+                <div class="form-group">
+                    <label class="form-label">Seu Melhor Email</label>
+                    <input type="email" name="email" class="form-input" placeholder="exemplo@email.com" required>
                 </div>
-                <!-- Col 3: Contato -->
-                <div>
-                    <h4 style="font-family: 'Playfair Display', serif; font-size: 1.1rem; margin-bottom: 1.5rem; font-weight: 700; color: #FDFBFA;">Contato</h4>
-                    <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 1.2rem;">
-                        <li style="display: flex; align-items: flex-start; gap: 0.75rem; color: #FDFBFA; opacity: 0.9;"><i data-lucide="map-pin" size="18"></i><span>Village, Goiânia-GO</span></li>
-                        <li style="display: flex; align-items: center; gap: 0.75rem; color: #FDFBFA; opacity: 0.9;"><i data-lucide="phone" size="18"></i><span>(62) 98183-8006</span></li>
-                        <li style="display: flex; align-items: flex-start; gap: 0.75rem; color: #FDFBFA; opacity: 0.9;"><i data-lucide="mail" size="18"></i><span style="word-break: break-all;">contato@institutoanacandida.com.br</span></li>
-                    </ul>
+
+                <div class="form-group">
+                    <label class="form-label">WhatsApp (com DDD)</label>
+                    <input type="tel" name="whatsapp" class="form-input" placeholder="(00) 00000-0000" required>
                 </div>
-                <!-- Col 4: Legal -->
-                <div>
-                    <h4 style="font-family: 'Playfair Display', serif; font-size: 1.1rem; margin-bottom: 1.5rem; font-weight: 700; color: #FDFBFA;">Legal</h4>
-                    <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.8rem;">
-                        <li><a href="../privacidade" style="color: #FDFBFA; text-decoration: none; opacity: 0.8;">Privacidade (LGPD)</a></li>
-                        <li><a href="../termos" style="color: #FDFBFA; text-decoration: none; opacity: 0.8;">Termos de Uso</a></li>
-                    </ul>
-                </div>
-                <!-- Col 5: Aviso Important -->
-                <div>
-                    <h4 style="font-family: 'Playfair Display', serif; font-size: 1.1rem; margin-bottom: 1.5rem; font-weight: 700; color: #FDFBFA;">Aviso Importante</h4>
-                    <p style="opacity: 0.9; line-height: 1.6; font-size: 0.9rem; color: #FDFBFA;">Este site não oferece atendimento de emergência. Em caso de crise, procure o hospital mais próximo ou ligue 188 (CVV).</p>
-                </div>
-            </div>
-            <div style="border-top: 1px solid rgba(253, 251, 250, 0.1); padding-top: 2rem; text-align: center;">
-                <p style="opacity: 0.7; font-size: 0.875rem; color: #FDFBFA;">&copy; 2026 Instituto Ana Cândida. Todos os direitos reservados.</p>
-            </div>
+
+                <button type="submit" id="submitBtn" class="btn-submit">Liberar Meu Acesso</button>
+            </form>
         </div>
-    </footer>
-    <button id="scroll-top" title="Voltar ao topo"><i data-lucide="chevron-up"></i></button>
-    <button id="scroll-top" title="Voltar ao topo"><i data-lucide="chevron-up"></i></button>
-        <button id="scroll-top" title="Voltar ao topo">
-        <i data-lucide="chevron-up"></i>
-    </button>
-        <button id="scroll-top" title="Voltar ao topo">
-        <i data-lucide="chevron-up"></i>
-    </button>
-        <button id="scroll-top" title="Voltar ao topo">
-        <i data-lucide="chevron-up"></i>
-    </button>
-        <button id="scroll-top" title="Voltar ao topo">
-        <i data-lucide="chevron-up"></i>
-    </button>
-        <button id="scroll-top" title="Voltar ao topo">
-        <i data-lucide="chevron-up"></i>
-    </button>
-        <button id="scroll-top" title="Voltar ao topo">
-        <i data-lucide="chevron-up"></i>
-    </button>
-
-</body>
-
-<!-- Lead Capture Modal -->
-<div id="captureModal" class="modal-overlay">
-    <div class="modal-content">
-        <button class="modal-close" onclick="closeModal()">&times;</button>
-        <h3 class="modal-title">Quase lá! 🌷</h3>
-        <p class="modal-text">Preencha seus dados para receber o Guia Gratuito de Reconexão Feminina agora mesmo.</p>
-
-        <form id="leadForm" onsubmit="submitForm(event)">
-            <div class="form-group">
-                <label class="form-label">Seu Nome</label>
-                <input type="text" name="nome" class="form-input" placeholder="Como gosta de ser chamada?" required>
-            </div>
-
-            <div class="form-group">
-                <label class="form-label">Seu Melhor Email</label>
-                <input type="email" name="email" class="form-input" placeholder="exemplo@email.com" required>
-            </div>
-
-            <div class="form-group">
-                <label class="form-label">WhatsApp (com DDD)</label>
-                <input type="tel" name="whatsapp" class="form-input" placeholder="(00) 00000-0000" required>
-            </div>
-
-            <button type="submit" id="submitBtn" class="btn-submit">Liberar Meu Acesso</button>
-        </form>
     </div>
-</div>
 
-<script>
-    const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyLux1NnyhfaoWYxqYSDbknZ403x5uQ9wudXSoPo_zVkxhk83M6GgtVX1iapB2ZzSFaaQ/exec';
-    const GAMMA_URL = 'https://padroes-emocionais-65uxd4a.gamma.site/';
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        lucide.createIcons();
+        
+        const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyLux1NnyhfaoWYxqYSDbknZ403x5uQ9wudXSoPo_zVkxhk83M6GgtVX1iapB2ZzSFaaQ/exec';
+        const GAMMA_URL = 'https://padroes-emocionais-65uxd4a.gamma.site/';
 
-    function openModal() {
-        document.getElementById('captureModal').style.display = 'flex';
-    }
-
-    function closeModal() {
-        document.getElementById('captureModal').style.display = 'none';
-    }
-
-    // Close on outside click
-    document.getElementById('captureModal').addEventListener('click', function (e) {
-        if (e.target === this) closeModal();
-    });
-
-    function submitForm(e) {
-        e.preventDefault();
-        const btn = document.getElementById('submitBtn');
-        const originalText = btn.innerText;
-
-        btn.disabled = true;
-        btn.innerText = 'Enviando...';
-
-        const form = document.getElementById('leadForm');
-        const formData = new FormData(form);
-        const data = new URLSearchParams();
-
-        for (const pair of formData) {
-            data.append(pair[0], pair[1]);
+        function openModal() {
+            document.getElementById('captureModal').style.display = 'flex';
+            document.body.style.overflow = 'hidden';
         }
 
-        fetch(SCRIPT_URL, {
-            method: 'POST',
-            mode: 'no-cors',
-            body: data
-        })
-            .then(response => {
-                console.log('Success!', response);
-                // Redirect regardless of response text (cors opacity)
+        function closeModal() {
+            document.getElementById('captureModal').style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        document.getElementById('captureModal').addEventListener('click', function (e) {
+            if (e.target === this) closeModal();
+        });
+
+        function submitForm(e) {
+            e.preventDefault();
+            const btn = document.getElementById('submitBtn');
+            btn.disabled = true;
+            btn.innerText = 'Enviando...';
+
+            const form = document.getElementById('leadForm');
+            const data = new URLSearchParams(new FormData(form));
+
+            fetch(SCRIPT_URL, {
+                method: 'POST',
+                mode: 'no-cors',
+                body: data
+            })
+            .then(() => {
                 window.location.href = GAMMA_URL;
             })
-            .catch(error => {
-                console.error('Error!', error.message);
-                // Fallback redirect even on error to not block user
+            .catch(() => {
                 window.location.href = GAMMA_URL;
             });
-    }
-</script>
+        }
 
+        // Scroll Top Script
+        const scrollTopBtn = document.getElementById('scroll-top');
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                scrollTopBtn.classList.add('show');
+            } else {
+                scrollTopBtn.classList.remove('show');
+            }
+        });
+        scrollTopBtn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    </script>
+</body>
 </html>
-
-
-
-
-
-
-
-
-
-
