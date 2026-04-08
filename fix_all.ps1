@@ -130,13 +130,25 @@ function Get-StyleBlock {
         /* Bio-Link Specifics (Renascimento) */
         .bio-container { max-width: 680px; margin: 0 auto; padding: 4rem 1.5rem; text-align: center; display: flex; flex-direction: column; align-items: center; }
         .profile-img-bio { width: 150px; height: 150px; border-radius: 50%; object-fit: cover; border: 4px solid white; box-shadow: 0 15px 35px rgba(72,53,37,0.15); margin-bottom: 2rem; }
-        .btn-bio-card { background: white; border: 1px solid var(--brand-100); padding: 1.5rem; border-radius: 1.25rem; text-decoration: none; display: flex; flex-direction: column; align-items: center; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05); width: 100%; margin-bottom: 1.2rem; }
-        .btn-bio-card:hover { transform: translateY(-4px); border-color: var(--brand-500); box-shadow: 0 20px 25px -5px rgba(72,53,37,0.1); }
+        .btn-bio-card { background: white !important; border: 1px solid var(--brand-100) !important; padding: 1.5rem !important; border-radius: 1.25rem !important; text-decoration: none !important; display: flex !important; flex-direction: column !important; align-items: center !important; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05) !important; width: 100% !important; margin-bottom: 1.2rem !important; }
+        .btn-bio-card:hover { transform: translateY(-4px) !important; border-color: var(--brand-500) !important; box-shadow: 0 20px 25px -5px rgba(72,53,37,0.1) !important; }
         .btn-bio-label { font-weight: 700; color: var(--brand-900); font-size: 1.1rem; margin-bottom: 0.25rem; }
         .btn-bio-subtext { font-size: 0.85rem; color: var(--brand-500); opacity: 0.8; }
         .awareness-card { background: rgba(234, 225, 216, 0.3); padding: 3rem; border-radius: 2rem; margin-bottom: 4rem; border: 1px dashed var(--brand-100); width: 100%; }
         .value-grid-bio { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1.5rem; width: 100%; margin-bottom: 4rem; }
         .value-item-bio { padding: 2rem 1.5rem; background: white; border-radius: 1.25rem; border: 1px solid var(--brand-100); transition: 0.3s; }
+        .value-item-bio:hover { border-color: var(--brand-500); transform: translateY(-2px); }
+
+        /* Lead Capture Modal Styles */
+        .modal-overlay { display: none; position: fixed; inset: 0; background: rgba(72, 53, 37, 0.6); backdrop-filter: blur(8px); z-index: 3000; align-items: center; justify-content: center; padding: 1rem; }
+        .modal-content { background: white; padding: 3rem; border-radius: 2rem; max-width: 480px; width: 100%; position: relative; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25); }
+        .modal-close { position: absolute; top: 1.5rem; right: 1.5rem; background: none; border: none; font-size: 1.5rem; cursor: pointer; color: var(--brand-500); }
+        .modal-title { font-family: 'Playfair Display', serif; font-size: 1.75rem; color: var(--brand-900); margin-bottom: 1rem; }
+        .modal-text { color: var(--brand-800); opacity: 0.8; margin-bottom: 2rem; font-size: 0.95rem; }
+        .form-group { margin-bottom: 1.5rem; text-align: left; }
+        .form-label { display: block; font-size: 0.85rem; font-weight: 600; color: var(--brand-900); margin-bottom: 0.5rem; }
+        .form-input { width: 100%; padding: 0.875rem 1rem; border: 1px solid var(--brand-100); border-radius: 0.75rem; font-family: inherit; transition: 0.3s; }
+        .btn-submit { width: 100%; padding: 1rem; background: var(--brand-900); color: white; border: none; border-radius: 9999px; font-weight: 700; cursor: pointer; transition: 0.3s; margin-top: 1rem; }
     </style>
 "@
 }
@@ -382,10 +394,12 @@ function Process-File($f, $depthPath) {
         
         # Header/Footer/Style/Script Injection
         $style = Get-StyleBlock
+        $cssLink = "<link rel=""stylesheet"" href=""${depthPath}assets/style.css"">"
         $header = Get-Header $depthPath
         $footer = Get-Footer $depthPath
         $script = Get-ScriptBlock
         
+        $content = $content -replace '(?s)<style>.*?</style>', "$cssLink`n$style"
         $content = $content -replace '(?s)<!-- Premium Header -->.*?</header>', $header
         $content = $content -replace '(?s)<!-- Premium Footer -->.*?</footer>', $footer
         $content = $content -replace '(?s)<script src="https://unpkg.com/lucide@latest">.*?</script>.*?</html>', "$script`n</body>`n</html>"

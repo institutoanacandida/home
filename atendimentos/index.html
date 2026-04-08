@@ -9,7 +9,8 @@
     <link rel="stylesheet" href="../assets/style.css">
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌷</text></svg>">
 
-                                                                                                                        <style>
+                                                                                                                        <link rel="stylesheet" href="../assets/style.css">
+    <style>
         :root {
             --brand-900: #483525;
             --brand-800: #5D4632;
@@ -131,9 +132,33 @@
         @media (min-width: 1024px) {
             .como-trab-inner { padding: 0 5rem; }
         }
+
+        /* Bio-Link Specifics (Renascimento) */
+        .bio-container { max-width: 680px; margin: 0 auto; padding: 4rem 1.5rem; text-align: center; display: flex; flex-direction: column; align-items: center; }
+        .profile-img-bio { width: 150px; height: 150px; border-radius: 50%; object-fit: cover; border: 4px solid white; box-shadow: 0 15px 35px rgba(72,53,37,0.15); margin-bottom: 2rem; }
+        .btn-bio-card { background: white !important; border: 1px solid var(--brand-100) !important; padding: 1.5rem !important; border-radius: 1.25rem !important; text-decoration: none !important; display: flex !important; flex-direction: column !important; align-items: center !important; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05) !important; width: 100% !important; margin-bottom: 1.2rem !important; }
+        .btn-bio-card:hover { transform: translateY(-4px) !important; border-color: var(--brand-500) !important; box-shadow: 0 20px 25px -5px rgba(72,53,37,0.1) !important; }
+        .btn-bio-label { font-weight: 700; color: var(--brand-900); font-size: 1.1rem; margin-bottom: 0.25rem; }
+        .btn-bio-subtext { font-size: 0.85rem; color: var(--brand-500); opacity: 0.8; }
+        .awareness-card { background: rgba(234, 225, 216, 0.3); padding: 3rem; border-radius: 2rem; margin-bottom: 4rem; border: 1px dashed var(--brand-100); width: 100%; }
+        .value-grid-bio { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1.5rem; width: 100%; margin-bottom: 4rem; }
+        .value-item-bio { padding: 2rem 1.5rem; background: white; border-radius: 1.25rem; border: 1px solid var(--brand-100); transition: 0.3s; }
+        .value-item-bio:hover { border-color: var(--brand-500); transform: translateY(-2px); }
+
+        /* Lead Capture Modal Styles */
+        .modal-overlay { display: none; position: fixed; inset: 0; background: rgba(72, 53, 37, 0.6); backdrop-filter: blur(8px); z-index: 3000; align-items: center; justify-content: center; padding: 1rem; }
+        .modal-content { background: white; padding: 3rem; border-radius: 2rem; max-width: 480px; width: 100%; position: relative; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25); }
+        .modal-close { position: absolute; top: 1.5rem; right: 1.5rem; background: none; border: none; font-size: 1.5rem; cursor: pointer; color: var(--brand-500); }
+        .modal-title { font-family: 'Playfair Display', serif; font-size: 1.75rem; color: var(--brand-900); margin-bottom: 1rem; }
+        .modal-text { color: var(--brand-800); opacity: 0.8; margin-bottom: 2rem; font-size: 0.95rem; }
+        .form-group { margin-bottom: 1.5rem; text-align: left; }
+        .form-label { display: block; font-size: 0.85rem; font-weight: 600; color: var(--brand-900); margin-bottom: 0.5rem; }
+        .form-input { width: 100%; padding: 0.875rem 1rem; border: 1px solid var(--brand-100); border-radius: 0.75rem; font-family: inherit; transition: 0.3s; }
+        .btn-submit { width: 100%; padding: 1rem; background: var(--brand-900); color: white; border: none; border-radius: 9999px; font-weight: 700; cursor: pointer; transition: 0.3s; margin-top: 1rem; }
     </style>
 
-                                                                                                                <style>
+                                                                                                                <link rel="stylesheet" href="../assets/style.css">
+    <style>
         :root {
             --brand-900: #483525;
             --brand-800: #5D4632;
@@ -255,10 +280,33 @@
         @media (min-width: 1024px) {
             .como-trab-inner { padding: 0 5rem; }
         }
+
+        /* Bio-Link Specifics (Renascimento) */
+        .bio-container { max-width: 680px; margin: 0 auto; padding: 4rem 1.5rem; text-align: center; display: flex; flex-direction: column; align-items: center; }
+        .profile-img-bio { width: 150px; height: 150px; border-radius: 50%; object-fit: cover; border: 4px solid white; box-shadow: 0 15px 35px rgba(72,53,37,0.15); margin-bottom: 2rem; }
+        .btn-bio-card { background: white !important; border: 1px solid var(--brand-100) !important; padding: 1.5rem !important; border-radius: 1.25rem !important; text-decoration: none !important; display: flex !important; flex-direction: column !important; align-items: center !important; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05) !important; width: 100% !important; margin-bottom: 1.2rem !important; }
+        .btn-bio-card:hover { transform: translateY(-4px) !important; border-color: var(--brand-500) !important; box-shadow: 0 20px 25px -5px rgba(72,53,37,0.1) !important; }
+        .btn-bio-label { font-weight: 700; color: var(--brand-900); font-size: 1.1rem; margin-bottom: 0.25rem; }
+        .btn-bio-subtext { font-size: 0.85rem; color: var(--brand-500); opacity: 0.8; }
+        .awareness-card { background: rgba(234, 225, 216, 0.3); padding: 3rem; border-radius: 2rem; margin-bottom: 4rem; border: 1px dashed var(--brand-100); width: 100%; }
+        .value-grid-bio { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1.5rem; width: 100%; margin-bottom: 4rem; }
+        .value-item-bio { padding: 2rem 1.5rem; background: white; border-radius: 1.25rem; border: 1px solid var(--brand-100); transition: 0.3s; }
+        .value-item-bio:hover { border-color: var(--brand-500); transform: translateY(-2px); }
+
+        /* Lead Capture Modal Styles */
+        .modal-overlay { display: none; position: fixed; inset: 0; background: rgba(72, 53, 37, 0.6); backdrop-filter: blur(8px); z-index: 3000; align-items: center; justify-content: center; padding: 1rem; }
+        .modal-content { background: white; padding: 3rem; border-radius: 2rem; max-width: 480px; width: 100%; position: relative; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25); }
+        .modal-close { position: absolute; top: 1.5rem; right: 1.5rem; background: none; border: none; font-size: 1.5rem; cursor: pointer; color: var(--brand-500); }
+        .modal-title { font-family: 'Playfair Display', serif; font-size: 1.75rem; color: var(--brand-900); margin-bottom: 1rem; }
+        .modal-text { color: var(--brand-800); opacity: 0.8; margin-bottom: 2rem; font-size: 0.95rem; }
+        .form-group { margin-bottom: 1.5rem; text-align: left; }
+        .form-label { display: block; font-size: 0.85rem; font-weight: 600; color: var(--brand-900); margin-bottom: 0.5rem; }
+        .form-input { width: 100%; padding: 0.875rem 1rem; border: 1px solid var(--brand-100); border-radius: 0.75rem; font-family: inherit; transition: 0.3s; }
+        .btn-submit { width: 100%; padding: 1rem; background: var(--brand-900); color: white; border: none; border-radius: 9999px; font-weight: 700; cursor: pointer; transition: 0.3s; margin-top: 1rem; }
     </style>
 </head>
 <body style="background-color: white; font-family: var(--font-sans); color: var(--brand-800);">
-                                                                                                                                                                            <!-- Premium Header -->
+                                                                                                                                                                                <!-- Premium Header -->
     <header id="main-header" style="background-color: #FFFFFF; border-bottom: 1px solid #EAE1D8; position: sticky; top: 0; z-index: 1000;">
         <nav class="container-custom" style="padding: 0 2rem;">
             <div style="display: flex; align-items: center; width: 100%; justify-content: space-between; height: 110px;">
@@ -316,6 +364,65 @@
             </div>
         </nav>
     </header>
+
+    <!-- Mobile Menu Overlay -->
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu" class="hidden" style="position: fixed; inset: 0; background: white; z-index: 2000; padding: 2rem; flex-direction: column; overflow-y: auto;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
+            <a href="../" style="display: flex; align-items: center; text-decoration: none; margin-bottom: 1rem;">
+                <img src="https://i.ibb.co/vvPV65rT/ana-candida-s-f.png" alt="Instituto Ana Cândida" style="height: 75px; width: auto; object-fit: contain;">
+            </a>
+            <button onclick="toggleMobileMenu()" style="background: none; border: none; cursor: pointer; color: #483525;"><i data-lucide="x"></i></button>
+        </div>
+        
+        <div style="display: flex; flex-direction: column;">
+            <!-- O Instituto Mobile -->
+            <div class="mobile-nav-item">
+                <button class="mobile-nav-btn" onclick="toggleMobileAccordion(this)">
+                    O Instituto <i data-lucide="chevron-down" class="chevron-mobile" style="width: 18px; height: 18px;"></i>
+                </button>
+                <div class="mobile-nav-content">
+                    <a href="../o-instituto" class="mobile-link-sub">Visão Geral</a>
+                    <a href="../o-instituto#sobre" class="mobile-link-sub">Sobre nós</a>
+                    <a href="../o-instituto#missao" class="mobile-link-sub">Missão e Valores</a>
+                    <a href="../o-instituto#como-trabalhamos" class="mobile-link-sub">Como Trabalhamos</a>
+                </div>
+            </div>
+
+            <!-- Terapia Sistêmica Mobile -->
+            <div class="mobile-nav-item">
+                <button class="mobile-nav-btn" onclick="toggleMobileAccordion(this)">
+                    Terapia Sistêmica <i data-lucide="chevron-down" class="chevron-mobile" style="width: 18px; height: 18px;"></i>
+                </button>
+                <div class="mobile-nav-content">
+                    <a href="../terapia-sistemica" class="mobile-link-sub">Visão Geral</a>
+                    <a href="../terapia-sistemica#que-e" class="mobile-link-sub">O que é</a>
+                    <a href="../terapia-sistemica#para-quem" class="mobile-link-sub">Para quem é</a>
+                    <a href="../terapia-sistemica#primeira-sessao" class="mobile-link-sub">Primeira Sessão</a>
+                </div>
+            </div>
+
+            <!-- Atendimentos Mobile -->
+            <div class="mobile-nav-item">
+                <button class="mobile-nav-btn" onclick="toggleMobileAccordion(this)">
+                    Atendimentos <i data-lucide="chevron-down" class="chevron-mobile" style="width: 18px; height: 18px;"></i>
+                </button>
+                <div class="mobile-nav-content">
+                    <a href="../atendimentos/terapia-individual" class="mobile-link-sub">Terapia Individual</a>
+                    <a href="../atendimentos/terapia-casal" class="mobile-link-sub">Terapia de Casal</a>
+                    <a href="../atendimentos/terapia-familiar" class="mobile-link-sub">Terapia Familiar</a>
+                    <a href="../atendimentos/parentalidade" class="mobile-link-sub">Parentalidade</a>
+                </div>
+            </div>
+
+            <a href="../equipe" style="font-weight: 600; color: #483525; text-decoration: none; padding: 1.25rem 0; border-bottom: 1px solid #f0f0f0; font-family: 'Montserrat', sans-serif;">Equipe</a>
+            <a href="../galeria" style="font-weight: 600; color: #483525; text-decoration: none; padding: 1.25rem 0; border-bottom: 1px solid #f0f0f0; font-family: 'Montserrat', sans-serif;">Galeria</a>
+            <a href="../conteudos" style="font-weight: 600; color: #483525; text-decoration: none; padding: 1.25rem 0; border-bottom: 1px solid #f0f0f0; font-family: 'Montserrat', sans-serif;">Conteúdos</a>
+            <a href="../contato" style="font-weight: 600; color: #483525; text-decoration: none; padding: 1.25rem 0; border-bottom: 1px solid #f0f0f0; font-family: 'Montserrat', sans-serif;">Contato</a>
+            
+            <a href="https://wa.me/5562981838006" target="_blank" style="background-color: #483525; color: white; padding: 1rem; border-radius: 0.75rem; text-align: center; text-decoration: none; font-weight: 600; margin-top: 2rem; font-family: 'Montserrat', sans-serif;">Agendar Agora</a>
+        </div>
+    </div>
 
     <!-- Mobile Menu Overlay -->
     <!-- Mobile Menu Overlay -->
@@ -558,7 +665,7 @@
         </section>
     </main>
 
-                                                                                                                                                                <!-- Premium Footer -->
+                                                                                                                                                                    <!-- Premium Footer -->
     <footer style="background-color: var(--brand-900); color: #FDFBFA !important; padding: 5rem 0 3rem; position: relative; z-index: 50; width: 100%;">
         <div class="container-custom">
             <div class="footer-grid">
@@ -617,7 +724,7 @@
         </div>
     </footer>
                             <button id="scroll-top" title="Voltar ao topo"><i data-lucide="chevron-up"></i></button>
-                                                        <script src="https://unpkg.com/lucide@latest"></script>
+                                                            <script src="https://unpkg.com/lucide@latest"></script>
     <script>
         document.addEventListener('DOMContentLoaded', () => { lucide.createIcons(); });
         function toggleMobileMenu() { 
@@ -656,6 +763,7 @@
     </script>
 </body>
 </html>
+
 
 
 
