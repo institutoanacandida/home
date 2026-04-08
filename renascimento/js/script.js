@@ -1,3 +1,6 @@
+const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyLux1NnyhfaoWYxqYSDbknZ403x5uQ9wudXSoPo_zVkxhk83M6GgtVX1iapB2ZzSFaaQ/exec';
+const GAMMA_URL = 'https://vocenaoestaquebrada-uspteq3.gamma.site/';
+
 function openModal() {
     const modal = document.getElementById('captureModal');
     if (modal) {
@@ -26,16 +29,24 @@ function submitForm(event) {
     const form = document.getElementById('leadForm');
     if(form.checkValidity()) {
         const submitBtn = document.getElementById('submitBtn');
-        const originalText = submitBtn.textContent;
-        submitBtn.textContent = 'Processando...';
+        submitBtn.textContent = 'Verificando...';
         submitBtn.disabled = true;
 
-        // Simulando envio de dados
-        setTimeout(() => {
+        const data = new URLSearchParams(new FormData(form));
+
+        fetch(SCRIPT_URL, {
+            method: 'POST',
+            mode: 'no-cors',
+            body: data
+        })
+        .then(() => {
             closeModal();
-            // Redireciona para o link da isca digital
-            window.location.href = "https://vocenaoestaquebrada-uspteq3.gamma.site/";
-        }, 800);
+            window.location.href = GAMMA_URL;
+        })
+        .catch(() => {
+            closeModal();
+            window.location.href = GAMMA_URL;
+        });
     }
 }
 

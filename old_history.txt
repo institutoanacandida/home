@@ -1,0 +1,3157 @@
+commit 0d7648ebc4ae876aad1fc63a82ed0d21bbbf555d
+Author: Inacio Eletronica <cognicao.digittalpro@gmail.com>
+Date:   Wed Apr 8 14:00:51 2026 -0300
+
+    Restore Renascimento lead capture modal with Gamma link
+
+diff --git a/renascimento/index.html b/renascimento/index.html
+index f625715..9d16733 100644
+--- a/renascimento/index.html
++++ b/renascimento/index.html
+@@ -11,6 +11,7 @@
+     <link rel="stylesheet" href="../assets/style.css">
+     <link rel="stylesheet" href="../assets/style.css">
+     <link rel="stylesheet" href="../assets/style.css">
++    <link rel="stylesheet" href="../assets/style.css">
+     <style>
+         :root {
+             --brand-900: #483525;
+@@ -159,7 +160,7 @@
+     </style>
+ </head>
+ <body style="background-color: var(--brand-50);">
+-                    <!-- Premium Header -->
++                        <!-- Premium Header -->
+     <header id="main-header" style="background-color: #FFFFFF; border-bottom: 1px solid #EAE1D8; position: sticky; top: 0; z-index: 1000;">
+         <nav class="container-custom" style="padding: 0 2rem;">
+             <div style="display: flex; align-items: center; width: 100%; justify-content: space-between; height: 110px;">
+@@ -454,6 +455,65 @@
+         </div>
+     </div>
+ 
++    <!-- Mobile Menu Overlay -->
++    <!-- Mobile Menu Overlay -->
++    <div id="mobile-menu" class="hidden" style="position: fixed; inset: 0; background: white; z-index: 2000; padding: 2rem; flex-direction: column; overflow-y: auto;">
++        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
++            <a href="../" style="display: flex; align-items: center; text-decoration: none; margin-bottom: 1rem;">
++                <img src="https://i.ibb.co/vvPV65rT/ana-candida-s-f.png" alt="Instituto Ana Cândida" style="height: 75px; width: auto; object-fit: contain;">
++            </a>
++            <button onclick="toggleMobileMenu()" style="background: none; border: none; cursor: pointer; color: #483525;"><i data-lucide="x"></i></button>
++        </div>
++        
++        <div style="display: flex; flex-direction: column;">
++            <!-- O Instituto Mobile -->
++            <div class="mobile-nav-item">
++                <button class="mobile-nav-btn" onclick="toggleMobileAccordion(this)">
++                    O Instituto <i data-lucide="chevron-down" class="chevron-mobile" style="width: 18px; height: 18px;"></i>
++                </button>
++                <div class="mobile-nav-content">
++                    <a href="../o-instituto" class="mobile-link-sub">Visão Geral</a>
++                    <a href="../o-instituto#sobre" class="mobile-link-sub">Sobre nós</a>
++                    <a href="../o-instituto#missao" class="mobile-link-sub">Missão e Valores</a>
++                    <a href="../o-instituto#como-trabalhamos" class="mobile-link-sub">Como Trabalhamos</a>
++                </div>
++            </div>
++
++            <!-- Terapia Sistêmica Mobile -->
++            <div class="mobile-nav-item">
++                <button class="mobile-nav-btn" onclick="toggleMobileAccordion(this)">
++                    Terapia Sistêmica <i data-lucide="chevron-down" class="chevron-mobile" style="width: 18px; height: 18px;"></i>
++                </button>
++                <div class="mobile-nav-content">
++                    <a href="../terapia-sistemica" class="mobile-link-sub">Visão Geral</a>
++                    <a href="../terapia-sistemica#que-e" class="mobile-link-sub">O que é</a>
++                    <a href="../terapia-sistemica#para-quem" class="mobile-link-sub">Para quem é</a>
++                    <a href="../terapia-sistemica#primeira-sessao" class="mobile-link-sub">Primeira Sessão</a>
++                </div>
++            </div>
++
++            <!-- Atendimentos Mobile -->
++            <div class="mobile-nav-item">
++                <button class="mobile-nav-btn" onclick="toggleMobileAccordion(this)">
++                    Atendimentos <i data-lucide="chevron-down" class="chevron-mobile" style="width: 18px; height: 18px;"></i>
++                </button>
++                <div class="mobile-nav-content">
++                    <a href="../atendimentos/terapia-individual" class="mobile-link-sub">Terapia Individual</a>
++                    <a href="../atendimentos/terapia-casal" class="mobile-link-sub">Terapia de Casal</a>
++                    <a href="../atendimentos/terapia-familiar" class="mobile-link-sub">Terapia Familiar</a>
++                    <a href="../atendimentos/parentalidade" class="mobile-link-sub">Parentalidade</a>
++                </div>
++            </div>
++
++            <a href="../equipe" style="font-weight: 600; color: #483525; text-decoration: none; padding: 1.25rem 0; border-bottom: 1px solid #f0f0f0; font-family: 'Montserrat', sans-serif;">Equipe</a>
++            <a href="../galeria" style="font-weight: 600; color: #483525; text-decoration: none; padding: 1.25rem 0; border-bottom: 1px solid #f0f0f0; font-family: 'Montserrat', sans-serif;">Galeria</a>
++            <a href="../conteudos" style="font-weight: 600; color: #483525; text-decoration: none; padding: 1.25rem 0; border-bottom: 1px solid #f0f0f0; font-family: 'Montserrat', sans-serif;">Conteúdos</a>
++            <a href="../contato" style="font-weight: 600; color: #483525; text-decoration: none; padding: 1.25rem 0; border-bottom: 1px solid #f0f0f0; font-family: 'Montserrat', sans-serif;">Contato</a>
++            
++            <a href="https://wa.me/5562981838006" target="_blank" style="background-color: #483525; color: white; padding: 1rem; border-radius: 0.75rem; text-align: center; text-decoration: none; font-weight: 600; margin-top: 2rem; font-family: 'Montserrat', sans-serif;">Agendar Agora</a>
++        </div>
++    </div>
++
+     <main class="bio-container">
+         <!-- Hero Section -->
+         <div class="profile-img-wrap">
+@@ -529,7 +589,7 @@
+         </div>
+     </main>
+ 
+-                    <!-- Premium Footer -->
++                        <!-- Premium Footer -->
+     <footer style="background-color: var(--brand-900); color: #FDFBFA !important; padding: 5rem 0 3rem; position: relative; z-index: 50; width: 100%;">
+         <div class="container-custom">
+             <div class="footer-grid">
+@@ -617,7 +677,7 @@
+             </form>
+         </div>
+     </div>
+-                    <script src="https://unpkg.com/lucide@latest"></script>
++                        <script src="https://unpkg.com/lucide@latest"></script>
+     <script>
+         document.addEventListener('DOMContentLoaded', () => { lucide.createIcons(); });
+         function toggleMobileMenu() { 
+@@ -654,9 +714,11 @@
+         });
+         document.getElementById('scroll-top')?.addEventListener('click', () => window.scrollTo({top: 0, behavior: 'smooth'}));
+     </script>
++    <script src="js/script.js"></script>
+ </body>
+ </html>
+ 
+ 
+ 
+ 
++
+
+commit cf66dc9805d15624cca8d228450171a103a449ba
+Author: Inacio Eletronica <cognicao.digittalpro@gmail.com>
+Date:   Wed Apr 8 13:51:12 2026 -0300
+
+    Fix Jornada layout visibility and robust sync script
+
+diff --git a/renascimento/index.html b/renascimento/index.html
+index 74f3299..f625715 100644
+--- a/renascimento/index.html
++++ b/renascimento/index.html
+@@ -8,6 +8,8 @@
+     
+     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌷</text></svg>">
+     
++    <link rel="stylesheet" href="../assets/style.css">
++    <link rel="stylesheet" href="../assets/style.css">
+     <link rel="stylesheet" href="../assets/style.css">
+     <style>
+         :root {
+@@ -157,7 +159,7 @@
+     </style>
+ </head>
+ <body style="background-color: var(--brand-50);">
+-            <!-- Premium Header -->
++                    <!-- Premium Header -->
+     <header id="main-header" style="background-color: #FFFFFF; border-bottom: 1px solid #EAE1D8; position: sticky; top: 0; z-index: 1000;">
+         <nav class="container-custom" style="padding: 0 2rem;">
+             <div style="display: flex; align-items: center; width: 100%; justify-content: space-between; height: 110px;">
+@@ -334,6 +336,124 @@
+         </div>
+     </div>
+ 
++    <!-- Mobile Menu Overlay -->
++    <!-- Mobile Menu Overlay -->
++    <div id="mobile-menu" class="hidden" style="position: fixed; inset: 0; background: white; z-index: 2000; padding: 2rem; flex-direction: column; overflow-y: auto;">
++        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
++            <a href="../" style="display: flex; align-items: center; text-decoration: none; margin-bottom: 1rem;">
++                <img src="https://i.ibb.co/vvPV65rT/ana-candida-s-f.png" alt="Instituto Ana Cândida" style="height: 75px; width: auto; object-fit: contain;">
++            </a>
++            <button onclick="toggleMobileMenu()" style="background: none; border: none; cursor: pointer; color: #483525;"><i data-lucide="x"></i></button>
++        </div>
++        
++        <div style="display: flex; flex-direction: column;">
++            <!-- O Instituto Mobile -->
++            <div class="mobile-nav-item">
++                <button class="mobile-nav-btn" onclick="toggleMobileAccordion(this)">
++                    O Instituto <i data-lucide="chevron-down" class="chevron-mobile" style="width: 18px; height: 18px;"></i>
++                </button>
++                <div class="mobile-nav-content">
++                    <a href="../o-instituto" class="mobile-link-sub">Visão Geral</a>
++                    <a href="../o-instituto#sobre" class="mobile-link-sub">Sobre nós</a>
++                    <a href="../o-instituto#missao" class="mobile-link-sub">Missão e Valores</a>
++                    <a href="../o-instituto#como-trabalhamos" class="mobile-link-sub">Como Trabalhamos</a>
++                </div>
++            </div>
++
++            <!-- Terapia Sistêmica Mobile -->
++            <div class="mobile-nav-item">
++                <button class="mobile-nav-btn" onclick="toggleMobileAccordion(this)">
++                    Terapia Sistêmica <i data-lucide="chevron-down" class="chevron-mobile" style="width: 18px; height: 18px;"></i>
++                </button>
++                <div class="mobile-nav-content">
++                    <a href="../terapia-sistemica" class="mobile-link-sub">Visão Geral</a>
++                    <a href="../terapia-sistemica#que-e" class="mobile-link-sub">O que é</a>
++                    <a href="../terapia-sistemica#para-quem" class="mobile-link-sub">Para quem é</a>
++                    <a href="../terapia-sistemica#primeira-sessao" class="mobile-link-sub">Primeira Sessão</a>
++                </div>
++            </div>
++
++            <!-- Atendimentos Mobile -->
++            <div class="mobile-nav-item">
++                <button class="mobile-nav-btn" onclick="toggleMobileAccordion(this)">
++                    Atendimentos <i data-lucide="chevron-down" class="chevron-mobile" style="width: 18px; height: 18px;"></i>
++                </button>
++                <div class="mobile-nav-content">
++                    <a href="../atendimentos/terapia-individual" class="mobile-link-sub">Terapia Individual</a>
++                    <a href="../atendimentos/terapia-casal" class="mobile-link-sub">Terapia de Casal</a>
++                    <a href="../atendimentos/terapia-familiar" class="mobile-link-sub">Terapia Familiar</a>
++                    <a href="../atendimentos/parentalidade" class="mobile-link-sub">Parentalidade</a>
++                </div>
++            </div>
++
++            <a href="../equipe" style="font-weight: 600; color: #483525; text-decoration: none; padding: 1.25rem 0; border-bottom: 1px solid #f0f0f0; font-family: 'Montserrat', sans-serif;">Equipe</a>
++            <a href="../galeria" style="font-weight: 600; color: #483525; text-decoration: none; padding: 1.25rem 0; border-bottom: 1px solid #f0f0f0; font-family: 'Montserrat', sans-serif;">Galeria</a>
++            <a href="../conteudos" style="font-weight: 600; color: #483525; text-decoration: none; padding: 1.25rem 0; border-bottom: 1px solid #f0f0f0; font-family: 'Montserrat', sans-serif;">Conteúdos</a>
++            <a href="../contato" style="font-weight: 600; color: #483525; text-decoration: none; padding: 1.25rem 0; border-bottom: 1px solid #f0f0f0; font-family: 'Montserrat', sans-serif;">Contato</a>
++            
++            <a href="https://wa.me/5562981838006" target="_blank" style="background-color: #483525; color: white; padding: 1rem; border-radius: 0.75rem; text-align: center; text-decoration: none; font-weight: 600; margin-top: 2rem; font-family: 'Montserrat', sans-serif;">Agendar Agora</a>
++        </div>
++    </div>
++
++    <!-- Mobile Menu Overlay -->
++    <!-- Mobile Menu Overlay -->
++    <div id="mobile-menu" class="hidden" style="position: fixed; inset: 0; background: white; z-index: 2000; padding: 2rem; flex-direction: column; overflow-y: auto;">
++        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
++            <a href="../" style="display: flex; align-items: center; text-decoration: none; margin-bottom: 1rem;">
++                <img src="https://i.ibb.co/vvPV65rT/ana-candida-s-f.png" alt="Instituto Ana Cândida" style="height: 75px; width: auto; object-fit: contain;">
++            </a>
++            <button onclick="toggleMobileMenu()" style="background: none; border: none; cursor: pointer; color: #483525;"><i data-lucide="x"></i></button>
++        </div>
++        
++        <div style="display: flex; flex-direction: column;">
++            <!-- O Instituto Mobile -->
++            <div class="mobile-nav-item">
++                <button class="mobile-nav-btn" onclick="toggleMobileAccordion(this)">
++                    O Instituto <i data-lucide="chevron-down" class="chevron-mobile" style="width: 18px; height: 18px;"></i>
++                </button>
++                <div class="mobile-nav-content">
++                    <a href="../o-instituto" class="mobile-link-sub">Visão Geral</a>
++                    <a href="../o-instituto#sobre" class="mobile-link-sub">Sobre nós</a>
++                    <a href="../o-instituto#missao" class="mobile-link-sub">Missão e Valores</a>
++                    <a href="../o-instituto#como-trabalhamos" class="mobile-link-sub">Como Trabalhamos</a>
++                </div>
++            </div>
++
++            <!-- Terapia Sistêmica Mobile -->
++            <div class="mobile-nav-item">
++                <button class="mobile-nav-btn" onclick="toggleMobileAccordion(this)">
++                    Terapia Sistêmica <i data-lucide="chevron-down" class="chevron-mobile" style="width: 18px; height: 18px;"></i>
++                </button>
++                <div class="mobile-nav-content">
++                    <a href="../terapia-sistemica" class="mobile-link-sub">Visão Geral</a>
++                    <a href="../terapia-sistemica#que-e" class="mobile-link-sub">O que é</a>
++                    <a href="../terapia-sistemica#para-quem" class="mobile-link-sub">Para quem é</a>
++                    <a href="../terapia-sistemica#primeira-sessao" class="mobile-link-sub">Primeira Sessão</a>
++                </div>
++            </div>
++
++            <!-- Atendimentos Mobile -->
++            <div class="mobile-nav-item">
++                <button class="mobile-nav-btn" onclick="toggleMobileAccordion(this)">
++                    Atendimentos <i data-lucide="chevron-down" class="chevron-mobile" style="width: 18px; height: 18px;"></i>
++                </button>
++                <div class="mobile-nav-content">
++                    <a href="../atendimentos/terapia-individual" class="mobile-link-sub">Terapia Individual</a>
++                    <a href="../atendimentos/terapia-casal" class="mobile-link-sub">Terapia de Casal</a>
++                    <a href="../atendimentos/terapia-familiar" class="mobile-link-sub">Terapia Familiar</a>
++                    <a href="../atendimentos/parentalidade" class="mobile-link-sub">Parentalidade</a>
++                </div>
++            </div>
++
++            <a href="../equipe" style="font-weight: 600; color: #483525; text-decoration: none; padding: 1.25rem 0; border-bottom: 1px solid #f0f0f0; font-family: 'Montserrat', sans-serif;">Equipe</a>
++            <a href="../galeria" style="font-weight: 600; color: #483525; text-decoration: none; padding: 1.25rem 0; border-bottom: 1px solid #f0f0f0; font-family: 'Montserrat', sans-serif;">Galeria</a>
++            <a href="../conteudos" style="font-weight: 600; color: #483525; text-decoration: none; padding: 1.25rem 0; border-bottom: 1px solid #f0f0f0; font-family: 'Montserrat', sans-serif;">Conteúdos</a>
++            <a href="../contato" style="font-weight: 600; color: #483525; text-decoration: none; padding: 1.25rem 0; border-bottom: 1px solid #f0f0f0; font-family: 'Montserrat', sans-serif;">Contato</a>
++            
++            <a href="https://wa.me/5562981838006" target="_blank" style="background-color: #483525; color: white; padding: 1rem; border-radius: 0.75rem; text-align: center; text-decoration: none; font-weight: 600; margin-top: 2rem; font-family: 'Montserrat', sans-serif;">Agendar Agora</a>
++        </div>
++    </div>
++
+     <main class="bio-container">
+         <!-- Hero Section -->
+         <div class="profile-img-wrap">
+@@ -409,7 +529,7 @@
+         </div>
+     </main>
+ 
+-            <!-- Premium Footer -->
++                    <!-- Premium Footer -->
+     <footer style="background-color: var(--brand-900); color: #FDFBFA !important; padding: 5rem 0 3rem; position: relative; z-index: 50; width: 100%;">
+         <div class="container-custom">
+             <div class="footer-grid">
+@@ -497,7 +617,7 @@
+             </form>
+         </div>
+     </div>
+-            <script src="https://unpkg.com/lucide@latest"></script>
++                    <script src="https://unpkg.com/lucide@latest"></script>
+     <script>
+         document.addEventListener('DOMContentLoaded', () => { lucide.createIcons(); });
+         function toggleMobileMenu() { 
+@@ -530,7 +650,7 @@
+             const header = document.getElementById('main-header');
+             const b = document.getElementById('scroll-top'); 
+             if(window.scrollY > 20) header.classList.add('scrolled'); else header.classList.remove('scrolled');
+-            if(window.scrollY > 500) b.classList.add('show'); else b.classList.remove('show'); 
++            if(window.scrollY > 500) { if(b) b.classList.add('show'); } else { if(b) b.classList.remove('show'); } 
+         });
+         document.getElementById('scroll-top')?.addEventListener('click', () => window.scrollTo({top: 0, behavior: 'smooth'}));
+     </script>
+@@ -538,3 +658,5 @@
+ </html>
+ 
+ 
++
++
+
+commit dc6db04471b2392b23d19be2179e2af23ebe2204
+Author: Inacio Eletronica <cognicao.digittalpro@gmail.com>
+Date:   Wed Apr 8 10:28:09 2026 -0300
+
+    fix: absolute site-wide sync with robust CSS injection and bio-link design
+
+diff --git a/renascimento/index.html b/renascimento/index.html
+index ce2b879..74f3299 100644
+--- a/renascimento/index.html
++++ b/renascimento/index.html
+@@ -8,12 +8,156 @@
+     
+     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌷</text></svg>">
+     
++    <link rel="stylesheet" href="../assets/style.css">
+     <style>
+-        /* This block will be overwritten by fix_all.ps1 but we need the bio-specific styles there */
++        :root {
++            --brand-900: #483525;
++            --brand-800: #5D4632;
++            --brand-500: #9C7C5F;
++            --brand-100: #EAE1D8;
++            --brand-50: #FDFBFA;
++        }
++
++        /* Fixed Interactive Dropdowns */
++        .nav-item-dropdown { position: relative; padding: 1rem 0; cursor: pointer; }
++        .nav-link-main { display: flex; align-items: center; gap: 0.4rem; font-size: 0.9rem; font-weight: 500; color: #483525; text-decoration: none; font-family: 'Montserrat', sans-serif; }
++        .dropdown-menu { 
++            position: absolute; top: 100%; left: 50%; transform: translateX(-50%) translateY(10px);
++            min-width: 260px; background: white; border: 1px solid var(--brand-100); 
++            border-radius: 1rem; box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1);
++            opacity: 0; visibility: hidden; transition: all 0.25s ease; z-index: 9999; padding: 0.75rem 0;
++            pointer-events: none;
++        }
++        /* Hover Area Bridge to prevent closing */
++        .nav-item-dropdown::after { content: ''; position: absolute; top: 80%; left: 0; width: 100%; height: 25px; }
++        .nav-item-dropdown:hover .dropdown-menu { opacity: 1; visibility: visible; display: block !important; transform: translateX(-50%) translateY(0); pointer-events: auto; }
++        
++        .dropdown-item { 
++            display: block; padding: 0.75rem 1.5rem; font-size: 0.875rem; color: var(--brand-900); 
++            text-decoration: none; transition: all 0.2s; font-family: 'Montserrat', sans-serif; font-weight: 500;
++        }
++        .dropdown-item:hover { background: var(--brand-50); color: var(--brand-500); padding-left: 1.75rem; }
++        .chevron-icon { width: 14px; height: 14px; opacity: 0.5; transition: transform 0.3s; }
++        .nav-item-dropdown:hover .chevron-icon { transform: rotate(180deg); opacity: 1; color: var(--brand-500); }
++
++        /* Forced 5-Column Footer Grid */
++        .footer-grid { 
++            display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; margin-bottom: 4rem; 
++        }
++        @media (min-width: 1024px) {
++            .footer-grid { grid-template-columns: repeat(5, 1fr); }
++        }
++
++        /* FAQ Accordion */
++        .faq-container { background: white; border-radius: 1.5rem; border: 1px solid var(--brand-100); padding: 1rem 1.5rem; }
++        .accordion-item { border-bottom: 1px solid var(--brand-100); }
++        .accordion-header { width: 100%; display: flex; justify-content: space-between; align-items: center; background: none; border: none; padding: 1.5rem 0; text-align: left; cursor: pointer; font-size: 1rem; font-weight: 500; color: var(--brand-900); }
++        .accordion-content { max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out; color: #666; line-height: 1.6; }
++        .accordion-item.active .accordion-content { max-height: 400px; padding-bottom: 1.5rem; }
++
++        /* Floating Button */
++        #scroll-top { position: fixed; bottom: 2rem; right: 2rem; width: 48px; height: 48px; background: var(--brand-900); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1); cursor: pointer; transition: all 0.3s; z-index: 100; opacity: 0; visibility: hidden; border: none; }
++        #scroll-top.show { opacity: 1; visibility: visible; }
++
++        /* Mobile Accordion Styles */
++        .mobile-nav-item { border-bottom: 1px solid #f0f0f0; }
++        .mobile-nav-btn { width: 100%; display: flex; justify-content: space-between; align-items: center; padding: 1rem 0; background: none; border: none; font-family: 'Montserrat', sans-serif; font-weight: 600; color: #483525; font-size: 1rem; cursor: pointer; text-align: left; }
++        .mobile-nav-content { max-height: 0; overflow: hidden; transition: all 0.3s ease; display: flex; flex-direction: column; padding-left: 1rem; background: #fafafa; border-radius: 0.5rem; }
++        .mobile-nav-item.active .mobile-nav-content { max-height: 300px; padding-bottom: 1rem; margin-bottom: 0.5rem; }
++        .mobile-nav-item.active .chevron-mobile { transform: rotate(180deg); }
++        .mobile-link-sub { display: block; padding: 0.75rem 0; color: #5D4632; text-decoration: none; font-size: 0.9rem; font-family: 'Montserrat', sans-serif; }
++
++        /* Premium Buttons */
++        .btn-primary {
++            background-color: #483525;
++            color: white !important;
++            padding: 1rem 2.2rem;
++            border-radius: 9999px;
++            text-decoration: none;
++            font-weight: 700;
++            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
++            box-shadow: 0 10px 15px -3px rgba(72, 53, 37, 0.2);
++            display: inline-flex;
++            align-items: center;
++            justify-content: center;
++            border: none;
++            cursor: pointer;
++            font-family: 'Montserrat', sans-serif;
++            font-size: 0.9rem;
++        }
++        .btn-primary:hover {
++            transform: translateY(-3px);
++            box-shadow: 0 20px 25px -5px rgba(72, 53, 37, 0.3);
++            filter: brightness(1.1);
++        }
++        .btn-outline {
++            background-color: transparent;
++            color: #483525 !important;
++            border: 2px solid #483525;
++            padding: 1rem 2.2rem;
++            border-radius: 9999px;
++            text-decoration: none;
++            font-weight: 700;
++            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
++            display: inline-flex;
++            align-items: center;
++            justify-content: center;
++            cursor: pointer;
++            font-family: 'Montserrat', sans-serif;
++            font-size: 0.9rem;
++        }
++        .btn-outline:hover {
++            background-color: #483525;
++            color: white !important;
++            transform: translateY(-3px);
++            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
++        }
++
++        /* Prevent horizontal overflow */
++        body, main { overflow-x: hidden; max-width: 100%; }
++        .container-custom { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; }
++
++        /* Responsive Grids */
++        .grid-2col, .grid-2col-equal { 
++            display: flex; flex-direction: column; gap: 3rem; 
++        }
++        @media (min-width: 1024px) {
++            .grid-2col { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
++            .grid-2col-equal { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; }
++        }
++
++        /* Section Specifics */
++        .como-trab-inner { padding: 0; }
++        @media (min-width: 1024px) {
++            .como-trab-inner { padding: 0 5rem; }
++        }
++
++        /* Bio-Link Specifics (Renascimento) */
++        .bio-container { max-width: 680px; margin: 0 auto; padding: 4rem 1.5rem; text-align: center; display: flex; flex-direction: column; align-items: center; }
++        .profile-img-bio { width: 150px; height: 150px; border-radius: 50%; object-fit: cover; border: 4px solid white; box-shadow: 0 15px 35px rgba(72,53,37,0.15); margin-bottom: 2rem; }
++        .btn-bio-card { background: white !important; border: 1px solid var(--brand-100) !important; padding: 1.5rem !important; border-radius: 1.25rem !important; text-decoration: none !important; display: flex !important; flex-direction: column !important; align-items: center !important; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05) !important; width: 100% !important; margin-bottom: 1.2rem !important; }
++        .btn-bio-card:hover { transform: translateY(-4px) !important; border-color: var(--brand-500) !important; box-shadow: 0 20px 25px -5px rgba(72,53,37,0.1) !important; }
++        .btn-bio-label { font-weight: 700; color: var(--brand-900); font-size: 1.1rem; margin-bottom: 0.25rem; }
++        .btn-bio-subtext { font-size: 0.85rem; color: var(--brand-500); opacity: 0.8; }
++        .awareness-card { background: rgba(234, 225, 216, 0.3); padding: 3rem; border-radius: 2rem; margin-bottom: 4rem; border: 1px dashed var(--brand-100); width: 100%; }
++        .value-grid-bio { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1.5rem; width: 100%; margin-bottom: 4rem; }
++        .value-item-bio { padding: 2rem 1.5rem; background: white; border-radius: 1.25rem; border: 1px solid var(--brand-100); transition: 0.3s; }
++        .value-item-bio:hover { border-color: var(--brand-500); transform: translateY(-2px); }
++
++        /* Lead Capture Modal Styles */
++        .modal-overlay { display: none; position: fixed; inset: 0; background: rgba(72, 53, 37, 0.6); backdrop-filter: blur(8px); z-index: 3000; align-items: center; justify-content: center; padding: 1rem; }
++        .modal-content { background: white; padding: 3rem; border-radius: 2rem; max-width: 480px; width: 100%; position: relative; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25); }
++        .modal-close { position: absolute; top: 1.5rem; right: 1.5rem; background: none; border: none; font-size: 1.5rem; cursor: pointer; color: var(--brand-500); }
++        .modal-title { font-family: 'Playfair Display', serif; font-size: 1.75rem; color: var(--brand-900); margin-bottom: 1rem; }
++        .modal-text { color: var(--brand-800); opacity: 0.8; margin-bottom: 2rem; font-size: 0.95rem; }
++        .form-group { margin-bottom: 1.5rem; text-align: left; }
++        .form-label { display: block; font-size: 0.85rem; font-weight: 600; color: var(--brand-900); margin-bottom: 0.5rem; }
++        .form-input { width: 100%; padding: 0.875rem 1rem; border: 1px solid var(--brand-100); border-radius: 0.75rem; font-family: inherit; transition: 0.3s; }
++        .btn-submit { width: 100%; padding: 1rem; background: var(--brand-900); color: white; border: none; border-radius: 9999px; font-weight: 700; cursor: pointer; transition: 0.3s; margin-top: 1rem; }
+     </style>
+ </head>
+ <body style="background-color: var(--brand-50);">
+-        <!-- Premium Header -->
++            <!-- Premium Header -->
+     <header id="main-header" style="background-color: #FFFFFF; border-bottom: 1px solid #EAE1D8; position: sticky; top: 0; z-index: 1000;">
+         <nav class="container-custom" style="padding: 0 2rem;">
+             <div style="display: flex; align-items: center; width: 100%; justify-content: space-between; height: 110px;">
+@@ -131,6 +275,65 @@
+         </div>
+     </div>
+ 
++    <!-- Mobile Menu Overlay -->
++    <!-- Mobile Menu Overlay -->
++    <div id="mobile-menu" class="hidden" style="position: fixed; inset: 0; background: white; z-index: 2000; padding: 2rem; flex-direction: column; overflow-y: auto;">
++        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
++            <a href="../" style="display: flex; align-items: center; text-decoration: none; margin-bottom: 1rem;">
++                <img src="https://i.ibb.co/vvPV65rT/ana-candida-s-f.png" alt="Instituto Ana Cândida" style="height: 75px; width: auto; object-fit: contain;">
++            </a>
++            <button onclick="toggleMobileMenu()" style="background: none; border: none; cursor: pointer; color: #483525;"><i data-lucide="x"></i></button>
++        </div>
++        
++        <div style="display: flex; flex-direction: column;">
++            <!-- O Instituto Mobile -->
++            <div class="mobile-nav-item">
++                <button class="mobile-nav-btn" onclick="toggleMobileAccordion(this)">
++                    O Instituto <i data-lucide="chevron-down" class="chevron-mobile" style="width: 18px; height: 18px;"></i>
++                </button>
++                <div class="mobile-nav-content">
++                    <a href="../o-instituto" class="mobile-link-sub">Visão Geral</a>
++                    <a href="../o-instituto#sobre" class="mobile-link-sub">Sobre nós</a>
++                    <a href="../o-instituto#missao" class="mobile-link-sub">Missão e Valores</a>
++                    <a href="../o-instituto#como-trabalhamos" class="mobile-link-sub">Como Trabalhamos</a>
++                </div>
++            </div>
++
++            <!-- Terapia Sistêmica Mobile -->
++            <div class="mobile-nav-item">
++                <button class="mobile-nav-btn" onclick="toggleMobileAccordion(this)">
++                    Terapia Sistêmica <i data-lucide="chevron-down" class="chevron-mobile" style="width: 18px; height: 18px;"></i>
++                </button>
++                <div class="mobile-nav-content">
++                    <a href="../terapia-sistemica" class="mobile-link-sub">Visão Geral</a>
++                    <a href="../terapia-sistemica#que-e" class="mobile-link-sub">O que é</a>
++                    <a href="../terapia-sistemica#para-quem" class="mobile-link-sub">Para quem é</a>
++                    <a href="../terapia-sistemica#primeira-sessao" class="mobile-link-sub">Primeira Sessão</a>
++                </div>
++            </div>
++
++            <!-- Atendimentos Mobile -->
++            <div class="mobile-nav-item">
++                <button class="mobile-nav-btn" onclick="toggleMobileAccordion(this)">
++                    Atendimentos <i data-lucide="chevron-down" class="chevron-mobile" style="width: 18px; height: 18px;"></i>
++                </button>
++                <div class="mobile-nav-content">
++                    <a href="../atendimentos/terapia-individual" class="mobile-link-sub">Terapia Individual</a>
++                    <a href="../atendimentos/terapia-casal" class="mobile-link-sub">Terapia de Casal</a>
++                    <a href="../atendimentos/terapia-familiar" class="mobile-link-sub">Terapia Familiar</a>
++                    <a href="../atendimentos/parentalidade" class="mobile-link-sub">Parentalidade</a>
++                </div>
++            </div>
++
++            <a href="../equipe" style="font-weight: 600; color: #483525; text-decoration: none; padding: 1.25rem 0; border-bottom: 1px solid #f0f0f0; font-family: 'Montserrat', sans-serif;">Equipe</a>
++            <a href="../galeria" style="font-weight: 600; color: #483525; text-decoration: none; padding: 1.25rem 0; border-bottom: 1px solid #f0f0f0; font-family: 'Montserrat', sans-serif;">Galeria</a>
++            <a href="../conteudos" style="font-weight: 600; color: #483525; text-decoration: none; padding: 1.25rem 0; border-bottom: 1px solid #f0f0f0; font-family: 'Montserrat', sans-serif;">Conteúdos</a>
++            <a href="../contato" style="font-weight: 600; color: #483525; text-decoration: none; padding: 1.25rem 0; border-bottom: 1px solid #f0f0f0; font-family: 'Montserrat', sans-serif;">Contato</a>
++            
++            <a href="https://wa.me/5562981838006" target="_blank" style="background-color: #483525; color: white; padding: 1rem; border-radius: 0.75rem; text-align: center; text-decoration: none; font-weight: 600; margin-top: 2rem; font-family: 'Montserrat', sans-serif;">Agendar Agora</a>
++        </div>
++    </div>
++
+     <main class="bio-container">
+         <!-- Hero Section -->
+         <div class="profile-img-wrap">
+@@ -206,7 +409,7 @@
+         </div>
+     </main>
+ 
+-        <!-- Premium Footer -->
++            <!-- Premium Footer -->
+     <footer style="background-color: var(--brand-900); color: #FDFBFA !important; padding: 5rem 0 3rem; position: relative; z-index: 50; width: 100%;">
+         <div class="container-custom">
+             <div class="footer-grid">
+@@ -294,7 +497,7 @@
+             </form>
+         </div>
+     </div>
+-        <script src="https://unpkg.com/lucide@latest"></script>
++            <script src="https://unpkg.com/lucide@latest"></script>
+     <script>
+         document.addEventListener('DOMContentLoaded', () => { lucide.createIcons(); });
+         function toggleMobileMenu() { 
+@@ -334,3 +537,4 @@
+ </body>
+ </html>
+ 
++
+
+commit 80ef3957c196740f06befa758e03e1d849d49d29
+Author: Inacio Eletronica <cognicao.digittalpro@gmail.com>
+Date:   Wed Apr 8 10:21:49 2026 -0300
+
+    fix: final absolute synchronization for renascimento page with premium header and bio styles
+
+diff --git a/renascimento/index.html b/renascimento/index.html
+index c8229bd..ce2b879 100644
+--- a/renascimento/index.html
++++ b/renascimento/index.html
+@@ -6,136 +6,130 @@
+     <title>Renascimento | Instituto Ana Cândida</title>
+     <meta name="description" content="Jornada de Reconexão Feminina com Ana Cândida. Guia Gratuito, Atendimentos e Conteúdos.">
+     
+-    <link rel="stylesheet" href="../../assets/style.css">
+     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌷</text></svg>">
+     
+-        <style>
+-        :root {
+-            --brand-900: #483525;
+-            --brand-800: #5D4632;
+-            --brand-500: #9C7C5F;
+-            --brand-100: #EAE1D8;
+-            --brand-50: #FDFBFA;
+-        }
+-
+-        /* Fixed Interactive Dropdowns */
+-        .nav-item-dropdown { position: relative; padding: 1rem 0; cursor: pointer; }
+-        .nav-link-main { display: flex; align-items: center; gap: 0.4rem; font-size: 0.9rem; font-weight: 500; color: #483525; text-decoration: none; font-family: 'Montserrat', sans-serif; }
+-        .dropdown-menu { 
+-            position: absolute; top: 100%; left: 50%; transform: translateX(-50%) translateY(10px);
+-            min-width: 260px; background: white; border: 1px solid var(--brand-100); 
+-            border-radius: 1rem; box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1);
+-            opacity: 0; visibility: hidden; transition: all 0.25s ease; z-index: 9999; padding: 0.75rem 0;
+-            pointer-events: none;
+-        }
+-        /* Hover Area Bridge to prevent closing */
+-        .nav-item-dropdown::after { content: ''; position: absolute; top: 80%; left: 0; width: 100%; height: 25px; }
+-        .nav-item-dropdown:hover .dropdown-menu { opacity: 1; visibility: visible; display: block !important; transform: translateX(-50%) translateY(0); pointer-events: auto; }
+-        
+-        .dropdown-item { 
+-            display: block; padding: 0.75rem 1.5rem; font-size: 0.875rem; color: var(--brand-900); 
+-            text-decoration: none; transition: all 0.2s; font-family: 'Montserrat', sans-serif; font-weight: 500;
+-        }
+-        .dropdown-item:hover { background: var(--brand-50); color: var(--brand-500); padding-left: 1.75rem; }
+-        .chevron-icon { width: 14px; height: 14px; opacity: 0.5; transition: transform 0.3s; }
+-        .nav-item-dropdown:hover .chevron-icon { transform: rotate(180deg); opacity: 1; color: var(--brand-500); }
++    <style>
++        /* This block will be overwritten by fix_all.ps1 but we need the bio-specific styles there */
++    </style>
++</head>
++<body style="background-color: var(--brand-50);">
++        <!-- Premium Header -->
++    <header id="main-header" style="background-color: #FFFFFF; border-bottom: 1px solid #EAE1D8; position: sticky; top: 0; z-index: 1000;">
++        <nav class="container-custom" style="padding: 0 2rem;">
++            <div style="display: flex; align-items: center; width: 100%; justify-content: space-between; height: 110px;">
++                <a href="../" style="display: flex; align-items: center; text-decoration: none; height: 100%;">
++                    <img src="https://i.ibb.co/vvPV65rT/ana-candida-s-f.png" alt="Instituto Ana Cândida" style="height: 95px; width: auto; object-fit: contain;">
++                </a>
++                
++                <div class="hidden lg:flex items-center" style="gap: 2.2rem; height: 100%;">
++                    <!-- O Instituto Dropdown -->
++                    <div class="nav-item-dropdown">
++                        <span class="nav-link-main">O Instituto <i data-lucide="chevron-down" class="chevron-icon"></i></span>
++                        <div class="dropdown-menu">
++                            <a href="../o-instituto" class="dropdown-item">Visão Geral</a>
++                            <a href="../o-instituto#sobre" class="dropdown-item">Sobre nós</a>
++                            <a href="../o-instituto#missao" class="dropdown-item">Missão e Valores</a>
++                            <a href="../o-instituto#como-trabalhamos" class="dropdown-item">Como Trabalhamos</a>
++                        </div>
++                    </div>
+ 
+-        /* Forced 5-Column Footer Grid */
+-        .footer-grid { 
+-            display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; margin-bottom: 4rem; 
+-        }
+-        @media (min-width: 1024px) {
+-            .footer-grid { grid-template-columns: repeat(5, 1fr); }
+-        }
++                    <!-- Terapia Sistêmica Dropdown -->
++                    <div class="nav-item-dropdown">
++                        <span class="nav-link-main">Terapia Sistêmica <i data-lucide="chevron-down" class="chevron-icon"></i></span>
++                        <div class="dropdown-menu">
++                            <a href="../terapia-sistemica" class="dropdown-item">Visão Geral</a>
++                            <a href="../terapia-sistemica#que-e" class="dropdown-item">O que é</a>
++                            <a href="../terapia-sistemica#para-quem" class="dropdown-item">Para quem é</a>
++                            <a href="../terapia-sistemica#primeira-sessao" class="dropdown-item">Primeira Sessão</a>
++                        </div>
++                    </div>
+ 
+-        /* FAQ Accordion */
+-        .faq-container { background: white; border-radius: 1.5rem; border: 1px solid var(--brand-100); padding: 1rem 1.5rem; }
+-        .accordion-item { border-bottom: 1px solid var(--brand-100); }
+-        .accordion-header { width: 100%; display: flex; justify-content: space-between; align-items: center; background: none; border: none; padding: 1.5rem 0; text-align: left; cursor: pointer; font-size: 1rem; font-weight: 500; color: var(--brand-900); }
+-        .accordion-content { max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out; color: #666; line-height: 1.6; }
+-        .accordion-item.active .accordion-content { max-height: 400px; padding-bottom: 1.5rem; }
++                    <!-- Atendimentos Dropdown -->
++                    <div class="nav-item-dropdown">
++                        <span class="nav-link-main">Atendimentos <i data-lucide="chevron-down" class="chevron-icon"></i></span>
++                        <div class="dropdown-menu">
++                            <a href="../atendimentos/terapia-individual" class="dropdown-item">Terapia Individual</a>
++                            <a href="../atendimentos/terapia-casal" class="dropdown-item">Terapia de Casal</a>
++                            <a href="../atendimentos/terapia-familiar" class="dropdown-item">Terapia Familiar</a>
++                            <a href="../atendimentos/parentalidade" class="dropdown-item">Parentalidade</a>
++                        </div>
++                    </div>
+ 
+-        /* Floating Button */
+-        #scroll-top { position: fixed; bottom: 2rem; right: 2rem; width: 48px; height: 48px; background: var(--brand-900); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1); cursor: pointer; transition: all 0.3s; z-index: 100; opacity: 0; visibility: hidden; border: none; }
+-        #scroll-top.show { opacity: 1; visibility: visible; }
++                    <a href="../equipe" style="font-size: 0.9rem; font-weight: 500; color: #483525; text-decoration: none; font-family: 'Montserrat', sans-serif;">Equipe</a>
++                    <a href="../galeria" style="font-size: 0.9rem; font-weight: 500; color: #483525; text-decoration: none; font-family: 'Montserrat', sans-serif;">Galeria</a>
++                    <a href="../conteudos" style="font-size: 0.9rem; font-weight: 500; color: #483525; text-decoration: none; font-family: 'Montserrat', sans-serif;">Conteúdos</a>
++                    <a href="../contato" style="font-size: 0.9rem; font-weight: 500; color: #483525; text-decoration: none; font-family: 'Montserrat', sans-serif;">Contato</a>
++                </div>
+ 
+-        /* Mobile Accordion Styles */
+-        .mobile-nav-item { border-bottom: 1px solid #f0f0f0; }
+-        .mobile-nav-btn { width: 100%; display: flex; justify-content: space-between; align-items: center; padding: 1rem 0; background: none; border: none; font-family: 'Montserrat', sans-serif; font-weight: 600; color: #483525; font-size: 1rem; cursor: pointer; text-align: left; }
+-        .mobile-nav-content { max-height: 0; overflow: hidden; transition: all 0.3s ease; display: flex; flex-direction: column; padding-left: 1rem; background: #fafafa; border-radius: 0.5rem; }
+-        .mobile-nav-item.active .mobile-nav-content { max-height: 300px; padding-bottom: 1rem; margin-bottom: 0.5rem; }
+-        .mobile-nav-item.active .chevron-mobile { transform: rotate(180deg); }
+-        .mobile-link-sub { display: block; padding: 0.75rem 0; color: #5D4632; text-decoration: none; font-size: 0.9rem; font-family: 'Montserrat', sans-serif; }
++                <div class="hidden lg:block">
++                    <a href="https://wa.me/5562981838006" target="_blank" class="btn-primary" style="padding: 0.6rem 1.5rem; font-size: 0.85rem;">Agendar</a>
++                </div>
++                
++                <button class="lg:hidden" style="background: none; border: none; cursor: pointer; color: #483525;" onclick="toggleMobileMenu()">
++                    <i data-lucide="menu"></i>
++                </button>
++            </div>
++        </nav>
++    </header>
+ 
+-        /* Premium Buttons */
+-        .btn-primary {
+-            background-color: #483525;
+-            color: white !important;
+-            padding: 1rem 2.2rem;
+-            border-radius: 9999px;
+-            text-decoration: none;
+-            font-weight: 700;
+-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+-            box-shadow: 0 10px 15px -3px rgba(72, 53, 37, 0.2);
+-            display: inline-flex;
+-            align-items: center;
+-            justify-content: center;
+-            border: none;
+-            cursor: pointer;
+-            font-family: 'Montserrat', sans-serif;
+-            font-size: 0.9rem;
+-        }
+-        .btn-primary:hover {
+-            transform: translateY(-3px);
+-            box-shadow: 0 20px 25px -5px rgba(72, 53, 37, 0.3);
+-            filter: brightness(1.1);
+-        }
+-        .btn-outline {
+-            background-color: transparent;
+-            color: #483525 !important;
+-            border: 2px solid #483525;
+-            padding: 1rem 2.2rem;
+-            border-radius: 9999px;
+-            text-decoration: none;
+-            font-weight: 700;
+-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+-            display: inline-flex;
+-            align-items: center;
+-            justify-content: center;
+-            cursor: pointer;
+-            font-family: 'Montserrat', sans-serif;
+-            font-size: 0.9rem;
+-        }
+-        .btn-outline:hover {
+-            background-color: #483525;
+-            color: white !important;
+-            transform: translateY(-3px);
+-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+-        }
++    <!-- Mobile Menu Overlay -->
++    <!-- Mobile Menu Overlay -->
++    <div id="mobile-menu" class="hidden" style="position: fixed; inset: 0; background: white; z-index: 2000; padding: 2rem; flex-direction: column; overflow-y: auto;">
++        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
++            <a href="../" style="display: flex; align-items: center; text-decoration: none; margin-bottom: 1rem;">
++                <img src="https://i.ibb.co/vvPV65rT/ana-candida-s-f.png" alt="Instituto Ana Cândida" style="height: 75px; width: auto; object-fit: contain;">
++            </a>
++            <button onclick="toggleMobileMenu()" style="background: none; border: none; cursor: pointer; color: #483525;"><i data-lucide="x"></i></button>
++        </div>
++        
++        <div style="display: flex; flex-direction: column;">
++            <!-- O Instituto Mobile -->
++            <div class="mobile-nav-item">
++                <button class="mobile-nav-btn" onclick="toggleMobileAccordion(this)">
++                    O Instituto <i data-lucide="chevron-down" class="chevron-mobile" style="width: 18px; height: 18px;"></i>
++                </button>
++                <div class="mobile-nav-content">
++                    <a href="../o-instituto" class="mobile-link-sub">Visão Geral</a>
++                    <a href="../o-instituto#sobre" class="mobile-link-sub">Sobre nós</a>
++                    <a href="../o-instituto#missao" class="mobile-link-sub">Missão e Valores</a>
++                    <a href="../o-instituto#como-trabalhamos" class="mobile-link-sub">Como Trabalhamos</a>
++                </div>
++            </div>
+ 
+-        /* Prevent horizontal overflow */
+-        body, main { overflow-x: hidden; max-width: 100%; }
+-        .container-custom { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; }
++            <!-- Terapia Sistêmica Mobile -->
++            <div class="mobile-nav-item">
++                <button class="mobile-nav-btn" onclick="toggleMobileAccordion(this)">
++                    Terapia Sistêmica <i data-lucide="chevron-down" class="chevron-mobile" style="width: 18px; height: 18px;"></i>
++                </button>
++                <div class="mobile-nav-content">
++                    <a href="../terapia-sistemica" class="mobile-link-sub">Visão Geral</a>
++                    <a href="../terapia-sistemica#que-e" class="mobile-link-sub">O que é</a>
++                    <a href="../terapia-sistemica#para-quem" class="mobile-link-sub">Para quem é</a>
++                    <a href="../terapia-sistemica#primeira-sessao" class="mobile-link-sub">Primeira Sessão</a>
++                </div>
++            </div>
+ 
+-        /* Responsive Grids */
+-        .grid-2col, .grid-2col-equal { 
+-            display: flex; flex-direction: column; gap: 3rem; 
+-        }
+-        @media (min-width: 1024px) {
+-            .grid-2col { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+-            .grid-2col-equal { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; }
+-        }
++            <!-- Atendimentos Mobile -->
++            <div class="mobile-nav-item">
++                <button class="mobile-nav-btn" onclick="toggleMobileAccordion(this)">
++                    Atendimentos <i data-lucide="chevron-down" class="chevron-mobile" style="width: 18px; height: 18px;"></i>
++                </button>
++                <div class="mobile-nav-content">
++                    <a href="../atendimentos/terapia-individual" class="mobile-link-sub">Terapia Individual</a>
++                    <a href="../atendimentos/terapia-casal" class="mobile-link-sub">Terapia de Casal</a>
++                    <a href="../atendimentos/terapia-familiar" class="mobile-link-sub">Terapia Familiar</a>
++                    <a href="../atendimentos/parentalidade" class="mobile-link-sub">Parentalidade</a>
++                </div>
++            </div>
+ 
+-        /* Section Specifics */
+-        .como-trab-inner { padding: 0; }
+-        @media (min-width: 1024px) {
+-            .como-trab-inner { padding: 0 5rem; }
+-        }
+-    </style>
+-</head>
+-<body style="background-color: var(--brand-50);">
+-    <!-- Premium Header -->
+-    <header id="main-header" style="background-color: #FFFFFF; border-bottom: 1px solid #EAE1D8; position: sticky; top: 0; z-index: 1000;"></header>
++            <a href="../equipe" style="font-weight: 600; color: #483525; text-decoration: none; padding: 1.25rem 0; border-bottom: 1px solid #f0f0f0; font-family: 'Montserrat', sans-serif;">Equipe</a>
++            <a href="../galeria" style="font-weight: 600; color: #483525; text-decoration: none; padding: 1.25rem 0; border-bottom: 1px solid #f0f0f0; font-family: 'Montserrat', sans-serif;">Galeria</a>
++            <a href="../conteudos" style="font-weight: 600; color: #483525; text-decoration: none; padding: 1.25rem 0; border-bottom: 1px solid #f0f0f0; font-family: 'Montserrat', sans-serif;">Conteúdos</a>
++            <a href="../contato" style="font-weight: 600; color: #483525; text-decoration: none; padding: 1.25rem 0; border-bottom: 1px solid #f0f0f0; font-family: 'Montserrat', sans-serif;">Contato</a>
++            
++            <a href="https://wa.me/5562981838006" target="_blank" style="background-color: #483525; color: white; padding: 1rem; border-radius: 0.75rem; text-align: center; text-decoration: none; font-weight: 600; margin-top: 2rem; font-family: 'Montserrat', sans-serif;">Agendar Agora</a>
++        </div>
++    </div>
+ 
+     <main class="bio-container">
+         <!-- Hero Section -->
+@@ -300,7 +294,6 @@
+             </form>
+         </div>
+     </div>
+-
+         <script src="https://unpkg.com/lucide@latest"></script>
+     <script>
+         document.addEventListener('DOMContentLoaded', () => { lucide.createIcons(); });
+
+commit 5f5cb2661ce48d781c569d23c11acd3eab8bd594
+Author: Inacio Eletronica <cognicao.digittalpro@gmail.com>
+Date:   Wed Apr 8 10:13:55 2026 -0300
+
+    fix: integrated renascimento page into global sync script and fixed missing header
+
+diff --git a/renascimento/index.html b/renascimento/index.html
+index 02b1dc5..c8229bd 100644
+--- a/renascimento/index.html
++++ b/renascimento/index.html
+@@ -9,187 +9,127 @@
+     <link rel="stylesheet" href="../../assets/style.css">
+     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌷</text></svg>">
+     
+-    <style>
+-        .bio-container {
+-            max-width: 680px;
+-            margin: 0 auto;
+-            padding: 4rem 1.5rem;
+-            display: flex;
+-            flex-direction: column;
+-            align-items: center;
+-            text-align: center;
+-        }
+-        .profile-img-wrap {
+-            position: relative;
+-            margin-bottom: 2rem;
++        <style>
++        :root {
++            --brand-900: #483525;
++            --brand-800: #5D4632;
++            --brand-500: #9C7C5F;
++            --brand-100: #EAE1D8;
++            --brand-50: #FDFBFA;
+         }
+-        .profile-img-bio {
+-            width: 150px;
+-            height: 150px;
+-            border-radius: 50%;
+-            object-fit: cover;
+-            border: 4px solid white;
+-            box-shadow: 0 15px 35px rgba(72,53,37,0.15);
++
++        /* Fixed Interactive Dropdowns */
++        .nav-item-dropdown { position: relative; padding: 1rem 0; cursor: pointer; }
++        .nav-link-main { display: flex; align-items: center; gap: 0.4rem; font-size: 0.9rem; font-weight: 500; color: #483525; text-decoration: none; font-family: 'Montserrat', sans-serif; }
++        .dropdown-menu { 
++            position: absolute; top: 100%; left: 50%; transform: translateX(-50%) translateY(10px);
++            min-width: 260px; background: white; border: 1px solid var(--brand-100); 
++            border-radius: 1rem; box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1);
++            opacity: 0; visibility: hidden; transition: all 0.25s ease; z-index: 9999; padding: 0.75rem 0;
++            pointer-events: none;
+         }
+-        .bio-title {
+-            font-family: 'Playfair Display', serif;
+-            font-size: 2.2rem;
+-            color: var(--brand-900);
+-            line-height: 1.2;
+-            margin-bottom: 1.5rem;
++        /* Hover Area Bridge to prevent closing */
++        .nav-item-dropdown::after { content: ''; position: absolute; top: 80%; left: 0; width: 100%; height: 25px; }
++        .nav-item-dropdown:hover .dropdown-menu { opacity: 1; visibility: visible; display: block !important; transform: translateX(-50%) translateY(0); pointer-events: auto; }
++        
++        .dropdown-item { 
++            display: block; padding: 0.75rem 1.5rem; font-size: 0.875rem; color: var(--brand-900); 
++            text-decoration: none; transition: all 0.2s; font-family: 'Montserrat', sans-serif; font-weight: 500;
+         }
+-        .bio-subtitle {
+-            color: var(--brand-800);
+-            opacity: 0.8;
+-            margin-bottom: 3rem;
+-            max-width: 500px;
+-            line-height: 1.6;
+-            font-size: 1.1rem;
++        .dropdown-item:hover { background: var(--brand-50); color: var(--brand-500); padding-left: 1.75rem; }
++        .chevron-icon { width: 14px; height: 14px; opacity: 0.5; transition: transform 0.3s; }
++        .nav-item-dropdown:hover .chevron-icon { transform: rotate(180deg); opacity: 1; color: var(--brand-500); }
++
++        /* Forced 5-Column Footer Grid */
++        .footer-grid { 
++            display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; margin-bottom: 4rem; 
+         }
+-        .links-grid {
+-            width: 100%;
+-            display: flex;
+-            flex-direction: column;
+-            gap: 1.2rem;
+-            margin-bottom: 4rem;
++        @media (min-width: 1024px) {
++            .footer-grid { grid-template-columns: repeat(5, 1fr); }
+         }
+-        .btn-bio-card {
+-            background: white;
+-            border: 1px solid var(--brand-100);
+-            padding: 1.5rem;
+-            border-radius: 1.25rem;
++
++        /* FAQ Accordion */
++        .faq-container { background: white; border-radius: 1.5rem; border: 1px solid var(--brand-100); padding: 1rem 1.5rem; }
++        .accordion-item { border-bottom: 1px solid var(--brand-100); }
++        .accordion-header { width: 100%; display: flex; justify-content: space-between; align-items: center; background: none; border: none; padding: 1.5rem 0; text-align: left; cursor: pointer; font-size: 1rem; font-weight: 500; color: var(--brand-900); }
++        .accordion-content { max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out; color: #666; line-height: 1.6; }
++        .accordion-item.active .accordion-content { max-height: 400px; padding-bottom: 1.5rem; }
++
++        /* Floating Button */
++        #scroll-top { position: fixed; bottom: 2rem; right: 2rem; width: 48px; height: 48px; background: var(--brand-900); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1); cursor: pointer; transition: all 0.3s; z-index: 100; opacity: 0; visibility: hidden; border: none; }
++        #scroll-top.show { opacity: 1; visibility: visible; }
++
++        /* Mobile Accordion Styles */
++        .mobile-nav-item { border-bottom: 1px solid #f0f0f0; }
++        .mobile-nav-btn { width: 100%; display: flex; justify-content: space-between; align-items: center; padding: 1rem 0; background: none; border: none; font-family: 'Montserrat', sans-serif; font-weight: 600; color: #483525; font-size: 1rem; cursor: pointer; text-align: left; }
++        .mobile-nav-content { max-height: 0; overflow: hidden; transition: all 0.3s ease; display: flex; flex-direction: column; padding-left: 1rem; background: #fafafa; border-radius: 0.5rem; }
++        .mobile-nav-item.active .mobile-nav-content { max-height: 300px; padding-bottom: 1rem; margin-bottom: 0.5rem; }
++        .mobile-nav-item.active .chevron-mobile { transform: rotate(180deg); }
++        .mobile-link-sub { display: block; padding: 0.75rem 0; color: #5D4632; text-decoration: none; font-size: 0.9rem; font-family: 'Montserrat', sans-serif; }
++
++        /* Premium Buttons */
++        .btn-primary {
++            background-color: #483525;
++            color: white !important;
++            padding: 1rem 2.2rem;
++            border-radius: 9999px;
+             text-decoration: none;
+-            display: flex;
+-            flex-direction: column;
+-            align-items: center;
+-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+-            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+-        }
+-        .btn-bio-card:hover {
+-            transform: translateY(-4px);
+-            border-color: var(--brand-500);
+-            box-shadow: 0 20px 25px -5px rgba(72,53,37,0.1);
+-        }
+-        .btn-bio-label {
+             font-weight: 700;
+-            color: var(--brand-900);
+-            font-size: 1.1rem;
+-            margin-bottom: 0.25rem;
+-        }
+-        .btn-bio-subtext {
+-            font-size: 0.85rem;
+-            color: var(--brand-500);
+-            opacity: 0.8;
+-        }
+-        .awareness-card {
+-            background: rgba(234, 225, 216, 0.3);
+-            padding: 3rem;
+-            border-radius: 2rem;
+-            margin-bottom: 4rem;
+-            border: 1px dashed var(--brand-100);
+-            width: 100%;
+-        }
+-        .value-grid-bio {
+-            display: grid;
+-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+-            gap: 1.5rem;
+-            width: 100%;
+-            margin-bottom: 4rem;
+-        }
+-        .value-item-bio {
+-            padding: 2rem 1.5rem;
+-            background: white;
+-            border-radius: 1.25rem;
+-            border: 1px solid var(--brand-100);
+-            transition: 0.3s;
+-        }
+-        .value-item-bio:hover {
+-            border-color: var(--brand-500);
+-            transform: translateY(-2px);
+-        }
+-
+-        /* Lead Capture Modal Styles */
+-        .modal-overlay {
+-            display: none;
+-            position: fixed;
+-            inset: 0;
+-            background: rgba(72, 53, 37, 0.6);
+-            backdrop-filter: blur(8px);
+-            z-index: 3000;
++            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
++            box-shadow: 0 10px 15px -3px rgba(72, 53, 37, 0.2);
++            display: inline-flex;
+             align-items: center;
+             justify-content: center;
+-            padding: 1rem;
+-        }
+-        .modal-content {
+-            background: white;
+-            padding: 3rem;
+-            border-radius: 2rem;
+-            max-width: 480px;
+-            width: 100%;
+-            position: relative;
+-            box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25);
+-        }
+-        .modal-close {
+-            position: absolute;
+-            top: 1.5rem;
+-            right: 1.5rem;
+-            background: none;
+             border: none;
+-            font-size: 1.5rem;
+             cursor: pointer;
+-            color: var(--brand-500);
++            font-family: 'Montserrat', sans-serif;
++            font-size: 0.9rem;
+         }
+-        .modal-title {
+-            font-family: 'Playfair Display', serif;
+-            font-size: 1.75rem;
+-            color: var(--brand-900);
+-            margin-bottom: 1rem;
++        .btn-primary:hover {
++            transform: translateY(-3px);
++            box-shadow: 0 20px 25px -5px rgba(72, 53, 37, 0.3);
++            filter: brightness(1.1);
+         }
+-        .modal-text {
+-            color: var(--brand-800);
+-            opacity: 0.8;
+-            margin-bottom: 2rem;
+-            font-size: 0.95rem;
+-        }
+-        .form-group {
+-            margin-bottom: 1.5rem;
+-            text-align: left;
+-        }
+-        .form-label {
+-            display: block;
+-            font-size: 0.85rem;
+-            font-weight: 600;
+-            color: var(--brand-900);
+-            margin-bottom: 0.5rem;
+-        }
+-        .form-input {
+-            width: 100%;
+-            padding: 0.875rem 1rem;
+-            border: 1px solid var(--brand-100);
+-            border-radius: 0.75rem;
+-            font-family: inherit;
+-            transition: 0.3s;
+-        }
+-        .form-input:focus {
+-            outline: none;
+-            border-color: var(--brand-500);
+-            box-shadow: 0 0 0 4px rgba(156, 124, 95, 0.1);
+-        }
+-        .btn-submit {
+-            width: 100%;
+-            padding: 1rem;
+-            background: var(--brand-900);
+-            color: white;
+-            border: none;
++        .btn-outline {
++            background-color: transparent;
++            color: #483525 !important;
++            border: 2px solid #483525;
++            padding: 1rem 2.2rem;
+             border-radius: 9999px;
++            text-decoration: none;
+             font-weight: 700;
++            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
++            display: inline-flex;
++            align-items: center;
++            justify-content: center;
+             cursor: pointer;
+-            transition: 0.3s;
+-            margin-top: 1rem;
++            font-family: 'Montserrat', sans-serif;
++            font-size: 0.9rem;
++        }
++        .btn-outline:hover {
++            background-color: #483525;
++            color: white !important;
++            transform: translateY(-3px);
++            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
++        }
++
++        /* Prevent horizontal overflow */
++        body, main { overflow-x: hidden; max-width: 100%; }
++        .container-custom { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; }
++
++        /* Responsive Grids */
++        .grid-2col, .grid-2col-equal { 
++            display: flex; flex-direction: column; gap: 3rem; 
+         }
+-        .btn-submit:hover {
+-            background: var(--brand-800);
+-            transform: translateY(-2px);
++        @media (min-width: 1024px) {
++            .grid-2col { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
++            .grid-2col-equal { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; }
++        }
++
++        /* Section Specifics */
++        .como-trab-inner { padding: 0; }
++        @media (min-width: 1024px) {
++            .como-trab-inner { padding: 0 5rem; }
+         }
+     </style>
+ </head>
+@@ -272,8 +212,64 @@
+         </div>
+     </main>
+ 
+-    <!-- Premium Footer -->
+-    <footer style="background-color: var(--brand-900); color: #FDFBFA; padding: 5rem 0 3rem; position: relative; z-index: 50;"></footer>
++        <!-- Premium Footer -->
++    <footer style="background-color: var(--brand-900); color: #FDFBFA !important; padding: 5rem 0 3rem; position: relative; z-index: 50; width: 100%;">
++        <div class="container-custom">
++            <div class="footer-grid">
++                <!-- Col 1: Brand & Social -->
++                <div>
++                    <a href="../" style="display: block; margin-bottom: 1.5rem;">
++                        <img src="https://i.ibb.co/pBFQK4ZY/Design-sem-nome-64.png" alt="Instituto Ana Cândida" style="height: 70px; width: auto; object-fit: contain;">
++                    </a>
++                    <p style="opacity: 0.9; line-height: 1.6; margin-bottom: 2rem; font-size: 0.95rem; color: #FDFBFA !important;">Cuidado relacional com base na Terapia Sistêmica. Acolhimento, ética e ciência para casais e famílias.</p>
++                    <div style="display: flex; gap: 1.5rem; align-items: center;">
++                        <a href="https://instagram.com" target="_blank" style="color: #FDFBFA !important; text-decoration: none;" aria-label="Instagram">
++                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
++                        </a>
++                        <a href="https://linkedin.com" target="_blank" style="color: #FDFBFA !important; text-decoration: none;" aria-label="LinkedIn">
++                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
++                        </a>
++                    </div>
++                </div>
++                <!-- Col 2: Institucional -->
++                <div>
++                    <h4 style="font-family: 'Playfair Display', serif; font-size: 1.1rem; margin-bottom: 1.5rem; font-weight: 700; color: #FDFBFA !important;">Institucional</h4>
++                    <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.8rem;">
++                        <li><a href="../o-instituto" style="color: #FDFBFA !important; text-decoration: none; opacity: 0.8;">Sobre nós</a></li>
++                        <li><a href="../equipe" style="color: #FDFBFA !important; text-decoration: none; opacity: 0.8;">Equipe</a></li>
++                        <li><a href="../atendimentos" style="color: #FDFBFA !important; text-decoration: none; opacity: 0.8;">Serviços</a></li>
++                        <li><a href="../conteudos" style="color: #FDFBFA !important; text-decoration: none; opacity: 0.8;">Blog</a></li>
++                    </ul>
++                </div>
++                <!-- Col 3: Contato -->
++                <div>
++                    <h4 style="font-family: 'Playfair Display', serif; font-size: 1.1rem; margin-bottom: 1.5rem; font-weight: 700; color: #FDFBFA !important;">Contato</h4>
++                    <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 1.2rem;">
++                        <li style="display: flex; align-items: flex-start; gap: 0.75rem; color: #FDFBFA !important; opacity: 0.9;"><i data-lucide="map-pin" style="width: 18px; height: 18px; flex-shrink: 0; margin-top: 0.2rem;"></i><span>Village, Goiânia-GO</span></li>
++                        <li style="display: flex; align-items: center; gap: 0.75rem; color: #FDFBFA !important; opacity: 0.9;"><i data-lucide="phone" style="width: 18px; height: 18px; flex-shrink: 0;"></i><span>(62) 98183-8006</span></li>
++                        <li style="display: flex; align-items: flex-start; gap: 0.75rem; color: #FDFBFA !important; opacity: 0.9;"><i data-lucide="mail" style="width: 18px; height: 18px; flex-shrink: 0; margin-top: 0.2rem;"></i><span style="word-break: break-all;">contato@institutoanacandida.com.br</span></li>
++                    </ul>
++                </div>
++                <!-- Col 4: Legal -->
++                <div>
++                    <h4 style="font-family: 'Playfair Display', serif; font-size: 1.1rem; margin-bottom: 1.5rem; font-weight: 700; color: #FDFBFA !important;">Legal</h4>
++                    <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.8rem;">
++                        <li><a href="../privacidade" style="color: #FDFBFA !important; text-decoration: none; opacity: 0.8;">Privacidade (LGPD)</a></li>
++                        <li><a href="../termos" style="color: #FDFBFA !important; text-decoration: none; opacity: 0.8;">Termos de Uso</a></li>
++                        <li><a href="#" style="color: #FDFBFA !important; text-decoration: none; opacity: 0.8;">Política de Remarcação</a></li>
++                    </ul>
++                </div>
++                <!-- Col 5: Aviso Important -->
++                <div>
++                    <h4 style="font-family: 'Playfair Display', serif; font-size: 1.1rem; margin-bottom: 1.5rem; font-weight: 700; color: #FDFBFA !important;">Aviso Importante</h4>
++                    <p style="opacity: 0.9; line-height: 1.6; font-size: 0.9rem; color: #FDFBFA !important;">Este site não oferece atendimento de emergência. Em caso de crise, procure o hospital mais próximo ou ligue 188 (CVV).</p>
++                </div>
++            </div>
++            <div style="border-top: 1px solid rgba(253, 251, 250, 0.1); padding-top: 2rem; text-align: center;">
++                <p style="opacity: 0.7; font-size: 0.875rem; color: #FDFBFA !important;">&copy; 2026 Instituto Ana Cândida. Todos os direitos reservados.</p>
++            </div>
++        </div>
++    </footer>
+ 
+     <button id="scroll-top" title="Voltar ao topo"><i data-lucide="chevron-up"></i></button>
+ 
+@@ -305,61 +301,43 @@
+         </div>
+     </div>
+ 
+-    <script src="https://unpkg.com/lucide@latest"></script>
++        <script src="https://unpkg.com/lucide@latest"></script>
+     <script>
+-        lucide.createIcons();
++        document.addEventListener('DOMContentLoaded', () => { lucide.createIcons(); });
++        function toggleMobileMenu() { 
++            const m = document.getElementById('mobile-menu'); 
++            if(!m) return;
++            m.classList.toggle('hidden'); 
++            if(!m.classList.contains('hidden')) {
++                m.style.setProperty('display', 'flex', 'important');
++                lucide.createIcons();
++            } else {
++                m.style.setProperty('display', 'none', 'important');
++            }
++        }
+         
+-        const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyLux1NnyhfaoWYxqYSDbknZ403x5uQ9wudXSoPo_zVkxhk83M6GgtVX1iapB2ZzSFaaQ/exec';
+-        const GAMMA_URL = 'https://padroes-emocionais-65uxd4a.gamma.site/';
+-
+-        function openModal() {
+-            document.getElementById('captureModal').style.display = 'flex';
+-            document.body.style.overflow = 'hidden';
++        function toggleAccordion(btn) {
++            const item = btn.parentElement;
++            const isActive = item.classList.contains('active');
++            document.querySelectorAll('.accordion-item').forEach(i => i.classList.remove('active'));
++            if(!isActive) item.classList.add('active');
+         }
+ 
+-        function closeModal() {
+-            document.getElementById('captureModal').style.display = 'none';
+-            document.body.style.overflow = 'auto';
++        function toggleMobileAccordion(btn) { 
++            const item = btn.parentElement; 
++            const isActive = item.classList.contains('active');
++            document.querySelectorAll('.mobile-nav-item').forEach(i => i.classList.remove('active'));
++            if(!isActive) item.classList.add('active');
++            setTimeout(() => { lucide.createIcons(); }, 10);
+         }
+-
+-        document.getElementById('captureModal').addEventListener('click', function (e) {
+-            if (e.target === this) closeModal();
+-        });
+-
+-        function submitForm(e) {
+-            e.preventDefault();
+-            const btn = document.getElementById('submitBtn');
+-            btn.disabled = true;
+-            btn.innerText = 'Enviando...';
+-
+-            const form = document.getElementById('leadForm');
+-            const data = new URLSearchParams(new FormData(form));
+-
+-            fetch(SCRIPT_URL, {
+-                method: 'POST',
+-                mode: 'no-cors',
+-                body: data
+-            })
+-            .then(() => {
+-                window.location.href = GAMMA_URL;
+-            })
+-            .catch(() => {
+-                window.location.href = GAMMA_URL;
+-            });
+-        }
+-
+-        // Scroll Top Script
+-        const scrollTopBtn = document.getElementById('scroll-top');
+-        window.addEventListener('scroll', () => {
+-            if (window.pageYOffset > 300) {
+-                scrollTopBtn.classList.add('show');
+-            } else {
+-                scrollTopBtn.classList.remove('show');
+-            }
+-        });
+-        scrollTopBtn.addEventListener('click', () => {
+-            window.scrollTo({ top: 0, behavior: 'smooth' });
++        window.addEventListener('scroll', () => { 
++            const header = document.getElementById('main-header');
++            const b = document.getElementById('scroll-top'); 
++            if(window.scrollY > 20) header.classList.add('scrolled'); else header.classList.remove('scrolled');
++            if(window.scrollY > 500) b.classList.add('show'); else b.classList.remove('show'); 
+         });
++        document.getElementById('scroll-top')?.addEventListener('click', () => window.scrollTo({top: 0, behavior: 'smooth'}));
+     </script>
+ </body>
+ </html>
++
+
+commit a313d443287a565d9a93faecff845a3e6b45131a
+Author: Inacio Eletronica <cognicao.digittalpro@gmail.com>
+Date:   Wed Apr 8 10:05:32 2026 -0300
+
+    fix: overhauled renascimento page with premium design and synced components
+
+diff --git a/renascimento/index.html b/renascimento/index.html
+index 0cc3880..02b1dc5 100644
+--- a/renascimento/index.html
++++ b/renascimento/index.html
+@@ -1,387 +1,365 @@
+ <!DOCTYPE html>
+-<!-- Cache Bust: Fixed Gamma & WhatsApp Links - Force Push v3.1 -->
+ <html lang="pt-BR">
+-
+ <head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+-    <meta name="description"
+-        content="Jornada de Reconexão Feminina com Ana Cândida. Guia Gratuito, Atendimentos e Conteúdos.">
+-    <title>Ana Cândida | Links</title>
+-
+-    <!-- Google Fonts -->
+-    <link rel="preconnect" href="https://fonts.googleapis.com">
+-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+-    <link
+-        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600&display=swap"
+-        rel="stylesheet">
+-
+-    <!-- Font Awesome -->
+-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+-
+-                <style>
+-        :root {
+-            --brand-900: #483525;
+-            --brand-800: #5D4632;
+-            --brand-500: #9C7C5F;
+-            --brand-100: #EAE1D8;
+-            --brand-50: #FDFBFA;
++    <title>Renascimento | Instituto Ana Cândida</title>
++    <meta name="description" content="Jornada de Reconexão Feminina com Ana Cândida. Guia Gratuito, Atendimentos e Conteúdos.">
++    
++    <link rel="stylesheet" href="../../assets/style.css">
++    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌷</text></svg>">
++    
++    <style>
++        .bio-container {
++            max-width: 680px;
++            margin: 0 auto;
++            padding: 4rem 1.5rem;
++            display: flex;
++            flex-direction: column;
++            align-items: center;
++            text-align: center;
+         }
+-
+-        /* Interactive Dropdowns */
+-        .nav-item-dropdown { position: relative; display: flex; align-items: center; gap: 0.4rem; cursor: pointer; padding: 0.5rem 0; }
+-        .dropdown-menu { 
+-            position: absolute; top: calc(100% + 5px); left: 50%; transform: translateX(-50%) translateY(10px);
+-            min-width: 240px; background: white; border: 1px solid var(--brand-100); 
+-            border-radius: 1rem; box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1), 0 10px 10px -5px rgba(0,0,0,0.04);
+-            opacity: 0; visibility: hidden; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); z-index: 2000; padding: 1rem 0;
++        .profile-img-wrap {
++            position: relative;
++            margin-bottom: 2rem;
+         }
+-        .nav-item-dropdown:hover .dropdown-menu { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0); }
+-        .dropdown-item { 
+-            display: block; padding: 0.75rem 1.5rem; font-size: 0.875rem; color: var(--brand-900); 
+-            text-decoration: none; transition: all 0.2s; font-family: 'Montserrat', sans-serif; font-weight: 500;
++        .profile-img-bio {
++            width: 150px;
++            height: 150px;
++            border-radius: 50%;
++            object-fit: cover;
++            border: 4px solid white;
++            box-shadow: 0 15px 35px rgba(72,53,37,0.15);
+         }
+-        .dropdown-item:hover { background: var(--brand-50); color: var(--brand-500); padding-left: 1.75rem; }
+-        .chevron-icon { width: 14px; height: 14px; opacity: 0.5; transition: transform 0.3s; }
+-        .nav-item-dropdown:hover .chevron-icon { transform: rotate(180deg); opacity: 1; color: var(--brand-500); }
+-
+-        /* Forced 5-Column Footer Grid */
+-        .footer-grid { 
+-            display: grid; 
+-            grid-template-columns: 1fr; 
+-            gap: 3rem; 
+-            margin-bottom: 4rem; 
++        .bio-title {
++            font-family: 'Playfair Display', serif;
++            font-size: 2.2rem;
++            color: var(--brand-900);
++            line-height: 1.2;
++            margin-bottom: 1.5rem;
+         }
+-        @media (min-width: 1024px) {
+-            .footer-grid { 
+-                grid-template-columns: repeat(5, 1fr); 
+-            }
++        .bio-subtitle {
++            color: var(--brand-800);
++            opacity: 0.8;
++            margin-bottom: 3rem;
++            max-width: 500px;
++            line-height: 1.6;
++            font-size: 1.1rem;
+         }
+-
+-        /* FAQ & Common UI */
+-        .faq-container { background: white; border-radius: 1.5rem; border: 1px solid var(--brand-100); padding: 1rem 1.5rem; }
+-        .accordion-item { border-bottom: 1px solid var(--brand-100); }
+-        .accordion-item:last-child { border-bottom: none; }
+-        .accordion-header { width: 100%; display: flex; justify-content: space-between; align-items: center; background: none; border: none; padding: 1.5rem 0; text-align: left; cursor: pointer; font-size: 1rem; font-weight: 500; color: var(--brand-900); transition: all 0.3s; }
+-        .accordion-header:hover { color: var(--brand-500); }
+-        .accordion-content { max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out; color: #666; line-height: 1.6; font-size: 0.9375rem; }
+-        .accordion-item.active .accordion-content { max-height: 400px; padding-bottom: 1.5rem; }
+-        #scroll-top { position: fixed; bottom: 2rem; right: 2rem; width: 48px; height: 48px; background: var(--brand-900); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1); cursor: pointer; transition: all 0.3s; z-index: 100; opacity: 0; visibility: hidden; border: none; }
+-        #scroll-top.show { opacity: 1; visibility: visible; }
+-        #scroll-top:hover { transform: translateY(-5px); background: var(--brand-500); }
+-    </style>
+-
+-        <style>
+-        :root {
+-            --brand-900: #483525;
+-            --brand-800: #5D4632;
+-            --brand-500: #9C7C5F;
+-            --brand-100: #EAE1D8;
+-            --brand-50: #FDFBFA;
++        .links-grid {
++            width: 100%;
++            display: flex;
++            flex-direction: column;
++            gap: 1.2rem;
++            margin-bottom: 4rem;
+         }
+-
+-        /* Interactive Dropdowns */
+-        .nav-item-dropdown { position: relative; display: flex; align-items: center; gap: 0.4rem; cursor: pointer; padding: 0.5rem 0; }
+-        .dropdown-menu { 
+-            position: absolute; top: calc(100% + 5px); left: 50%; transform: translateX(-50%) translateY(10px);
+-            min-width: 240px; background: white; border: 1px solid var(--brand-100); 
+-            border-radius: 1rem; box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1), 0 10px 10px -5px rgba(0,0,0,0.04);
+-            opacity: 0; visibility: hidden; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); z-index: 2000; padding: 1rem 0;
++        .btn-bio-card {
++            background: white;
++            border: 1px solid var(--brand-100);
++            padding: 1.5rem;
++            border-radius: 1.25rem;
++            text-decoration: none;
++            display: flex;
++            flex-direction: column;
++            align-items: center;
++            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
++            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+         }
+-        .nav-item-dropdown:hover .dropdown-menu { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0); }
+-        .dropdown-item { 
+-            display: block; padding: 0.75rem 1.5rem; font-size: 0.875rem; color: var(--brand-900); 
+-            text-decoration: none; transition: all 0.2s; font-family: 'Montserrat', sans-serif; font-weight: 500;
++        .btn-bio-card:hover {
++            transform: translateY(-4px);
++            border-color: var(--brand-500);
++            box-shadow: 0 20px 25px -5px rgba(72,53,37,0.1);
+         }
+-        .dropdown-item:hover { background: var(--brand-50); color: var(--brand-500); padding-left: 1.75rem; }
+-        .chevron-icon { width: 14px; height: 14px; opacity: 0.5; transition: transform 0.3s; }
+-        .nav-item-dropdown:hover .chevron-icon { transform: rotate(180deg); opacity: 1; color: var(--brand-500); }
+-
+-        /* Forced 5-Column Footer Grid */
+-        .footer-grid { 
+-            display: grid; 
+-            grid-template-columns: 1fr; 
+-            gap: 3rem; 
+-            margin-bottom: 4rem; 
++        .btn-bio-label {
++            font-weight: 700;
++            color: var(--brand-900);
++            font-size: 1.1rem;
++            margin-bottom: 0.25rem;
+         }
+-        @media (min-width: 1024px) {
+-            .footer-grid { 
+-                grid-template-columns: repeat(5, 1fr); 
+-            }
++        .btn-bio-subtext {
++            font-size: 0.85rem;
++            color: var(--brand-500);
++            opacity: 0.8;
++        }
++        .awareness-card {
++            background: rgba(234, 225, 216, 0.3);
++            padding: 3rem;
++            border-radius: 2rem;
++            margin-bottom: 4rem;
++            border: 1px dashed var(--brand-100);
++            width: 100%;
++        }
++        .value-grid-bio {
++            display: grid;
++            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
++            gap: 1.5rem;
++            width: 100%;
++            margin-bottom: 4rem;
++        }
++        .value-item-bio {
++            padding: 2rem 1.5rem;
++            background: white;
++            border-radius: 1.25rem;
++            border: 1px solid var(--brand-100);
++            transition: 0.3s;
++        }
++        .value-item-bio:hover {
++            border-color: var(--brand-500);
++            transform: translateY(-2px);
+         }
+ 
+-        /* FAQ & Common UI */
+-        .faq-container { background: white; border-radius: 1.5rem; border: 1px solid var(--brand-100); padding: 1rem 1.5rem; }
+-        .accordion-item { border-bottom: 1px solid var(--brand-100); }
+-        .accordion-item:last-child { border-bottom: none; }
+-        .accordion-header { width: 100%; display: flex; justify-content: space-between; align-items: center; background: none; border: none; padding: 1.5rem 0; text-align: left; cursor: pointer; font-size: 1rem; font-weight: 500; color: var(--brand-900); transition: all 0.3s; }
+-        .accordion-header:hover { color: var(--brand-500); }
+-        .accordion-content { max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out; color: #666; line-height: 1.6; font-size: 0.9375rem; }
+-        .accordion-item.active .accordion-content { max-height: 400px; padding-bottom: 1.5rem; }
+-        #scroll-top { position: fixed; bottom: 2rem; right: 2rem; width: 48px; height: 48px; background: var(--brand-900); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1); cursor: pointer; transition: all 0.3s; z-index: 100; opacity: 0; visibility: hidden; border: none; }
+-        #scroll-top.show { opacity: 1; visibility: visible; }
+-        #scroll-top:hover { transform: translateY(-5px); background: var(--brand-500); }
++        /* Lead Capture Modal Styles */
++        .modal-overlay {
++            display: none;
++            position: fixed;
++            inset: 0;
++            background: rgba(72, 53, 37, 0.6);
++            backdrop-filter: blur(8px);
++            z-index: 3000;
++            align-items: center;
++            justify-content: center;
++            padding: 1rem;
++        }
++        .modal-content {
++            background: white;
++            padding: 3rem;
++            border-radius: 2rem;
++            max-width: 480px;
++            width: 100%;
++            position: relative;
++            box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25);
++        }
++        .modal-close {
++            position: absolute;
++            top: 1.5rem;
++            right: 1.5rem;
++            background: none;
++            border: none;
++            font-size: 1.5rem;
++            cursor: pointer;
++            color: var(--brand-500);
++        }
++        .modal-title {
++            font-family: 'Playfair Display', serif;
++            font-size: 1.75rem;
++            color: var(--brand-900);
++            margin-bottom: 1rem;
++        }
++        .modal-text {
++            color: var(--brand-800);
++            opacity: 0.8;
++            margin-bottom: 2rem;
++            font-size: 0.95rem;
++        }
++        .form-group {
++            margin-bottom: 1.5rem;
++            text-align: left;
++        }
++        .form-label {
++            display: block;
++            font-size: 0.85rem;
++            font-weight: 600;
++            color: var(--brand-900);
++            margin-bottom: 0.5rem;
++        }
++        .form-input {
++            width: 100%;
++            padding: 0.875rem 1rem;
++            border: 1px solid var(--brand-100);
++            border-radius: 0.75rem;
++            font-family: inherit;
++            transition: 0.3s;
++        }
++        .form-input:focus {
++            outline: none;
++            border-color: var(--brand-500);
++            box-shadow: 0 0 0 4px rgba(156, 124, 95, 0.1);
++        }
++        .btn-submit {
++            width: 100%;
++            padding: 1rem;
++            background: var(--brand-900);
++            color: white;
++            border: none;
++            border-radius: 9999px;
++            font-weight: 700;
++            cursor: pointer;
++            transition: 0.3s;
++            margin-top: 1rem;
++        }
++        .btn-submit:hover {
++            background: var(--brand-800);
++            transform: translateY(-2px);
++        }
+     </style>
+ </head>
++<body style="background-color: var(--brand-50);">
++    <!-- Premium Header -->
++    <header id="main-header" style="background-color: #FFFFFF; border-bottom: 1px solid #EAE1D8; position: sticky; top: 0; z-index: 1000;"></header>
++
++    <main class="bio-container">
++        <!-- Hero Section -->
++        <div class="profile-img-wrap">
++            <img src="https://i.ibb.co/PZ83sDs3/Anna.png" alt="Ana Cândida" class="profile-img-bio">
++        </div>
++        
++        <h1 class="bio-title">Você não está quebrada.<br>Você apenas se desconectou de si.</h1>
++        <p class="bio-subtitle">Ajudo mulheres maduras a reconstruírem autoestima, fortalecerem limites e voltarem a se escolher.</p>
+ 
+-<body>
+-
+-    <main class="container">
+-
+-        <!-- Hero -->
+-        <section class="hero">
+-            <img src="https://i.ibb.co/PZ83sDs3/Anna.png" alt="Ana Cândida" class="profile-img">
+-            <h1>Você não está quebrada.<br>Você apenas se desconectou de si.</h1>
+-            <p>Ajudo mulheres maduras a reconstruírem autoestima, fortalecerem limites e voltarem a se escolher.</p>
+-
+-            <a href="#" onclick="openModal()" class="btn-bio btn-primary-bio">
+-                <span class="btn-main-label">Baixar Guia Gratuito</span>
+-                <!-- CTA principal redireciona para modal -->
+-            </a>
+-        </section>
++        <div style="margin-bottom: 3.5rem;">
++            <a href="#" onclick="openModal()" class="btn-primary" style="padding: 1.2rem 3rem;">Baixar Guia Gratuito</a>
++        </div>
+ 
+-        <!-- Conscientização -->
+-        <section class="awareness-bio">
+-            <p>"O problema nunca foi amar demais.<br>Foi se abandonar enquanto amava."</p>
+-            <p style="font-size: 0.9rem; font-style: normal; font-family: var(--font-body); margin-top: 15px;">
+-                Talvez você esteja cansada de ser forte o tempo todo. Você não precisa se reconstruir do zero. Precisa
+-                despertar.
++        <!-- Awareness Quote -->
++        <div class="awareness-card">
++            <p style="font-family: 'Playfair Display', serif; font-size: 1.4rem; font-style: italic; color: var(--brand-900); margin-bottom: 1.5rem; line-height: 1.4;">
++                "O problema nunca foi amar demais.<br>Foi se abandonar enquanto amava."
++            </p>
++            <p style="font-size: 1rem; opacity: 0.8; max-width: 450px; margin: 0 auto;">
++                Talvez você esteja cansada de ser forte o tempo todo. Você não precisa se reconstruir do zero. Precisa despertar.
+             </p>
+-        </section>
+-
+-        <!-- O que encontrar aqui -->
+-        <h2 class="text-center" style="font-family: var(--font-heading); font-size: 1.3rem; margin-bottom: 20px;">O que
+-            você encontra aqui:</h2>
+-        <div class="value-grid">
+-            <div class="value-card">
+-                <span style="font-size: 1.5rem;">🌷</span>
+-                <div>
+-                    <h3>Reconexão Feminina</h3>
+-                    <p>Conteúdos sobre autoestima e identidade.</p>
+-                </div>
+-            </div>
+-            <div class="value-card">
+-                <i class="fa-solid fa-shield-heart"></i>
+-                <div>
+-                    <h3>Limites Saudáveis</h3>
+-                    <p>Como parar de se anular sem culpa.</p>
+-                </div>
+-            </div>
+-            <div class="value-card">
+-                <i class="fa-solid fa-dove"></i>
+-                <div>
+-                    <h3>Maturidade Emocional</h3>
+-                    <p>Relacionamentos mais equilibrados.</p>
+-                </div>
+-            </div>
+         </div>
+ 
+-        <!-- Links Principais -->
+-        <section class="links-section">
+-            <a href="#" onclick="openModal()" class="btn-bio">
+-                <span class="btn-main-label">Baixar Guia Gratuito</span>
+-                <span class="btn-subtext">Inicie sua jornada de reconexão</span>
++        <!-- Links Grid -->
++        <div class="links-grid">
++            <a href="#" onclick="openModal()" class="btn-bio-card">
++                <span class="btn-bio-label">Baixar Guia Gratuito</span>
++                <span class="btn-bio-subtext">Inicie sua jornada de reconexão feminina</span>
+             </a>
+ 
+-            <a href="https://api.whatsapp.com/send/?phone=556281838006&text=Oi%21+Vi+sobre+o+evento+Renascendo+a+Dois+e+senti+que+%C3%A9+pra+mim%E2%80%A6+Pode+me+contar+mais+sobre+como+funciona+e+como+garantir+minha+vaga%3F&type=phone_number&app_absent=0&utm_source=ig"
+-                class="btn-bio"> <!-- Link do WhatsApp -->
+-                <span class="btn-main-label">Falar no WhatsApp</span>
+-                <span class="btn-subtext">Atendimento humanizado</span>
++            <a href="https://api.whatsapp.com/send/?phone=556281838006&text=Oi%21+Vi+sobre+o+evento+Renascendo+a+Dois+e+senti+que+%C3%A9+pra+mim%E2%80%A6" target="_blank" class="btn-bio-card">
++                <span class="btn-bio-label">Falar no WhatsApp</span>
++                <span class="btn-bio-subtext">Atendimento humanizado e acolhedor</span>
+             </a>
+ 
+-            <a href="/home/jornada/" class="btn-bio">
+-                <span class="btn-main-label">Jornada 7 Dias</span>
+-                <span class="btn-subtext">Desperte Seu Feminino</span>
++            <a href="../jornada/" class="btn-bio-card">
++                <span class="btn-bio-label">Jornada 7 Dias</span>
++                <span class="btn-bio-subtext">Um caminho guiado para despertar seu feminino</span>
+             </a>
+ 
+-            <a href="/home/" class="btn-bio">
+-                <span class="btn-main-label">Site Oficial</span>
+-                <span class="btn-subtext">Instituto Ana Cândida</span>
++            <a href="../" class="btn-bio-card">
++                <span class="btn-bio-label">Site Oficial</span>
++                <span class="btn-bio-subtext">Conheça o Instituto Ana Cândida</span>
+             </a>
++        </div>
+ 
+-            <a href="#" class="btn-bio"> <!-- Link do YouTube -->
+-                <span class="btn-main-label">Canal no YouTube</span>
+-                <span class="btn-subtext">Conteúdos semanais</span>
+-            </a>
+-        </section>
+-
+-        <!-- Autoridade -->
+-        <section class="authority-bio" style="margin-top: 50px;">
+-            <h2>Sou Ana Cândida</h2>
+-            <p>Terapeuta Especialista em Reconexão Feminina.</p>
+-            <p style="font-size: 0.9rem; color: #666; max-width: 90%; margin: 0 auto;">
+-                Acompanho mulheres que se perderam emocionalmente em relacionamentos e hoje desejam voltar a se escolher
+-                com maturidade e consciência.
+-            </p>
+-            <p style="font-size: 0.9rem; color: var(--color-dourado-quente); margin-top: 15px; font-weight: 500;">
+-                Sem misticismo exagerado. Com método estruturado.
+-            </p>
+-        </section>
+-
+-    </main>
+-
+-    <!-- Footer Reflexão -->
+-                                        <!-- Premium Footer -->
+-    <footer style="background-color: var(--brand-900); color: #FDFBFA; padding: 5rem 0 3rem; position: relative; z-index: 50;">
+-        <div class="container-custom">
+-            <div class="footer-grid">
+-                <!-- Col 1: Brand & Social -->
+-                <div>
+-                    <h3 style="font-family: 'Playfair Display', serif; font-size: 1.5rem; margin-bottom: 1.5rem; font-weight: 700; color: #FDFBFA;">Instituto Ana Cândida</h3>
+-                    <p style="opacity: 0.9; line-height: 1.6; margin-bottom: 2rem; font-size: 0.95rem; color: #FDFBFA;">Cuidado relacional com base na Terapia Sistêmica. Acolhimento, ética e ciência para casais e famílias.</p>
+-                    <div style="display: flex; gap: 1rem;">
+-                        <a href="#" style="color: white; opacity: 0.8; transition: 0.3s;"><i data-lucide="instagram" size="20"></i></a>
+-                        <a href="#" style="color: white; opacity: 0.8; transition: 0.3s;"><i data-lucide="linkedin" size="20"></i></a>
+-                    </div>
+-                </div>
+-                <!-- Col 2: Institucional -->
+-                <div>
+-                    <h4 style="font-family: 'Playfair Display', serif; font-size: 1.1rem; margin-bottom: 1.5rem; font-weight: 700; color: #FDFBFA;">Institucional</h4>
+-                    <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.8rem;">
+-                        <li><a href="../o-instituto" style="color: #FDFBFA; text-decoration: none; opacity: 0.8;">Sobre nós</a></li>
+-                        <li><a href="../equipe" style="color: #FDFBFA; text-decoration: none; opacity: 0.8;">Equipe</a></li>
+-                        <li><a href="../atendimentos" style="color: #FDFBFA; text-decoration: none; opacity: 0.8;">Serviços</a></li>
+-                        <li><a href="../conteudos" style="color: #FDFBFA; text-decoration: none; opacity: 0.8;">Blog</a></li>
+-                    </ul>
+-                </div>
+-                <!-- Col 3: Contato -->
+-                <div>
+-                    <h4 style="font-family: 'Playfair Display', serif; font-size: 1.1rem; margin-bottom: 1.5rem; font-weight: 700; color: #FDFBFA;">Contato</h4>
+-                    <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 1.2rem;">
+-                        <li style="display: flex; align-items: flex-start; gap: 0.75rem; color: #FDFBFA; opacity: 0.9;"><i data-lucide="map-pin" size="18"></i><span>Village, Goiânia-GO</span></li>
+-                        <li style="display: flex; align-items: center; gap: 0.75rem; color: #FDFBFA; opacity: 0.9;"><i data-lucide="phone" size="18"></i><span>(62) 98183-8006</span></li>
+-                        <li style="display: flex; align-items: flex-start; gap: 0.75rem; color: #FDFBFA; opacity: 0.9;"><i data-lucide="mail" size="18"></i><span style="word-break: break-all;">contato@institutoanacandida.com.br</span></li>
+-                    </ul>
+-                </div>
+-                <!-- Col 4: Legal -->
+-                <div>
+-                    <h4 style="font-family: 'Playfair Display', serif; font-size: 1.1rem; margin-bottom: 1.5rem; font-weight: 700; color: #FDFBFA;">Legal</h4>
+-                    <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.8rem;">
+-                        <li><a href="../privacidade" style="color: #FDFBFA; text-decoration: none; opacity: 0.8;">Privacidade (LGPD)</a></li>
+-                        <li><a href="../termos" style="color: #FDFBFA; text-decoration: none; opacity: 0.8;">Termos de Uso</a></li>
+-                    </ul>
+-                </div>
+-                <!-- Col 5: Aviso Important -->
+-                <div>
+-                    <h4 style="font-family: 'Playfair Display', serif; font-size: 1.1rem; margin-bottom: 1.5rem; font-weight: 700; color: #FDFBFA;">Aviso Importante</h4>
+-                    <p style="opacity: 0.9; line-height: 1.6; font-size: 0.9rem; color: #FDFBFA;">Este site não oferece atendimento de emergência. Em caso de crise, procure o hospital mais próximo ou ligue 188 (CVV).</p>
+-                </div>
++        <!-- Value Proposition Grid -->
++        <h2 style="font-family: 'Playfair Display', serif; font-size: 1.6rem; margin-bottom: 2.5rem; color: var(--brand-900);">O que você encontra aqui:</h2>
++        <div class="value-grid-bio">
++            <div class="value-item-bio">
++                <span style="font-size: 2rem; display: block; margin-bottom: 1rem;">🌷</span>
++                <h3 style="font-size: 1.1rem; margin-bottom: 0.75rem; color: var(--brand-900);">Reconexão</h3>
++                <p style="font-size: 0.9rem; opacity: 0.8; line-height: 1.5;">Autoestima e resgate da sua verdadeira essência.</p>
++            </div>
++            <div class="value-item-bio">
++                <span style="font-size: 2rem; display: block; margin-bottom: 1rem;">🛡️</span>
++                <h3 style="font-size: 1.1rem; margin-bottom: 0.75rem; color: var(--brand-900);">Limites</h3>
++                <p style="font-size: 0.9rem; opacity: 0.8; line-height: 1.5;">Aprenda a estabelecer limites sem sentir culpa.</p>
+             </div>
+-            <div style="border-top: 1px solid rgba(253, 251, 250, 0.1); padding-top: 2rem; text-align: center;">
+-                <p style="opacity: 0.7; font-size: 0.875rem; color: #FDFBFA;">&copy; 2026 Instituto Ana Cândida. Todos os direitos reservados.</p>
++            <div class="value-item-bio">
++                <span style="font-size: 2rem; display: block; margin-bottom: 1rem;">🕊️</span>
++                <h3 style="font-size: 1.1rem; margin-bottom: 0.75rem; color: var(--brand-900);">Maturidade</h3>
++                <p style="font-size: 0.9rem; opacity: 0.8; line-height: 1.5;">Relacionamentos mais equilibrados e saudáveis.</p>
+             </div>
+         </div>
+-    </footer>
+-    <button id="scroll-top" title="Voltar ao topo"><i data-lucide="chevron-up"></i></button>
+-    <button id="scroll-top" title="Voltar ao topo"><i data-lucide="chevron-up"></i></button>
+-        <button id="scroll-top" title="Voltar ao topo">
+-        <i data-lucide="chevron-up"></i>
+-    </button>
+-        <button id="scroll-top" title="Voltar ao topo">
+-        <i data-lucide="chevron-up"></i>
+-    </button>
+-        <button id="scroll-top" title="Voltar ao topo">
+-        <i data-lucide="chevron-up"></i>
+-    </button>
+-        <button id="scroll-top" title="Voltar ao topo">
+-        <i data-lucide="chevron-up"></i>
+-    </button>
+-        <button id="scroll-top" title="Voltar ao topo">
+-        <i data-lucide="chevron-up"></i>
+-    </button>
+-        <button id="scroll-top" title="Voltar ao topo">
+-        <i data-lucide="chevron-up"></i>
+-    </button>
+ 
+-</body>
++        <!-- Authority Section -->
++        <div style="margin-top: 3rem; border-top: 1px solid var(--brand-100); padding-top: 4rem; width: 100%;">
++            <h2 style="font-family: 'Playfair Display', serif; font-size: 2rem; margin-bottom: 1.5rem; color: var(--brand-900);">Sou Ana Cândida</h2>
++            <p style="font-size: 1.05rem; line-height: 1.8; opacity: 0.8; max-width: 600px; margin: 0 auto;">
++                Terapeuta Especialista em Reconexão Feminina. Acompanho mulheres que se perderam emocionalmente e hoje desejam voltar a se escolher com maturidade e consciência, resgatando o protagonismo de suas vidas.
++            </p>
++        </div>
++    </main>
+ 
+-<!-- Lead Capture Modal -->
+-<div id="captureModal" class="modal-overlay">
+-    <div class="modal-content">
+-        <button class="modal-close" onclick="closeModal()">&times;</button>
+-        <h3 class="modal-title">Quase lá! 🌷</h3>
+-        <p class="modal-text">Preencha seus dados para receber o Guia Gratuito de Reconexão Feminina agora mesmo.</p>
++    <!-- Premium Footer -->
++    <footer style="background-color: var(--brand-900); color: #FDFBFA; padding: 5rem 0 3rem; position: relative; z-index: 50;"></footer>
+ 
+-        <form id="leadForm" onsubmit="submitForm(event)">
+-            <div class="form-group">
+-                <label class="form-label">Seu Nome</label>
+-                <input type="text" name="nome" class="form-input" placeholder="Como gosta de ser chamada?" required>
+-            </div>
+-
+-            <div class="form-group">
+-                <label class="form-label">Seu Melhor Email</label>
+-                <input type="email" name="email" class="form-input" placeholder="exemplo@email.com" required>
+-            </div>
++    <button id="scroll-top" title="Voltar ao topo"><i data-lucide="chevron-up"></i></button>
+ 
+-            <div class="form-group">
+-                <label class="form-label">WhatsApp (com DDD)</label>
+-                <input type="tel" name="whatsapp" class="form-input" placeholder="(00) 00000-0000" required>
+-            </div>
++    <!-- Lead Capture Modal -->
++    <div id="captureModal" class="modal-overlay">
++        <div class="modal-content">
++            <button class="modal-close" onclick="closeModal()">&times;</button>
++            <h3 class="modal-title">Quase lá! 🌷</h3>
++            <p class="modal-text">Preencha seus dados para receber o Guia Gratuito de Reconexão Feminina agora mesmo.</p>
++
++            <form id="leadForm" onsubmit="submitForm(event)">
++                <div class="form-group">
++                    <label class="form-label">Seu Nome</label>
++                    <input type="text" name="nome" class="form-input" placeholder="Como gosta de ser chamada?" required>
++                </div>
+ 
+-            <button type="submit" id="submitBtn" class="btn-submit">Liberar Meu Acesso</button>
+-        </form>
+-    </div>
+-</div>
++                <div class="form-group">
++                    <label class="form-label">Seu Melhor Email</label>
++                    <input type="email" name="email" class="form-input" placeholder="exemplo@email.com" required>
++                </div>
+ 
+-<script>
+-    const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyLux1NnyhfaoWYxqYSDbknZ403x5uQ9wudXSoPo_zVkxhk83M6GgtVX1iapB2ZzSFaaQ/exec';
+-    const GAMMA_URL = 'https://padroes-emocionais-65uxd4a.gamma.site/';
++                <div class="form-group">
++                    <label class="form-label">WhatsApp (com DDD)</label>
++                    <input type="tel" name="whatsapp" class="form-input" placeholder="(00) 00000-0000" required>
++                </div>
+ 
+-    function openModal() {
+-        document.getElementById('captureModal').style.display = 'flex';
+-    }
++                <button type="submit" id="submitBtn" class="btn-submit">Liberar Meu Acesso</button>
++            </form>
++        </div>
++    </div>
+ 
+-    function closeModal() {
+-        document.getElementById('captureModal').style.display = 'none';
+-    }
++    <script src="https://unpkg.com/lucide@latest"></script>
++    <script>
++        lucide.createIcons();
++        
++        const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyLux1NnyhfaoWYxqYSDbknZ403x5uQ9wudXSoPo_zVkxhk83M6GgtVX1iapB2ZzSFaaQ/exec';
++        const GAMMA_URL = 'https://padroes-emocionais-65uxd4a.gamma.site/';
+ 
+-    // Close on outside click
+-    document.getElementById('captureModal').addEventListener('click', function (e) {
+-        if (e.target === this) closeModal();
+-    });
++        function openModal() {
++            document.getElementById('captureModal').style.display = 'flex';
++            document.body.style.overflow = 'hidden';
++        }
+ 
+-    function submitForm(e) {
+-        e.preventDefault();
+-        const btn = document.getElementById('submitBtn');
+-        const originalText = btn.innerText;
++        function closeModal() {
++            document.getElementById('captureModal').style.display = 'none';
++            document.body.style.overflow = 'auto';
++        }
+ 
+-        btn.disabled = true;
+-        btn.innerText = 'Enviando...';
++        document.getElementById('captureModal').addEventListener('click', function (e) {
++            if (e.target === this) closeModal();
++        });
+ 
+-        const form = document.getElementById('leadForm');
+-        const formData = new FormData(form);
+-        const data = new URLSearchParams();
++        function submitForm(e) {
++            e.preventDefault();
++            const btn = document.getElementById('submitBtn');
++            btn.disabled = true;
++            btn.innerText = 'Enviando...';
+ 
+-        for (const pair of formData) {
+-            data.append(pair[0], pair[1]);
+-        }
++            const form = document.getElementById('leadForm');
++            const data = new URLSearchParams(new FormData(form));
+ 
+-        fetch(SCRIPT_URL, {
+-            method: 'POST',
+-            mode: 'no-cors',
+-            body: data
+-        })
+-            .then(response => {
+-                console.log('Success!', response);
+-                // Redirect regardless of response text (cors opacity)
++            fetch(SCRIPT_URL, {
++                method: 'POST',
++                mode: 'no-cors',
++                body: data
++            })
++            .then(() => {
+                 window.location.href = GAMMA_URL;
+             })
+-            .catch(error => {
+-                console.error('Error!', error.message);
+-                // Fallback redirect even on error to not block user
++            .catch(() => {
+                 window.location.href = GAMMA_URL;
+             });
+-    }
+-</script>
++        }
+ 
++        // Scroll Top Script
++        const scrollTopBtn = document.getElementById('scroll-top');
++        window.addEventListener('scroll', () => {
++            if (window.pageYOffset > 300) {
++                scrollTopBtn.classList.add('show');
++            } else {
++                scrollTopBtn.classList.remove('show');
++            }
++        });
++        scrollTopBtn.addEventListener('click', () => {
++            window.scrollTo({ top: 0, behavior: 'smooth' });
++        });
++    </script>
++</body>
+ </html>
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+
+commit e4c76aa4630ead256999d1fb07b38f1c7f90231e
+Author: Inacio Eletronica <cognicao.digittalpro@gmail.com>
+Date:   Sat Apr 4 09:33:03 2026 -0300
+
+    fix: cleaned up spacing around replaced commas
+
+diff --git a/renascimento/index.html b/renascimento/index.html
+index ad962dc..0cc3880 100644
+--- a/renascimento/index.html
++++ b/renascimento/index.html
+@@ -384,3 +384,4 @@
+ 
+ 
+ 
++
+
+commit 7cc1d144dadb08c6b46f505e10f64aa9df00defe
+Author: Inacio Eletronica <cognicao.digittalpro@gmail.com>
+Date:   Sat Apr 4 09:32:29 2026 -0300
+
+    fix: replaced all em-dashes and en-dashes with commas site-wide
+
+diff --git a/renascimento/index.html b/renascimento/index.html
+index 81aefa6..ad962dc 100644
+--- a/renascimento/index.html
++++ b/renascimento/index.html
+@@ -383,3 +383,4 @@
+ 
+ 
+ 
++
+
+commit 99804eaabce24d090bf7abba9a3a3b6f5ca83599
+Author: Inacio Eletronica <cognicao.digittalpro@gmail.com>
+Date:   Fri Apr 3 17:22:34 2026 -0300
+
+    feat: standardize navigation dropdowns, 5-column footer with SVGs and interactive gallery filters
+
+diff --git a/renascimento/index.html b/renascimento/index.html
+index 58345a5..81aefa6 100644
+--- a/renascimento/index.html
++++ b/renascimento/index.html
+@@ -19,35 +19,108 @@
+     <!-- Font Awesome -->
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+ 
+-            <style>
+-        /* FAQ Accordion Styles */
+-        .faq-container { background: white; border-radius: 1.5rem; border: 1px solid #EAE1D8; padding: 1rem 1.5rem; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.02); }
+-        .accordion-item { border-bottom: 1px solid #EAE1D8; }
++                <style>
++        :root {
++            --brand-900: #483525;
++            --brand-800: #5D4632;
++            --brand-500: #9C7C5F;
++            --brand-100: #EAE1D8;
++            --brand-50: #FDFBFA;
++        }
++
++        /* Interactive Dropdowns */
++        .nav-item-dropdown { position: relative; display: flex; align-items: center; gap: 0.4rem; cursor: pointer; padding: 0.5rem 0; }
++        .dropdown-menu { 
++            position: absolute; top: calc(100% + 5px); left: 50%; transform: translateX(-50%) translateY(10px);
++            min-width: 240px; background: white; border: 1px solid var(--brand-100); 
++            border-radius: 1rem; box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1), 0 10px 10px -5px rgba(0,0,0,0.04);
++            opacity: 0; visibility: hidden; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); z-index: 2000; padding: 1rem 0;
++        }
++        .nav-item-dropdown:hover .dropdown-menu { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0); }
++        .dropdown-item { 
++            display: block; padding: 0.75rem 1.5rem; font-size: 0.875rem; color: var(--brand-900); 
++            text-decoration: none; transition: all 0.2s; font-family: 'Montserrat', sans-serif; font-weight: 500;
++        }
++        .dropdown-item:hover { background: var(--brand-50); color: var(--brand-500); padding-left: 1.75rem; }
++        .chevron-icon { width: 14px; height: 14px; opacity: 0.5; transition: transform 0.3s; }
++        .nav-item-dropdown:hover .chevron-icon { transform: rotate(180deg); opacity: 1; color: var(--brand-500); }
++
++        /* Forced 5-Column Footer Grid */
++        .footer-grid { 
++            display: grid; 
++            grid-template-columns: 1fr; 
++            gap: 3rem; 
++            margin-bottom: 4rem; 
++        }
++        @media (min-width: 1024px) {
++            .footer-grid { 
++                grid-template-columns: repeat(5, 1fr); 
++            }
++        }
++
++        /* FAQ & Common UI */
++        .faq-container { background: white; border-radius: 1.5rem; border: 1px solid var(--brand-100); padding: 1rem 1.5rem; }
++        .accordion-item { border-bottom: 1px solid var(--brand-100); }
+         .accordion-item:last-child { border-bottom: none; }
+-        .accordion-header { width: 100%; display: flex; justify-content: space-between; align-items: center; background: none; border: none; padding: 1.5rem 0; text-align: left; cursor: pointer; font-size: 1rem; font-weight: 500; color: #483525; transition: all 0.3s; }
+-        .accordion-header:hover { color: #9C7C5F; }
++        .accordion-header { width: 100%; display: flex; justify-content: space-between; align-items: center; background: none; border: none; padding: 1.5rem 0; text-align: left; cursor: pointer; font-size: 1rem; font-weight: 500; color: var(--brand-900); transition: all 0.3s; }
++        .accordion-header:hover { color: var(--brand-500); }
+         .accordion-content { max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out; color: #666; line-height: 1.6; font-size: 0.9375rem; }
+         .accordion-item.active .accordion-content { max-height: 400px; padding-bottom: 1.5rem; }
+-        .accordion-item.active .chevron { transform: rotate(180deg); color: #9C7C5F; }
+-        .chevron { transition: transform 0.3s; opacity: 0.5; }
+-
+-        /* Floating Scroll-to-top Button */
+-        #scroll-top { position: fixed; bottom: 2rem; right: 2rem; width: 48px; height: 48px; background: #483525; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1); cursor: pointer; transition: all 0.3s; z-index: 100; opacity: 0; visibility: hidden; border: none; }
++        #scroll-top { position: fixed; bottom: 2rem; right: 2rem; width: 48px; height: 48px; background: var(--brand-900); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1); cursor: pointer; transition: all 0.3s; z-index: 100; opacity: 0; visibility: hidden; border: none; }
+         #scroll-top.show { opacity: 1; visibility: visible; }
+-        #scroll-top:hover { transform: translateY(-5px); background: #9C7C5F; }
++        #scroll-top:hover { transform: translateY(-5px); background: var(--brand-500); }
++    </style>
++
++        <style>
++        :root {
++            --brand-900: #483525;
++            --brand-800: #5D4632;
++            --brand-500: #9C7C5F;
++            --brand-100: #EAE1D8;
++            --brand-50: #FDFBFA;
++        }
++
++        /* Interactive Dropdowns */
++        .nav-item-dropdown { position: relative; display: flex; align-items: center; gap: 0.4rem; cursor: pointer; padding: 0.5rem 0; }
++        .dropdown-menu { 
++            position: absolute; top: calc(100% + 5px); left: 50%; transform: translateX(-50%) translateY(10px);
++            min-width: 240px; background: white; border: 1px solid var(--brand-100); 
++            border-radius: 1rem; box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1), 0 10px 10px -5px rgba(0,0,0,0.04);
++            opacity: 0; visibility: hidden; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); z-index: 2000; padding: 1rem 0;
++        }
++        .nav-item-dropdown:hover .dropdown-menu { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0); }
++        .dropdown-item { 
++            display: block; padding: 0.75rem 1.5rem; font-size: 0.875rem; color: var(--brand-900); 
++            text-decoration: none; transition: all 0.2s; font-family: 'Montserrat', sans-serif; font-weight: 500;
++        }
++        .dropdown-item:hover { background: var(--brand-50); color: var(--brand-500); padding-left: 1.75rem; }
++        .chevron-icon { width: 14px; height: 14px; opacity: 0.5; transition: transform 0.3s; }
++        .nav-item-dropdown:hover .chevron-icon { transform: rotate(180deg); opacity: 1; color: var(--brand-500); }
+ 
+         /* Forced 5-Column Footer Grid */
+         .footer-grid { 
+             display: grid; 
+             grid-template-columns: 1fr; 
+-            gap: 2rem; 
++            gap: 3rem; 
+             margin-bottom: 4rem; 
+         }
+-        @media (min-width: 768px) {
++        @media (min-width: 1024px) {
+             .footer-grid { 
+                 grid-template-columns: repeat(5, 1fr); 
+             }
+         }
++
++        /* FAQ & Common UI */
++        .faq-container { background: white; border-radius: 1.5rem; border: 1px solid var(--brand-100); padding: 1rem 1.5rem; }
++        .accordion-item { border-bottom: 1px solid var(--brand-100); }
++        .accordion-item:last-child { border-bottom: none; }
++        .accordion-header { width: 100%; display: flex; justify-content: space-between; align-items: center; background: none; border: none; padding: 1.5rem 0; text-align: left; cursor: pointer; font-size: 1rem; font-weight: 500; color: var(--brand-900); transition: all 0.3s; }
++        .accordion-header:hover { color: var(--brand-500); }
++        .accordion-content { max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out; color: #666; line-height: 1.6; font-size: 0.9375rem; }
++        .accordion-item.active .accordion-content { max-height: 400px; padding-bottom: 1.5rem; }
++        #scroll-top { position: fixed; bottom: 2rem; right: 2rem; width: 48px; height: 48px; background: var(--brand-900); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1); cursor: pointer; transition: all 0.3s; z-index: 100; opacity: 0; visibility: hidden; border: none; }
++        #scroll-top.show { opacity: 1; visibility: visible; }
++        #scroll-top:hover { transform: translateY(-5px); background: var(--brand-500); }
+     </style>
+ </head>
+ 
+@@ -148,49 +221,59 @@
+     </main>
+ 
+     <!-- Footer Reflexão -->
+-                                <!-- Premium Footer -->
+-        <!-- Premium Footer -->
+-    <footer style="background-color: #483525 !important; color: #FDFBFA !important; padding: 5rem 0 3rem; position: relative; z-index: 50; width: 100%;">
+-        <div style="max-width: 1100px; margin: 0 auto; padding: 0 2rem;">
++                                        <!-- Premium Footer -->
++    <footer style="background-color: var(--brand-900); color: #FDFBFA; padding: 5rem 0 3rem; position: relative; z-index: 50;">
++        <div class="container-custom">
+             <div class="footer-grid">
++                <!-- Col 1: Brand & Social -->
+                 <div>
+-                    <h3 style="font-family: 'Playfair Display', serif; font-size: 1.5rem; margin-bottom: 1.5rem; font-weight: 700; color: #FDFBFA !important;">Instituto Ana Cândida</h3>
+-                    <p style="opacity: 0.9; line-height: 1.6; margin-bottom: 2rem; font-size: 0.95rem; color: #FDFBFA !important;">Cuidado relacional com base na Terapia Sistêmica. Acolhimento, ética e ciência para casais e famílias.</p>
++                    <h3 style="font-family: 'Playfair Display', serif; font-size: 1.5rem; margin-bottom: 1.5rem; font-weight: 700; color: #FDFBFA;">Instituto Ana Cândida</h3>
++                    <p style="opacity: 0.9; line-height: 1.6; margin-bottom: 2rem; font-size: 0.95rem; color: #FDFBFA;">Cuidado relacional com base na Terapia Sistêmica. Acolhimento, ética e ciência para casais e famílias.</p>
++                    <div style="display: flex; gap: 1rem;">
++                        <a href="#" style="color: white; opacity: 0.8; transition: 0.3s;"><i data-lucide="instagram" size="20"></i></a>
++                        <a href="#" style="color: white; opacity: 0.8; transition: 0.3s;"><i data-lucide="linkedin" size="20"></i></a>
++                    </div>
+                 </div>
++                <!-- Col 2: Institucional -->
+                 <div>
+-                    <h4 style="font-family: 'Playfair Display', serif; font-size: 1.1rem; margin-bottom: 1.5rem; font-weight: 700; color: #FDFBFA !important;">Institucional</h4>
++                    <h4 style="font-family: 'Playfair Display', serif; font-size: 1.1rem; margin-bottom: 1.5rem; font-weight: 700; color: #FDFBFA;">Institucional</h4>
+                     <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.8rem;">
+-                        <li><a href="../o-instituto" style="color: #FDFBFA !important; text-decoration: none; opacity: 0.8;">Sobre nós</a></li>
+-                        <li><a href="../equipe" style="color: #FDFBFA !important; text-decoration: none; opacity: 0.8;">Equipe</a></li>
+-                        <li><a href="../atendimentos" style="color: #FDFBFA !important; text-decoration: none; opacity: 0.8;">Serviços</a></li>
+-                        <li><a href="../conteudos" style="color: #FDFBFA !important; text-decoration: none; opacity: 0.8;">Blog</a></li>
++                        <li><a href="../o-instituto" style="color: #FDFBFA; text-decoration: none; opacity: 0.8;">Sobre nós</a></li>
++                        <li><a href="../equipe" style="color: #FDFBFA; text-decoration: none; opacity: 0.8;">Equipe</a></li>
++                        <li><a href="../atendimentos" style="color: #FDFBFA; text-decoration: none; opacity: 0.8;">Serviços</a></li>
++                        <li><a href="../conteudos" style="color: #FDFBFA; text-decoration: none; opacity: 0.8;">Blog</a></li>
+                     </ul>
+                 </div>
++                <!-- Col 3: Contato -->
+                 <div>
+-                    <h4 style="font-family: 'Playfair Display', serif; font-size: 1.1rem; margin-bottom: 1.5rem; font-weight: 700; color: #FDFBFA !important;">Contato</h4>
++                    <h4 style="font-family: 'Playfair Display', serif; font-size: 1.1rem; margin-bottom: 1.5rem; font-weight: 700; color: #FDFBFA;">Contato</h4>
+                     <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 1.2rem;">
+-                        <li style="display: flex; align-items: flex-start; gap: 0.75rem; color: #FDFBFA !important;"><i data-lucide="map-pin" size="18"></i><span>Village, Goiânia-GO</span></li>
+-                        <li style="display: flex; align-items: center; gap: 0.75rem; color: #FDFBFA !important;"><i data-lucide="phone" size="18"></i><span>(62) 98183-8006</span></li>
+-                        <li style="display: flex; align-items: flex-start; gap: 0.75rem; color: #FDFBFA !important;"><i data-lucide="mail" size="18"></i><span style="word-break: break-all;">contato@institutoanacandida.com.br</span></li>
++                        <li style="display: flex; align-items: flex-start; gap: 0.75rem; color: #FDFBFA; opacity: 0.9;"><i data-lucide="map-pin" size="18"></i><span>Village, Goiânia-GO</span></li>
++                        <li style="display: flex; align-items: center; gap: 0.75rem; color: #FDFBFA; opacity: 0.9;"><i data-lucide="phone" size="18"></i><span>(62) 98183-8006</span></li>
++                        <li style="display: flex; align-items: flex-start; gap: 0.75rem; color: #FDFBFA; opacity: 0.9;"><i data-lucide="mail" size="18"></i><span style="word-break: break-all;">contato@institutoanacandida.com.br</span></li>
+                     </ul>
+                 </div>
++                <!-- Col 4: Legal -->
+                 <div>
+-                    <h4 style="font-family: 'Playfair Display', serif; font-size: 1.1rem; margin-bottom: 1.5rem; font-weight: 700; color: #FDFBFA !important;">Legal</h4>
++                    <h4 style="font-family: 'Playfair Display', serif; font-size: 1.1rem; margin-bottom: 1.5rem; font-weight: 700; color: #FDFBFA;">Legal</h4>
+                     <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.8rem;">
+-                        <li><a href="../privacidade" style="color: #FDFBFA !important; text-decoration: none; opacity: 0.8;">Privacidade (LGPD)</a></li>
+-                        <li><a href="../termos" style="color: #FDFBFA !important; text-decoration: none; opacity: 0.8;">Termos de Uso</a></li>
++                        <li><a href="../privacidade" style="color: #FDFBFA; text-decoration: none; opacity: 0.8;">Privacidade (LGPD)</a></li>
++                        <li><a href="../termos" style="color: #FDFBFA; text-decoration: none; opacity: 0.8;">Termos de Uso</a></li>
+                     </ul>
+                 </div>
++                <!-- Col 5: Aviso Important -->
+                 <div>
+-                    <h4 style="font-family: 'Playfair Display', serif; font-size: 1.1rem; margin-bottom: 1.5rem; font-weight: 700; color: #FDFBFA !important;">Aviso Importante</h4>
+-                    <p style="opacity: 0.9; line-height: 1.6; font-size: 0.9rem; color: #FDFBFA !important;">Este site não oferece atendimento de emergência. Em caso de crise, procure o hospital mais próximo ou ligue 188 (CVV).</p>
++                    <h4 style="font-family: 'Playfair Display', serif; font-size: 1.1rem; margin-bottom: 1.5rem; font-weight: 700; color: #FDFBFA;">Aviso Importante</h4>
++                    <p style="opacity: 0.9; line-height: 1.6; font-size: 0.9rem; color: #FDFBFA;">Este site não oferece atendimento de emergência. Em caso de crise, procure o hospital mais próximo ou ligue 188 (CVV).</p>
+                 </div>
+             </div>
+             <div style="border-top: 1px solid rgba(253, 251, 250, 0.1); padding-top: 2rem; text-align: center;">
+-                <p style="opacity: 0.7; font-size: 0.875rem; color: #FDFBFA !important;">&copy; 2026 Instituto Ana Cândida. Todos os direitos reservados.</p>
++                <p style="opacity: 0.7; font-size: 0.875rem; color: #FDFBFA;">&copy; 2026 Instituto Ana Cândida. Todos os direitos reservados.</p>
+             </div>
+         </div>
+     </footer>
++    <button id="scroll-top" title="Voltar ao topo"><i data-lucide="chevron-up"></i></button>
++    <button id="scroll-top" title="Voltar ao topo"><i data-lucide="chevron-up"></i></button>
+         <button id="scroll-top" title="Voltar ao topo">
+         <i data-lucide="chevron-up"></i>
+     </button>
+@@ -298,3 +381,5 @@
+ 
+ 
+ 
++
++
+
+commit d7dbaafeb9293633ce7b8f35ad3bce17ba8faf74
+Author: Inacio Eletronica <cognicao.digittalpro@gmail.com>
+Date:   Fri Apr 3 16:11:04 2026 -0300
+
+    style: lock 5-column footer layout and 768px breakpoint site-wide
+
+diff --git a/renascimento/index.html b/renascimento/index.html
+index f87b72c..58345a5 100644
+--- a/renascimento/index.html
++++ b/renascimento/index.html
+@@ -19,376 +19,7 @@
+     <!-- Font Awesome -->
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+ 
+-    <style>
+-        :root {
+-            /* Color Palette */
+-            --color-rosa-nude: #D8C2BB;
+-            --color-bege-claro: #F4EDE8;
+-            --color-dourado-quente: #C49A5A;
+-            --color-dourado-intenso: #B8893F;
+-            --color-marrom-profundo: #5A4636;
+-            --color-branco-suave: #FAF7F5;
+-
+-            /* Typography */
+-            --font-heading: 'Playfair Display', serif;
+-            --font-body: 'Montserrat', sans-serif;
+-
+-            /* Spacing */
+-            --spacing-sm: 1rem;
+-            --spacing-md: 2rem;
+-            --spacing-lg: 3rem;
+-
+-            /* Transitions */
+-            --transition: all 0.3s ease;
+-        }
+-
+-        * {
+-            margin: 0;
+-            padding: 0;
+-            box-sizing: border-box;
+-        }
+-
+-        body {
+-            font-family: var(--font-body);
+-            color: var(--color-marrom-profundo);
+-            background-color: var(--color-branco-suave);
+-            line-height: 1.6;
+-            font-size: 16px;
+-        }
+-
+-        img {
+-            max-width: 100%;
+-            display: block;
+-            height: auto;
+-        }
+-
+-        a {
+-            text-decoration: none;
+-            color: inherit;
+-            transition: var(--transition);
+-        }
+-
+-        .container {
+-            max-width: 600px;
+-            /* Mobile-focused layout */
+-            margin: 0 auto;
+-            padding: 0 20px;
+-        }
+-
+-        .text-center {
+-            text-align: center;
+-        }
+-
+-        .section-padding {
+-            padding: var(--spacing-lg) 0;
+-        }
+-
+-        /* Hero Section */
+-        .hero {
+-            padding-top: 60px;
+-            padding-bottom: 40px;
+-            text-align: center;
+-        }
+-
+-        .profile-img {
+-            width: 120px;
+-            height: 120px;
+-            border-radius: 50%;
+-            object-fit: cover;
+-            margin: 0 auto 20px;
+-            border: 3px solid var(--color-dourado-quente);
+-            box-shadow: 0 10px 25px rgba(196, 154, 90, 0.2);
+-        }
+-
+-        h1 {
+-            font-family: var(--font-heading);
+-            font-size: 1.8rem;
+-            font-weight: 700;
+-            line-height: 1.3;
+-            margin-bottom: 15px;
+-            color: var(--color-marrom-profundo);
+-        }
+-
+-        .hero p {
+-            font-size: 1rem;
+-            color: var(--color-marrom-profundo);
+-            opacity: 0.9;
+-            margin-bottom: 30px;
+-            max-width: 80%;
+-            margin-left: auto;
+-            margin-right: auto;
+-        }
+-
+-        /* Buttons & Link Cards */
+-        .btn-bio {
+-            display: block;
+-            width: 100%;
+-            background-color: var(--color-branco-suave);
+-            border: 1px solid var(--color-dourado-quente);
+-            border-radius: 50px;
+-            /* Fully rounded */
+-            padding: 18px 20px;
+-            margin-bottom: 15px;
+-            text-align: center;
+-            position: relative;
+-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03);
+-            transition: all 0.3s ease;
+-        }
+-
+-        .btn-bio:hover {
+-            background-color: var(--color-dourado-quente);
+-            color: var(--color-branco-suave);
+-            transform: translateY(-3px);
+-            box-shadow: 0 8px 20px rgba(196, 154, 90, 0.25);
+-        }
+-
+-        .btn-bio:hover .btn-subtext {
+-            color: rgba(255, 255, 255, 0.9);
+-        }
+-
+-        .btn-main-label {
+-            display: block;
+-            font-family: var(--font-heading);
+-            font-size: 1.1rem;
+-            font-weight: 600;
+-            margin-bottom: 2px;
+-        }
+-
+-        .btn-subtext {
+-            display: block;
+-            font-size: 0.8rem;
+-            font-weight: 400;
+-            color: #888;
+-            transition: color 0.3s ease;
+-        }
+-
+-        /* Primary Button (Solid Gold) */
+-        .btn-primary-bio {
+-            background-color: var(--color-dourado-quente);
+-            color: var(--color-branco-suave);
+-            border: none;
+-            box-shadow: 0 8px 20px rgba(196, 154, 90, 0.3);
+-            text-transform: uppercase;
+-            font-weight: 600;
+-            letter-spacing: 0.5px;
+-        }
+-
+-        .btn-primary-bio:hover {
+-            background-color: var(--color-dourado-intenso);
+-            color: var(--color-branco-suave);
+-        }
+-
+-        .btn-primary-bio .btn-subtext {
+-            color: rgba(255, 255, 255, 0.9);
+-        }
+-
+-
+-        /* Awareness Section */
+-        .awareness-bio {
+-            background-color: var(--color-bege-claro);
+-            padding: 40px 20px;
+-            border-radius: 20px;
+-            margin-bottom: 40px;
+-            text-align: center;
+-        }
+-
+-        .awareness-bio p {
+-            margin-bottom: 15px;
+-            font-size: 1.05rem;
+-            font-style: italic;
+-            font-family: var(--font-heading);
+-            color: var(--color-marrom-profundo);
+-        }
+-
+-        /* Value Cards */
+-        .value-grid {
+-            display: grid;
+-            grid-template-columns: 1fr;
+-            gap: 15px;
+-            margin-bottom: 40px;
+-        }
+-
+-        .value-card {
+-            background-color: #fff;
+-            padding: 20px;
+-            border-radius: 12px;
+-            border-left: 3px solid var(--color-rosa-nude);
+-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+-            text-align: left;
+-            display: flex;
+-            align-items: center;
+-            gap: 15px;
+-        }
+-
+-        .value-card i {
+-            color: var(--color-dourado-quente);
+-            font-size: 1.2rem;
+-        }
+-
+-        .value-card h3 {
+-            font-family: var(--font-heading);
+-            font-size: 1rem;
+-            margin-bottom: 4px;
+-        }
+-
+-        .value-card p {
+-            font-size: 0.85rem;
+-            color: #666;
+-            line-height: 1.4;
+-        }
+-
+-        /* Authority */
+-        .authority-bio {
+-            text-align: center;
+-            padding: 0 20px 40px;
+-        }
+-
+-        .authority-bio h2 {
+-            font-family: var(--font-heading);
+-            font-size: 1.5rem;
+-            margin-bottom: 10px;
+-        }
+-
+-        .authority-bio p {
+-            font-size: 0.95rem;
+-            margin-bottom: 15px;
+-        }
+-
+-        /* Footer */
+-        .footer-bio {
+-            text-align: center;
+-            padding: 40px 20px;
+-            background-color: var(--color-rosa-nude);
+-            color: var(--color-marrom-profundo);
+-            margin-top: 40px;
+-            border-top-left-radius: 30px;
+-            border-top-right-radius: 30px;
+-        }
+-
+-        .footer-bio p {
+-            font-family: var(--font-heading);
+-            font-size: 1.1rem;
+-            font-weight: 500;
+-        }
+-
+-        /* Lead Capture Modal */
+-        .modal-overlay {
+-            display: none;
+-            position: fixed;
+-            top: 0;
+-            left: 0;
+-            width: 100%;
+-            height: 100%;
+-            background-color: rgba(90, 70, 54, 0.8);
+-            /* Marrom profundo com transparência */
+-            z-index: 1000;
+-            justify-content: center;
+-            align-items: center;
+-            padding: 20px;
+-            backdrop-filter: blur(5px);
+-        }
+-
+-        .modal-content {
+-            background-color: var(--color-branco-suave);
+-            padding: 30px;
+-            border-radius: 20px;
+-            width: 100%;
+-            max-width: 400px;
+-            text-align: center;
+-            border: 2px solid var(--color-dourado-quente);
+-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+-            position: relative;
+-            animation: modalFadeIn 0.3s ease;
+-        }
+-
+-        @keyframes modalFadeIn {
+-            from {
+-                opacity: 0;
+-                transform: translateY(20px);
+-            }
+-
+-            to {
+-                opacity: 1;
+-                transform: translateY(0);
+-            }
+-        }
+-
+-        .modal-close {
+-            position: absolute;
+-            top: 15px;
+-            right: 15px;
+-            background: none;
+-            border: none;
+-            font-size: 1.5rem;
+-            color: var(--color-marrom-profundo);
+-            cursor: pointer;
+-        }
+-
+-        .modal-title {
+-            font-family: var(--font-heading);
+-            color: var(--color-dourado-intenso);
+-            font-size: 1.5rem;
+-            margin-bottom: 10px;
+-        }
+-
+-        .modal-text {
+-            font-size: 0.9rem;
+-            margin-bottom: 20px;
+-            color: #666;
+-        }
+-
+-        .form-group {
+-            margin-bottom: 15px;
+-            text-align: left;
+-        }
+-
+-        .form-label {
+-            display: block;
+-            margin-bottom: 5px;
+-            font-size: 0.85rem;
+-            font-weight: 500;
+-        }
+-
+-        .form-input {
+-            width: 100%;
+-            padding: 12px;
+-            border: 1px solid #ddd;
+-            border-radius: 8px;
+-            font-family: var(--font-body);
+-            font-size: 1rem;
+-            transition: border-color 0.3s;
+-        }
+-
+-        .form-input:focus {
+-            border-color: var(--color-dourado-quente);
+-            outline: none;
+-        }
+-
+-        .btn-submit {
+-            width: 100%;
+-            padding: 14px;
+-            background-color: var(--color-dourado-quente);
+-            color: white;
+-            border: none;
+-            border-radius: 50px;
+-            font-weight: 600;
+-            cursor: pointer;
+-            font-size: 1rem;
+-            margin-top: 10px;
+-            transition: background 0.3s;
+-        }
+-
+-        .btn-submit:hover {
+-            background-color: var(--color-dourado-intenso);
+-        }
+-
+-        .btn-submit:disabled {
+-            background-color: #ccc;
+-            cursor: not-allowed;
+-        }
+-    </style>
+-
+-    <style>
++            <style>
+         /* FAQ Accordion Styles */
+         .faq-container { background: white; border-radius: 1.5rem; border: 1px solid #EAE1D8; padding: 1rem 1.5rem; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.02); }
+         .accordion-item { border-bottom: 1px solid #EAE1D8; }
+@@ -404,6 +35,19 @@
+         #scroll-top { position: fixed; bottom: 2rem; right: 2rem; width: 48px; height: 48px; background: #483525; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1); cursor: pointer; transition: all 0.3s; z-index: 100; opacity: 0; visibility: hidden; border: none; }
+         #scroll-top.show { opacity: 1; visibility: visible; }
+         #scroll-top:hover { transform: translateY(-5px); background: #9C7C5F; }
++
++        /* Forced 5-Column Footer Grid */
++        .footer-grid { 
++            display: grid; 
++            grid-template-columns: 1fr; 
++            gap: 2rem; 
++            margin-bottom: 4rem; 
++        }
++        @media (min-width: 768px) {
++            .footer-grid { 
++                grid-template-columns: repeat(5, 1fr); 
++            }
++        }
+     </style>
+ </head>
+ 
+@@ -504,11 +148,11 @@
+     </main>
+ 
+     <!-- Footer Reflexão -->
+-                        <!-- Premium Footer -->
++                                <!-- Premium Footer -->
+         <!-- Premium Footer -->
+     <footer style="background-color: #483525 !important; color: #FDFBFA !important; padding: 5rem 0 3rem; position: relative; z-index: 50; width: 100%;">
+         <div style="max-width: 1100px; margin: 0 auto; padding: 0 2rem;">
+-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 3rem; margin-bottom: 4rem;">
++            <div class="footer-grid">
+                 <div>
+                     <h3 style="font-family: 'Playfair Display', serif; font-size: 1.5rem; margin-bottom: 1.5rem; font-weight: 700; color: #FDFBFA !important;">Instituto Ana Cândida</h3>
+                     <p style="opacity: 0.9; line-height: 1.6; margin-bottom: 2rem; font-size: 0.95rem; color: #FDFBFA !important;">Cuidado relacional com base na Terapia Sistêmica. Acolhimento, ética e ciência para casais e famílias.</p>
+@@ -553,6 +197,18 @@
+         <button id="scroll-top" title="Voltar ao topo">
+         <i data-lucide="chevron-up"></i>
+     </button>
++        <button id="scroll-top" title="Voltar ao topo">
++        <i data-lucide="chevron-up"></i>
++    </button>
++        <button id="scroll-top" title="Voltar ao topo">
++        <i data-lucide="chevron-up"></i>
++    </button>
++        <button id="scroll-top" title="Voltar ao topo">
++        <i data-lucide="chevron-up"></i>
++    </button>
++        <button id="scroll-top" title="Voltar ao topo">
++        <i data-lucide="chevron-up"></i>
++    </button>
+ 
+ </body>
+ 
+@@ -640,3 +296,5 @@
+ 
+ 
+ 
++
++
+
+commit 23d68873677cc6ad2f8a43bb496699b0400bd737
+Author: Inacio Eletronica <cognicao.digittalpro@gmail.com>
+Date:   Fri Apr 3 16:02:00 2026 -0300
+
+    style: final absolute synchronization of O Instituto and Home design tokens
+
+diff --git a/renascimento/index.html b/renascimento/index.html
+index 632187e..f87b72c 100644
+--- a/renascimento/index.html
++++ b/renascimento/index.html
+@@ -387,6 +387,24 @@
+             cursor: not-allowed;
+         }
+     </style>
++
++    <style>
++        /* FAQ Accordion Styles */
++        .faq-container { background: white; border-radius: 1.5rem; border: 1px solid #EAE1D8; padding: 1rem 1.5rem; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.02); }
++        .accordion-item { border-bottom: 1px solid #EAE1D8; }
++        .accordion-item:last-child { border-bottom: none; }
++        .accordion-header { width: 100%; display: flex; justify-content: space-between; align-items: center; background: none; border: none; padding: 1.5rem 0; text-align: left; cursor: pointer; font-size: 1rem; font-weight: 500; color: #483525; transition: all 0.3s; }
++        .accordion-header:hover { color: #9C7C5F; }
++        .accordion-content { max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out; color: #666; line-height: 1.6; font-size: 0.9375rem; }
++        .accordion-item.active .accordion-content { max-height: 400px; padding-bottom: 1.5rem; }
++        .accordion-item.active .chevron { transform: rotate(180deg); color: #9C7C5F; }
++        .chevron { transition: transform 0.3s; opacity: 0.5; }
++
++        /* Floating Scroll-to-top Button */
++        #scroll-top { position: fixed; bottom: 2rem; right: 2rem; width: 48px; height: 48px; background: #483525; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1); cursor: pointer; transition: all 0.3s; z-index: 100; opacity: 0; visibility: hidden; border: none; }
++        #scroll-top.show { opacity: 1; visibility: visible; }
++        #scroll-top:hover { transform: translateY(-5px); background: #9C7C5F; }
++    </style>
+ </head>
+ 
+ <body>
+@@ -486,20 +504,14 @@
+     </main>
+ 
+     <!-- Footer Reflexão -->
+-                    <!-- Premium Footer -->
++                        <!-- Premium Footer -->
+         <!-- Premium Footer -->
+-    <footer style="background-color: #483525 !important; color: #FDFBFA !important; padding: 5rem 0 3rem; position: relative; z-index: 50;">
+-        <div class="container-custom">
+-            <!-- Footer Grid -->
++    <footer style="background-color: #483525 !important; color: #FDFBFA !important; padding: 5rem 0 3rem; position: relative; z-index: 50; width: 100%;">
++        <div style="max-width: 1100px; margin: 0 auto; padding: 0 2rem;">
+             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 3rem; margin-bottom: 4rem;">
+-                <!-- Col 1: Brand & Social -->
+                 <div>
+                     <h3 style="font-family: 'Playfair Display', serif; font-size: 1.5rem; margin-bottom: 1.5rem; font-weight: 700; color: #FDFBFA !important;">Instituto Ana Cândida</h3>
+                     <p style="opacity: 0.9; line-height: 1.6; margin-bottom: 2rem; font-size: 0.95rem; color: #FDFBFA !important;">Cuidado relacional com base na Terapia Sistêmica. Acolhimento, ética e ciência para casais e famílias.</p>
+-                    <div style="display: flex; gap: 1.5rem; align-items: center;">
+-                        <a href="https://instagram.com/institutoanacandida" target="_blank" style="color: #FDFBFA !important; text-decoration: none;"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></a>
+-                        <a href="https://linkedin.com" target="_blank" style="color: #FDFBFA !important; text-decoration: none;"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg></a>
+-                    </div>
+                 </div>
+                 <div>
+                     <h4 style="font-family: 'Playfair Display', serif; font-size: 1.1rem; margin-bottom: 1.5rem; font-weight: 700; color: #FDFBFA !important;">Institucional</h4>
+@@ -513,9 +525,9 @@
+                 <div>
+                     <h4 style="font-family: 'Playfair Display', serif; font-size: 1.1rem; margin-bottom: 1.5rem; font-weight: 700; color: #FDFBFA !important;">Contato</h4>
+                     <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 1.2rem;">
+-                        <li style="display: flex; align-items: flex-start; gap: 0.75rem; color: #FDFBFA !important; opacity: 0.9;"><i data-lucide="map-pin" size="18"></i><span>Village, Goiânia-GO</span></li>
+-                        <li style="display: flex; align-items: center; gap: 0.75rem; color: #FDFBFA !important; opacity: 0.9;"><i data-lucide="phone" size="18"></i><span>(62) 98183-8006</span></li>
+-                        <li style="display: flex; align-items: flex-start; gap: 0.75rem; color: #FDFBFA !important; opacity: 0.9;"><i data-lucide="mail" size="18"></i><span style="word-break: break-all;">contato@institutoanacandida.com.br</span></li>
++                        <li style="display: flex; align-items: flex-start; gap: 0.75rem; color: #FDFBFA !important;"><i data-lucide="map-pin" size="18"></i><span>Village, Goiânia-GO</span></li>
++                        <li style="display: flex; align-items: center; gap: 0.75rem; color: #FDFBFA !important;"><i data-lucide="phone" size="18"></i><span>(62) 98183-8006</span></li>
++                        <li style="display: flex; align-items: flex-start; gap: 0.75rem; color: #FDFBFA !important;"><i data-lucide="mail" size="18"></i><span style="word-break: break-all;">contato@institutoanacandida.com.br</span></li>
+                     </ul>
+                 </div>
+                 <div>
+@@ -530,11 +542,17 @@
+                     <p style="opacity: 0.9; line-height: 1.6; font-size: 0.9rem; color: #FDFBFA !important;">Este site não oferece atendimento de emergência. Em caso de crise, procure o hospital mais próximo ou ligue 188 (CVV).</p>
+                 </div>
+             </div>
+-            <div style="border-top: 1px solid rgba(253, 251, 250, 0.1); padding-top: 2rem;">
++            <div style="border-top: 1px solid rgba(253, 251, 250, 0.1); padding-top: 2rem; text-align: center;">
+                 <p style="opacity: 0.7; font-size: 0.875rem; color: #FDFBFA !important;">&copy; 2026 Instituto Ana Cândida. Todos os direitos reservados.</p>
+             </div>
+         </div>
+     </footer>
++        <button id="scroll-top" title="Voltar ao topo">
++        <i data-lucide="chevron-up"></i>
++    </button>
++        <button id="scroll-top" title="Voltar ao topo">
++        <i data-lucide="chevron-up"></i>
++    </button>
+ 
+ </body>
+ 
+@@ -621,3 +639,4 @@
+ 
+ 
+ 
++
+
+commit cbd5f3309757357b6ec6e82656737ea2e1761272
+Author: Inacio Eletronica <cognicao.digittalpro@gmail.com>
+Date:   Fri Apr 3 14:04:54 2026 -0300
+
+    style: universal 1:1 design consistency with manual depth mapping and !important HEX colors for guaranteed footer visibility
+
+diff --git a/renascimento/index.html b/renascimento/index.html
+index 5850f18..632187e 100644
+--- a/renascimento/index.html
++++ b/renascimento/index.html
+@@ -486,81 +486,52 @@
+     </main>
+ 
+     <!-- Footer Reflexão -->
+-                <!-- Premium Footer -->
+-    <footer style="background-color: #483525; color: #FDFBFA; padding: 5rem 0 3rem; position: relative; z-index: 50;">
++                    <!-- Premium Footer -->
++        <!-- Premium Footer -->
++    <footer style="background-color: #483525 !important; color: #FDFBFA !important; padding: 5rem 0 3rem; position: relative; z-index: 50;">
+         <div class="container-custom">
+             <!-- Footer Grid -->
+             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 3rem; margin-bottom: 4rem;">
+-                
+                 <!-- Col 1: Brand & Social -->
+                 <div>
+-                    <h3 style="font-family: 'Playfair Display', serif; font-size: 1.5rem; margin-bottom: 1.5rem; font-weight: 700; color: #FDFBFA;">Instituto Ana Cândida</h3>
+-                    <p style="opacity: 0.9; line-height: 1.6; margin-bottom: 2rem; font-size: 0.95rem; color: #FDFBFA;">
+-                        Cuidado relacional com base na Terapia Sistêmica. Acolhimento, ética e ciência para casais e famílias.
+-                    </p>
++                    <h3 style="font-family: 'Playfair Display', serif; font-size: 1.5rem; margin-bottom: 1.5rem; font-weight: 700; color: #FDFBFA !important;">Instituto Ana Cândida</h3>
++                    <p style="opacity: 0.9; line-height: 1.6; margin-bottom: 2rem; font-size: 0.95rem; color: #FDFBFA !important;">Cuidado relacional com base na Terapia Sistêmica. Acolhimento, ética e ciência para casais e famílias.</p>
+                     <div style="display: flex; gap: 1.5rem; align-items: center;">
+-                        <a href="https://instagram.com/institutoanacandida" target="_blank" style="color: #FDFBFA; text-decoration: none; opacity: 1;" aria-label="Instagram">
+-                            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+-                        </a>
+-                        <a href="https://linkedin.com" target="_blank" style="color: #FDFBFA; text-decoration: none; opacity: 1;" aria-label="LinkedIn">
+-                            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+-                        </a>
++                        <a href="https://instagram.com/institutoanacandida" target="_blank" style="color: #FDFBFA !important; text-decoration: none;"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></a>
++                        <a href="https://linkedin.com" target="_blank" style="color: #FDFBFA !important; text-decoration: none;"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg></a>
+                     </div>
+                 </div>
+-
+-                <!-- Col 2: Institucional -->
+                 <div>
+-                    <h4 style="font-family: 'Playfair Display', serif; font-size: 1.1rem; margin-bottom: 1.5rem; font-weight: 700; color: #FDFBFA;">Institucional</h4>
++                    <h4 style="font-family: 'Playfair Display', serif; font-size: 1.1rem; margin-bottom: 1.5rem; font-weight: 700; color: #FDFBFA !important;">Institucional</h4>
+                     <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.8rem;">
+-                        <li><a href="../../../../../../../o-instituto" style="color: #FDFBFA; text-decoration: none; opacity: 0.8;">Sobre nós</a></li>
+-                        <li><a href="../../../../../../../equipe" style="color: #FDFBFA; text-decoration: none; opacity: 0.8;">Equipe</a></li>
+-                        <li><a href="../../../../../../../atendimentos" style="color: #FDFBFA; text-decoration: none; opacity: 0.8;">Serviços</a></li>
+-                        <li><a href="../../../../../../../conteudos" style="color: #FDFBFA; text-decoration: none; opacity: 0.8;">Blog</a></li>
++                        <li><a href="../o-instituto" style="color: #FDFBFA !important; text-decoration: none; opacity: 0.8;">Sobre nós</a></li>
++                        <li><a href="../equipe" style="color: #FDFBFA !important; text-decoration: none; opacity: 0.8;">Equipe</a></li>
++                        <li><a href="../atendimentos" style="color: #FDFBFA !important; text-decoration: none; opacity: 0.8;">Serviços</a></li>
++                        <li><a href="../conteudos" style="color: #FDFBFA !important; text-decoration: none; opacity: 0.8;">Blog</a></li>
+                     </ul>
+                 </div>
+-
+-                <!-- Col 3: Contato -->
+                 <div>
+-                    <h4 style="font-family: 'Playfair Display', serif; font-size: 1.1rem; margin-bottom: 1.5rem; font-weight: 700; color: #FDFBFA;">Contato</h4>
++                    <h4 style="font-family: 'Playfair Display', serif; font-size: 1.1rem; margin-bottom: 1.5rem; font-weight: 700; color: #FDFBFA !important;">Contato</h4>
+                     <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 1.2rem;">
+-                        <li style="display: flex; align-items: flex-start; gap: 0.75rem; color: #FDFBFA; opacity: 0.9;">
+-                            <i data-lucide="map-pin" size="18" style="flex-shrink: 0; margin-top: 0.2rem;"></i>
+-                            <span>Village, Goiânia-GO</span>
+-                        </li>
+-                        <li style="display: flex; align-items: center; gap: 0.75rem; color: #FDFBFA; opacity: 0.9;">
+-                            <i data-lucide="phone" size="18" style="flex-shrink: 0;"></i>
+-                            <span>(62) 98183-8006</span>
+-                        </li>
+-                        <li style="display: flex; align-items: flex-start; gap: 0.75rem; color: #FDFBFA; opacity: 0.9;">
+-                            <i data-lucide="mail" size="18" style="flex-shrink: 0; margin-top: 0.2rem;"></i>
+-                            <span style="word-break: break-all;">contato@institutoanacandida.com.br</span>
+-                        </li>
++                        <li style="display: flex; align-items: flex-start; gap: 0.75rem; color: #FDFBFA !important; opacity: 0.9;"><i data-lucide="map-pin" size="18"></i><span>Village, Goiânia-GO</span></li>
++                        <li style="display: flex; align-items: center; gap: 0.75rem; color: #FDFBFA !important; opacity: 0.9;"><i data-lucide="phone" size="18"></i><span>(62) 98183-8006</span></li>
++                        <li style="display: flex; align-items: flex-start; gap: 0.75rem; color: #FDFBFA !important; opacity: 0.9;"><i data-lucide="mail" size="18"></i><span style="word-break: break-all;">contato@institutoanacandida.com.br</span></li>
+                     </ul>
+                 </div>
+-
+-                <!-- Col 4: Legal -->
+                 <div>
+-                    <h4 style="font-family: 'Playfair Display', serif; font-size: 1.1rem; margin-bottom: 1.5rem; font-weight: 700; color: #FDFBFA;">Legal</h4>
++                    <h4 style="font-family: 'Playfair Display', serif; font-size: 1.1rem; margin-bottom: 1.5rem; font-weight: 700; color: #FDFBFA !important;">Legal</h4>
+                     <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.8rem;">
+-                        <li><a href="../../../../../../../privacidade" style="color: #FDFBFA; text-decoration: none; opacity: 0.8;">Privacidade (LGPD)</a></li>
+-                        <li><a href="../../../../../../../termos" style="color: #FDFBFA; text-decoration: none; opacity: 0.8;">Termos de Uso</a></li>
++                        <li><a href="../privacidade" style="color: #FDFBFA !important; text-decoration: none; opacity: 0.8;">Privacidade (LGPD)</a></li>
++                        <li><a href="../termos" style="color: #FDFBFA !important; text-decoration: none; opacity: 0.8;">Termos de Uso</a></li>
+                     </ul>
+                 </div>
+-
+-                <!-- Col 5: Aviso Importante -->
+                 <div>
+-                    <h4 style="font-family: 'Playfair Display', serif; font-size: 1.1rem; margin-bottom: 1.5rem; font-weight: 700; color: #FDFBFA;">Aviso Importante</h4>
+-                    <p style="opacity: 0.9; line-height: 1.6; font-size: 0.9rem; color: #FDFBFA;">
+-                        Este site não oferece atendimento de emergência. Em caso de crise, procure o hospital mais próximo ou ligue 188 (CVV).
+-                    </p>
++                    <h4 style="font-family: 'Playfair Display', serif; font-size: 1.1rem; margin-bottom: 1.5rem; font-weight: 700; color: #FDFBFA !important;">Aviso Importante</h4>
++                    <p style="opacity: 0.9; line-height: 1.6; font-size: 0.9rem; color: #FDFBFA !important;">Este site não oferece atendimento de emergência. Em caso de crise, procure o hospital mais próximo ou ligue 188 (CVV).</p>
+                 </div>
+             </div>
+-
+-            <!-- Separator Line -->
+             <div style="border-top: 1px solid rgba(253, 251, 250, 0.1); padding-top: 2rem;">
+-                <p style="opacity: 0.7; font-size: 0.875rem; color: #FDFBFA;">
+-                    &copy; 2026 Instituto Ana Cândida. Todos os direitos reservados.
+-                </p>
++                <p style="opacity: 0.7; font-size: 0.875rem; color: #FDFBFA !important;">&copy; 2026 Instituto Ana Cândida. Todos os direitos reservados.</p>
+             </div>
+         </div>
+     </footer>
+@@ -649,3 +620,4 @@
+ </html>
+ 
+ 
++
+
+commit 14fb728fe9ae31e6d1415a03db9365cd44df1cf9
+Author: Inacio Eletronica <cognicao.digittalpro@gmail.com>
+Date:   Fri Apr 3 13:59:31 2026 -0300
+
+    style: universal HEX-stabilized footer and header implementation for perfect visibility
+
+diff --git a/renascimento/index.html b/renascimento/index.html
+index b200a08..5850f18 100644
+--- a/renascimento/index.html
++++ b/renascimento/index.html
+@@ -486,48 +486,81 @@
+     </main>
+ 
+     <!-- Footer Reflexão -->
+-            <footer style="background-color: var(--brand-900); color: #FDFBFA; padding: 5rem 0 3rem; position: relative; z-index: 50;">
++                <!-- Premium Footer -->
++    <footer style="background-color: #483525; color: #FDFBFA; padding: 5rem 0 3rem; position: relative; z-index: 50;">
+         <div class="container-custom">
++            <!-- Footer Grid -->
+             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 3rem; margin-bottom: 4rem;">
++                
++                <!-- Col 1: Brand & Social -->
+                 <div>
+                     <h3 style="font-family: 'Playfair Display', serif; font-size: 1.5rem; margin-bottom: 1.5rem; font-weight: 700; color: #FDFBFA;">Instituto Ana Cândida</h3>
+-                    <p style="opacity: 0.9; line-height: 1.6; margin-bottom: 2rem; font-size: 0.95rem; color: #FDFBFA;">Cuidado relacional com base na Terapia Sistêmica. Acolhimento, ética e ciência para casais e famílias.</p>
++                    <p style="opacity: 0.9; line-height: 1.6; margin-bottom: 2rem; font-size: 0.95rem; color: #FDFBFA;">
++                        Cuidado relacional com base na Terapia Sistêmica. Acolhimento, ética e ciência para casais e famílias.
++                    </p>
+                     <div style="display: flex; gap: 1.5rem; align-items: center;">
+-                        <a href="https://instagram.com/institutoanacandida" target="_blank" style="color: #FDFBFA; text-decoration: none;"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></a>
+-                        <a href="https://linkedin.com" target="_blank" style="color: #FDFBFA; text-decoration: none;"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg></a>
++                        <a href="https://instagram.com/institutoanacandida" target="_blank" style="color: #FDFBFA; text-decoration: none; opacity: 1;" aria-label="Instagram">
++                            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
++                        </a>
++                        <a href="https://linkedin.com" target="_blank" style="color: #FDFBFA; text-decoration: none; opacity: 1;" aria-label="LinkedIn">
++                            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
++                        </a>
+                     </div>
+                 </div>
++
++                <!-- Col 2: Institucional -->
+                 <div>
+                     <h4 style="font-family: 'Playfair Display', serif; font-size: 1.1rem; margin-bottom: 1.5rem; font-weight: 700; color: #FDFBFA;">Institucional</h4>
+                     <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.8rem;">
+-                        <li><a href="../../../../../../../../o-instituto" style="color: #FDFBFA; text-decoration: none; opacity: 0.8;">Sobre nós</a></li>
+-                        <li><a href="../../../../../../../../equipe" style="color: #FDFBFA; text-decoration: none; opacity: 0.8;">Equipe</a></li>
+-                        <li><a href="../../../../../../../../atendimentos" style="color: #FDFBFA; text-decoration: none; opacity: 0.8;">Serviços</a></li>
+-                        <li><a href="../../../../../../../../conteudos" style="color: #FDFBFA; text-decoration: none; opacity: 0.8;">Blog</a></li>
++                        <li><a href="../../../../../../../o-instituto" style="color: #FDFBFA; text-decoration: none; opacity: 0.8;">Sobre nós</a></li>
++                        <li><a href="../../../../../../../equipe" style="color: #FDFBFA; text-decoration: none; opacity: 0.8;">Equipe</a></li>
++                        <li><a href="../../../../../../../atendimentos" style="color: #FDFBFA; text-decoration: none; opacity: 0.8;">Serviços</a></li>
++                        <li><a href="../../../../../../../conteudos" style="color: #FDFBFA; text-decoration: none; opacity: 0.8;">Blog</a></li>
+                     </ul>
+                 </div>
++
++                <!-- Col 3: Contato -->
+                 <div>
+                     <h4 style="font-family: 'Playfair Display', serif; font-size: 1.1rem; margin-bottom: 1.5rem; font-weight: 700; color: #FDFBFA;">Contato</h4>
+                     <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 1.2rem;">
+-                        <li style="display: flex; align-items: flex-start; gap: 0.75rem; color: #FDFBFA;"><i data-lucide="map-pin" size="18"></i><span>Village, Goiânia-GO</span></li>
+-                        <li style="display: flex; align-items: center; gap: 0.75rem; color: #FDFBFA;"><i data-lucide="phone" size="18"></i><span>(62) 98183-8006</span></li>
+-                        <li style="display: flex; align-items: flex-start; gap: 0.75rem; color: #FDFBFA;"><i data-lucide="mail" size="18"></i><span style="word-break: break-all;">contato@institutoanacandida.com.br</span></li>
++                        <li style="display: flex; align-items: flex-start; gap: 0.75rem; color: #FDFBFA; opacity: 0.9;">
++                            <i data-lucide="map-pin" size="18" style="flex-shrink: 0; margin-top: 0.2rem;"></i>
++                            <span>Village, Goiânia-GO</span>
++                        </li>
++                        <li style="display: flex; align-items: center; gap: 0.75rem; color: #FDFBFA; opacity: 0.9;">
++                            <i data-lucide="phone" size="18" style="flex-shrink: 0;"></i>
++                            <span>(62) 98183-8006</span>
++                        </li>
++                        <li style="display: flex; align-items: flex-start; gap: 0.75rem; color: #FDFBFA; opacity: 0.9;">
++                            <i data-lucide="mail" size="18" style="flex-shrink: 0; margin-top: 0.2rem;"></i>
++                            <span style="word-break: break-all;">contato@institutoanacandida.com.br</span>
++                        </li>
+                     </ul>
+                 </div>
++
++                <!-- Col 4: Legal -->
+                 <div>
+                     <h4 style="font-family: 'Playfair Display', serif; font-size: 1.1rem; margin-bottom: 1.5rem; font-weight: 700; color: #FDFBFA;">Legal</h4>
+                     <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.8rem;">
+-                        <li><a href="../../../../../../../../privacidade" style="color: #FDFBFA; text-decoration: none; opacity: 0.8;">Privacidade (LGPD)</a></li>
+-                        <li><a href="../../../../../../../../termos" style="color: #FDFBFA; text-decoration: none; opacity: 0.8;">Termos de Uso</a></li>
++                        <li><a href="../../../../../../../privacidade" style="color: #FDFBFA; text-decoration: none; opacity: 0.8;">Privacidade (LGPD)</a></li>
++                        <li><a href="../../../../../../../termos" style="color: #FDFBFA; text-decoration: none; opacity: 0.8;">Termos de Uso</a></li>
+                     </ul>
+                 </div>
++
++                <!-- Col 5: Aviso Importante -->
+                 <div>
+                     <h4 style="font-family: 'Playfair Display', serif; font-size: 1.1rem; margin-bottom: 1.5rem; font-weight: 700; color: #FDFBFA;">Aviso Importante</h4>
+-                    <p style="opacity: 0.9; line-height: 1.6; font-size: 0.9rem; color: #FDFBFA;">Este site não oferece atendimento de emergência. Em caso de crise, procure o hospital mais próximo ou ligue 188 (CVV).</p>
++                    <p style="opacity: 0.9; line-height: 1.6; font-size: 0.9rem; color: #FDFBFA;">
++                        Este site não oferece atendimento de emergência. Em caso de crise, procure o hospital mais próximo ou ligue 188 (CVV).
++                    </p>
+                 </div>
+             </div>
++
++            <!-- Separator Line -->
+             <div style="border-top: 1px solid rgba(253, 251, 250, 0.1); padding-top: 2rem;">
+-                <p style="opacity: 0.7; font-size: 0.875rem; color: #FDFBFA;">&copy; 2026 Instituto Ana Cândida. Todos os direitos reservados.</p>
++                <p style="opacity: 0.7; font-size: 0.875rem; color: #FDFBFA;">
++                    &copy; 2026 Instituto Ana Cândida. Todos os direitos reservados.
++                </p>
+             </div>
+         </div>
+     </footer>
+@@ -615,3 +648,4 @@
+ 
+ </html>
+ 
++
+
+commit 7e7638dca86cc706143249ac2e116548bcf2d31c
+Author: Inacio Eletronica <cognicao.digittalpro@gmail.com>
+Date:   Fri Apr 3 13:54:20 2026 -0300
+
+    style: universal 1:1 footer and header standardization across all 15+ site sections
+
+diff --git a/renascimento/index.html b/renascimento/index.html
+index 44a0bed..b200a08 100644
+--- a/renascimento/index.html
++++ b/renascimento/index.html
+@@ -486,16 +486,49 @@
+     </main>
+ 
+     <!-- Footer Reflexão -->
+-    <footer class="footer-bio">
+-        <div class="container">
+-            <p>Existe uma mulher dentro de você que ainda acredita.</p>
+-            <p style="font-size: 0.9rem; margin-top: 10px; opacity: 0.9;">Ela ainda quer paz.</p>
+-
+-            <a href="/home/jornada/" class="btn-bio btn-primary-bio"
+-                style="margin-top: 30px; box-shadow: none; border: 1px solid rgba(255,255,255,0.3);">
+-                <span class="btn-main-label">Começar Minha Jornada</span>
+-            </a>
+-            <p style="font-size: 0.7rem; margin-top: 30px; opacity: 0.6;">&copy; 2026 Ana Cândida</p>
++            <footer style="background-color: var(--brand-900); color: #FDFBFA; padding: 5rem 0 3rem; position: relative; z-index: 50;">
++        <div class="container-custom">
++            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 3rem; margin-bottom: 4rem;">
++                <div>
++                    <h3 style="font-family: 'Playfair Display', serif; font-size: 1.5rem; margin-bottom: 1.5rem; font-weight: 700; color: #FDFBFA;">Instituto Ana Cândida</h3>
++                    <p style="opacity: 0.9; line-height: 1.6; margin-bottom: 2rem; font-size: 0.95rem; color: #FDFBFA;">Cuidado relacional com base na Terapia Sistêmica. Acolhimento, ética e ciência para casais e famílias.</p>
++                    <div style="display: flex; gap: 1.5rem; align-items: center;">
++                        <a href="https://instagram.com/institutoanacandida" target="_blank" style="color: #FDFBFA; text-decoration: none;"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></a>
++                        <a href="https://linkedin.com" target="_blank" style="color: #FDFBFA; text-decoration: none;"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg></a>
++                    </div>
++                </div>
++                <div>
++                    <h4 style="font-family: 'Playfair Display', serif; font-size: 1.1rem; margin-bottom: 1.5rem; font-weight: 700; color: #FDFBFA;">Institucional</h4>
++                    <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.8rem;">
++                        <li><a href="../../../../../../../../o-instituto" style="color: #FDFBFA; text-decoration: none; opacity: 0.8;">Sobre nós</a></li>
++                        <li><a href="../../../../../../../../equipe" style="color: #FDFBFA; text-decoration: none; opacity: 0.8;">Equipe</a></li>
++                        <li><a href="../../../../../../../../atendimentos" style="color: #FDFBFA; text-decoration: none; opacity: 0.8;">Serviços</a></li>
++                        <li><a href="../../../../../../../../conteudos" style="color: #FDFBFA; text-decoration: none; opacity: 0.8;">Blog</a></li>
++                    </ul>
++                </div>
++                <div>
++                    <h4 style="font-family: 'Playfair Display', serif; font-size: 1.1rem; margin-bottom: 1.5rem; font-weight: 700; color: #FDFBFA;">Contato</h4>
++                    <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 1.2rem;">
++                        <li style="display: flex; align-items: flex-start; gap: 0.75rem; color: #FDFBFA;"><i data-lucide="map-pin" size="18"></i><span>Village, Goiânia-GO</span></li>
++                        <li style="display: flex; align-items: center; gap: 0.75rem; color: #FDFBFA;"><i data-lucide="phone" size="18"></i><span>(62) 98183-8006</span></li>
++                        <li style="display: flex; align-items: flex-start; gap: 0.75rem; color: #FDFBFA;"><i data-lucide="mail" size="18"></i><span style="word-break: break-all;">contato@institutoanacandida.com.br</span></li>
++                    </ul>
++                </div>
++                <div>
++                    <h4 style="font-family: 'Playfair Display', serif; font-size: 1.1rem; margin-bottom: 1.5rem; font-weight: 700; color: #FDFBFA;">Legal</h4>
++                    <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.8rem;">
++                        <li><a href="../../../../../../../../privacidade" style="color: #FDFBFA; text-decoration: none; opacity: 0.8;">Privacidade (LGPD)</a></li>
++                        <li><a href="../../../../../../../../termos" style="color: #FDFBFA; text-decoration: none; opacity: 0.8;">Termos de Uso</a></li>
++                    </ul>
++                </div>
++                <div>
++                    <h4 style="font-family: 'Playfair Display', serif; font-size: 1.1rem; margin-bottom: 1.5rem; font-weight: 700; color: #FDFBFA;">Aviso Importante</h4>
++                    <p style="opacity: 0.9; line-height: 1.6; font-size: 0.9rem; color: #FDFBFA;">Este site não oferece atendimento de emergência. Em caso de crise, procure o hospital mais próximo ou ligue 188 (CVV).</p>
++                </div>
++            </div>
++            <div style="border-top: 1px solid rgba(253, 251, 250, 0.1); padding-top: 2rem;">
++                <p style="opacity: 0.7; font-size: 0.875rem; color: #FDFBFA;">&copy; 2026 Instituto Ana Cândida. Todos os direitos reservados.</p>
++            </div>
+         </div>
+     </footer>
+ 
+@@ -580,4 +613,5 @@
+     }
+ </script>
+ 
+-</html>
+\ No newline at end of file
++</html>
++
+
+commit 01bb495fcecad133dae643e0d21d363d78d739c6
+Author: Inacio Eletronica <cognicao.digittalpro@gmail.com>
+Date:   Thu Apr 2 10:29:23 2026 -0300
+
+    Full site rebuild and structural reorganization for clean URLs (/home, /jornada, /upsell, /renascimento, /obrigado)
+
+diff --git a/renascimento/index.html b/renascimento/index.html
+index cc31efc..44a0bed 100644
+--- a/renascimento/index.html
++++ b/renascimento/index.html
+@@ -454,12 +454,12 @@
+                 <span class="btn-subtext">Atendimento humanizado</span>
+             </a>
+ 
+-            <a href="../jornada/index.html" class="btn-bio">
++            <a href="/home/jornada/" class="btn-bio">
+                 <span class="btn-main-label">Jornada 7 Dias</span>
+                 <span class="btn-subtext">Desperte Seu Feminino</span>
+             </a>
+ 
+-            <a href="../index.html" class="btn-bio">
++            <a href="/home/" class="btn-bio">
+                 <span class="btn-main-label">Site Oficial</span>
+                 <span class="btn-subtext">Instituto Ana Cândida</span>
+             </a>
+@@ -491,7 +491,7 @@
+             <p>Existe uma mulher dentro de você que ainda acredita.</p>
+             <p style="font-size: 0.9rem; margin-top: 10px; opacity: 0.9;">Ela ainda quer paz.</p>
+ 
+-            <a href="../jornada/index.html" class="btn-bio btn-primary-bio"
++            <a href="/home/jornada/" class="btn-bio btn-primary-bio"
+                 style="margin-top: 30px; box-shadow: none; border: 1px solid rgba(255,255,255,0.3);">
+                 <span class="btn-main-label">Começar Minha Jornada</span>
+             </a>
