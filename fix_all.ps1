@@ -4,6 +4,7 @@ $root = "c:\Users\Usuario\.gemini\antigravity\playground\nascimento-familiar"
 # 1. Universal Style Block (Dropdowns Fixed, SVGs, FAQ, Floating Button)
 function Get-StyleBlock {
     return @"
+    <!-- STYLES_START -->
     <style id="global-styles">
         :root {
             --brand-900: #0A4834;   /* Verde Principal */
@@ -163,13 +164,14 @@ function Get-StyleBlock {
             animation: pulse-red 2s infinite;
         }
     </style>
+    <!-- STYLES_END -->
 "@
 }
 
 # 2. Header Template
 function Get-Header($depthPath) {
     return @"
-    <!-- Premium Header -->
+    <!-- HEADER_START -->
     <header id="main-header" style="background-color: #FFFFFF; border-bottom: 1px solid #F0F4F2; position: sticky; top: 0; z-index: 1000;">
         <nav class="container-custom" style="padding: 0 2rem;">
             <div style="display: flex; align-items: center; width: 100%; justify-content: space-between; height: 110px;">
@@ -294,7 +296,7 @@ function Get-Header($depthPath) {
 # 3. Footer Template (With Direct SVGs for Social Assets)
 function Get-Footer($depthPath) {
     return @"
-    <!-- Premium Footer -->
+    <!-- FOOTER_START -->
     <footer style="background-color: var(--brand-900); color: #FDFBFA !important; padding: 5rem 0 3rem; position: relative; z-index: 50; width: 100%;">
         <div class="container-custom">
             <div class="footer-grid">
@@ -355,13 +357,14 @@ function Get-Footer($depthPath) {
             </div>
         </div>
     </footer>
+    <!-- FOOTER_END -->
 "@
 }
 
 # 4. Script Template
-function Get-ScriptBlock($hasLocalScript) {
+function Get-ScriptBlock($hasLocalScript, $depthPath) {
     $baseScript = @"
-    <!-- Premium Scripts -->
+    <!-- SCRIPTS_START -->
     <script src="https://unpkg.com/lucide@latest"></script>
     <script>
         document.addEventListener('DOMContentLoaded', () => { lucide.createIcons(); });
@@ -399,10 +402,10 @@ function Get-ScriptBlock($hasLocalScript) {
         });
         document.getElementById('scroll-top')?.addEventListener('click', () => window.scrollTo({top: 0, behavior: 'smooth'}));
     </script>
-    <!-- Scripts End -->
+    <!-- SCRIPTS_END -->
 "@
     if ($hasLocalScript) {
-        $baseScript += "`n    <script src=`"js/script.js`"></script>"
+        $baseScript += "`n    <script src=`"${depthPath}js/script.js`"></script>"
     }
     return $baseScript
 }
@@ -412,36 +415,58 @@ $lvl1 = @("agendar/index.html", "atendimentos/index.html", "contato/index.html",
 $lvl2 = @("atendimentos/terapia-individual/index.html", "atendimentos/terapia-casal/index.html", "atendimentos/terapia-familiar/index.html", "atendimentos/parentalidade/index.html")
 
 function Process-File($f, $depthPath) {
+    if ($f -match 'cleanup_index.ps1') { return }
     $path = Join-Path $root $f
     if (Test-Path $path) {
         $content = Get-Content $path -Raw
         
-        # Inject Style Block
-        $content = $content -replace '(?s)<style id="global-styles">.*?</style>', (Get-StyleBlock)
-        if ($content -notmatch '<style id="global-styles">') {
-            $content = $content -replace '</head>', "$((Get-StyleBlock))`n</head>"
-        }
-
-        # Inject Header (Includes Mobile Menu)
-        $content = $content -replace '(?s)<!-- Premium Header -->.*?<!-- Header End -->', ''
-        $content = $content -replace '(?s)<header.*?>.*?</header>', ''
-        $content = $content -replace '(?s)<div id="mobile-menu".*?</div>\s*?</div>', ''
-        $content = $content -replace '<body.*?>', "$&`n$((Get-Header $depthPath))"
-
-        # Inject Footer
-        $content = $content -replace '(?s)<!-- Premium Footer -->.*?</footer>', (Get-Footer $depthPath)
-        if ($content -notmatch '<!-- Premium Footer -->') {
-            $content = $content -replace '(?s)<footer.*?>.*?</footer>', (Get-Footer $depthPath)
-        }
-
-        # Inject Scripts
-        $hasLocalScript = Test-Path (Join-Path (Split-Path $path) "js\script.js")
-        $content = $content -replace '(?s)<!-- Premium Scripts -->.*?<!-- Scripts End -->', (Get-ScriptBlock $hasLocalScript)
-        if ($content -notmatch '<!-- Premium Scripts -->') {
-            $content = $content -replace '</body>', "$((Get-ScriptBlock $hasLocalScript))`n</body>"
-        }
+        # 1. EXTRACT MAIN CONTENT (The unique part of each page)
+        $mainStart = $content.IndexOf("<main")
+        $mainEnd = $content.LastIndexOf("</main>")
         
-        Set-Content $path $content
+        if ($mainStart -ge 0 -and $mainEnd -gt $mainStart) {
+            $mainEnd += "</main>".Length
+            $mainContent = $content.Substring($mainStart, $mainEnd - $mainStart)
+        } else {
+            Write-Host "Warning: <main> tag not found in $f. Skipping reconstruction to prevent data loss."
+            return
+        }
+
+        # 2. EXTRACT HEAD METADATA (Keep title, meta, icons)
+        # We'll split the head and remove our injected style markers
+        $headStart = $content.IndexOf("<head>") + "<head>".Length
+        $headEnd = $content.IndexOf("</head>")
+        $headMetadata = $content.Substring($headStart, $headEnd - $headStart)
+        
+        # Cleanup injected stuff from headMetadata
+        $headMetadata = $headMetadata -replace '(?s)<!-- STYLES_START -->.*?<!-- STYLES_END -->', ''
+        $headMetadata = $headMetadata -replace '(?s)<style id="global-styles">.*?</style>', ''
+        $headMetadata = $headMetadata -replace '(?s)<style>.*?</style>', ''
+        # Remove redundant stylesheet links if they exist
+        $headMetadata = $headMetadata -replace '<link rel="stylesheet" href=".*?assets/style.css">', ''
+
+        # 3. RECONSTRUCT THE PAGE
+        $hasLocalScript = Test-Path (Join-Path (Split-Path $path) "js\script.js")
+        $newContent = @"
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    $($headMetadata.Trim())
+    
+    <link rel="stylesheet" href="${depthPath}assets/style.css">
+$((Get-StyleBlock))
+</head>
+<body style="background-color: var(--brand-50); font-family: var(--font-sans); color: var(--brand-800);">
+$((Get-Header $depthPath))
+
+$($mainContent)
+
+$((Get-Footer $depthPath))
+$((Get-ScriptBlock $hasLocalScript $depthPath))
+</body>
+</html>
+"@
+        Set-Content $path $newContent.Trim()
     }
 }
 
