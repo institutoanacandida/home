@@ -4,7 +4,7 @@ $root = "c:\Users\Usuario\.gemini\antigravity\playground\nascimento-familiar"
 # 1. Universal Style Block (Dropdowns Fixed, SVGs, FAQ, Floating Button)
 function Get-StyleBlock {
     return @"
-    <style>
+    <style id="global-styles">
         :root {
             --brand-900: #0A4834;   /* Verde Principal */
             --brand-800: #1A513E;   /* Verde Médio */
@@ -287,6 +287,7 @@ function Get-Header($depthPath) {
             <a href="https://wa.me/5562981838006" target="_blank" style="background-color: #0A4834; color: white; padding: 1rem; border-radius: 0.75rem; text-align: center; text-decoration: none; font-weight: 600; margin-top: 2rem; font-family: 'Montserrat', sans-serif;">Agendar Agora</a>
         </div>
     </div>
+    <!-- Header End -->
 "@
 }
 
@@ -360,6 +361,7 @@ function Get-Footer($depthPath) {
 # 4. Script Template
 function Get-ScriptBlock($hasLocalScript) {
     $baseScript = @"
+    <!-- Premium Scripts -->
     <script src="https://unpkg.com/lucide@latest"></script>
     <script>
         document.addEventListener('DOMContentLoaded', () => { lucide.createIcons(); });
@@ -397,6 +399,7 @@ function Get-ScriptBlock($hasLocalScript) {
         });
         document.getElementById('scroll-top')?.addEventListener('click', () => window.scrollTo({top: 0, behavior: 'smooth'}));
     </script>
+    <!-- Scripts End -->
 "@
     if ($hasLocalScript) {
         $baseScript += "`n    <script src=`"js/script.js`"></script>"
@@ -413,18 +416,30 @@ function Process-File($f, $depthPath) {
     if (Test-Path $path) {
         $content = Get-Content $path -Raw
         
-        # Header/Footer/Style/Script Injection
-        $style = Get-StyleBlock
-        $cssLink = "<link rel=""stylesheet"" href=""${depthPath}assets/style.css"">"
-        $header = Get-Header $depthPath
-        $footer = Get-Footer $depthPath
+        # Inject Style Block
+        $content = $content -replace '(?s)<style id="global-styles">.*?</style>', (Get-StyleBlock)
+        if ($content -notmatch '<style id="global-styles">') {
+            $content = $content -replace '</head>', "$((Get-StyleBlock))`n</head>"
+        }
+
+        # Inject Header (Includes Mobile Menu)
+        $content = $content -replace '(?s)<!-- Premium Header -->.*?<!-- Header End -->', ''
+        $content = $content -replace '(?s)<header.*?>.*?</header>', ''
+        $content = $content -replace '(?s)<div id="mobile-menu".*?</div>\s*?</div>', ''
+        $content = $content -replace '<body.*?>', "$&`n$((Get-Header $depthPath))"
+
+        # Inject Footer
+        $content = $content -replace '(?s)<!-- Premium Footer -->.*?</footer>', (Get-Footer $depthPath)
+        if ($content -notmatch '<!-- Premium Footer -->') {
+            $content = $content -replace '(?s)<footer.*?>.*?</footer>', (Get-Footer $depthPath)
+        }
+
+        # Inject Scripts
         $hasLocalScript = Test-Path (Join-Path (Split-Path $path) "js\script.js")
-        $script = Get-ScriptBlock $hasLocalScript
-        
-        $content = $content -replace '(?s)<style>.*?</style>', "$cssLink`n$style"
-        $content = $content -replace '(?s)<!-- Premium Header -->.*?</header>', $header
-        $content = $content -replace '(?s)<!-- Premium Footer -->.*?</footer>', $footer
-        $content = $content -replace '(?s)<script src="https://unpkg.com/lucide@latest">.*?</script>.*?</html>', "$script`n</body>`n</html>"
+        $content = $content -replace '(?s)<!-- Premium Scripts -->.*?<!-- Scripts End -->', (Get-ScriptBlock $hasLocalScript)
+        if ($content -notmatch '<!-- Premium Scripts -->') {
+            $content = $content -replace '</body>', "$((Get-ScriptBlock $hasLocalScript))`n</body>"
+        }
         
         Set-Content $path $content
     }
