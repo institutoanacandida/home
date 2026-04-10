@@ -11,6 +11,7 @@ function Get-StyleBlock {
             --brand-500: #C19555;   /* Dourado Principal */
             --brand-100: #F0F4F2;   /* Verde Ultra Light */
             --brand-50: #FFFFFF;    /* Branco */
+            --red-accent: #D93131;  /* Detalhe em Vermelho */
         }
 
         /* Fixed Interactive Dropdowns */
@@ -149,6 +150,18 @@ function Get-StyleBlock {
         .form-label { display: block; font-size: 0.85rem; font-weight: 600; color: var(--brand-900); margin-bottom: 0.5rem; }
         .form-input { width: 100%; padding: 0.875rem 1rem; border: 1px solid var(--brand-100); border-radius: 0.75rem; font-family: inherit; transition: 0.3s; }
         .btn-submit { width: 100%; padding: 1rem; background: var(--brand-900); color: white; border: none; border-radius: 9999px; font-weight: 700; cursor: pointer; transition: 0.3s; margin-top: 1rem; }
+
+        /* Red Pulse Animation */
+        @keyframes pulse-red {
+            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(217, 49, 49, 0.7); }
+            70% { transform: scale(1); box-shadow: 0 0 0 6px rgba(217, 49, 49, 0); }
+            100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(217, 49, 49, 0); }
+        }
+        .red-dot {
+            width: 8px; height: 8px; background-color: var(--red-accent); border-radius: 50%;
+            display: inline-block; position: absolute; top: -2px; right: -2px;
+            animation: pulse-red 2s infinite;
+        }
     </style>
 "@
 }
@@ -204,8 +217,9 @@ function Get-Header($depthPath) {
                     <a href="${depthPath}contato" style="font-size: 0.9rem; font-weight: 500; color: #0A4834; text-decoration: none; font-family: 'Montserrat', sans-serif;">Contato</a>
                 </div>
 
-                <div class="hidden lg:block">
+                <div class="hidden lg:block" style="position: relative;">
                     <a href="https://wa.me/5562981838006" target="_blank" class="btn-primary" style="padding: 0.6rem 1.5rem; font-size: 0.85rem;">Agendar</a>
+                    <span class="red-dot"></span>
                 </div>
                 
                 <button class="lg:hidden" style="background: none; border: none; cursor: pointer; color: #0A4834;" onclick="toggleMobileMenu()">
@@ -328,8 +342,11 @@ function Get-Footer($depthPath) {
                 </div>
                 <!-- Col 5: Aviso Important -->
                 <div>
-                    <h4 style="font-family: 'Playfair Display', serif; font-size: 1.1rem; margin-bottom: 1.5rem; font-weight: 700; color: #FDFBFA !important;">Aviso Importante</h4>
-                    <p style="opacity: 0.9; line-height: 1.6; font-size: 0.9rem; color: #FDFBFA !important;">Este site não oferece atendimento de emergência. Em caso de crise, procure o hospital mais próximo ou ligue 188 (CVV).</p>
+                    <h4 style="font-family: 'Playfair Display', serif; font-size: 1.1rem; margin-bottom: 1.5rem; font-weight: 700; color: #FDFBFA !important; display: flex; align-items: center; gap: 0.5rem;">
+                        <span style="width: 8px; height: 8px; background-color: var(--red-accent); border-radius: 50%; display: inline-block;"></span> 
+                        Aviso Importante
+                    </h4>
+                    <p style="opacity: 0.9; line-height: 1.6; font-size: 0.9rem; color: #FDFBFA !important;">Este site não oferece atendimento de emergência. Em caso de crise, procure o hospital mais próximo ou ligue <span style="color: var(--red-accent); font-weight: 700;">188 (CVV)</span>.</p>
                 </div>
             </div>
             <div style="border-top: 1px solid rgba(253, 251, 250, 0.1); padding-top: 2rem; text-align: center;">

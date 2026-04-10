@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="../assets/style.css">
     <link rel="stylesheet" href="../assets/style.css">
     <link rel="stylesheet" href="../assets/style.css">
+    <link rel="stylesheet" href="../assets/style.css">
     <style>
         :root {
             --brand-900: #0A4834;   /* Verde Principal */
@@ -21,6 +22,7 @@
             --brand-500: #C19555;   /* Dourado Principal */
             --brand-100: #F0F4F2;   /* Verde Ultra Light */
             --brand-50: #FFFFFF;    /* Branco */
+            --red-accent: #D93131;  /* Detalhe em Vermelho */
         }
 
         /* Fixed Interactive Dropdowns */
@@ -159,6 +161,18 @@
         .form-label { display: block; font-size: 0.85rem; font-weight: 600; color: var(--brand-900); margin-bottom: 0.5rem; }
         .form-input { width: 100%; padding: 0.875rem 1rem; border: 1px solid var(--brand-100); border-radius: 0.75rem; font-family: inherit; transition: 0.3s; }
         .btn-submit { width: 100%; padding: 1rem; background: var(--brand-900); color: white; border: none; border-radius: 9999px; font-weight: 700; cursor: pointer; transition: 0.3s; margin-top: 1rem; }
+
+        /* Red Pulse Animation */
+        @keyframes pulse-red {
+            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(217, 49, 49, 0.7); }
+            70% { transform: scale(1); box-shadow: 0 0 0 6px rgba(217, 49, 49, 0); }
+            100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(217, 49, 49, 0); }
+        }
+        .red-dot {
+            width: 8px; height: 8px; background-color: var(--red-accent); border-radius: 50%;
+            display: inline-block; position: absolute; top: -2px; right: -2px;
+            animation: pulse-red 2s infinite;
+        }
     </style>
 
                                                                                                                 <link rel="stylesheet" href="../assets/style.css">
@@ -166,6 +180,7 @@
     <link rel="stylesheet" href="../assets/style.css">
     <link rel="stylesheet" href="../assets/style.css">
     <link rel="stylesheet" href="../assets/style.css">
+    <link rel="stylesheet" href="../assets/style.css">
     <style>
         :root {
             --brand-900: #0A4834;   /* Verde Principal */
@@ -173,6 +188,7 @@
             --brand-500: #C19555;   /* Dourado Principal */
             --brand-100: #F0F4F2;   /* Verde Ultra Light */
             --brand-50: #FFFFFF;    /* Branco */
+            --red-accent: #D93131;  /* Detalhe em Vermelho */
         }
 
         /* Fixed Interactive Dropdowns */
@@ -311,10 +327,22 @@
         .form-label { display: block; font-size: 0.85rem; font-weight: 600; color: var(--brand-900); margin-bottom: 0.5rem; }
         .form-input { width: 100%; padding: 0.875rem 1rem; border: 1px solid var(--brand-100); border-radius: 0.75rem; font-family: inherit; transition: 0.3s; }
         .btn-submit { width: 100%; padding: 1rem; background: var(--brand-900); color: white; border: none; border-radius: 9999px; font-weight: 700; cursor: pointer; transition: 0.3s; margin-top: 1rem; }
+
+        /* Red Pulse Animation */
+        @keyframes pulse-red {
+            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(217, 49, 49, 0.7); }
+            70% { transform: scale(1); box-shadow: 0 0 0 6px rgba(217, 49, 49, 0); }
+            100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(217, 49, 49, 0); }
+        }
+        .red-dot {
+            width: 8px; height: 8px; background-color: var(--red-accent); border-radius: 50%;
+            display: inline-block; position: absolute; top: -2px; right: -2px;
+            animation: pulse-red 2s infinite;
+        }
     </style>
 </head>
 <body style="background-color: var(--brand-50); font-family: var(--font-sans); color: var(--brand-800);">
-                                                                                                                                                                                                <!-- Premium Header -->
+                                                                                                                                                                                                    <!-- Premium Header -->
     <header id="main-header" style="background-color: #FFFFFF; border-bottom: 1px solid #F0F4F2; position: sticky; top: 0; z-index: 1000;">
         <nav class="container-custom" style="padding: 0 2rem;">
             <div style="display: flex; align-items: center; width: 100%; justify-content: space-between; height: 110px;">
@@ -362,8 +390,9 @@
                     <a href="../contato" style="font-size: 0.9rem; font-weight: 500; color: #0A4834; text-decoration: none; font-family: 'Montserrat', sans-serif;">Contato</a>
                 </div>
 
-                <div class="hidden lg:block">
+                <div class="hidden lg:block" style="position: relative;">
                     <a href="https://wa.me/5562981838006" target="_blank" class="btn-primary" style="padding: 0.6rem 1.5rem; font-size: 0.85rem;">Agendar</a>
+                    <span class="red-dot"></span>
                 </div>
                 
                 <button class="lg:hidden" style="background: none; border: none; cursor: pointer; color: #0A4834;" onclick="toggleMobileMenu()">
@@ -372,6 +401,65 @@
             </div>
         </nav>
     </header>
+
+    <!-- Mobile Menu Overlay -->
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu" class="hidden" style="position: fixed; inset: 0; background: white; z-index: 2000; padding: 2rem; flex-direction: column; overflow-y: auto;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
+            <a href="../" style="display: flex; align-items: center; text-decoration: none; margin-bottom: 1rem;">
+                <img src="https://i.ibb.co/vvPV65rT/ana-candida-s-f.png" alt="Instituto Ana Cândida" style="height: 75px; width: auto; object-fit: contain;">
+            </a>
+            <button onclick="toggleMobileMenu()" style="background: none; border: none; cursor: pointer; color: #0A4834;"><i data-lucide="x"></i></button>
+        </div>
+        
+        <div style="display: flex; flex-direction: column;">
+            <!-- O Instituto Mobile -->
+            <div class="mobile-nav-item">
+                <button class="mobile-nav-btn" onclick="toggleMobileAccordion(this)">
+                    O Instituto <i data-lucide="chevron-down" class="chevron-mobile" style="width: 18px; height: 18px;"></i>
+                </button>
+                <div class="mobile-nav-content">
+                    <a href="../o-instituto" class="mobile-link-sub">Visão Geral</a>
+                    <a href="../o-instituto#sobre" class="mobile-link-sub">Sobre nós</a>
+                    <a href="../o-instituto#missao" class="mobile-link-sub">Missão e Valores</a>
+                    <a href="../o-instituto#como-trabalhamos" class="mobile-link-sub">Como Trabalhamos</a>
+                </div>
+            </div>
+
+            <!-- Terapia Sistêmica Mobile -->
+            <div class="mobile-nav-item">
+                <button class="mobile-nav-btn" onclick="toggleMobileAccordion(this)">
+                    Terapia Sistêmica <i data-lucide="chevron-down" class="chevron-mobile" style="width: 18px; height: 18px;"></i>
+                </button>
+                <div class="mobile-nav-content">
+                    <a href="../terapia-sistemica" class="mobile-link-sub">Visão Geral</a>
+                    <a href="../terapia-sistemica#que-e" class="mobile-link-sub">O que é</a>
+                    <a href="../terapia-sistemica#para-quem" class="mobile-link-sub">Para quem é</a>
+                    <a href="../terapia-sistemica#primeira-sessao" class="mobile-link-sub">Primeira Sessão</a>
+                </div>
+            </div>
+
+            <!-- Atendimentos Mobile -->
+            <div class="mobile-nav-item">
+                <button class="mobile-nav-btn" onclick="toggleMobileAccordion(this)">
+                    Atendimentos <i data-lucide="chevron-down" class="chevron-mobile" style="width: 18px; height: 18px;"></i>
+                </button>
+                <div class="mobile-nav-content">
+                    <a href="../atendimentos/terapia-individual" class="mobile-link-sub">Terapia Individual</a>
+                    <a href="../atendimentos/terapia-casal" class="mobile-link-sub">Terapia de Casal</a>
+                    <a href="../atendimentos/terapia-familiar" class="mobile-link-sub">Terapia Familiar</a>
+                    <a href="../atendimentos/parentalidade" class="mobile-link-sub">Parentalidade</a>
+                </div>
+            </div>
+
+            <a href="../equipe" style="font-weight: 600; color: #0A4834; text-decoration: none; padding: 1.25rem 0; border-bottom: 1px solid #f0f0f0; font-family: 'Montserrat', sans-serif;">Equipe</a>
+            <a href="../galeria" style="font-weight: 600; color: #0A4834; text-decoration: none; padding: 1.25rem 0; border-bottom: 1px solid #f0f0f0; font-family: 'Montserrat', sans-serif;">Galeria</a>
+            <a href="../conteudos" style="font-weight: 600; color: #0A4834; text-decoration: none; padding: 1.25rem 0; border-bottom: 1px solid #f0f0f0; font-family: 'Montserrat', sans-serif;">Conteúdos</a>
+            <a href="../contato" style="font-weight: 600; color: #0A4834; text-decoration: none; padding: 1.25rem 0; border-bottom: 1px solid #f0f0f0; font-family: 'Montserrat', sans-serif;">Contato</a>
+            
+            <a href="https://wa.me/5562981838006" target="_blank" style="background-color: #0A4834; color: white; padding: 1rem; border-radius: 0.75rem; text-align: center; text-decoration: none; font-weight: 600; margin-top: 2rem; font-family: 'Montserrat', sans-serif;">Agendar Agora</a>
+        </div>
+    </div>
 
     <!-- Mobile Menu Overlay -->
     <!-- Mobile Menu Overlay -->
@@ -866,7 +954,7 @@
         </section>
     </main>
 
-                                                                                                                                                                                    <!-- Premium Footer -->
+                                                                                                                                                                                        <!-- Premium Footer -->
     <footer style="background-color: var(--brand-900); color: #FDFBFA !important; padding: 5rem 0 3rem; position: relative; z-index: 50; width: 100%;">
         <div class="container-custom">
             <div class="footer-grid">
@@ -915,8 +1003,11 @@
                 </div>
                 <!-- Col 5: Aviso Important -->
                 <div>
-                    <h4 style="font-family: 'Playfair Display', serif; font-size: 1.1rem; margin-bottom: 1.5rem; font-weight: 700; color: #FDFBFA !important;">Aviso Importante</h4>
-                    <p style="opacity: 0.9; line-height: 1.6; font-size: 0.9rem; color: #FDFBFA !important;">Este site não oferece atendimento de emergência. Em caso de crise, procure o hospital mais próximo ou ligue 188 (CVV).</p>
+                    <h4 style="font-family: 'Playfair Display', serif; font-size: 1.1rem; margin-bottom: 1.5rem; font-weight: 700; color: #FDFBFA !important; display: flex; align-items: center; gap: 0.5rem;">
+                        <span style="width: 8px; height: 8px; background-color: var(--red-accent); border-radius: 50%; display: inline-block;"></span> 
+                        Aviso Importante
+                    </h4>
+                    <p style="opacity: 0.9; line-height: 1.6; font-size: 0.9rem; color: #FDFBFA !important;">Este site não oferece atendimento de emergência. Em caso de crise, procure o hospital mais próximo ou ligue <span style="color: var(--red-accent); font-weight: 700;">188 (CVV)</span>.</p>
                 </div>
             </div>
             <div style="border-top: 1px solid rgba(253, 251, 250, 0.1); padding-top: 2rem; text-align: center;">
@@ -925,7 +1016,7 @@
         </div>
     </footer>
                             <button id="scroll-top" title="Voltar ao topo"><i data-lucide="chevron-up"></i></button>
-                                                                            <script src="https://unpkg.com/lucide@latest"></script>
+                                                                                <script src="https://unpkg.com/lucide@latest"></script>
     <script>
         document.addEventListener('DOMContentLoaded', () => { lucide.createIcons(); });
         function toggleMobileMenu() { 
@@ -964,6 +1055,7 @@
     </script>
 </body>
 </html>
+
 
 
 
