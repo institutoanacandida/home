@@ -1,21 +1,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap');
 
 :root {
-    /* Brand Palette - Extraída do tailwind.config.ts */
-    --brand-50: #FAF9F6;
-    --brand-100: #F5F0E6;
-    --brand-200: #E8DBC5;
-    --brand-300: #DBC2A4;
-    --brand-400: #CFA276;
-    --brand-500: #B0895E; /* Dourado Principal */
-    --brand-600: #967045;
-    --brand-700: #755536;
-    --brand-800: #5C422D; /* Texto */
-    --brand-900: #423022; /* Títulos */
+    /* Brand Palette - Nova Paleta Institucional */
+    --brand-50: #FFFFFF;    /* Branco */
+    --brand-100: #F0F4F2;   /* Verde Ultra Ligt (Borders) */
+    --brand-200: #D1DFD9;   /* Verde Light */
+    --brand-500: #C19555;   /* Dourado Principal (Botões/Destaques) */
+    --brand-600: #A67C41;   /* Dourado Dark (Hover) */
+    --brand-800: #1A513E;   /* Verde Médio (Texto) */
+    --brand-900: #0A4834;   /* Verde Principal (Títulos/Rodapé) */
     
     /* Accent Palette */
-    --accent-100: #F2EBE5;
-    --accent-500: #D4A373;
+    --accent-100: #FDFBFA;
+    --accent-500: #C19555;
 
     /* Fonts */
     --font-serif: 'Playfair Display', serif;

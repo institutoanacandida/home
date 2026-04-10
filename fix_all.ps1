@@ -6,16 +6,16 @@ function Get-StyleBlock {
     return @"
     <style>
         :root {
-            --brand-900: #483525;
-            --brand-800: #5D4632;
-            --brand-500: #9C7C5F;
-            --brand-100: #EAE1D8;
-            --brand-50: #FDFBFA;
+            --brand-900: #0A4834;   /* Verde Principal */
+            --brand-800: #1A513E;   /* Verde Médio */
+            --brand-500: #C19555;   /* Dourado Principal */
+            --brand-100: #F0F4F2;   /* Verde Ultra Light */
+            --brand-50: #FFFFFF;    /* Branco */
         }
 
         /* Fixed Interactive Dropdowns */
         .nav-item-dropdown { position: relative; padding: 1rem 0; cursor: pointer; }
-        .nav-link-main { display: flex; align-items: center; gap: 0.4rem; font-size: 0.9rem; font-weight: 500; color: #483525; text-decoration: none; font-family: 'Montserrat', sans-serif; }
+        .nav-link-main { display: flex; align-items: center; gap: 0.4rem; font-size: 0.9rem; font-weight: 500; color: #0A4834; text-decoration: none; font-family: 'Montserrat', sans-serif; }
         .dropdown-menu { 
             position: absolute; top: 100%; left: 50%; transform: translateX(-50%) translateY(10px);
             min-width: 260px; background: white; border: 1px solid var(--brand-100); 
@@ -56,22 +56,22 @@ function Get-StyleBlock {
 
         /* Mobile Accordion Styles */
         .mobile-nav-item { border-bottom: 1px solid #f0f0f0; }
-        .mobile-nav-btn { width: 100%; display: flex; justify-content: space-between; align-items: center; padding: 1rem 0; background: none; border: none; font-family: 'Montserrat', sans-serif; font-weight: 600; color: #483525; font-size: 1rem; cursor: pointer; text-align: left; }
+        .mobile-nav-btn { width: 100%; display: flex; justify-content: space-between; align-items: center; padding: 1rem 0; background: none; border: none; font-family: 'Montserrat', sans-serif; font-weight: 600; color: #0A4834; font-size: 1rem; cursor: pointer; text-align: left; }
         .mobile-nav-content { max-height: 0; overflow: hidden; transition: all 0.3s ease; display: flex; flex-direction: column; padding-left: 1rem; background: #fafafa; border-radius: 0.5rem; }
         .mobile-nav-item.active .mobile-nav-content { max-height: 300px; padding-bottom: 1rem; margin-bottom: 0.5rem; }
         .mobile-nav-item.active .chevron-mobile { transform: rotate(180deg); }
-        .mobile-link-sub { display: block; padding: 0.75rem 0; color: #5D4632; text-decoration: none; font-size: 0.9rem; font-family: 'Montserrat', sans-serif; }
+        .mobile-link-sub { display: block; padding: 0.75rem 0; color: #1A513E; text-decoration: none; font-size: 0.9rem; font-family: 'Montserrat', sans-serif; }
 
         /* Premium Buttons */
         .btn-primary {
-            background-color: #483525;
+            background-color: #C19555;
             color: white !important;
             padding: 1rem 2.2rem;
             border-radius: 9999px;
             text-decoration: none;
             font-weight: 700;
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            box-shadow: 0 10px 15px -3px rgba(72, 53, 37, 0.2);
+            box-shadow: 0 10px 15px -3px rgba(193, 149, 85, 0.2);
             display: inline-flex;
             align-items: center;
             justify-content: center;
@@ -82,13 +82,13 @@ function Get-StyleBlock {
         }
         .btn-primary:hover {
             transform: translateY(-3px);
-            box-shadow: 0 20px 25px -5px rgba(72, 53, 37, 0.3);
+            box-shadow: 0 20px 25px -5px rgba(193, 149, 85, 0.3);
             filter: brightness(1.1);
         }
         .btn-outline {
             background-color: transparent;
-            color: #483525 !important;
-            border: 2px solid #483525;
+            color: #C19555 !important;
+            border: 2px solid #C19555;
             padding: 1rem 2.2rem;
             border-radius: 9999px;
             text-decoration: none;
@@ -102,7 +102,7 @@ function Get-StyleBlock {
             font-size: 0.9rem;
         }
         .btn-outline:hover {
-            background-color: #483525;
+            background-color: #C19555;
             color: white !important;
             transform: translateY(-3px);
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
@@ -157,7 +157,7 @@ function Get-StyleBlock {
 function Get-Header($depthPath) {
     return @"
     <!-- Premium Header -->
-    <header id="main-header" style="background-color: #FFFFFF; border-bottom: 1px solid #EAE1D8; position: sticky; top: 0; z-index: 1000;">
+    <header id="main-header" style="background-color: #FFFFFF; border-bottom: 1px solid #F0F4F2; position: sticky; top: 0; z-index: 1000;">
         <nav class="container-custom" style="padding: 0 2rem;">
             <div style="display: flex; align-items: center; width: 100%; justify-content: space-between; height: 110px;">
                 <a href="$depthPath" style="display: flex; align-items: center; text-decoration: none; height: 100%;">
@@ -198,17 +198,17 @@ function Get-Header($depthPath) {
                         </div>
                     </div>
 
-                    <a href="${depthPath}equipe" style="font-size: 0.9rem; font-weight: 500; color: #483525; text-decoration: none; font-family: 'Montserrat', sans-serif;">Equipe</a>
-                    <a href="${depthPath}galeria" style="font-size: 0.9rem; font-weight: 500; color: #483525; text-decoration: none; font-family: 'Montserrat', sans-serif;">Galeria</a>
-                    <a href="${depthPath}conteudos" style="font-size: 0.9rem; font-weight: 500; color: #483525; text-decoration: none; font-family: 'Montserrat', sans-serif;">Conteúdos</a>
-                    <a href="${depthPath}contato" style="font-size: 0.9rem; font-weight: 500; color: #483525; text-decoration: none; font-family: 'Montserrat', sans-serif;">Contato</a>
+                    <a href="${depthPath}equipe" style="font-size: 0.9rem; font-weight: 500; color: #0A4834; text-decoration: none; font-family: 'Montserrat', sans-serif;">Equipe</a>
+                    <a href="${depthPath}galeria" style="font-size: 0.9rem; font-weight: 500; color: #0A4834; text-decoration: none; font-family: 'Montserrat', sans-serif;">Galeria</a>
+                    <a href="${depthPath}conteudos" style="font-size: 0.9rem; font-weight: 500; color: #0A4834; text-decoration: none; font-family: 'Montserrat', sans-serif;">Conteúdos</a>
+                    <a href="${depthPath}contato" style="font-size: 0.9rem; font-weight: 500; color: #0A4834; text-decoration: none; font-family: 'Montserrat', sans-serif;">Contato</a>
                 </div>
 
                 <div class="hidden lg:block">
                     <a href="https://wa.me/5562981838006" target="_blank" class="btn-primary" style="padding: 0.6rem 1.5rem; font-size: 0.85rem;">Agendar</a>
                 </div>
                 
-                <button class="lg:hidden" style="background: none; border: none; cursor: pointer; color: #483525;" onclick="toggleMobileMenu()">
+                <button class="lg:hidden" style="background: none; border: none; cursor: pointer; color: #0A4834;" onclick="toggleMobileMenu()">
                     <i data-lucide="menu"></i>
                 </button>
             </div>
@@ -222,7 +222,7 @@ function Get-Header($depthPath) {
             <a href="$depthPath" style="display: flex; align-items: center; text-decoration: none; margin-bottom: 1rem;">
                 <img src="https://i.ibb.co/vvPV65rT/ana-candida-s-f.png" alt="Instituto Ana Cândida" style="height: 75px; width: auto; object-fit: contain;">
             </a>
-            <button onclick="toggleMobileMenu()" style="background: none; border: none; cursor: pointer; color: #483525;"><i data-lucide="x"></i></button>
+            <button onclick="toggleMobileMenu()" style="background: none; border: none; cursor: pointer; color: #0A4834;"><i data-lucide="x"></i></button>
         </div>
         
         <div style="display: flex; flex-direction: column;">
@@ -265,12 +265,12 @@ function Get-Header($depthPath) {
                 </div>
             </div>
 
-            <a href="${depthPath}equipe" style="font-weight: 600; color: #483525; text-decoration: none; padding: 1.25rem 0; border-bottom: 1px solid #f0f0f0; font-family: 'Montserrat', sans-serif;">Equipe</a>
-            <a href="${depthPath}galeria" style="font-weight: 600; color: #483525; text-decoration: none; padding: 1.25rem 0; border-bottom: 1px solid #f0f0f0; font-family: 'Montserrat', sans-serif;">Galeria</a>
-            <a href="${depthPath}conteudos" style="font-weight: 600; color: #483525; text-decoration: none; padding: 1.25rem 0; border-bottom: 1px solid #f0f0f0; font-family: 'Montserrat', sans-serif;">Conteúdos</a>
-            <a href="${depthPath}contato" style="font-weight: 600; color: #483525; text-decoration: none; padding: 1.25rem 0; border-bottom: 1px solid #f0f0f0; font-family: 'Montserrat', sans-serif;">Contato</a>
+            <a href="${depthPath}equipe" style="font-weight: 600; color: #0A4834; text-decoration: none; padding: 1.25rem 0; border-bottom: 1px solid #f0f0f0; font-family: 'Montserrat', sans-serif;">Equipe</a>
+            <a href="${depthPath}galeria" style="font-weight: 600; color: #0A4834; text-decoration: none; padding: 1.25rem 0; border-bottom: 1px solid #f0f0f0; font-family: 'Montserrat', sans-serif;">Galeria</a>
+            <a href="${depthPath}conteudos" style="font-weight: 600; color: #0A4834; text-decoration: none; padding: 1.25rem 0; border-bottom: 1px solid #f0f0f0; font-family: 'Montserrat', sans-serif;">Conteúdos</a>
+            <a href="${depthPath}contato" style="font-weight: 600; color: #0A4834; text-decoration: none; padding: 1.25rem 0; border-bottom: 1px solid #f0f0f0; font-family: 'Montserrat', sans-serif;">Contato</a>
             
-            <a href="https://wa.me/5562981838006" target="_blank" style="background-color: #483525; color: white; padding: 1rem; border-radius: 0.75rem; text-align: center; text-decoration: none; font-weight: 600; margin-top: 2rem; font-family: 'Montserrat', sans-serif;">Agendar Agora</a>
+            <a href="https://wa.me/5562981838006" target="_blank" style="background-color: #0A4834; color: white; padding: 1rem; border-radius: 0.75rem; text-align: center; text-decoration: none; font-weight: 600; margin-top: 2rem; font-family: 'Montserrat', sans-serif;">Agendar Agora</a>
         </div>
     </div>
 "@
