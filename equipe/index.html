@@ -42,16 +42,32 @@
         .dropdown-item:hover { background: var(--brand-50); color: var(--brand-500); padding-left: 1.75rem; }
         .nav-item-dropdown:hover .chevron-icon { transform: rotate(180deg); opacity: 1; color: var(--brand-500); }
 
-        /* Responsive Footer Grid */
+        /* Responsive & Framed Footer Grid */
         .footer-grid { 
-            display: grid; grid-template-columns: 1fr; gap: 2.5rem; margin-bottom: 4rem; 
+            display: grid; grid-template-columns: 1fr; gap: 3rem; margin-bottom: 4rem; text-align: center;
         }
-        @media (min-width: 640px) {
-            .footer-grid { grid-template-columns: repeat(2, 1fr); gap: 2.5rem; }
+        .footer-grid > div { display: flex; flex-direction: column; align-items: center; }
+        
+        @media (min-width: 768px) {
+            .footer-grid { grid-template-columns: repeat(2, 1fr); text-align: left; }
+            .footer-grid > div { align-items: flex-start; }
         }
         @media (min-width: 1024px) {
-            .footer-grid { grid-template-columns: 0.8fr 0.6fr 1.5fr 2fr 2.4fr; gap: 2rem; }
+            .footer-grid { grid-template-columns: 1.5fr 1fr 1.6fr 1.4fr 1.8fr; gap: 3rem; }
             .footer-nowrap { white-space: nowrap; }
+        }
+
+        /* Hero & Section Framing */
+        @media (max-width: 767px) {
+            #hero { text-align: center; padding: 60px 0 !important; }
+            #hero .container-custom > div { flex-direction: column !important; gap: 2.5rem !important; }
+            #hero h1 { font-size: 2.4rem !important; line-height: 1.2 !important; }
+            #hero p { font-size: 1.1rem !important; }
+            #hero div[style*="display: flex"] { justify-content: center !important; width: 100%; }
+            #hero .btn-primary, #hero .btn-outline { width: 100%; justify-content: center; }
+            
+            .section-title { font-size: 2rem !important; text-align: center; }
+            .grid-2col, .grid-2col-equal { text-align: center; }
         }
 
         /* FAQ Accordion */
@@ -403,12 +419,12 @@
         <div class="container-custom">
             <div class="footer-grid">
                 <!-- Col 1: Brand & Social -->
-                <div>
+                <div class="footer-col">
                     <a href="../" style="display: block; margin-bottom: 1.5rem;">
                         <img src="https://i.ibb.co/pBFQK4ZY/Design-sem-nome-64.png" alt="Instituto Ana Cândida" style="height: 70px; width: auto; object-fit: contain;">
                     </a>
-                    <p style="opacity: 0.9; line-height: 1.6; margin-bottom: 2rem; font-size: 0.95rem; color: #FDFBFA !important;">Cuidado relacional com base na Terapia Sistêmica. Acolhimento, ética e ciência para casais e famílias.</p>
-                    <div style="display: flex; gap: 1.5rem; align-items: center;">
+                    <p style="opacity: 0.9; line-height: 1.6; margin-bottom: 2rem; font-size: 0.95rem; color: #FDFBFA !important; max-width: 300px;">Cuidado relacional com base na Terapia Sistêmica. Acolhimento, ética e ciência para casais e famílias.</p>
+                    <div style="display: flex; gap: 1.5rem; align-items: center; justify-content: inherit;">
                         <a href="https://instagram.com" target="_blank" style="color: #FDFBFA !important; text-decoration: none;" aria-label="Instagram">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
                         </a>
@@ -447,11 +463,11 @@
                 </div>
                 <!-- Col 5: Aviso Important -->
                 <div>
-                    <h4 style="font-family: 'Playfair Display', serif; font-size: 1.1rem; margin-bottom: 1.5rem; font-weight: 700; color: #FDFBFA !important; display: flex; align-items: center; gap: 0.5rem;">
+                    <h4 style="font-family: 'Playfair Display', serif; font-size: 1.1rem; margin-bottom: 1.5rem; font-weight: 700; color: #FDFBFA !important; display: flex; align-items: center; gap: 0.5rem; justify-content: inherit;">
                         <span style="width: 8px; height: 8px; background-color: var(--red-accent); border-radius: 50%; display: inline-block;"></span> 
                         Aviso Importante
                     </h4>
-                    <p style="opacity: 0.9; line-height: 1.6; font-size: 0.9rem; color: #FDFBFA !important;">Este site não oferece atendimento de emergência. Em caso de crise, procure o hospital mais próximo ou ligue <span style="color: var(--red-accent); font-weight: 700;">188 (CVV)</span>.</p>
+                    <p style="opacity: 0.9; line-height: 1.6; font-size: 0.9rem; color: #FDFBFA !important; max-width: 320px;">Este site não oferece atendimento de emergência. Em caso de crise, procure o hospital mais próximo ou ligue <span style="color: var(--red-accent); font-weight: 700;">188 (CVV)</span>.</p>
                 </div>
             </div>
             <div style="border-top: 1px solid rgba(253, 251, 250, 0.1); padding-top: 2rem; text-align: center;">
