@@ -214,7 +214,17 @@ function Get-Header($depthPath) {
                         </div>
                     </div>
 
-                    <a href="${depthPath}conteudos" style="font-size: 0.9rem; font-weight: 500; color: #0A4834; text-decoration: none; font-family: 'Montserrat', sans-serif;">Conteúdos</a>
+                    <a href="${depthPath}conteudos" style="display:none;">Conteúdos</a>
+                    <!-- Conteúdos Dropdown -->
+                    <div class="nav-item-dropdown">
+                        <span class="nav-link-main">Conteúdos <i data-lucide="chevron-down" class="chevron-icon"></i></span>
+                        <div class="dropdown-menu">
+                            <a href="${depthPath}conteudos" class="dropdown-item">Visão Geral</a>
+                            <a href="${depthPath}conteudos/blog" class="dropdown-item">Blog</a>
+                            <a href="${depthPath}conteudos/cursos" class="dropdown-item">Cursos</a>
+                        </div>
+                    </div>
+                    
                     <a href="${depthPath}equipe" style="font-size: 0.9rem; font-weight: 500; color: #0A4834; text-decoration: none; font-family: 'Montserrat', sans-serif;">Equipe</a>
                     <a href="${depthPath}galeria" style="font-size: 0.9rem; font-weight: 500; color: #0A4834; text-decoration: none; font-family: 'Montserrat', sans-serif;">Galeria</a>
                     <a href="${depthPath}contato" style="font-size: 0.9rem; font-weight: 500; color: #0A4834; text-decoration: none; font-family: 'Montserrat', sans-serif;">Contato</a>
@@ -284,7 +294,18 @@ function Get-Header($depthPath) {
                 </div>
             </div>
 
-            <a href="${depthPath}conteudos" style="font-weight: 600; color: #0A4834; text-decoration: none; padding: 1.25rem 0; border-bottom: 1px solid #f0f0f0; font-family: 'Montserrat', sans-serif;">Conteúdos</a>
+            <!-- Conteúdos Mobile -->
+            <div class="mobile-nav-item">
+                <button class="mobile-nav-btn" onclick="toggleMobileAccordion(this)">
+                    Conteúdos <i data-lucide="chevron-down" class="chevron-mobile" style="width: 18px; height: 18px;"></i>
+                </button>
+                <div class="mobile-nav-content">
+                    <a href="${depthPath}conteudos" class="mobile-link-sub">Visão Geral</a>
+                    <a href="${depthPath}conteudos/blog" class="mobile-link-sub">Blog</a>
+                    <a href="${depthPath}conteudos/cursos" class="mobile-link-sub">Cursos</a>
+                </div>
+            </div>
+
             <a href="${depthPath}equipe" style="font-weight: 600; color: #0A4834; text-decoration: none; padding: 1.25rem 0; border-bottom: 1px solid #f0f0f0; font-family: 'Montserrat', sans-serif;">Equipe</a>
             <a href="${depthPath}galeria" style="font-weight: 600; color: #0A4834; text-decoration: none; padding: 1.25rem 0; border-bottom: 1px solid #f0f0f0; font-family: 'Montserrat', sans-serif;">Galeria</a>
             <a href="${depthPath}contato" style="font-weight: 600; color: #0A4834; text-decoration: none; padding: 1.25rem 0; border-bottom: 1px solid #f0f0f0; font-family: 'Montserrat', sans-serif;">Contato</a>
