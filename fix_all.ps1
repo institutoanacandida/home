@@ -179,6 +179,13 @@ function Get-StyleBlock {
         }
 
         /* Section Specifics */
+        .hero-container { 
+            display: flex; flex-direction: column; gap: 3rem; align-items: center; 
+        }
+        @media (min-width: 1024px) {
+            .hero-container { flex-direction: row; gap: 5rem; text-align: left; }
+        }
+
         .como-trab-inner { padding: 0; }
         @media (min-width: 1024px) {
             .como-trab-inner { padding: 0 5rem; }
