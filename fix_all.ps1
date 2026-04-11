@@ -435,8 +435,8 @@ function Get-ScriptBlock($hasLocalScript, $depthPath) {
 }
 
 # --- Execution ---
-$lvl1 = @("agendar/index.html", "atendimentos/index.html", "contato/index.html", "conteudos/index.html", "equipe/index.html", "galeria/index.html", "o-instituto/index.html", "terapia-sistemica/index.html", "upsell/index.html", "downsell/index.html", "renascimento/index.html", "jornada/index.html")
-$lvl2 = @("atendimentos/terapia-individual/index.html", "atendimentos/terapia-casal/index.html", "atendimentos/terapia-familiar/index.html", "atendimentos/parentalidade/index.html", "conteudos/blog/index.html", "conteudos/cursos/index.html")
+$lvl1 = @("agendar/index.html", "atendimentos/index.html", "contato/index.html", "conteudos/index.html", "equipe/index.html", "galeria/index.html", "o-instituto/index.html", "terapia-sistemica/index.html", "upsell/index.html", "downsell/index.html", "renascimento/index.html", "jornada/index.html", "obrigado/index.html")
+$lvl2 = @("atendimentos/terapia-individual/index.html", "atendimentos/terapia-casal/index.html", "atendimentos/terapia-familiar/index.html", "atendimentos/parentalidade/index.html", "conteudos/blog/index.html", "conteudos/cursos/index.html", "equipe/ana-candida/index.html", "equipe/mariana-silva/index.html", "equipe/roberto-mendes/index.html")
 
 function Process-File($f, $depthPath) {
     if ($f -match 'cleanup_index.ps1') { return }
