@@ -41,7 +41,7 @@ function Get-StyleBlock {
             display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; margin-bottom: 4rem; 
         }
         @media (min-width: 1024px) {
-            .footer-grid { grid-template-columns: 1fr 0.8fr 1.7fr 1.5fr 2fr; gap: 2.5rem; }
+            .footer-grid { grid-template-columns: 1fr 0.7fr 1.6fr 2.2fr 1.8fr; gap: 2rem; }
         }
 
         /* FAQ Accordion */
