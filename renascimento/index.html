@@ -68,11 +68,30 @@
             .section-title { font-size: 2rem !important; text-align: center; }
             .grid-2col, .grid-2col-equal { text-align: center; }
             
-            /* Enhanced Footer Mobile Centering */
-            .footer-grid { text-align: center !important; }
-            .footer-grid > div { align-items: center !important; text-align: center !important; }
-            .footer-grid ul { align-items: center !important; }
-            .footer-grid li { justify-content: center !important; text-align: center !important; }
+            /* Hybrid Footer Mobile Grid (1 full + 2 pairs) */
+            .footer-grid { 
+                grid-template-columns: 1fr 1fr !important;
+                gap: 2.5rem 1.5rem !important;
+                text-align: left !important;
+            }
+            .footer-grid > div { align-items: flex-start !important; }
+            
+            /* Logo Column: Full width & Centered */
+            .footer-grid > div:nth-child(1) { 
+                grid-column: 1 / -1 !important;
+                text-align: center !important;
+                align-items: center !important;
+                padding-bottom: 1rem;
+                border-bottom: 1px solid rgba(253, 251, 250, 0.1);
+                margin-bottom: 1rem;
+            }
+            .footer-grid > div:nth-child(1) p { margin-left: auto; margin-right: auto; }
+            
+            .footer-grid ul { align-items: flex-start !important; }
+            .footer-grid li { justify-content: flex-start !important; text-align: left !important; }
+            
+            /* Compact text for Aviso on mobile */
+            .footer-grid > div:nth-child(5) p { font-size: 0.8rem !important; }
         }
 
         /* FAQ Accordion */
