@@ -76,27 +76,38 @@
             /* Hybrid Footer Mobile Grid (1 full + 2 pairs) */
             .footer-grid { 
                 grid-template-columns: 1fr 1fr !important;
-                gap: 2.5rem 1.5rem !important;
+                gap: 2.5rem 1rem !important;
                 text-align: left !important;
+                width: 100% !important;
             }
-            .footer-grid > div { align-items: flex-start !important; }
+            .footer-grid > div { 
+                align-items: flex-start !important; 
+                overflow-wrap: anywhere !important;
+                word-break: break-word !important;
+                min-width: 0; /* Prevents flex/grid items from stretching */
+            }
             
             /* Logo Column: Full width & Centered */
             .footer-grid > div:nth-child(1) { 
                 grid-column: 1 / -1 !important;
                 text-align: center !important;
                 align-items: center !important;
-                padding-bottom: 1rem;
+                padding-bottom: 1.5rem;
                 border-bottom: 1px solid rgba(253, 251, 250, 0.1);
-                margin-bottom: 1rem;
+                margin-bottom: 0.5rem;
             }
-            .footer-grid > div:nth-child(1) p { margin-left: auto; margin-right: auto; }
+            .footer-grid > div:nth-child(1) p { margin-left: auto; margin-right: auto; max-width: 280px; }
             
+            .footer-grid h4 { font-size: 1rem !important; margin-bottom: 1rem !important; }
             .footer-grid ul { align-items: flex-start !important; }
-            .footer-grid li { justify-content: flex-start !important; text-align: left !important; }
+            .footer-grid li { justify-content: flex-start !important; text-align: left !important; font-size: 0.85rem !important; }
+            .footer-grid a { overflow-wrap: anywhere !important; word-break: break-word !important; }
             
             /* Compact text for Aviso on mobile */
-            .footer-grid > div:nth-child(5) p { font-size: 0.8rem !important; }
+            .footer-grid > div:nth-child(5) p { font-size: 0.75rem !important; line-height: 1.4 !important; }
+            
+            /* Force padding safety */
+            .container-custom { padding: 0 1.25rem !important; }
         }
 
         /* FAQ Accordion */
