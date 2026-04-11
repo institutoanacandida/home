@@ -55,13 +55,19 @@ function Get-StyleBlock {
         @media (max-width: 767px) {
             #hero { text-align: center; padding: 60px 0 !important; }
             #hero .container-custom > div { flex-direction: column !important; gap: 2.5rem !important; }
-            #hero h1 { font-size: 2.4rem !important; line-height: 1.2 !important; }
+            #hero h1 { font-size: 2.4rem !important; line-height: 1.2 !important; text-wrap: balance; }
             #hero p { font-size: 1.1rem !important; }
             #hero div[style*="display: flex"] { justify-content: center !important; width: 100%; }
             #hero .btn-primary, #hero .btn-outline { width: 100%; justify-content: center; }
             
             .section-title { font-size: 2rem !important; text-align: center; }
             .grid-2col, .grid-2col-equal { text-align: center; }
+            
+            /* Enhanced Footer Mobile Centering */
+            .footer-grid { text-align: center !important; }
+            .footer-grid > div { align-items: center !important; text-align: center !important; }
+            .footer-grid ul { align-items: center !important; }
+            .footer-grid li { justify-content: center !important; text-align: center !important; }
         }
 
         /* FAQ Accordion */
@@ -472,9 +478,10 @@ function Process-File($f, $depthPath) {
             $mainEnd += "</main>".Length
             $mainContent = $content.Substring($mainStart, $mainEnd - $mainStart)
             
-            # GLOBAL DATA FILTER: Securely update old phone numbers in body content
-            $mainContent = $mainContent -replace '98183-8006', '99471-8809'
+            # GLOBAL DATA FILTER: Securely update old phone numbers and emails in body content
+            $mainContent = $mainContent -replace '98183-?8006', '99471-8809'
             $mainContent = $mainContent -replace '981838006', '994718809'
+            $mainContent = $mainContent -replace 'Nikolly\.ana12@gmail\.com', 'institutoanacandida@gmail.com'
         } else {
             Write-Host "Warning: <main> tag not found in $f. Skipping reconstruction to prevent data loss."
             return

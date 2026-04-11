@@ -66,13 +66,19 @@
         @media (max-width: 767px) {
             #hero { text-align: center; padding: 60px 0 !important; }
             #hero .container-custom > div { flex-direction: column !important; gap: 2.5rem !important; }
-            #hero h1 { font-size: 2.4rem !important; line-height: 1.2 !important; }
+            #hero h1 { font-size: 2.4rem !important; line-height: 1.2 !important; text-wrap: balance; }
             #hero p { font-size: 1.1rem !important; }
             #hero div[style*="display: flex"] { justify-content: center !important; width: 100%; }
             #hero .btn-primary, #hero .btn-outline { width: 100%; justify-content: center; }
             
             .section-title { font-size: 2rem !important; text-align: center; }
             .grid-2col, .grid-2col-equal { text-align: center; }
+            
+            /* Enhanced Footer Mobile Centering */
+            .footer-grid { text-align: center !important; }
+            .footer-grid > div { align-items: center !important; text-align: center !important; }
+            .footer-grid ul { align-items: center !important; }
+            .footer-grid li { justify-content: center !important; text-align: center !important; }
         }
 
         /* FAQ Accordion */
