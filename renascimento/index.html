@@ -469,25 +469,41 @@
         </div>
 
         <!-- Links Grid -->
-        <div class="links-grid">
+        <div class="links-grid" style="width: 100%;">
             <a href="#" onclick="openModal()" class="btn-bio-card">
-                <span class="btn-bio-label">Baixar Guia Gratuito</span>
-                <span class="btn-bio-subtext">Inicie sua jornada de reconexão feminina</span>
+                <div class="btn-bio-icon"><i data-lucide="download" style="width: 24px; height: 24px;"></i></div>
+                <div class="btn-bio-content">
+                    <span class="btn-bio-label">Baixar Guia Gratuito</span>
+                    <span class="btn-bio-subtext">Inicie sua jornada de reconexão feminina</span>
+                </div>
+                <i data-lucide="chevron-right" style="width: 20px; height: 20px; opacity: 0.7;"></i>
             </a>
 
-            <a href="https://api.whatsapp.com/send/?phone=5562994718809&text=Oi%21+Vi+sobre+o+evento+Renascendo+a+Dois+e+senti+que+%C3%A9+pra+mim%E2%80%A6" target="_blank" class="btn-bio-card">
-                <span class="btn-bio-label">Falar no WhatsApp</span>
-                <span class="btn-bio-subtext">Atendimento humanizado e acolhedor</span>
+            <a href="https://wa.me/5562994718809" target="_blank" class="btn-bio-card">
+                <div class="btn-bio-icon"><i data-lucide="message-circle" style="width: 24px; height: 24px;"></i></div>
+                <div class="btn-bio-content">
+                    <span class="btn-bio-label">Falar no WhatsApp</span>
+                    <span class="btn-bio-subtext">Atendimento humanizado e acolhedor</span>
+                </div>
+                <i data-lucide="chevron-right" style="width: 20px; height: 20px; opacity: 0.7;"></i>
             </a>
 
             <a href="../jornada/" class="btn-bio-card">
-                <span class="btn-bio-label">Jornada 7 Dias</span>
-                <span class="btn-bio-subtext">Um caminho guiado para despertar seu feminino</span>
+                <div class="btn-bio-icon"><i data-lucide="heart" style="width: 24px; height: 24px;"></i></div>
+                <div class="btn-bio-content">
+                    <span class="btn-bio-label">Jornada 7 Dias</span>
+                    <span class="btn-bio-subtext">O despertar do seu feminino</span>
+                </div>
+                <i data-lucide="chevron-right" style="width: 20px; height: 20px; opacity: 0.7;"></i>
             </a>
 
             <a href="../" class="btn-bio-card">
-                <span class="btn-bio-label">Site Oficial</span>
-                <span class="btn-bio-subtext">Conheça o Instituto Ana Cândida</span>
+                <div class="btn-bio-icon"><i data-lucide="home" style="width: 24px; height: 24px;"></i></div>
+                <div class="btn-bio-content">
+                    <span class="btn-bio-label">Site Oficial</span>
+                    <span class="btn-bio-subtext">Conheça o Instituto Ana Cândida</span>
+                </div>
+                <i data-lucide="chevron-right" style="width: 20px; height: 20px; opacity: 0.7;"></i>
             </a>
         </div>
 
@@ -688,21 +704,24 @@
         });
         document.getElementById('scroll-top')?.addEventListener('click', () => window.scrollTo({top: 0, behavior: 'smooth'}));
 
-        /* Dynamic Feed Fetcher */
+        /* Dynamic Feed Fetcher - Resilient Version */
         async function fetchDynamicFeed() {
             const container = document.getElementById('dynamic-feed');
             if(!container) return;
             
-            // Render complex skeleton
-            container.innerHTML = Array(3).fill(0).map(() => 
-                <div class="skeleton-card">
-                    <div class="skeleton-img"></div>
-                    <div class="skeleton-line short"></div>
-                    <div class="skeleton-line title"></div>
-                    <div class="skeleton-line"></div>
-                    <div class="skeleton-line"></div>
-                </div>
-            ).join('');
+            // Only render skeleton if container is empty (Resilience for static fallback)
+            const isInitialLoad = !container.querySelector('article');
+            if(isInitialLoad) {
+                container.innerHTML = Array(3).fill(0).map(() => 
+                    <div class="skeleton-card">
+                        <div class="skeleton-img"></div>
+                        <div class="skeleton-line short"></div>
+                        <div class="skeleton-line title"></div>
+                        <div class="skeleton-line"></div>
+                        <div class="skeleton-line"></div>
+                    </div>
+                ).join('');
+            }
 
             const rssUrl = 'https://amenteemaravilhosa.com.br/feed/';
             const apiUrl = https://api.rss2json.com/v1/api.json?rss_url=;

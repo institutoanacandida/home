@@ -529,10 +529,42 @@
                     </div>
                     
                     <div id="dynamic-feed" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 4rem;">
-                        <!-- Skeleton Loaders -->
-                        <div class="skeleton-card"></div>
-                        <div class="skeleton-card"></div>
-                        <div class="skeleton-card"></div>
+                        <!-- Static Fallback Content (Instant Load) -->
+                        <article class="fade-in" style="display: flex; flex-direction: column; cursor: pointer; transition: all 0.3s ease;" onclick="window.open('https://amenteemaravilhosa.com.br/amor-proprio-por-que-e-mais-dificil-do-que-parece-e-como-comecar-a-construi-lo/', '_blank')">
+                            <div style="width: 100%; height: 240px; border-radius: 1.5rem; overflow: hidden; margin-bottom: 2rem; background: #eee; position: relative;">
+                                <img src="https://images.unsplash.com/photo-1499209974431-9dac3adaf471?q=80&w=1200" alt="Amor Próprio" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1); opacity: 1;" onmouseover="this.style.transform='scale(1.08)'" onmouseout="this.style.transform='scale(1)'">
+                            </div>
+                            <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem; font-size: 0.85rem;">
+                                <span style="background: var(--brand-100); color: var(--brand-600); padding: 0.25rem 0.75rem; border-radius: 1rem; font-weight: 700; text-transform: uppercase;">Autoestima</span>
+                                <span style="color: #666; font-weight: 500;">• Recomendado</span>
+                            </div>
+                            <h3 style="font-size: 1.4rem; color: var(--brand-900); margin-bottom: 1rem; line-height: 1.35; font-weight: 700;">Amor-próprio: por que é mais difícil do que parece?</h3>
+                            <p style="color: #666; line-height: 1.6; margin-bottom: 1.5rem; font-size: 0.95rem;">Entenda as raízes psicológicas da nossa dificuldade em nos amar e como começar a construir essa base sólida...</p>
+                        </article>
+
+                        <article class="fade-in" style="display: flex; flex-direction: column; cursor: pointer; transition: all 0.3s ease;" onclick="window.open('https://amenteemaravilhosa.com.br/viajar-portugal-destino-ideal-reconectar-parceiro/', '_blank')">
+                            <div style="width: 100%; height: 240px; border-radius: 1.5rem; overflow: hidden; margin-bottom: 2rem; background: #eee; position: relative;">
+                                <img src="https://images.unsplash.com/photo-1518331647614-7a1f04cd34cf?q=80&w=1200" alt="Relacionamentos" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1); opacity: 1;" onmouseover="this.style.transform='scale(1.08)'" onmouseout="this.style.transform='scale(1)'">
+                            </div>
+                            <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem; font-size: 0.85rem;">
+                                <span style="background: var(--brand-100); color: var(--brand-600); padding: 0.25rem 0.75rem; border-radius: 1rem; font-weight: 700; text-transform: uppercase;">Relacionamentos</span>
+                                <span style="color: #666; font-weight: 500;">• Recomendado</span>
+                            </div>
+                            <h3 style="font-size: 1.4rem; color: var(--brand-900); margin-bottom: 1rem; line-height: 1.35; font-weight: 700;">Destinos para se reconectar com seu parceiro</h3>
+                            <p style="color: #666; line-height: 1.6; margin-bottom: 1.5rem; font-size: 0.95rem;">Como quebrar a rotina e reencontrar a intimidade emocional através de novas experiências a dois...</p>
+                        </article>
+
+                        <article class="fade-in" style="display: flex; flex-direction: column; cursor: pointer; transition: all 0.3s ease;" onclick="window.open('https://amenteemaravilhosa.com.br/nomofobia-como-vicio-celular-afeta-voce/', '_blank')">
+                            <div style="width: 100%; height: 240px; border-radius: 1.5rem; overflow: hidden; margin-bottom: 2rem; background: #eee; position: relative;">
+                                <img src="https://images.unsplash.com/photo-1521931961826-fe48677230a5?q=80&w=1200" alt="Tecnologia e Mente" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1); opacity: 1;" onmouseover="this.style.transform='scale(1.08)'" onmouseout="this.style.transform='scale(1)'">
+                            </div>
+                            <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem; font-size: 0.85rem;">
+                                <span style="background: var(--brand-100); color: var(--brand-600); padding: 0.25rem 0.75rem; border-radius: 1rem; font-weight: 700; text-transform: uppercase;">Saúde</span>
+                                <span style="color: #666; font-weight: 500;">• Recomendado</span>
+                            </div>
+                            <h3 style="font-size: 1.4rem; color: var(--brand-900); margin-bottom: 1rem; line-height: 1.35; font-weight: 700;">Nomofobia: O vício oculto que afeta sua mente</h3>
+                            <p style="color: #666; line-height: 1.6; margin-bottom: 1.5rem; font-size: 0.95rem;">Entenda o que é a nomofobia e como o uso constante do celular pode estar gerando ansiedade crônica...</p>
+                        </article>
                     </div>
                 </div>
 
@@ -694,21 +726,24 @@
         });
         document.getElementById('scroll-top')?.addEventListener('click', () => window.scrollTo({top: 0, behavior: 'smooth'}));
 
-        /* Dynamic Feed Fetcher */
+        /* Dynamic Feed Fetcher - Resilient Version */
         async function fetchDynamicFeed() {
             const container = document.getElementById('dynamic-feed');
             if(!container) return;
             
-            // Render complex skeleton
-            container.innerHTML = Array(3).fill(0).map(() => 
-                <div class="skeleton-card">
-                    <div class="skeleton-img"></div>
-                    <div class="skeleton-line short"></div>
-                    <div class="skeleton-line title"></div>
-                    <div class="skeleton-line"></div>
-                    <div class="skeleton-line"></div>
-                </div>
-            ).join('');
+            // Only render skeleton if container is empty (Resilience for static fallback)
+            const isInitialLoad = !container.querySelector('article');
+            if(isInitialLoad) {
+                container.innerHTML = Array(3).fill(0).map(() => 
+                    <div class="skeleton-card">
+                        <div class="skeleton-img"></div>
+                        <div class="skeleton-line short"></div>
+                        <div class="skeleton-line title"></div>
+                        <div class="skeleton-line"></div>
+                        <div class="skeleton-line"></div>
+                    </div>
+                ).join('');
+            }
 
             const rssUrl = 'https://amenteemaravilhosa.com.br/feed/';
             const apiUrl = https://api.rss2json.com/v1/api.json?rss_url=;
