@@ -485,9 +485,22 @@ function Process-File($f, $depthPath) {
         $headMetadata = $headMetadata -replace '(?s)<style>.*?</style>', ''
         # Remove redundant stylesheet links if they exist
         $headMetadata = $headMetadata -replace '<link rel="stylesheet" href=".*?assets/style.css">', ''
+        $headMetadata = $headMetadata -replace '<link rel="stylesheet" href="css/styles.css">', ''
 
         # 3. RECONSTRUCT THE PAGE
         $hasLocalScript = Test-Path (Join-Path (Split-Path $path) "js\script.js")
+        $hasLocalCSS = Test-Path (Join-Path (Split-Path $path) "css\styles.css")
+        
+        $bodyStyle = "background-color: var(--brand-50); font-family: var(--font-sans); color: var(--brand-800);"
+        if ($f -eq "jornada/index.html") {
+            $bodyStyle = "background-color: #F4EDE8;" # Custom background for Jornada
+        }
+
+        $styleBlock = Get-StyleBlock
+        if ($hasLocalCSS) {
+            $styleBlock += "`n    <link rel=`"stylesheet`" href=`"css/styles.css`">"
+        }
+
         $newContent = @"
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -495,9 +508,9 @@ function Process-File($f, $depthPath) {
     $($headMetadata.Trim())
     
     <link rel="stylesheet" href="${depthPath}assets/style.css">
-$((Get-StyleBlock))
+$($styleBlock)
 </head>
-<body style="background-color: var(--brand-50); font-family: var(--font-sans); color: var(--brand-800);">
+<body style="$bodyStyle">
 $((Get-Header $depthPath))
 
 $($mainContent)
