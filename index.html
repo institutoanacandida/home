@@ -559,7 +559,42 @@
         </section>
     </main>
 
-    <!-- FOOTER_START -->
+    
+    <!-- Como nos Encontrar Section -->
+    <section id="localizacao" style="padding: 100px 0; background-color: var(--brand-50);">
+        <div class="container-custom">
+            <div style="text-align: center; margin-bottom: 4rem;">
+                <span style="font-family: 'Montserrat', sans-serif; font-size: 0.8rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--brand-500);">Presença física</span>
+                <h2 style="font-family: 'Playfair Display', serif; font-size: clamp(2rem, 4vw, 2.75rem); color: var(--brand-900); margin-top: 0.75rem;">Como nos encontrar</h2>
+                <p style="color: var(--brand-800); opacity: 0.75; margin-top: 0.75rem; max-width: 520px; margin-left: auto; margin-right: auto; line-height: 1.6;">Estamos localizados num espaço moderno e acessível no coração de Goiânia, com estacionamento próprio.</p>
+            </div>
+            <div id="map-grid" style="display: grid; grid-template-columns: 1fr; gap: 2.5rem; align-items: stretch;">
+                <div style="background: white; border-radius: 2rem; padding: 2.5rem; border: 1px solid var(--brand-100); display: flex; flex-direction: column; gap: 2rem; box-shadow: 0 4px 24px rgba(10,72,52,0.04);">
+                    <div style="display: flex; gap: 1.25rem; align-items: flex-start;">
+                        <div style="width: 42px; height: 42px; background: var(--brand-50); border-radius: 12px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; border: 1px solid var(--brand-100);"><i data-lucide="map-pin" style="width: 20px; height: 20px; color: var(--brand-500);"></i></div>
+                        <div><p style="font-weight: 700; color: var(--brand-900); margin-bottom: 0.25rem; font-size: 0.95rem;">Endereço</p><p style="color: var(--brand-800); opacity: 0.8; line-height: 1.6; font-size: 0.9rem;">Órion Business &amp; Health Complex<br>Av. Portugal, 1148 — St. Marista<br><strong>Sala 3</strong> · Goiânia - GO · CEP 74150-030</p></div>
+                    </div>
+                    <div style="display: flex; gap: 1.25rem; align-items: flex-start;">
+                        <div style="width: 42px; height: 42px; background: var(--brand-50); border-radius: 12px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; border: 1px solid var(--brand-100);"><i data-lucide="clock" style="width: 20px; height: 20px; color: var(--brand-500);"></i></div>
+                        <div><p style="font-weight: 700; color: var(--brand-900); margin-bottom: 0.25rem; font-size: 0.95rem;">Horários</p><p style="color: var(--brand-800); opacity: 0.8; font-size: 0.9rem; line-height: 1.7;">Segunda a Sexta: 08h às 20h<br>Sábado: 08h às 13h</p></div>
+                    </div>
+                    <div style="display: flex; gap: 1.25rem; align-items: flex-start;">
+                        <div style="width: 42px; height: 42px; background: var(--brand-50); border-radius: 12px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; border: 1px solid var(--brand-100);"><i data-lucide="car" style="width: 20px; height: 20px; color: var(--brand-500);"></i></div>
+                        <div><p style="font-weight: 700; color: var(--brand-900); margin-bottom: 0.25rem; font-size: 0.95rem;">Estacionamento</p><p style="color: var(--brand-800); opacity: 0.8; font-size: 0.9rem; line-height: 1.6;">Estacionamento próprio no complexo. Acessibilidade completa com rampa e elevador.</p></div>
+                    </div>
+                    <div style="display: flex; gap: 0.75rem; flex-wrap: wrap; margin-top: 0.5rem;">
+                        <a href="https://wa.me/5562994718809" target="_blank" class="btn-primary" style="flex: 1; min-width: 180px; justify-content: center; gap: 0.5rem;"><i data-lucide="message-circle" style="width: 18px; height: 18px;"></i>&nbsp;WhatsApp</a>
+                        <a href="https://maps.app.goo.gl/4Uk1BwaAUVrPcsm68" target="_blank" style="flex: 1; min-width: 180px; display: flex; align-items: center; justify-content: center; gap: 0.5rem; background: white; color: var(--brand-900); border: 2px solid var(--brand-100); padding: 1rem 1.5rem; border-radius: 9999px; text-decoration: none; font-weight: 700; font-family: 'Montserrat', sans-serif; font-size: 0.9rem; transition: all 0.3s;" onmouseover="this.style.borderColor='var(--brand-500)'; this.style.color='var(--brand-500)'" onmouseout="this.style.borderColor='var(--brand-100)'; this.style.color='var(--brand-900)'"><i data-lucide="navigation" style="width: 18px; height: 18px;"></i>&nbsp;Como Chegar</a>
+                    </div>
+                </div>
+                <div style="border-radius: 2rem; overflow: hidden; min-height: 400px; box-shadow: 0 20px 50px rgba(0,0,0,0.07); border: 1px solid var(--brand-100);">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3822.448553205739!2d-49.4032255!3d-16.6690816!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x935ef138b732fb47%3A0xb6475617fb8a8364!2s%C3%93rion%20Business%20%26%20Health%20Complex!5e0!3m2!1spt-BR!2sbr!4v1700000000002!5m2!1spt-BR!2sbr" width="100%" height="100%" style="border: 0; min-height: 400px; display: block;" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+    <style>@media (min-width: 1024px) { #map-grid { grid-template-columns: 1fr 1.5fr; } }</style>
+<!-- FOOTER_START -->
     <footer style="background-color: var(--brand-900); color: #FDFBFA !important; padding: 5rem 0 3rem; position: relative; z-index: 50; width: 100%;">
         <div class="container-custom">
             <div class="footer-grid">
