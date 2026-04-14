@@ -454,6 +454,7 @@ function Get-ScriptBlock($hasLocalScript, $depthPath) {
 # --- Execution ---
 $lvl1 = @("agendar/index.html", "atendimentos/index.html", "contato/index.html", "conteudos/index.html", "equipe/index.html", "galeria/index.html", "o-instituto/index.html", "terapia-sistemica/index.html", "upsell/index.html", "downsell/index.html", "renascimento/index.html", "jornada/index.html", "obrigado/index.html")
 $lvl2 = @("atendimentos/terapia-individual/index.html", "atendimentos/terapia-casal/index.html", "atendimentos/terapia-familiar/index.html", "atendimentos/parentalidade/index.html", "conteudos/blog/index.html", "conteudos/cursos/index.html", "equipe/ana-candida/index.html", "equipe/mariana-silva/index.html", "equipe/roberto-mendes/index.html")
+$lvl3 = @("conteudos/cursos/as-ordens-da-ajuda/index.html", "conteudos/cursos/jornada-do-renascimento/index.html", "conteudos/cursos/cura-emocional/index.html", "conteudos/blog/comunicacao-no-casamento/index.html", "conteudos/blog/limites-na-educacao/index.html", "conteudos/blog/ansiedade-sinal-do-sistema/index.html")
 
 function Process-File($f, $depthPath) {
     if ($f -match 'cleanup_index.ps1') { return }
@@ -530,6 +531,7 @@ $((Get-ScriptBlock $hasLocalScript $depthPath))
 
 foreach ($f in $lvl1) { Process-File $f "../" }
 foreach ($f in $lvl2) { Process-File $f "../../" }
+foreach ($f in $lvl3) { Process-File $f "../../../" }
 Process-File "index.html" "./"
 
 Write-Host "Site-wide update complete: Dropdowns fixed & SVGs injected!"
