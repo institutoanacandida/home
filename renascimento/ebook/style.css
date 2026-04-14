@@ -1,0 +1,231 @@
+:root {
+    --brand-900: #0A4834;
+    --brand-800: #1A513E;
+    --brand-500: #C19555;
+    --mauve-700: #8C6A63; /* Cor do título no print */
+    --beige-50: #FDFBFA;
+    --glass-bg: rgba(255, 255, 255, 0.7);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    color: var(--brand-900);
+    line-height: 1.6;
+    background-color: var(--beige-50);
+}
+
+.presell-container {
+    min-height: 100vh;
+    width: 100%;
+    background-image: url('../../assets/images/ebook-bg.png');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem 1rem;
+}
+
+.content-wrapper {
+    max-width: 800px;
+    width: 100%;
+    background: var(--glass-bg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-radius: 2.5rem;
+    padding: 4rem 3rem;
+    text-align: center;
+    box-shadow: 0 40px 100px rgba(0, 0, 0, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    animation: fadeIn 1s ease-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.header-logo {
+    margin-bottom: 3rem;
+}
+
+.logo {
+    height: 80px;
+    width: auto;
+}
+
+.main-content {
+    margin-bottom: 4rem;
+}
+
+.title {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.5rem;
+    color: var(--mauve-700);
+    margin-bottom: 1.5rem;
+    line-height: 1.1;
+    font-weight: 400;
+}
+
+.subtitle {
+    font-size: 1.25rem;
+    color: var(--brand-800);
+    max-width: 500px;
+    margin: 0 auto;
+    opacity: 0.9;
+    font-weight: 500;
+}
+
+.status-box {
+    margin: 3rem 0;
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 1.5rem;
+    border: 1px dashed var(--brand-500);
+}
+
+.loader-wrap {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+
+.loader {
+    width: 40px;
+    height: 40px;
+    border: 4px solid var(--brand-100);
+    border-top: 4px solid var(--brand-500);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.status-text {
+    font-weight: 700;
+    color: var(--brand-900);
+    margin-bottom: 0.5rem;
+}
+
+.sub-status {
+    font-size: 0.85rem;
+    opacity: 0.7;
+}
+
+.manual-download {
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+.download-link {
+    color: var(--brand-500);
+    font-weight: 600;
+    text-decoration: none;
+    border-bottom: 1px solid var(--brand-500);
+    transition: 0.3s;
+}
+
+.download-link:hover {
+    color: var(--brand-900);
+    border-color: var(--brand-900);
+}
+
+.next-steps {
+    margin: 4rem 0;
+    text-align: left;
+}
+
+.next-steps h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.75rem;
+    color: var(--brand-900);
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.steps-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+}
+
+.step-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 1.5rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+    transition: 0.3s;
+}
+
+.step-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.06);
+}
+
+.step-icon {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.step-card h3 {
+    font-size: 1.1rem;
+    margin-bottom: 0.75rem;
+    color: var(--brand-900);
+}
+
+.step-card p {
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+.cta-section {
+    padding-top: 2rem;
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.cta-section p {
+    margin-bottom: 1.5rem;
+    font-size: 0.95rem;
+    opacity: 0.7;
+}
+
+.btn-outline {
+    display: inline-block;
+    padding: 1rem 2.5rem;
+    border: 2px solid var(--brand-900);
+    border-radius: 9999px;
+    color: var(--brand-900);
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.9rem;
+    transition: 0.3s;
+}
+
+.btn-outline:hover {
+    background: var(--brand-900);
+    color: white;
+}
+
+@media (max-width: 640px) {
+    .content-wrapper {
+        padding: 3rem 1.5rem;
+    }
+    
+    .title {
+        font-size: 2.25rem;
+    }
+    
+    .steps-grid {
+        grid-template-columns: 1fr;
+    }
+}

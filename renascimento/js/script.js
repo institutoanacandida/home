@@ -1,5 +1,5 @@
 const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyLux1NnyhfaoWYxqYSDbknZ403x5uQ9wudXSoPo_zVkxhk83M6GgtVX1iapB2ZzSFaaQ/exec';
-const GAMMA_URL = 'https://vocenaoestaquebrada-uspteq3.gamma.site/';
+const EBOOK_URL = 'ebook/';
 
 function openModal() {
     const modal = document.getElementById('captureModal');
@@ -41,11 +41,11 @@ function submitForm(event) {
         })
         .then(() => {
             closeModal();
-            window.location.href = GAMMA_URL;
+            window.location.href = EBOOK_URL;
         })
         .catch(() => {
             closeModal();
-            window.location.href = GAMMA_URL;
+            window.location.href = EBOOK_URL;
         });
     }
 }
