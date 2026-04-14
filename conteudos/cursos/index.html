@@ -350,7 +350,7 @@
                 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 4rem;">
                     
                     <!-- Course 1: Ebook -->
-                    <a href="https://wa.me/5562994718809?text=Quero%20baixar%20o%20Ebook%20Gratuito" target="_blank" style="text-decoration: none; color: inherit; display: block;">
+                    <a href="#" onclick="openModal(); return false;" style="text-decoration: none; color: inherit; display: block;">
                         <article style="display: flex; flex-direction: column; cursor: pointer;" onmouseover="this.querySelector('img').style.transform='scale(1.05)'" onmouseout="this.querySelector('img').style.transform='scale(1)'">
                             <div style="width: 100%; height: 240px; border-radius: 1.5rem; overflow: hidden; margin-bottom: 2rem; background: var(--brand-100);">
                                 <img src="https://images.unsplash.com/photo-1544716278-e513176f20b5?q=80&w=1974&auto=format&fit=crop" 
@@ -409,6 +409,30 @@
                 </div>
             </div>
         </section>
+
+        <!-- Lead Capture Modal -->
+        <div id="captureModal" class="modal-overlay" style="display: none; position: fixed; inset: 0; background: rgba(10, 72, 52, 0.8); backdrop-filter: blur(8px); z-index: 3000; align-items: center; justify-content: center; padding: 1rem; opacity: 0;">
+            <div class="modal-content" style="background: white; padding: 3rem; border-radius: 2rem; max-width: 480px; width: 100%; position: relative; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25);">
+                <button class="modal-close" onclick="closeModal()" style="position: absolute; top: 1.5rem; right: 1.5rem; background: none; border: none; font-size: 1.5rem; cursor: pointer; color: var(--brand-500);">&times;</button>
+                <h2 class="modal-title" style="font-family: 'Playfair Display', serif; font-size: 1.75rem; color: var(--brand-900); margin-bottom: 1rem;">Baixe seu Guia Gratuito</h2>
+                <p class="modal-text" style="color: var(--brand-800); opacity: 0.8; margin-bottom: 2rem; font-size: 0.95rem;">Preencha os dados abaixo para receber o link de download no seu WhatsApp.</p>
+                <form id="leadForm" onsubmit="submitForm(event)">
+                    <div class="form-group" style="margin-bottom: 1.5rem; text-align: left;">
+                        <label class="form-label" style="display: block; font-size: 0.85rem; font-weight: 600; color: var(--brand-900); margin-bottom: 0.5rem;">Nome Completo</label>
+                        <input type="text" name="nome" class="form-input" placeholder="Seu nome" required style="width: 100%; padding: 0.875rem 1rem; border: 1px solid var(--brand-100); border-radius: 0.75rem;">
+                    </div>
+                    <div class="form-group" style="margin-bottom: 1.5rem; text-align: left;">
+                        <label class="form-label" style="display: block; font-size: 0.85rem; font-weight: 600; color: var(--brand-900); margin-bottom: 0.5rem;">WhatsApp</label>
+                        <input type="tel" name="whatsapp" class="form-input" placeholder="(00) 00000-0000" required style="width: 100%; padding: 0.875rem 1rem; border: 1px solid var(--brand-100); border-radius: 0.75rem;">
+                    </div>
+                    <div class="form-group" style="margin-bottom: 1.5rem; text-align: left;">
+                        <label class="form-label" style="display: block; font-size: 0.85rem; font-weight: 600; color: var(--brand-900); margin-bottom: 0.5rem;">E-mail</label>
+                        <input type="email" name="email" class="form-input" placeholder="seu@email.com" required style="width: 100%; padding: 0.875rem 1rem; border: 1px solid var(--brand-100); border-radius: 0.75rem;">
+                    </div>
+                    <button type="submit" id="submitBtn" class="btn-submit" style="width: 100%; padding: 1rem; background: var(--brand-900); color: white; border: none; border-radius: 9999px; font-weight: 700; cursor: pointer; transition: 0.3s; margin-top: 1rem;">Receber Guia Agora</button>
+                </form>
+            </div>
+        </div>
     </main>
 
     <!-- FOOTER_START -->
