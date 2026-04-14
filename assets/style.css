@@ -58,7 +58,26 @@ h1, h2, h3, h4, h5, h6 {
 @media (min-width: 640px) { .container-custom { padding: 0 1.5rem; } }
 @media (min-width: 1024px) { .container-custom { padding: 0 2rem; } }
 
-/* Button Component */
+/* Atendimentos Hero Layout (text left, image right) */
+.hero-container {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    align-items: center;
+}
+@media (min-width: 1024px) {
+    .hero-container {
+        flex-direction: row;
+        gap: 4rem;
+        align-items: center;
+    }
+    .hero-container > div:last-child {
+        max-width: 420px;
+        flex-shrink: 0;
+    }
+}
+
+
 .btn {
     display: inline-flex;
     align-items: center;
