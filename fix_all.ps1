@@ -501,7 +501,7 @@ function Process-File($f, $depthPath) {
             $styleBlock += "`n    <link rel=`"stylesheet`" href=`"css/styles.css`">"
         }
 
-        $mainContent = $mainContent -replace '<section class="hero".*?>', '<section class="hero" style="background-image: linear-gradient(rgba(244, 237, 232, 0.6), rgba(244, 237, 232, 0.6)), url(''https://images.unsplash.com/photo-1544161515-4ab6ce6db874?ixlib=rb-4.0.3&auto=format&fit=crop&w=1770&q=80'');">'
+        $mainContent = $mainContent -replace '<section class="hero".*?>', '<section class="hero" style="background-color: #F4EDE8;">'
 
         $newContent = @"
 <!DOCTYPE html>
