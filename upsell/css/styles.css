@@ -1,0 +1,140 @@
+:root {
+    --color-bg: #FDFBFA;
+    --color-text: #483525;
+    --color-primary: #0A4834;
+    --color-accent: #B8893F;
+    --color-white: #FFFFFF;
+}
+
+.hero {
+    padding: 80px 20px;
+    text-align: center;
+    background-color: #F4EDE8;
+}
+
+.hero h1 {
+    font-size: 2.8rem;
+    font-family: 'Playfair Display', serif;
+    color: var(--color-primary);
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.video-wrapper {
+    max-width: 900px;
+    margin: -40px auto 60px;
+    padding: 0 20px;
+}
+
+.video-container {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+    border-radius: 20px;
+    box-shadow: 0 25px 50px -12px rgba(0,0,0,0.15);
+    background: #000;
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.product-intro {
+    max-width: 800px;
+    margin: 0 auto 80px;
+    text-align: center;
+    line-height: 1.8;
+}
+
+.feature-grid {
+    margin-top: 50px;
+}
+
+.feature-item {
+    background: white;
+    padding: 40px;
+    border-radius: 20px;
+    border: 1px solid #F0F4F2;
+    transition: 0.3s;
+}
+
+.feature-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
+
+.feature-item i {
+    font-size: 2.5rem;
+    color: var(--color-accent);
+    margin-bottom: 20px;
+}
+
+.price-box {
+    background: #483525;
+    color: white;
+    padding: 60px 40px;
+    border-radius: 30px;
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto 100px;
+}
+
+.price-old {
+    text-decoration: line-through;
+    opacity: 0.6;
+    font-size: 1.2rem;
+}
+
+.price-new {
+    display: block;
+    font-size: 4rem;
+    font-weight: 700;
+    margin: 10px 0;
+    font-family: 'Playfair Display', serif;
+}
+
+.btn-cta {
+    display: inline-block;
+    background: var(--color-accent);
+    color: white !important;
+    padding: 22px 50px;
+    border-radius: 9999px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1.2rem;
+    margin: 30px 0;
+    transition: 0.3s;
+    box-shadow: 0 15px 30px rgba(184, 137, 63, 0.3);
+}
+
+.btn-cta:hover {
+    transform: scale(1.05);
+    box-shadow: 0 20px 40px rgba(184, 137, 63, 0.4);
+}
+
+.decline-link {
+    display: block;
+    color: white;
+    opacity: 0.5;
+    text-decoration: underline;
+    font-size: 0.9rem;
+}
+
+.decline-link:hover {
+    opacity: 1;
+}
+
+@media (max-width: 768px) {
+    .feature-grid { grid-template-columns: 1fr !important; }
+    .hero h1 { font-size: 2rem; }
+}

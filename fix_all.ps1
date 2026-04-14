@@ -501,7 +501,9 @@ function Process-File($f, $depthPath) {
             $styleBlock += "`n    <link rel=`"stylesheet`" href=`"css/styles.css`">"
         }
 
-        $mainContent = $mainContent -replace '<section class="hero".*?>', '<section class="hero" style="background-color: #F4EDE8;">'
+        if ($f -eq "jornada/index.html") {
+            $mainContent = $mainContent -replace '<section class="hero".*?>', '<section class="hero" style="background-color: #F4EDE8;">'
+        }
 
         $newContent = @"
 <!DOCTYPE html>
