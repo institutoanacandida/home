@@ -30,8 +30,8 @@
         .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 20px 25px -5px rgba(193,149,85,0.3); filter: brightness(1.1); }
         body, main { overflow-x: hidden; max-width: 100%; }
         .container-custom { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; }
-        @keyframes pulse-red { 0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(217,49,49,0.7); } 70% { transform: scale(1); box-shadow: 0 0 0 6px rgba(217,49,49,0); } 100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(217,49,49,0); } }
-        .red-dot { width: 8px; height: 8px; background-color: var(--red-accent); border-radius: 50%; display: inline-block; position: absolute; top: -2px; right: -2px; animation: pulse-red 2s infinite; }
+         70% { transform: scale(1); box-shadow: 0 0 0 6px rgba(217,49,49,0); } 100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(217,49,49,0); } }
+        
         .profile-grid { display: flex; flex-direction: column; gap: 0; }
         @media (min-width: 768px) { .profile-grid { display: grid; grid-template-columns: 380px 1fr; } }
         .profile-photo { height: 350px; }
@@ -59,7 +59,6 @@
                 </div>
                 <div class="hidden lg:block" style="position: relative;">
                     <a href="https://wa.me/5562994718809" target="_blank" class="btn-primary" style="padding: 0.6rem 1.5rem; font-size: 0.85rem;">Agendar</a>
-                    <span class="red-dot"></span>
                 </div>
                 <button class="lg:hidden" style="background: none; border: none; cursor: pointer; color: #0A4834;" onclick="toggleMobileMenu()"><i data-lucide="menu"></i></button>
             </div>
@@ -146,7 +145,7 @@
                 <div><h4 style="font-family: 'Playfair Display', serif; font-size: 1.1rem; margin-bottom: 1.5rem; font-weight: 700; color: #FDFBFA !important;">Institucional</h4><ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.8rem;"><li><a href="../../o-instituto" style="color: #FDFBFA !important; text-decoration: none; opacity: 0.8;">Sobre nós</a></li><li><a href="../../equipe" style="color: #FDFBFA !important; text-decoration: none; opacity: 0.8;">Equipe</a></li><li><a href="../../atendimentos" style="color: #FDFBFA !important; text-decoration: none; opacity: 0.8;">Serviços</a></li></ul></div>
                 <div><h4 style="font-family: 'Playfair Display', serif; font-size: 1.1rem; margin-bottom: 1.5rem; font-weight: 700; color: #FDFBFA !important;">Contato</h4><ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 1.2rem;"><li style="display: flex; align-items: center; gap: 0.75rem; color: #FDFBFA !important; opacity: 0.9;"><i data-lucide="phone" style="width: 18px; height: 18px;"></i><span>(62) 99471-8809</span></li><li style="display: flex; align-items: center; gap: 0.75rem; color: #FDFBFA !important; opacity: 0.9;"><i data-lucide="map-pin" style="width: 18px; height: 18px;"></i><span>Órion Business &amp; Health Complex, Sala 3 - Goiânia-GO</span></li></ul></div>
                 <div><h4 style="font-family: 'Playfair Display', serif; font-size: 1.1rem; margin-bottom: 1.5rem; font-weight: 700; color: #FDFBFA !important;">Legal</h4><ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.8rem;"><li><a href="../../privacidade" style="color: #FDFBFA !important; text-decoration: none; opacity: 0.8;">Privacidade (LGPD)</a></li><li><a href="../../termos" style="color: #FDFBFA !important; text-decoration: none; opacity: 0.8;">Termos de Uso</a></li></ul></div>
-                <div><h4 style="font-family: 'Playfair Display', serif; font-size: 1.1rem; margin-bottom: 1.5rem; font-weight: 700; color: #FDFBFA !important; display: flex; align-items: center; gap: 0.5rem;"><span style="width: 8px; height: 8px; background-color: var(--red-accent); border-radius: 50%; display: inline-block;"></span> Aviso Importante</h4><p style="opacity: 0.9; line-height: 1.6; font-size: 0.9rem; color: #FDFBFA !important;">Este site não oferece atendimento de emergência. Em caso de crise, ligue <span style="color: var(--red-accent); font-weight: 700;">188 (CVV)</span>.</p></div>
+                <div><h4 style="font-family: 'Playfair Display', serif; font-size: 1.1rem; margin-bottom: 1.5rem; font-weight: 700; color: #FDFBFA !important; display: flex; align-items: center; gap: 0.5rem;">Aviso Importante</h4><p style="opacity: 0.9; line-height: 1.6; font-size: 0.9rem; color: #FDFBFA !important;">Este site não oferece atendimento de emergência. Em caso de crise, ligue <strong>188 (CVV)</strong>.</p></div>
             </div>
             <div style="border-top: 1px solid rgba(253,251,250,0.1); padding-top: 2rem; text-align: center;"><p style="opacity: 0.7; font-size: 0.875rem; color: #FDFBFA !important;">&copy; 2026 Instituto Ana Cândida. Todos os direitos reservados.</p></div>
         </div>

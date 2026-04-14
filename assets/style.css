@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+﻿@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap');
 
 :root {
     /* Brand Palette - Nova Paleta Institucional */
@@ -9,9 +9,7 @@
     --brand-600: #A67C41;   /* Dourado Dark (Hover) */
     --brand-800: #1A513E;   /* Verde Médio (Texto) */
     --brand-900: #0A4834;   /* Verde Principal (Títulos/Rodapé) */
-    --red-accent: #D93131;  /* Detalhe em Vermelho */
-    
-    /* Accent Palette */
+/* Accent Palette */
     --accent-100: #FDFBFA;
     --accent-500: #C19555;
 
