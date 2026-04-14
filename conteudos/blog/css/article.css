@@ -24,15 +24,15 @@
 
 .article-header {
     margin-bottom: 50px;
-    text-align: center;
 }
 
 .article-header h1 {
     font-family: var(--font-serif);
-    font-size: clamp(2rem, 5vw + 1rem, 3.8rem) !important;
+    font-size: clamp(1.8rem, 3.5vw, 2.8rem) !important;
     color: #0A4834;
     margin-bottom: 25px;
-    line-height: 1.15 !important;
+    line-height: 1.25 !important;
+    text-align: justify;
 }
 
 .article-meta {
