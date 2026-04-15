@@ -239,6 +239,8 @@ function Get-Header($depthPath) {
                             <a href="${depthPath}conteudos" class="dropdown-item">Visão Geral</a>
                             <a href="${depthPath}conteudos/blog" class="dropdown-item">Blog</a>
                             <a href="${depthPath}conteudos/cursos" class="dropdown-item">Cursos</a>
+                            <a href="${depthPath}conteudos/eventos" class="dropdown-item">Eventos</a>
+                            <a href="${depthPath}conteudos/formacao" class="dropdown-item">Formação</a>
                         </div>
                     </div>
                     
@@ -320,6 +322,8 @@ function Get-Header($depthPath) {
                     <a href="${depthPath}conteudos" class="mobile-link-sub">Visão Geral</a>
                     <a href="${depthPath}conteudos/blog" class="mobile-link-sub">Blog</a>
                     <a href="${depthPath}conteudos/cursos" class="mobile-link-sub">Cursos</a>
+                    <a href="${depthPath}conteudos/eventos" class="mobile-link-sub">Eventos</a>
+                    <a href="${depthPath}conteudos/formacao" class="mobile-link-sub">Formação</a>
                 </div>
             </div>
 
@@ -453,7 +457,7 @@ function Get-ScriptBlock($hasLocalScript, $depthPath) {
 
 # --- Execution ---
 $lvl1 = @("agendar/index.html", "atendimentos/index.html", "contato/index.html", "conteudos/index.html", "equipe/index.html", "galeria/index.html", "o-instituto/index.html", "terapia-sistemica/index.html", "upsell/index.html", "downsell/index.html", "renascimento/index.html", "jornada/index.html", "obrigado/index.html")
-$lvl2 = @("atendimentos/terapia-individual/index.html", "atendimentos/terapia-casal/index.html", "atendimentos/terapia-familiar/index.html", "atendimentos/parentalidade/index.html", "conteudos/blog/index.html", "conteudos/cursos/index.html", "equipe/ana-candida/index.html", "equipe/mariana-silva/index.html", "equipe/roberto-mendes/index.html")
+$lvl2 = @("atendimentos/terapia-individual/index.html", "atendimentos/terapia-casal/index.html", "atendimentos/terapia-familiar/index.html", "atendimentos/parentalidade/index.html", "conteudos/blog/index.html", "conteudos/cursos/index.html", "conteudos/formacao/index.html", "conteudos/eventos/index.html", "equipe/ana-candida/index.html", "equipe/leandro/index.html", "equipe/paula/index.html", "equipe/samuel/index.html", "equipe/vanessa/index.html", "equipe/wilson-junior/index.html")
 $lvl3 = @("conteudos/cursos/as-ordens-da-ajuda/index.html", "conteudos/cursos/jornada-do-renascimento/index.html", "conteudos/cursos/cura-emocional/index.html", "conteudos/blog/comunicacao-no-casamento/index.html", "conteudos/blog/limites-na-educacao/index.html", "conteudos/blog/ansiedade-sinal-do-sistema/index.html")
 
 function Process-File($f, $depthPath) {

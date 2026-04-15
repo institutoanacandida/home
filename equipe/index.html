@@ -1,13 +1,13 @@
-ï»¿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Equipe | Instituto Ana CÃ¢ndida</title>
-    <meta name="description" content="ConheÃ§a os psicÃ³logos do Instituto Ana CÃ¢ndida. Especialistas em Terapia SistÃªmica prontos para te acolher.">
+    <title>Equipe | Instituto Ana Cândida</title>
+    <meta name="description" content="Conheça os psicólogos do Instituto Ana Cândida. Especialistas em Terapia Sistêmica prontos para te acolher.">
     
     
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>ðŸŒ·</text></svg>">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>??</text></svg>">
     
     <link rel="stylesheet" href="../assets/style.css">
     <!-- STYLES_START -->
@@ -18,7 +18,8 @@
             --brand-500: #C19555;   /* Dourado Principal */
             --brand-100: #F0F4F2;   /* Verde Ultra Light */
             --brand-50: #FFFFFF;    /* Branco */
-}
+            --red-accent: #D93131;  /* Detalhe em Vermelho */
+        }
 
         /* Fixed Interactive Dropdowns */
         .nav-item-dropdown { position: relative; padding: 1rem 0; cursor: pointer; }
@@ -42,14 +43,14 @@
         .nav-item-dropdown:hover .chevron-icon { transform: rotate(180deg); opacity: 1; color: var(--brand-500); }
 
         /* Responsive Footer Grid */
-        .footer-grid {
-            display: grid; grid-template-columns: 1fr; gap: 2rem; margin-bottom: 4rem; 
+        .footer-grid { 
+            display: grid; grid-template-columns: 1fr; gap: 2.5rem; margin-bottom: 4rem; 
         }
         @media (min-width: 640px) {
-            .footer-grid { grid-template-columns: repeat(2, 1fr); gap: 2rem; }
+            .footer-grid { grid-template-columns: repeat(2, 1fr); gap: 2.5rem; }
         }
         @media (min-width: 1024px) {
-            .footer-grid { grid-template-columns: repeat(5, 1fr); gap: 1.5rem; }
+            .footer-grid { grid-template-columns: 0.8fr 0.6fr 1.5fr 2fr 2.4fr; gap: 2rem; }
             .footer-nowrap { white-space: nowrap; }
         }
 
@@ -174,11 +175,16 @@
         .btn-submit { width: 100%; padding: 1rem; background: var(--brand-900); color: white; border: none; border-radius: 9999px; font-weight: 700; cursor: pointer; transition: 0.3s; margin-top: 1rem; }
 
         /* Red Pulse Animation */
-        
+        @keyframes pulse-red {
+            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(217, 49, 49, 0.7); }
             70% { transform: scale(1); box-shadow: 0 0 0 6px rgba(217, 49, 49, 0); }
             100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(217, 49, 49, 0); }
         }
-        
+        .red-dot {
+            width: 8px; height: 8px; background-color: var(--red-accent); border-radius: 50%;
+            display: inline-block; position: absolute; top: -2px; right: -2px;
+            animation: pulse-red 2s infinite;
+        }
     </style>
     <!-- STYLES_END -->
 </head>
@@ -235,6 +241,8 @@
                             <a href="../conteudos" class="dropdown-item">VisÃ£o Geral</a>
                             <a href="../conteudos/blog" class="dropdown-item">Blog</a>
                             <a href="../conteudos/cursos" class="dropdown-item">Cursos</a>
+                            <a href="../conteudos/eventos" class="dropdown-item">Eventos</a>
+                            <a href="../conteudos/formacao" class="dropdown-item">FormaÃ§Ã£o</a>
                         </div>
                     </div>
                     
@@ -245,6 +253,7 @@
 
                 <div class="hidden lg:block" style="position: relative;">
                     <a href="https://wa.me/5562994718809" target="_blank" class="btn-primary" style="padding: 0.6rem 1.5rem; font-size: 0.85rem;">Agendar</a>
+                    <span class="red-dot"></span>
                 </div>
                 
                 <button class="lg:hidden" style="background: none; border: none; cursor: pointer; color: #0A4834;" onclick="toggleMobileMenu()">
@@ -315,6 +324,8 @@
                     <a href="../conteudos" class="mobile-link-sub">VisÃ£o Geral</a>
                     <a href="../conteudos/blog" class="mobile-link-sub">Blog</a>
                     <a href="../conteudos/cursos" class="mobile-link-sub">Cursos</a>
+                    <a href="../conteudos/eventos" class="mobile-link-sub">Eventos</a>
+                    <a href="../conteudos/formacao" class="mobile-link-sub">FormaÃ§Ã£o</a>
                 </div>
             </div>
 
@@ -333,7 +344,7 @@
             <div class="container-custom">
                 <h1 style="font-size: clamp(2rem, 5vw, 2.8rem); color: var(--brand-900); margin-bottom: 1rem; font-family: var(--font-serif); font-weight: 700;">Nossa Equipe</h1>
                 <p style="font-size: 1.1rem; color: var(--brand-800); max-width: 600px; opacity: 0.8; line-height: 1.5;">
-                    Profissionais qualificados, em constante atualizaÃ§Ã£o e comprometidos com a Ã©tica do cuidado. No Instituto Ana CÃ¢ndida, acreditamos que o acolhimento comeÃ§a por uma equipe preparada e sensÃ­vel Ã s complexidades humanas.
+                    Profissionais qualificados, em constante atualização e comprometidos com a ética do cuidado. No Instituto Ana Cândida, acreditamos que o acolhimento começa por uma equipe preparada e sensível às complexidades humanas.
                 </p>
             </div>
         </section>
@@ -343,21 +354,21 @@
             <div class="container-custom">
                 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2.5rem;">
 
-                    <!-- Ana CÃ¢ndida -->
+                    <!-- Ana Cândida -->
                     <div style="background: white; border-radius: 1.5rem; border: 1px solid var(--brand-100); overflow: hidden; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05); transition: all 0.3s;" onmouseover="this.style.boxShadow='0 20px 25px -5px rgba(0,0,0,0.1)'; this.style.transform='translateY(-5px)'" onmouseout="this.style.boxShadow='0 4px 6px -1px rgba(0,0,0,0.05)'; this.style.transform='translateY(0)'">
                         <a href="ana-candida/" style="display: block; height: 300px; overflow: hidden;">
-                            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=1888&auto=format&fit=crop" alt="Ana CÃ¢ndida" style="width:100%; height:100%; object-fit:cover; transition:transform 0.5s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+                            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=1888&auto=format&fit=crop" alt="Ana Cândida" style="width:100%; height:100%; object-fit:cover; transition:transform 0.5s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
                         </a>
                         <div style="padding: 2rem;">
-                            <a href="ana-candida/" style="text-decoration: none;"><h3 style="font-size: 1.5rem; color: var(--brand-900); font-family: var(--font-serif); margin-bottom: 0.4rem;">Ana CÃ¢ndida</h3></a>
-                            <p style="color: var(--brand-500); font-weight: 600; font-size: 0.9rem; margin-bottom: 1rem;">Terapeuta SistÃªmica</p>
-                            <p style="color: #666; font-size: 0.9rem; line-height: 1.7; margin-bottom: 1.5rem;">Especialista em ConstelaÃ§Ã£o Familiar e Empresarial, ReconstruÃ§Ã£o do Feminino e Desenvolvimento Humano. HÃ¡ mais de uma dÃ©cada acolhendo mulheres, casais e famÃ­lias em seu processo de reconexÃ£o e transformaÃ§Ã£o.</p>
+                            <a href="ana-candida/" style="text-decoration: none;"><h3 style="font-size: 1.5rem; color: var(--brand-900); font-family: var(--font-serif); margin-bottom: 0.4rem;">Ana Cândida</h3></a>
+                            <p style="color: var(--brand-500); font-weight: 600; font-size: 0.9rem; margin-bottom: 1rem;">Terapeuta Sistêmica</p>
+                            <p style="color: #666; font-size: 0.9rem; line-height: 1.7; margin-bottom: 1.5rem;">Especialista em Constelação Familiar e Empresarial, Reconstrução do Feminino e Desenvolvimento Humano. Há mais de uma década acolhendo mulheres, casais e famílias em seu processo de reconexão e transformação.</p>
                             <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.5rem;">
-                                <span style="padding: 0.25rem 0.75rem; background: var(--brand-100); color: var(--brand-900); font-size: 0.75rem; border-radius: 9999px; font-weight: 600;">ConstelaÃ§Ã£o Familiar</span>
+                                <span style="padding: 0.25rem 0.75rem; background: var(--brand-100); color: var(--brand-900); font-size: 0.75rem; border-radius: 9999px; font-weight: 600;">Constelação Familiar</span>
                                 <span style="padding: 0.25rem 0.75rem; background: var(--brand-100); color: var(--brand-900); font-size: 0.75rem; border-radius: 9999px; font-weight: 600;">Feminino</span>
                                 <span style="padding: 0.25rem 0.75rem; background: var(--brand-100); color: var(--brand-900); font-size: 0.75rem; border-radius: 9999px; font-weight: 600;">Desenvolvimento Humano</span>
                             </div>
-                            <a href="ana-candida/" style="font-size: 0.85rem; font-weight: 600; color: var(--brand-500); text-decoration: none;">Ver perfil completo â†’</a>
+                            <a href="ana-candida/" style="font-size: 0.85rem; font-weight: 600; color: var(--brand-500); text-decoration: none;">Ver perfil completo ?</a>
                         </div>
                     </div>
 
@@ -368,14 +379,14 @@
                         </a>
                         <div style="padding: 2rem;">
                             <a href="vanessa/" style="text-decoration: none;"><h3 style="font-size: 1.5rem; color: var(--brand-900); font-family: var(--font-serif); margin-bottom: 0.4rem;">Vanessa</h3></a>
-                            <p style="color: var(--brand-500); font-weight: 600; font-size: 0.9rem; margin-bottom: 1rem;">SecretÃ¡ria Executiva</p>
-                            <p style="color: #666; font-size: 0.9rem; line-height: 1.7; margin-bottom: 1.5rem;">ResponsÃ¡vel por toda a gestÃ£o administrativa e operacional do Instituto. Garante que cada paciente seja recebido com organizaÃ§Ã£o, pontualidade e acolhimento desde o primeiro contato.</p>
+                            <p style="color: var(--brand-500); font-weight: 600; font-size: 0.9rem; margin-bottom: 1rem;">Secretária Executiva</p>
+                            <p style="color: #666; font-size: 0.9rem; line-height: 1.7; margin-bottom: 1.5rem;">Responsável por toda a gestão administrativa e operacional do Instituto. Garante que cada paciente seja recebido com organização, pontualidade e acolhimento desde o primeiro contato.</p>
                             <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.5rem;">
                                 <span style="padding: 0.25rem 0.75rem; background: var(--brand-100); color: var(--brand-900); font-size: 0.75rem; border-radius: 9999px; font-weight: 600;">Agendamentos</span>
-                                <span style="padding: 0.25rem 0.75rem; background: var(--brand-100); color: var(--brand-900); font-size: 0.75rem; border-radius: 9999px; font-weight: 600;">AdministraÃ§Ã£o</span>
+                                <span style="padding: 0.25rem 0.75rem; background: var(--brand-100); color: var(--brand-900); font-size: 0.75rem; border-radius: 9999px; font-weight: 600;">Administração</span>
                                 <span style="padding: 0.25rem 0.75rem; background: var(--brand-100); color: var(--brand-900); font-size: 0.75rem; border-radius: 9999px; font-weight: 600;">Atendimento</span>
                             </div>
-                            <a href="vanessa/" style="font-size: 0.85rem; font-weight: 600; color: var(--brand-500); text-decoration: none;">Ver perfil completo â†’</a>
+                            <a href="vanessa/" style="font-size: 0.85rem; font-weight: 600; color: var(--brand-500); text-decoration: none;">Ver perfil completo ?</a>
                         </div>
                     </div>
 
@@ -387,13 +398,13 @@
                         <div style="padding: 2rem;">
                             <a href="paula/" style="text-decoration: none;"><h3 style="font-size: 1.5rem; color: var(--brand-900); font-family: var(--font-serif); margin-bottom: 0.4rem;">Paula</h3></a>
                             <p style="color: var(--brand-500); font-weight: 600; font-size: 0.9rem; margin-bottom: 1rem;">Social Media Estrategista</p>
-                            <p style="color: #666; font-size: 0.9rem; line-height: 1.7; margin-bottom: 1.5rem;">Cuida da presenÃ§a digital do Instituto com estratÃ©gia e sensibilidade. Transforma conteÃºdo sobre saÃºde emocional em conexÃµes reais com o pÃºblico, gerando engajamento autÃªntico e crescimento orgÃ¢nico.</p>
+                            <p style="color: #666; font-size: 0.9rem; line-height: 1.7; margin-bottom: 1.5rem;">Cuida da presença digital do Instituto com estratégia e sensibilidade. Transforma conteúdo sobre saúde emocional em conexões reais com o público, gerando engajamento autêntico e crescimento orgânico.</p>
                             <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.5rem;">
                                 <span style="padding: 0.25rem 0.75rem; background: var(--brand-100); color: var(--brand-900); font-size: 0.75rem; border-radius: 9999px; font-weight: 600;">Instagram</span>
-                                <span style="padding: 0.25rem 0.75rem; background: var(--brand-100); color: var(--brand-900); font-size: 0.75rem; border-radius: 9999px; font-weight: 600;">ConteÃºdo</span>
-                                <span style="padding: 0.25rem 0.75rem; background: var(--brand-100); color: var(--brand-900); font-size: 0.75rem; border-radius: 9999px; font-weight: 600;">EstratÃ©gia Digital</span>
+                                <span style="padding: 0.25rem 0.75rem; background: var(--brand-100); color: var(--brand-900); font-size: 0.75rem; border-radius: 9999px; font-weight: 600;">Conteúdo</span>
+                                <span style="padding: 0.25rem 0.75rem; background: var(--brand-100); color: var(--brand-900); font-size: 0.75rem; border-radius: 9999px; font-weight: 600;">Estratégia Digital</span>
                             </div>
-                            <a href="paula/" style="font-size: 0.85rem; font-weight: 600; color: var(--brand-500); text-decoration: none;">Ver perfil completo â†’</a>
+                            <a href="paula/" style="font-size: 0.85rem; font-weight: 600; color: var(--brand-500); text-decoration: none;">Ver perfil completo ?</a>
                         </div>
                     </div>
 
@@ -404,14 +415,14 @@
                         </a>
                         <div style="padding: 2rem;">
                             <a href="samuel/" style="text-decoration: none;"><h3 style="font-size: 1.5rem; color: var(--brand-900); font-family: var(--font-serif); margin-bottom: 0.4rem;">Samuel</h3></a>
-                            <p style="color: var(--brand-500); font-weight: 600; font-size: 0.9rem; margin-bottom: 1rem;">FotÃ³grafo</p>
-                            <p style="color: #666; font-size: 0.9rem; line-height: 1.7; margin-bottom: 1.5rem;">Especialista em fotografia institucional e de retrato, captura a essÃªncia humana por trÃ¡s de cada histÃ³ria. ResponsÃ¡vel pelos registros visuais que transmitem a identidade autÃªntica do Instituto Ana CÃ¢ndida.</p>
+                            <p style="color: var(--brand-500); font-weight: 600; font-size: 0.9rem; margin-bottom: 1rem;">Fotógrafo</p>
+                            <p style="color: #666; font-size: 0.9rem; line-height: 1.7; margin-bottom: 1.5rem;">Especialista em fotografia institucional e de retrato, captura a essência humana por trás de cada história. Responsável pelos registros visuais que transmitem a identidade autêntica do Instituto Ana Cândida.</p>
                             <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.5rem;">
                                 <span style="padding: 0.25rem 0.75rem; background: var(--brand-100); color: var(--brand-900); font-size: 0.75rem; border-radius: 9999px; font-weight: 600;">Fotografia</span>
                                 <span style="padding: 0.25rem 0.75rem; background: var(--brand-100); color: var(--brand-900); font-size: 0.75rem; border-radius: 9999px; font-weight: 600;">Retratos</span>
                                 <span style="padding: 0.25rem 0.75rem; background: var(--brand-100); color: var(--brand-900); font-size: 0.75rem; border-radius: 9999px; font-weight: 600;">Identidade Visual</span>
                             </div>
-                            <a href="samuel/" style="font-size: 0.85rem; font-weight: 600; color: var(--brand-500); text-decoration: none;">Ver perfil completo â†’</a>
+                            <a href="samuel/" style="font-size: 0.85rem; font-weight: 600; color: var(--brand-500); text-decoration: none;">Ver perfil completo ?</a>
                         </div>
                     </div>
 
@@ -423,31 +434,31 @@
                         <div style="padding: 2rem;">
                             <a href="leandro/" style="text-decoration: none;"><h3 style="font-size: 1.5rem; color: var(--brand-900); font-family: var(--font-serif); margin-bottom: 0.4rem;">Leandro</h3></a>
                             <p style="color: var(--brand-500); font-weight: 600; font-size: 0.9rem; margin-bottom: 1rem;">Designer</p>
-                            <p style="color: #666; font-size: 0.9rem; line-height: 1.7; margin-bottom: 1.5rem;">Cria a linguagem visual que comunica os valores do Instituto com elegÃ¢ncia e intenÃ§Ã£o. Desde materiais grÃ¡ficos a interfaces digitais, traduz o propÃ³sito da marca em experiÃªncias visuais marcantes.</p>
+                            <p style="color: #666; font-size: 0.9rem; line-height: 1.7; margin-bottom: 1.5rem;">Cria a linguagem visual que comunica os valores do Instituto com elegância e intenção. Desde materiais gráficos a interfaces digitais, traduz o propósito da marca em experiências visuais marcantes.</p>
                             <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.5rem;">
-                                <span style="padding: 0.25rem 0.75rem; background: var(--brand-100); color: var(--brand-900); font-size: 0.75rem; border-radius: 9999px; font-weight: 600;">Design GrÃ¡fico</span>
+                                <span style="padding: 0.25rem 0.75rem; background: var(--brand-100); color: var(--brand-900); font-size: 0.75rem; border-radius: 9999px; font-weight: 600;">Design Gráfico</span>
                                 <span style="padding: 0.25rem 0.75rem; background: var(--brand-100); color: var(--brand-900); font-size: 0.75rem; border-radius: 9999px; font-weight: 600;">UI/UX</span>
                                 <span style="padding: 0.25rem 0.75rem; background: var(--brand-100); color: var(--brand-900); font-size: 0.75rem; border-radius: 9999px; font-weight: 600;">Branding</span>
                             </div>
-                            <a href="leandro/" style="font-size: 0.85rem; font-weight: 600; color: var(--brand-500); text-decoration: none;">Ver perfil completo â†’</a>
+                            <a href="leandro/" style="font-size: 0.85rem; font-weight: 600; color: var(--brand-500); text-decoration: none;">Ver perfil completo ?</a>
                         </div>
                     </div>
 
-                    <!-- Wilson JÃºnior -->
+                    <!-- Wilson Júnior -->
                     <div style="background: white; border-radius: 1.5rem; border: 1px solid var(--brand-100); overflow: hidden; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05); transition: all 0.3s;" onmouseover="this.style.boxShadow='0 20px 25px -5px rgba(0,0,0,0.1)'; this.style.transform='translateY(-5px)'" onmouseout="this.style.boxShadow='0 4px 6px -1px rgba(0,0,0,0.05)'; this.style.transform='translateY(0)'">
                         <a href="wilson-junior/" style="display: block; height: 300px; overflow: hidden;">
-                            <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=2070&auto=format&fit=crop" alt="Wilson JÃºnior" style="width:100%; height:100%; object-fit:cover; transition:transform 0.5s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+                            <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=2070&auto=format&fit=crop" alt="Wilson Júnior" style="width:100%; height:100%; object-fit:cover; transition:transform 0.5s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
                         </a>
                         <div style="padding: 2rem;">
-                            <a href="wilson-junior/" style="text-decoration: none;"><h3 style="font-size: 1.5rem; color: var(--brand-900); font-family: var(--font-serif); margin-bottom: 0.4rem;">Wilson JÃºnior</h3></a>
+                            <a href="wilson-junior/" style="text-decoration: none;"><h3 style="font-size: 1.5rem; color: var(--brand-900); font-family: var(--font-serif); margin-bottom: 0.4rem;">Wilson Júnior</h3></a>
                             <p style="color: var(--brand-500); font-weight: 600; font-size: 0.9rem; margin-bottom: 1rem;">Marketing</p>
-                            <p style="color: #666; font-size: 0.9rem; line-height: 1.7; margin-bottom: 1.5rem;">ResponsÃ¡vel pela estratÃ©gia de crescimento e posicionamento do Instituto no mercado. Integra aÃ§Ãµes de trÃ¡fego pago, funis de conversÃ£o e anÃ¡lise de dados para ampliar o alcance do trabalho clÃ­nico para quem mais precisa.</p>
+                            <p style="color: #666; font-size: 0.9rem; line-height: 1.7; margin-bottom: 1.5rem;">Responsável pela estratégia de crescimento e posicionamento do Instituto no mercado. Integra ações de tráfego pago, funis de conversão e análise de dados para ampliar o alcance do trabalho clínico para quem mais precisa.</p>
                             <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.5rem;">
-                                <span style="padding: 0.25rem 0.75rem; background: var(--brand-100); color: var(--brand-900); font-size: 0.75rem; border-radius: 9999px; font-weight: 600;">TrÃ¡fego Pago</span>
+                                <span style="padding: 0.25rem 0.75rem; background: var(--brand-100); color: var(--brand-900); font-size: 0.75rem; border-radius: 9999px; font-weight: 600;">Tráfego Pago</span>
                                 <span style="padding: 0.25rem 0.75rem; background: var(--brand-100); color: var(--brand-900); font-size: 0.75rem; border-radius: 9999px; font-weight: 600;">Funis</span>
                                 <span style="padding: 0.25rem 0.75rem; background: var(--brand-100); color: var(--brand-900); font-size: 0.75rem; border-radius: 9999px; font-weight: 600;">Analytics</span>
                             </div>
-                            <a href="wilson-junior/" style="font-size: 0.85rem; font-weight: 600; color: var(--brand-500); text-decoration: none;">Ver perfil completo â†’</a>
+                            <a href="wilson-junior/" style="font-size: 0.85rem; font-weight: 600; color: var(--brand-500); text-decoration: none;">Ver perfil completo ?</a>
                         </div>
                     </div>
 
@@ -455,6 +466,7 @@
             </div>
         </section>
     </main>
+
     <!-- FOOTER_START -->
     <footer style="background-color: var(--brand-900); color: #FDFBFA !important; padding: 5rem 0 3rem; position: relative; z-index: 50; width: 100%;">
         <div class="container-custom">
@@ -488,7 +500,7 @@
                 <div>
                     <h4 style="font-family: 'Playfair Display', serif; font-size: 1.1rem; margin-bottom: 1.5rem; font-weight: 700; color: #FDFBFA !important;">Contato</h4>
                     <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 1.2rem;">
-                        <li style="display: flex; align-items: flex-start; gap: 0.75rem; color: #FDFBFA !important; opacity: 0.9;"><i data-lucide="map-pin" style="width: 18px; height: 18px; flex-shrink: 0; margin-top: 0.2rem;"></i><span>Ã“rion Business &amp; Health Complex, Sala 3 - GoiÃ¢nia-GO</span></li>
+                        <li style="display: flex; align-items: flex-start; gap: 0.75rem; color: #FDFBFA !important; opacity: 0.9;"><i data-lucide="map-pin" style="width: 18px; height: 18px; flex-shrink: 0; margin-top: 0.2rem;"></i><span>Village, GoiÃ¢nia-GO</span></li>
                         <li style="display: flex; align-items: center; gap: 0.75rem; color: #FDFBFA !important; opacity: 0.9;"><i data-lucide="phone" style="width: 18px; height: 18px; flex-shrink: 0;"></i><span>(62) 99471-8809</span></li>
                         <li style="display: flex; align-items: flex-start; gap: 0.75rem; color: #FDFBFA !important; opacity: 0.9;"><i data-lucide="mail" style="width: 18px; height: 18px; flex-shrink: 0; margin-top: 0.2rem;"></i><span class="footer-nowrap">institutoanacandida@gmail.com</span></li>
                     </ul>
@@ -505,9 +517,10 @@
                 <!-- Col 5: Aviso Important -->
                 <div>
                     <h4 style="font-family: 'Playfair Display', serif; font-size: 1.1rem; margin-bottom: 1.5rem; font-weight: 700; color: #FDFBFA !important; display: flex; align-items: center; gap: 0.5rem;">
+                        <span style="width: 8px; height: 8px; background-color: var(--red-accent); border-radius: 50%; display: inline-block;"></span> 
                         Aviso Importante
                     </h4>
-                    <p style="opacity: 0.9; line-height: 1.6; font-size: 0.9rem; color: #FDFBFA !important;">Este site nÃ£o oferece atendimento de emergÃªncia. Em caso de crise, procure o hospital mais prÃ³ximo ou ligue <strong>188 (CVV)</strong>.</p>
+                    <p style="opacity: 0.9; line-height: 1.6; font-size: 0.9rem; color: #FDFBFA !important;">Este site nÃ£o oferece atendimento de emergÃªncia. Em caso de crise, procure o hospital mais prÃ³ximo ou ligue <span style="color: var(--red-accent); font-weight: 700;">188 (CVV)</span>.</p>
                 </div>
             </div>
             <div style="border-top: 1px solid rgba(253, 251, 250, 0.1); padding-top: 2rem; text-align: center;">

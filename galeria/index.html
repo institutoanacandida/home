@@ -1,13 +1,13 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Galeria | Instituto Ana Cândida</title>
-    <meta name="description" content="Conheça nosso espaço, equipe e momentos do Instituto Ana Cândida. Ambientes pensados para o seu acolhimento.">
+    <title>Galeria | Instituto Ana C�ndida</title>
+    <meta name="description" content="Conhe�a nosso espa�o, equipe e momentos do Instituto Ana C�ndida. Ambientes pensados para o seu acolhimento.">
     
     
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌷</text></svg>">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>??</text></svg>">
     
     <link rel="stylesheet" href="../assets/style.css">
     <!-- STYLES_START -->
@@ -18,7 +18,8 @@
             --brand-500: #C19555;   /* Dourado Principal */
             --brand-100: #F0F4F2;   /* Verde Ultra Light */
             --brand-50: #FFFFFF;    /* Branco */
-}
+            --red-accent: #D93131;  /* Detalhe em Vermelho */
+        }
 
         /* Fixed Interactive Dropdowns */
         .nav-item-dropdown { position: relative; padding: 1rem 0; cursor: pointer; }
@@ -42,14 +43,14 @@
         .nav-item-dropdown:hover .chevron-icon { transform: rotate(180deg); opacity: 1; color: var(--brand-500); }
 
         /* Responsive Footer Grid */
-        .footer-grid {
-            display: grid; grid-template-columns: 1fr; gap: 2rem; margin-bottom: 4rem; 
+        .footer-grid { 
+            display: grid; grid-template-columns: 1fr; gap: 2.5rem; margin-bottom: 4rem; 
         }
         @media (min-width: 640px) {
-            .footer-grid { grid-template-columns: repeat(2, 1fr); gap: 2rem; }
+            .footer-grid { grid-template-columns: repeat(2, 1fr); gap: 2.5rem; }
         }
         @media (min-width: 1024px) {
-            .footer-grid { grid-template-columns: repeat(5, 1fr); gap: 1.5rem; }
+            .footer-grid { grid-template-columns: 0.8fr 0.6fr 1.5fr 2fr 2.4fr; gap: 2rem; }
             .footer-nowrap { white-space: nowrap; }
         }
 
@@ -174,11 +175,16 @@
         .btn-submit { width: 100%; padding: 1rem; background: var(--brand-900); color: white; border: none; border-radius: 9999px; font-weight: 700; cursor: pointer; transition: 0.3s; margin-top: 1rem; }
 
         /* Red Pulse Animation */
-        
+        @keyframes pulse-red {
+            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(217, 49, 49, 0.7); }
             70% { transform: scale(1); box-shadow: 0 0 0 6px rgba(217, 49, 49, 0); }
             100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(217, 49, 49, 0); }
         }
-        
+        .red-dot {
+            width: 8px; height: 8px; background-color: var(--red-accent); border-radius: 50%;
+            display: inline-block; position: absolute; top: -2px; right: -2px;
+            animation: pulse-red 2s infinite;
+        }
     </style>
     <!-- STYLES_END -->
 </head>
@@ -235,6 +241,8 @@
                             <a href="../conteudos" class="dropdown-item">Visão Geral</a>
                             <a href="../conteudos/blog" class="dropdown-item">Blog</a>
                             <a href="../conteudos/cursos" class="dropdown-item">Cursos</a>
+                            <a href="../conteudos/eventos" class="dropdown-item">Eventos</a>
+                            <a href="../conteudos/formacao" class="dropdown-item">Formação</a>
                         </div>
                     </div>
                     
@@ -245,6 +253,7 @@
 
                 <div class="hidden lg:block" style="position: relative;">
                     <a href="https://wa.me/5562994718809" target="_blank" class="btn-primary" style="padding: 0.6rem 1.5rem; font-size: 0.85rem;">Agendar</a>
+                    <span class="red-dot"></span>
                 </div>
                 
                 <button class="lg:hidden" style="background: none; border: none; cursor: pointer; color: #0A4834;" onclick="toggleMobileMenu()">
@@ -315,6 +324,8 @@
                     <a href="../conteudos" class="mobile-link-sub">Visão Geral</a>
                     <a href="../conteudos/blog" class="mobile-link-sub">Blog</a>
                     <a href="../conteudos/cursos" class="mobile-link-sub">Cursos</a>
+                    <a href="../conteudos/eventos" class="mobile-link-sub">Eventos</a>
+                    <a href="../conteudos/formacao" class="mobile-link-sub">Formação</a>
                 </div>
             </div>
 
@@ -332,7 +343,7 @@
         <section style="background-color: var(--brand-50); padding: 50px 0 30px 0;">
             <div class="container-custom">
                 <h1 style="font-size: clamp(2rem, 5vw, 2.8rem); color: var(--brand-900); margin-bottom: 1rem; font-family: 'Playfair Display', serif; font-weight: 700;">Nossa Galeria</h1>
-                <p style="font-size: 1.1rem; color: var(--brand-800); max-width: 600px; opacity: 0.8; line-height: 1.5;">Um ambiente pensado para acolher. Conheça nosso espaço e veja como preparamos cada detalhe para receber você e sua família com o máximo conforto e privacidade.</p>
+                <p style="font-size: 1.1rem; color: var(--brand-800); max-width: 600px; opacity: 0.8; line-height: 1.5;">Um ambiente pensado para acolher. Conhe�a nosso espa�o e veja como preparamos cada detalhe para receber voc� e sua fam�lia com o m�ximo conforto e privacidade.</p>
             </div>
         </section>
 
@@ -341,7 +352,7 @@
             <div class="container-custom">
                 <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 1.2rem; margin-bottom: 2rem;">
                     <button class="filter-btn active" onclick="filterGallery('todos', this)">Todos</button>
-                    <button class="filter-btn" onclick="filterGallery('espaco', this)">Espaço</button>
+                    <button class="filter-btn" onclick="filterGallery('espaco', this)">Espa�o</button>
                     <button class="filter-btn" onclick="filterGallery('equipe', this)">Equipe</button>
                     <button class="filter-btn" onclick="filterGallery('eventos', this)">Eventos</button>
                     <button class="filter-btn" onclick="filterGallery('bastidores', this)">Bastidores</button>
@@ -353,9 +364,9 @@
             <div class="container-custom">
                 <div id="gallery-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem;">
                     <div class="gallery-item" data-category="espaco" onclick="openLightbox(0)" style="position: relative; aspect-ratio: 1/1; cursor: pointer; overflow: hidden; border-radius: 1.5rem;">
-                        <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=1200&auto=format&fit=crop" data-full="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2000&auto=format&fit=crop" data-caption="Nossa recepção acolhedora" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s;">
+                        <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=1200&auto=format&fit=crop" data-full="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2000&auto=format&fit=crop" data-caption="Nossa recep��o acolhedora" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s;">
                         <div class="overlay" style="position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.7), transparent); opacity: 0; transition: opacity 0.3s; display: flex; align-items: flex-end; padding: 1.5rem;">
-                            <p style="color: white; font-weight: 600; font-size: 1rem;">Recepção</p>
+                            <p style="color: white; font-weight: 600; font-size: 1rem;">Recep��o</p>
                         </div>
                     </div>
                     <div class="gallery-item" data-category="espaco" onclick="openLightbox(1)" style="position: relative; aspect-ratio: 1/1; cursor: pointer; overflow: hidden; border-radius: 1.5rem;">
@@ -365,9 +376,9 @@
                         </div>
                     </div>
                     <div class="gallery-item" data-category="equipe" onclick="openLightbox(2)" style="position: relative; aspect-ratio: 1/1; cursor: pointer; overflow: hidden; border-radius: 1.5rem;">
-                        <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=1200&auto=format&fit=crop" data-full="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=2000&auto=format&fit=crop" data-caption="Equipe em supervisão" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s;">
+                        <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=1200&auto=format&fit=crop" data-full="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=2000&auto=format&fit=crop" data-caption="Equipe em supervis�o" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s;">
                         <div class="overlay" style="position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.7), transparent); opacity: 0; transition: opacity 0.3s; display: flex; align-items: flex-end; padding: 1.5rem;">
-                            <p style="color: white; font-weight: 600; font-size: 1rem;">Equipe em Supervisão</p>
+                            <p style="color: white; font-weight: 600; font-size: 1rem;">Equipe em Supervis�o</p>
                         </div>
                     </div>
                     <div class="gallery-item" data-category="eventos" onclick="openLightbox(3)" style="position: relative; aspect-ratio: 1/1; cursor: pointer; overflow: hidden; border-radius: 1.5rem;">
@@ -393,7 +404,7 @@
         <section style="padding: 100px 0; background: white; text-align: center;">
             <div class="container-custom" style="max-width: 800px; background: var(--brand-50); padding: 4rem; border-radius: 2.5rem; border: 1px solid var(--brand-100);">
                 <h3 style="font-size: 2rem; color: var(--brand-900); margin-bottom: 1rem; font-family: 'Playfair Display', serif;">Gostou do que viu?</h3>
-                <p style="color: var(--brand-800); margin-bottom: 2.5rem;">Venha nos conhecer pessoalmente e agende seu horário para uma conversa inicial.</p>
+                <p style="color: var(--brand-800); margin-bottom: 2.5rem;">Venha nos conhecer pessoalmente e agende seu hor�rio para uma conversa inicial.</p>
                 <a href="https://wa.me/5562994718809" target="_blank" style="display: inline-block; background-color: var(--brand-900); color: white; padding: 1rem 2.5rem; border-radius: 999px; text-decoration: none; font-weight: 700;">Agendar Visita</a>
             </div>
         </section>
@@ -432,7 +443,7 @@
                 <div>
                     <h4 style="font-family: 'Playfair Display', serif; font-size: 1.1rem; margin-bottom: 1.5rem; font-weight: 700; color: #FDFBFA !important;">Contato</h4>
                     <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 1.2rem;">
-                        <li style="display: flex; align-items: flex-start; gap: 0.75rem; color: #FDFBFA !important; opacity: 0.9;"><i data-lucide="map-pin" style="width: 18px; height: 18px; flex-shrink: 0; margin-top: 0.2rem;"></i><span>Órion Business &amp; Health Complex, Sala 3 - Goiânia-GO</span></li>
+                        <li style="display: flex; align-items: flex-start; gap: 0.75rem; color: #FDFBFA !important; opacity: 0.9;"><i data-lucide="map-pin" style="width: 18px; height: 18px; flex-shrink: 0; margin-top: 0.2rem;"></i><span>Village, Goiânia-GO</span></li>
                         <li style="display: flex; align-items: center; gap: 0.75rem; color: #FDFBFA !important; opacity: 0.9;"><i data-lucide="phone" style="width: 18px; height: 18px; flex-shrink: 0;"></i><span>(62) 99471-8809</span></li>
                         <li style="display: flex; align-items: flex-start; gap: 0.75rem; color: #FDFBFA !important; opacity: 0.9;"><i data-lucide="mail" style="width: 18px; height: 18px; flex-shrink: 0; margin-top: 0.2rem;"></i><span class="footer-nowrap">institutoanacandida@gmail.com</span></li>
                     </ul>
@@ -449,9 +460,10 @@
                 <!-- Col 5: Aviso Important -->
                 <div>
                     <h4 style="font-family: 'Playfair Display', serif; font-size: 1.1rem; margin-bottom: 1.5rem; font-weight: 700; color: #FDFBFA !important; display: flex; align-items: center; gap: 0.5rem;">
+                        <span style="width: 8px; height: 8px; background-color: var(--red-accent); border-radius: 50%; display: inline-block;"></span> 
                         Aviso Importante
                     </h4>
-                    <p style="opacity: 0.9; line-height: 1.6; font-size: 0.9rem; color: #FDFBFA !important;">Este site não oferece atendimento de emergência. Em caso de crise, procure o hospital mais próximo ou ligue <strong>188 (CVV)</strong>.</p>
+                    <p style="opacity: 0.9; line-height: 1.6; font-size: 0.9rem; color: #FDFBFA !important;">Este site não oferece atendimento de emergência. Em caso de crise, procure o hospital mais próximo ou ligue <span style="color: var(--red-accent); font-weight: 700;">188 (CVV)</span>.</p>
                 </div>
             </div>
             <div style="border-top: 1px solid rgba(253, 251, 250, 0.1); padding-top: 2rem; text-align: center;">

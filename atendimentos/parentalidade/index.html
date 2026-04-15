@@ -1,13 +1,13 @@
-Ôªø<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Parentalidade | Instituto Ana C√¢ndida</title>
-    <meta name="description" content="Orienta√ß√£o para pais sobre desafios na educa√ß√£o e coparentalidade. Suporte especializado em Goi√¢nia ou Online.">
+    <title>Parentalidade | Instituto Ana C‚ndida</title>
+    <meta name="description" content="OrientaÁ„o para pais sobre desafios na educaÁ„o e coparentalidade. Suporte especializado em Goi‚nia ou Online.">
     
     
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>üå∑</text></svg>">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>??</text></svg>">
     
     <link rel="stylesheet" href="../../assets/style.css">
     <!-- STYLES_START -->
@@ -18,7 +18,8 @@
             --brand-500: #C19555;   /* Dourado Principal */
             --brand-100: #F0F4F2;   /* Verde Ultra Light */
             --brand-50: #FFFFFF;    /* Branco */
-}
+            --red-accent: #D93131;  /* Detalhe em Vermelho */
+        }
 
         /* Fixed Interactive Dropdowns */
         .nav-item-dropdown { position: relative; padding: 1rem 0; cursor: pointer; }
@@ -42,14 +43,14 @@
         .nav-item-dropdown:hover .chevron-icon { transform: rotate(180deg); opacity: 1; color: var(--brand-500); }
 
         /* Responsive Footer Grid */
-        .footer-grid {
-            display: grid; grid-template-columns: 1fr; gap: 2rem; margin-bottom: 4rem; 
+        .footer-grid { 
+            display: grid; grid-template-columns: 1fr; gap: 2.5rem; margin-bottom: 4rem; 
         }
         @media (min-width: 640px) {
-            .footer-grid { grid-template-columns: repeat(2, 1fr); gap: 2rem; }
+            .footer-grid { grid-template-columns: repeat(2, 1fr); gap: 2.5rem; }
         }
         @media (min-width: 1024px) {
-            .footer-grid { grid-template-columns: repeat(5, 1fr); gap: 1.5rem; }
+            .footer-grid { grid-template-columns: 0.8fr 0.6fr 1.5fr 2fr 2.4fr; gap: 2rem; }
             .footer-nowrap { white-space: nowrap; }
         }
 
@@ -174,11 +175,16 @@
         .btn-submit { width: 100%; padding: 1rem; background: var(--brand-900); color: white; border: none; border-radius: 9999px; font-weight: 700; cursor: pointer; transition: 0.3s; margin-top: 1rem; }
 
         /* Red Pulse Animation */
-        
+        @keyframes pulse-red {
+            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(217, 49, 49, 0.7); }
             70% { transform: scale(1); box-shadow: 0 0 0 6px rgba(217, 49, 49, 0); }
             100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(217, 49, 49, 0); }
         }
-        
+        .red-dot {
+            width: 8px; height: 8px; background-color: var(--red-accent); border-radius: 50%;
+            display: inline-block; position: absolute; top: -2px; right: -2px;
+            animation: pulse-red 2s infinite;
+        }
     </style>
     <!-- STYLES_END -->
 </head>
@@ -235,6 +241,8 @@
                             <a href="../../conteudos" class="dropdown-item">Vis√£o Geral</a>
                             <a href="../../conteudos/blog" class="dropdown-item">Blog</a>
                             <a href="../../conteudos/cursos" class="dropdown-item">Cursos</a>
+                            <a href="../../conteudos/eventos" class="dropdown-item">Eventos</a>
+                            <a href="../../conteudos/formacao" class="dropdown-item">Forma√ß√£o</a>
                         </div>
                     </div>
                     
@@ -245,6 +253,7 @@
 
                 <div class="hidden lg:block" style="position: relative;">
                     <a href="https://wa.me/5562994718809" target="_blank" class="btn-primary" style="padding: 0.6rem 1.5rem; font-size: 0.85rem;">Agendar</a>
+                    <span class="red-dot"></span>
                 </div>
                 
                 <button class="lg:hidden" style="background: none; border: none; cursor: pointer; color: #0A4834;" onclick="toggleMobileMenu()">
@@ -315,6 +324,8 @@
                     <a href="../../conteudos" class="mobile-link-sub">Vis√£o Geral</a>
                     <a href="../../conteudos/blog" class="mobile-link-sub">Blog</a>
                     <a href="../../conteudos/cursos" class="mobile-link-sub">Cursos</a>
+                    <a href="../../conteudos/eventos" class="mobile-link-sub">Eventos</a>
+                    <a href="../../conteudos/formacao" class="mobile-link-sub">Forma√ß√£o</a>
                 </div>
             </div>
 
@@ -334,11 +345,11 @@
                     <div style="flex: 1;">
                         <div style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.25rem 1rem; background: var(--brand-100); color: var(--brand-700); border-radius: 9999px; font-size: 0.875rem; font-weight: 600; margin-bottom: 2rem;">
                             <i data-lucide="baby" size="16"></i>
-                            Apoio a pais e m√£es
+                            Apoio a pais e m„es
                         </div>
                         <h1 style="font-size: clamp(2.5rem, 5vw, 3.5rem); color: var(--brand-900); font-family: var(--font-serif); margin-bottom: 1.5rem;">Parentalidade</h1>
-                        <p style="font-size: 1.25rem; color: #4b5563; margin-bottom: 2.5rem; line-height: 1.6;">A Orienta√ß√£o Parental √© um servi√ßo focado em instrumentalizar pais e cuidadores para lidarem com os desafios da educa√ß√£o, visando o desenvolvimento saud√°vel da crian√ßa e a sanidade mental dos pais.</p>
-                        <a href="/home/agendar" class="btn btn-primary btn-lg">Agendar Sess√£o</a>
+                        <p style="font-size: 1.25rem; color: #4b5563; margin-bottom: 2.5rem; line-height: 1.6;">A OrientaÁ„o Parental È um serviÁo focado em instrumentalizar pais e cuidadores para lidarem com os desafios da educaÁ„o, visando o desenvolvimento saud·vel da crianÁa e a sanidade mental dos pais.</p>
+                        <a href="/home/agendar" class="btn btn-primary btn-lg">Agendar Sess„o</a>
                     </div>
                     <div style="flex: 1; width: 100%;">
                         <img src="https://images.unsplash.com/photo-1484820540004-14229fe36ca4?q=80&w=1974&auto=format&fit=crop" alt="Parentalidade" style="width: 100%; border-radius: 2rem; box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15); aspect-ratio: 16/10; object-fit: cover;">
@@ -352,18 +363,18 @@
                 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 5rem;">
                     <div style="display: flex; flex-direction: column; gap: 4rem;">
                         <div>
-                            <h2 style="font-size: 1.75rem; color: var(--brand-900); font-family: var(--font-serif); margin-bottom: 1.5rem;">Para quem √© indicado?</h2>
+                            <h2 style="font-size: 1.75rem; color: var(--brand-900); font-family: var(--font-serif); margin-bottom: 1.5rem;">Para quem È indicado?</h2>
                             <ul style="list-style: none; display: flex; flex-direction: column; gap: 1rem;">
                                 <li style="display: flex; align-items: flex-start; gap: 1rem; color: #4b5563;"><i data-lucide="check-circle" style="color: var(--brand-500); flex-shrink: 0;"></i>Pais de primeira viagem</li>
                                 <li style="display: flex; align-items: flex-start; gap: 1rem; color: #4b5563;"><i data-lucide="check-circle" style="color: var(--brand-500); flex-shrink: 0;"></i>Dificuldades com limites e rotina</li>
                                 <li style="display: flex; align-items: flex-start; gap: 1rem; color: #4b5563;"><i data-lucide="check-circle" style="color: var(--brand-500); flex-shrink: 0;"></i>Pais separados (Coparentalidade)</li>
-                                <li style="display: flex; align-items: flex-start; gap: 1rem; color: #4b5563;"><i data-lucide="check-circle" style="color: var(--brand-500); flex-shrink: 0;"></i>Quest√µes de desenvolvimento infantil</li>
+                                <li style="display: flex; align-items: flex-start; gap: 1rem; color: #4b5563;"><i data-lucide="check-circle" style="color: var(--brand-500); flex-shrink: 0;"></i>Questıes de desenvolvimento infantil</li>
                             </ul>
                         </div>
                         <div>
                             <h2 style="font-size: 1.75rem; color: var(--brand-900); font-family: var(--font-serif); margin-bottom: 1.5rem;">Como funciona?</h2>
                             <ul style="list-style: none; display: flex; flex-direction: column; gap: 1rem;">
-                                <li style="display: flex; align-items: center; gap: 1rem; color: #4b5563;"><span style="width: 8px; height: 8px; background: var(--brand-400); border-radius: 50%;"></span>Foco em estrat√©gias pr√°ticas</li>
+                                <li style="display: flex; align-items: center; gap: 1rem; color: #4b5563;"><span style="width: 8px; height: 8px; background: var(--brand-400); border-radius: 50%;"></span>Foco em estratÈgias pr·ticas</li>
                                 <li style="display: flex; align-items: center; gap: 1rem; color: #4b5563;"><span style="width: 8px; height: 8px; background: var(--brand-400); border-radius: 50%;"></span>Alinhamento entre os cuidadores</li>
                                 <li style="display: flex; align-items: center; gap: 1rem; color: #4b5563;"><span style="width: 8px; height: 8px; background: var(--brand-400); border-radius: 50%;"></span>Entendimento das fases do desenvolvimento</li>
                             </ul>
@@ -407,7 +418,7 @@
                 <div>
                     <h4 style="font-family: 'Playfair Display', serif; font-size: 1.1rem; margin-bottom: 1.5rem; font-weight: 700; color: #FDFBFA !important;">Contato</h4>
                     <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 1.2rem;">
-                        <li style="display: flex; align-items: flex-start; gap: 0.75rem; color: #FDFBFA !important; opacity: 0.9;"><i data-lucide="map-pin" style="width: 18px; height: 18px; flex-shrink: 0; margin-top: 0.2rem;"></i><span>√ìrion Business &amp; Health Complex, Sala 3 - Goi√¢nia-GO</span></li>
+                        <li style="display: flex; align-items: flex-start; gap: 0.75rem; color: #FDFBFA !important; opacity: 0.9;"><i data-lucide="map-pin" style="width: 18px; height: 18px; flex-shrink: 0; margin-top: 0.2rem;"></i><span>Village, Goi√¢nia-GO</span></li>
                         <li style="display: flex; align-items: center; gap: 0.75rem; color: #FDFBFA !important; opacity: 0.9;"><i data-lucide="phone" style="width: 18px; height: 18px; flex-shrink: 0;"></i><span>(62) 99471-8809</span></li>
                         <li style="display: flex; align-items: flex-start; gap: 0.75rem; color: #FDFBFA !important; opacity: 0.9;"><i data-lucide="mail" style="width: 18px; height: 18px; flex-shrink: 0; margin-top: 0.2rem;"></i><span class="footer-nowrap">institutoanacandida@gmail.com</span></li>
                     </ul>
@@ -424,9 +435,10 @@
                 <!-- Col 5: Aviso Important -->
                 <div>
                     <h4 style="font-family: 'Playfair Display', serif; font-size: 1.1rem; margin-bottom: 1.5rem; font-weight: 700; color: #FDFBFA !important; display: flex; align-items: center; gap: 0.5rem;">
+                        <span style="width: 8px; height: 8px; background-color: var(--red-accent); border-radius: 50%; display: inline-block;"></span> 
                         Aviso Importante
                     </h4>
-                    <p style="opacity: 0.9; line-height: 1.6; font-size: 0.9rem; color: #FDFBFA !important;">Este site n√£o oferece atendimento de emerg√™ncia. Em caso de crise, procure o hospital mais pr√≥ximo ou ligue <strong>188 (CVV)</strong>.</p>
+                    <p style="opacity: 0.9; line-height: 1.6; font-size: 0.9rem; color: #FDFBFA !important;">Este site n√£o oferece atendimento de emerg√™ncia. Em caso de crise, procure o hospital mais pr√≥ximo ou ligue <span style="color: var(--red-accent); font-weight: 700;">188 (CVV)</span>.</p>
                 </div>
             </div>
             <div style="border-top: 1px solid rgba(253, 251, 250, 0.1); padding-top: 2rem; text-align: center;">

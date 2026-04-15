@@ -1,9 +1,9 @@
-Ôªø<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jornada do Renascimento: Sua reconex√£o feminina | Instituto Ana C√¢ndida</title>
+    <title>Jornada do Renascimento: Sua reconex„o feminina | Instituto Ana C‚ndida</title>
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../../blog/css/article.css">
@@ -17,7 +17,8 @@
             --brand-500: #C19555;   /* Dourado Principal */
             --brand-100: #F0F4F2;   /* Verde Ultra Light */
             --brand-50: #FFFFFF;    /* Branco */
-}
+            --red-accent: #D93131;  /* Detalhe em Vermelho */
+        }
 
         /* Fixed Interactive Dropdowns */
         .nav-item-dropdown { position: relative; padding: 1rem 0; cursor: pointer; }
@@ -41,14 +42,14 @@
         .nav-item-dropdown:hover .chevron-icon { transform: rotate(180deg); opacity: 1; color: var(--brand-500); }
 
         /* Responsive Footer Grid */
-        .footer-grid {
-            display: grid; grid-template-columns: 1fr; gap: 2rem; margin-bottom: 4rem; 
+        .footer-grid { 
+            display: grid; grid-template-columns: 1fr; gap: 2.5rem; margin-bottom: 4rem; 
         }
         @media (min-width: 640px) {
-            .footer-grid { grid-template-columns: repeat(2, 1fr); gap: 2rem; }
+            .footer-grid { grid-template-columns: repeat(2, 1fr); gap: 2.5rem; }
         }
         @media (min-width: 1024px) {
-            .footer-grid { grid-template-columns: repeat(5, 1fr); gap: 1.5rem; }
+            .footer-grid { grid-template-columns: 0.8fr 0.6fr 1.5fr 2fr 2.4fr; gap: 2rem; }
             .footer-nowrap { white-space: nowrap; }
         }
 
@@ -173,11 +174,16 @@
         .btn-submit { width: 100%; padding: 1rem; background: var(--brand-900); color: white; border: none; border-radius: 9999px; font-weight: 700; cursor: pointer; transition: 0.3s; margin-top: 1rem; }
 
         /* Red Pulse Animation */
-        
+        @keyframes pulse-red {
+            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(217, 49, 49, 0.7); }
             70% { transform: scale(1); box-shadow: 0 0 0 6px rgba(217, 49, 49, 0); }
             100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(217, 49, 49, 0); }
         }
-        
+        .red-dot {
+            width: 8px; height: 8px; background-color: var(--red-accent); border-radius: 50%;
+            display: inline-block; position: absolute; top: -2px; right: -2px;
+            animation: pulse-red 2s infinite;
+        }
     </style>
     <!-- STYLES_END -->
 </head>
@@ -234,6 +240,8 @@
                             <a href="../../../conteudos" class="dropdown-item">Vis√£o Geral</a>
                             <a href="../../../conteudos/blog" class="dropdown-item">Blog</a>
                             <a href="../../../conteudos/cursos" class="dropdown-item">Cursos</a>
+                            <a href="../../../conteudos/eventos" class="dropdown-item">Eventos</a>
+                            <a href="../../../conteudos/formacao" class="dropdown-item">Forma√ß√£o</a>
                         </div>
                     </div>
                     
@@ -244,6 +252,7 @@
 
                 <div class="hidden lg:block" style="position: relative;">
                     <a href="https://wa.me/5562994718809" target="_blank" class="btn-primary" style="padding: 0.6rem 1.5rem; font-size: 0.85rem;">Agendar</a>
+                    <span class="red-dot"></span>
                 </div>
                 
                 <button class="lg:hidden" style="background: none; border: none; cursor: pointer; color: #0A4834;" onclick="toggleMobileMenu()">
@@ -314,6 +323,8 @@
                     <a href="../../../conteudos" class="mobile-link-sub">Vis√£o Geral</a>
                     <a href="../../../conteudos/blog" class="mobile-link-sub">Blog</a>
                     <a href="../../../conteudos/cursos" class="mobile-link-sub">Cursos</a>
+                    <a href="../../../conteudos/eventos" class="mobile-link-sub">Eventos</a>
+                    <a href="../../../conteudos/formacao" class="mobile-link-sub">Forma√ß√£o</a>
                 </div>
             </div>
 
@@ -330,41 +341,41 @@
         <header class="article-header">
             <div class="article-meta">
                 <span><i class="fa-solid fa-seedling"></i> Autoconhecimento</span>
-                <span>‚Ä¢</span>
+                <span>ï</span>
                 <span><i class="fa-solid fa-clock"></i> 7 min de leitura</span>
             </div>
-            <h1>A Jornada do Renascimento: Como reconectar-se com sua ess√™ncia atrav√©s da Sist√™mica</h1>
+            <h1>A Jornada do Renascimento: Como reconectar-se com sua essÍncia atravÈs da SistÍmica</h1>
             <img src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?q=80&w=1999&auto=format&fit=crop" alt="Jornada do Renascimento" class="article-hero-img">
         </header>
 
         <section class="article-content">
-            <p>Voc√™ j√° sentiu que est√° "atropelada" pelas demandas da vida? Trabalho, casa, filhos, expectativas externas... e em algum lugar no meio de tudo isso, voc√™ se perdeu de si mesma.</p>
+            <p>VocÍ j· sentiu que est· "atropelada" pelas demandas da vida? Trabalho, casa, filhos, expectativas externas... e em algum lugar no meio de tudo isso, vocÍ se perdeu de si mesma.</p>
             
-            <p>A <strong>Jornada do Renascimento</strong> n√£o √© apenas um curso. √â um processo profundo de <em>retorno ao lar</em>. Sob o olhar da Terapia Sist√™mica, entendemos que para florir, uma mulher precisa estar bem enraizada em sua pr√≥pria hist√≥ria.</p>
+            <p>A <strong>Jornada do Renascimento</strong> n„o È apenas um curso. … um processo profundo de <em>retorno ao lar</em>. Sob o olhar da Terapia SistÍmica, entendemos que para florir, uma mulher precisa estar bem enraizada em sua prÛpria histÛria.</p>
 
-            <h2>O peso que n√£o √© seu</h2>
-            <p>Muitas vezes carregamos dores, medos e padr√µes de comportamento que nem sequer nos pertencem. S√£o lealdades invis√≠veis √†s mulheres da nossa fam√≠lia que vieram antes de n√≥s. A av√≥ que n√£o p√¥de estudar, a m√£e que n√£o foi amada... tudo isso ecoa em como ocupamos nosso lugar no mundo hoje.</p>
+            <h2>O peso que n„o È seu</h2>
+            <p>Muitas vezes carregamos dores, medos e padrıes de comportamento que nem sequer nos pertencem. S„o lealdades invisÌveis ‡s mulheres da nossa famÌlia que vieram antes de nÛs. A avÛ que n„o pÙde estudar, a m„e que n„o foi amada... tudo isso ecoa em como ocupamos nosso lugar no mundo hoje.</p>
 
             <blockquote>
-                "Somente quando honramos nossas ra√≠zes √© que temos for√ßa para dar frutos novos."
+                "Somente quando honramos nossas raÌzes È que temos forÁa para dar frutos novos."
             </blockquote>
 
             <h2>Os 3 Pilares do Renascimento</h2>
-            <p>Nesta jornada, trabalhamos tr√™s dimens√µes fundamentais para que o renascimento aconte√ßa de forma sustent√°vel:</p>
+            <p>Nesta jornada, trabalhamos trÍs dimensıes fundamentais para que o renascimento aconteÁa de forma sustent·vel:</p>
             
             <ul>
-                <li><strong>O Olhar para a Origem:</strong> Curar a rela√ß√£o com a figura materna e paterna, tomando a for√ßa que vem deles sem carregar suas dores.</li>
-                <li><strong>A Presen√ßa no Agora:</strong> Aprender a ouvir o pr√≥prio corpo e os pr√≥prios desejos, saindo do modo autom√°tico de sobreviv√™ncia.</li>
-                <li><strong>O Prop√≥sito Sist√™mico:</strong> Entender qual √© o seu lugar de for√ßa no seu sistema atual (casamento, carreira, maternidade).</li>
+                <li><strong>O Olhar para a Origem:</strong> Curar a relaÁ„o com a figura materna e paterna, tomando a forÁa que vem deles sem carregar suas dores.</li>
+                <li><strong>A PresenÁa no Agora:</strong> Aprender a ouvir o prÛprio corpo e os prÛprios desejos, saindo do modo autom·tico de sobrevivÍncia.</li>
+                <li><strong>O PropÛsito SistÍmico:</strong> Entender qual È o seu lugar de forÁa no seu sistema atual (casamento, carreira, maternidade).</li>
             </ul>
 
             <div class="article-cta-box">
-                <h3>D√™ o primeiro passo para o seu novo eu</h3>
-                <p>A Jornada do Renascimento est√° com inscri√ß√µes abertas para a pr√≥xima turma. Descubra cronograma, m√≥dulos e como transformar sua realidade.</p>
+                <h3>DÍ o primeiro passo para o seu novo eu</h3>
+                <p>A Jornada do Renascimento est· com inscriÁıes abertas para a prÛxima turma. Descubra cronograma, mÛdulos e como transformar sua realidade.</p>
                 <a href="../../../jornada/" class="btn-article-cta">Ver Detalhes da Jornada</a>
             </div>
 
-            <p>Renascer exige coragem para deixar ir o que n√£o serve mais. Se voc√™ sente que este √© o seu momento de florescer, estamos aqui para trilhar esse caminho ao seu lado.</p>
+            <p>Renascer exige coragem para deixar ir o que n„o serve mais. Se vocÍ sente que este È o seu momento de florescer, estamos aqui para trilhar esse caminho ao seu lado.</p>
 
 
         </section>
@@ -403,7 +414,7 @@
                 <div>
                     <h4 style="font-family: 'Playfair Display', serif; font-size: 1.1rem; margin-bottom: 1.5rem; font-weight: 700; color: #FDFBFA !important;">Contato</h4>
                     <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 1.2rem;">
-                        <li style="display: flex; align-items: flex-start; gap: 0.75rem; color: #FDFBFA !important; opacity: 0.9;"><i data-lucide="map-pin" style="width: 18px; height: 18px; flex-shrink: 0; margin-top: 0.2rem;"></i><span>√ìrion Business &amp; Health Complex, Sala 3 - Goi√¢nia-GO</span></li>
+                        <li style="display: flex; align-items: flex-start; gap: 0.75rem; color: #FDFBFA !important; opacity: 0.9;"><i data-lucide="map-pin" style="width: 18px; height: 18px; flex-shrink: 0; margin-top: 0.2rem;"></i><span>Village, Goi√¢nia-GO</span></li>
                         <li style="display: flex; align-items: center; gap: 0.75rem; color: #FDFBFA !important; opacity: 0.9;"><i data-lucide="phone" style="width: 18px; height: 18px; flex-shrink: 0;"></i><span>(62) 99471-8809</span></li>
                         <li style="display: flex; align-items: flex-start; gap: 0.75rem; color: #FDFBFA !important; opacity: 0.9;"><i data-lucide="mail" style="width: 18px; height: 18px; flex-shrink: 0; margin-top: 0.2rem;"></i><span class="footer-nowrap">institutoanacandida@gmail.com</span></li>
                     </ul>
@@ -420,9 +431,10 @@
                 <!-- Col 5: Aviso Important -->
                 <div>
                     <h4 style="font-family: 'Playfair Display', serif; font-size: 1.1rem; margin-bottom: 1.5rem; font-weight: 700; color: #FDFBFA !important; display: flex; align-items: center; gap: 0.5rem;">
+                        <span style="width: 8px; height: 8px; background-color: var(--red-accent); border-radius: 50%; display: inline-block;"></span> 
                         Aviso Importante
                     </h4>
-                    <p style="opacity: 0.9; line-height: 1.6; font-size: 0.9rem; color: #FDFBFA !important;">Este site n√£o oferece atendimento de emerg√™ncia. Em caso de crise, procure o hospital mais pr√≥ximo ou ligue <strong>188 (CVV)</strong>.</p>
+                    <p style="opacity: 0.9; line-height: 1.6; font-size: 0.9rem; color: #FDFBFA !important;">Este site n√£o oferece atendimento de emerg√™ncia. Em caso de crise, procure o hospital mais pr√≥ximo ou ligue <span style="color: var(--red-accent); font-weight: 700;">188 (CVV)</span>.</p>
                 </div>
             </div>
             <div style="border-top: 1px solid rgba(253, 251, 250, 0.1); padding-top: 2rem; text-align: center;">

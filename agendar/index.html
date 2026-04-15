@@ -1,13 +1,13 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Agendar Consulta | Instituto Ana Cândida</title>
-    <meta name="description" content="Agende sua sessão de Terapia Sistêmica, Casal ou Família no Instituto Ana Cândida. Atendimento humanizado em Goiânia-GO.">
+    <title>Agendar Consulta | Instituto Ana C�ndida</title>
+    <meta name="description" content="Agende sua sess�o de Terapia Sist�mica, Casal ou Fam�lia no Instituto Ana C�ndida. Atendimento humanizado em Goi�nia-GO.">
     
     
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌷</text></svg>">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>??</text></svg>">
     
     <link rel="stylesheet" href="../assets/style.css">
     <!-- STYLES_START -->
@@ -18,7 +18,8 @@
             --brand-500: #C19555;   /* Dourado Principal */
             --brand-100: #F0F4F2;   /* Verde Ultra Light */
             --brand-50: #FFFFFF;    /* Branco */
-}
+            --red-accent: #D93131;  /* Detalhe em Vermelho */
+        }
 
         /* Fixed Interactive Dropdowns */
         .nav-item-dropdown { position: relative; padding: 1rem 0; cursor: pointer; }
@@ -42,14 +43,14 @@
         .nav-item-dropdown:hover .chevron-icon { transform: rotate(180deg); opacity: 1; color: var(--brand-500); }
 
         /* Responsive Footer Grid */
-        .footer-grid {
-            display: grid; grid-template-columns: 1fr; gap: 2rem; margin-bottom: 4rem; 
+        .footer-grid { 
+            display: grid; grid-template-columns: 1fr; gap: 2.5rem; margin-bottom: 4rem; 
         }
         @media (min-width: 640px) {
-            .footer-grid { grid-template-columns: repeat(2, 1fr); gap: 2rem; }
+            .footer-grid { grid-template-columns: repeat(2, 1fr); gap: 2.5rem; }
         }
         @media (min-width: 1024px) {
-            .footer-grid { grid-template-columns: repeat(5, 1fr); gap: 1.5rem; }
+            .footer-grid { grid-template-columns: 0.8fr 0.6fr 1.5fr 2fr 2.4fr; gap: 2rem; }
             .footer-nowrap { white-space: nowrap; }
         }
 
@@ -174,11 +175,16 @@
         .btn-submit { width: 100%; padding: 1rem; background: var(--brand-900); color: white; border: none; border-radius: 9999px; font-weight: 700; cursor: pointer; transition: 0.3s; margin-top: 1rem; }
 
         /* Red Pulse Animation */
-        
+        @keyframes pulse-red {
+            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(217, 49, 49, 0.7); }
             70% { transform: scale(1); box-shadow: 0 0 0 6px rgba(217, 49, 49, 0); }
             100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(217, 49, 49, 0); }
         }
-        
+        .red-dot {
+            width: 8px; height: 8px; background-color: var(--red-accent); border-radius: 50%;
+            display: inline-block; position: absolute; top: -2px; right: -2px;
+            animation: pulse-red 2s infinite;
+        }
     </style>
     <!-- STYLES_END -->
 </head>
@@ -235,6 +241,8 @@
                             <a href="../conteudos" class="dropdown-item">Visão Geral</a>
                             <a href="../conteudos/blog" class="dropdown-item">Blog</a>
                             <a href="../conteudos/cursos" class="dropdown-item">Cursos</a>
+                            <a href="../conteudos/eventos" class="dropdown-item">Eventos</a>
+                            <a href="../conteudos/formacao" class="dropdown-item">Formação</a>
                         </div>
                     </div>
                     
@@ -245,6 +253,7 @@
 
                 <div class="hidden lg:block" style="position: relative;">
                     <a href="https://wa.me/5562994718809" target="_blank" class="btn-primary" style="padding: 0.6rem 1.5rem; font-size: 0.85rem;">Agendar</a>
+                    <span class="red-dot"></span>
                 </div>
                 
                 <button class="lg:hidden" style="background: none; border: none; cursor: pointer; color: #0A4834;" onclick="toggleMobileMenu()">
@@ -315,6 +324,8 @@
                     <a href="../conteudos" class="mobile-link-sub">Visão Geral</a>
                     <a href="../conteudos/blog" class="mobile-link-sub">Blog</a>
                     <a href="../conteudos/cursos" class="mobile-link-sub">Cursos</a>
+                    <a href="../conteudos/eventos" class="mobile-link-sub">Eventos</a>
+                    <a href="../conteudos/formacao" class="mobile-link-sub">Formação</a>
                 </div>
             </div>
 
@@ -331,14 +342,14 @@
         <section style="padding: 100px 0; background-color: var(--brand-50);">
             <div class="container-custom" style="text-align: center;">
                 <h1 style="font-family: 'Playfair Display', serif; font-size: 3.5rem; color: var(--brand-900); margin-bottom: 2rem;">Agende o seu Atendimento</h1>
-                <p style="font-size: 1.25rem; color: var(--brand-800); max-width: 700px; margin: 0 auto 3rem; line-height: 1.6;">Estamos prontos para acolher você e sua família. Clique no botão abaixo para iniciar o seu agendamento via WhatsApp.</p>
+                <p style="font-size: 1.25rem; color: var(--brand-800); max-width: 700px; margin: 0 auto 3rem; line-height: 1.6;">Estamos prontos para acolher voc� e sua fam�lia. Clique no bot�o abaixo para iniciar o seu agendamento via WhatsApp.</p>
                 <a href="https://wa.me/5562994718809" target="_blank" style="display: inline-flex; align-items: center; gap: 1rem; background-color: #25D366; color: white; padding: 1.25rem 3rem; border-radius: 9999px; text-decoration: none; font-size: 1.25rem; font-weight: 700; transition: 0.3s; box-shadow: 0 10px 20px rgba(37,211,102,0.2);">
                     Agendar agora via WhatsApp
                 </a>
                 <div style="margin-top: 4rem; display: flex; justify-content: center; gap: 3rem; flex-wrap: wrap;">
                     <div style="text-align: left; background: white; padding: 2rem; border-radius: 1.5rem; border: 1px solid var(--brand-100); width: 300px;">
                         <h3 style="font-family: 'Playfair Display', serif; font-size: 1.25rem; color: var(--brand-900); margin-bottom: 1rem;">Onde estamos</h3>
-                        <p style="color: var(--brand-800); line-height: 1.6;">Setor Órion Business &amp; Health Complex, Sala 3 - Goiânia-GO<br>Referência em atendimento sistêmico.</p>
+                        <p style="color: var(--brand-800); line-height: 1.6;">Setor �rion Business &amp; Health Complex, Sala 3 - Goi�nia-GO<br>Refer�ncia em atendimento sist�mico.</p>
                     </div>
                 </div>
             </div>
@@ -378,7 +389,7 @@
                 <div>
                     <h4 style="font-family: 'Playfair Display', serif; font-size: 1.1rem; margin-bottom: 1.5rem; font-weight: 700; color: #FDFBFA !important;">Contato</h4>
                     <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 1.2rem;">
-                        <li style="display: flex; align-items: flex-start; gap: 0.75rem; color: #FDFBFA !important; opacity: 0.9;"><i data-lucide="map-pin" style="width: 18px; height: 18px; flex-shrink: 0; margin-top: 0.2rem;"></i><span>Órion Business &amp; Health Complex, Sala 3 - Goiânia-GO</span></li>
+                        <li style="display: flex; align-items: flex-start; gap: 0.75rem; color: #FDFBFA !important; opacity: 0.9;"><i data-lucide="map-pin" style="width: 18px; height: 18px; flex-shrink: 0; margin-top: 0.2rem;"></i><span>Village, Goiânia-GO</span></li>
                         <li style="display: flex; align-items: center; gap: 0.75rem; color: #FDFBFA !important; opacity: 0.9;"><i data-lucide="phone" style="width: 18px; height: 18px; flex-shrink: 0;"></i><span>(62) 99471-8809</span></li>
                         <li style="display: flex; align-items: flex-start; gap: 0.75rem; color: #FDFBFA !important; opacity: 0.9;"><i data-lucide="mail" style="width: 18px; height: 18px; flex-shrink: 0; margin-top: 0.2rem;"></i><span class="footer-nowrap">institutoanacandida@gmail.com</span></li>
                     </ul>
@@ -395,9 +406,10 @@
                 <!-- Col 5: Aviso Important -->
                 <div>
                     <h4 style="font-family: 'Playfair Display', serif; font-size: 1.1rem; margin-bottom: 1.5rem; font-weight: 700; color: #FDFBFA !important; display: flex; align-items: center; gap: 0.5rem;">
+                        <span style="width: 8px; height: 8px; background-color: var(--red-accent); border-radius: 50%; display: inline-block;"></span> 
                         Aviso Importante
                     </h4>
-                    <p style="opacity: 0.9; line-height: 1.6; font-size: 0.9rem; color: #FDFBFA !important;">Este site não oferece atendimento de emergência. Em caso de crise, procure o hospital mais próximo ou ligue <strong>188 (CVV)</strong>.</p>
+                    <p style="opacity: 0.9; line-height: 1.6; font-size: 0.9rem; color: #FDFBFA !important;">Este site não oferece atendimento de emergência. Em caso de crise, procure o hospital mais próximo ou ligue <span style="color: var(--red-accent); font-weight: 700;">188 (CVV)</span>.</p>
                 </div>
             </div>
             <div style="border-top: 1px solid rgba(253, 251, 250, 0.1); padding-top: 2rem; text-align: center;">

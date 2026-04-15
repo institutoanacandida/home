@@ -1,11 +1,11 @@
-Ôªø<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cursos & Forma√ß√£o | Instituto Ana C√¢ndida</title>
-    <meta name="description" content="Aprofunde seu conhecimento com nossos cursos e workshops sobre Terapia Sist√™mica e Rela√ß√µes.">
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>üå∑</text></svg>">
+    <title>Cursos & FormaÁ„o | Instituto Ana C‚ndida</title>
+    <meta name="description" content="Aprofunde seu conhecimento com nossos cursos e workshops sobre Terapia SistÍmica e RelaÁıes.">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>??</text></svg>">
     
     <link rel="stylesheet" href="../../assets/style.css">
     <!-- STYLES_START -->
@@ -16,7 +16,8 @@
             --brand-500: #C19555;   /* Dourado Principal */
             --brand-100: #F0F4F2;   /* Verde Ultra Light */
             --brand-50: #FFFFFF;    /* Branco */
-}
+            --red-accent: #D93131;  /* Detalhe em Vermelho */
+        }
 
         /* Fixed Interactive Dropdowns */
         .nav-item-dropdown { position: relative; padding: 1rem 0; cursor: pointer; }
@@ -40,14 +41,14 @@
         .nav-item-dropdown:hover .chevron-icon { transform: rotate(180deg); opacity: 1; color: var(--brand-500); }
 
         /* Responsive Footer Grid */
-        .footer-grid {
-            display: grid; grid-template-columns: 1fr; gap: 2rem; margin-bottom: 4rem; 
+        .footer-grid { 
+            display: grid; grid-template-columns: 1fr; gap: 2.5rem; margin-bottom: 4rem; 
         }
         @media (min-width: 640px) {
-            .footer-grid { grid-template-columns: repeat(2, 1fr); gap: 2rem; }
+            .footer-grid { grid-template-columns: repeat(2, 1fr); gap: 2.5rem; }
         }
         @media (min-width: 1024px) {
-            .footer-grid { grid-template-columns: repeat(5, 1fr); gap: 1.5rem; }
+            .footer-grid { grid-template-columns: 0.8fr 0.6fr 1.5fr 2fr 2.4fr; gap: 2rem; }
             .footer-nowrap { white-space: nowrap; }
         }
 
@@ -172,11 +173,16 @@
         .btn-submit { width: 100%; padding: 1rem; background: var(--brand-900); color: white; border: none; border-radius: 9999px; font-weight: 700; cursor: pointer; transition: 0.3s; margin-top: 1rem; }
 
         /* Red Pulse Animation */
-        
+        @keyframes pulse-red {
+            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(217, 49, 49, 0.7); }
             70% { transform: scale(1); box-shadow: 0 0 0 6px rgba(217, 49, 49, 0); }
             100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(217, 49, 49, 0); }
         }
-        
+        .red-dot {
+            width: 8px; height: 8px; background-color: var(--red-accent); border-radius: 50%;
+            display: inline-block; position: absolute; top: -2px; right: -2px;
+            animation: pulse-red 2s infinite;
+        }
     </style>
     <!-- STYLES_END -->
 </head>
@@ -233,6 +239,8 @@
                             <a href="../../conteudos" class="dropdown-item">Vis√£o Geral</a>
                             <a href="../../conteudos/blog" class="dropdown-item">Blog</a>
                             <a href="../../conteudos/cursos" class="dropdown-item">Cursos</a>
+                            <a href="../../conteudos/eventos" class="dropdown-item">Eventos</a>
+                            <a href="../../conteudos/formacao" class="dropdown-item">Forma√ß√£o</a>
                         </div>
                     </div>
                     
@@ -243,6 +251,7 @@
 
                 <div class="hidden lg:block" style="position: relative;">
                     <a href="https://wa.me/5562994718809" target="_blank" class="btn-primary" style="padding: 0.6rem 1.5rem; font-size: 0.85rem;">Agendar</a>
+                    <span class="red-dot"></span>
                 </div>
                 
                 <button class="lg:hidden" style="background: none; border: none; cursor: pointer; color: #0A4834;" onclick="toggleMobileMenu()">
@@ -313,6 +322,8 @@
                     <a href="../../conteudos" class="mobile-link-sub">Vis√£o Geral</a>
                     <a href="../../conteudos/blog" class="mobile-link-sub">Blog</a>
                     <a href="../../conteudos/cursos" class="mobile-link-sub">Cursos</a>
+                    <a href="../../conteudos/eventos" class="mobile-link-sub">Eventos</a>
+                    <a href="../../conteudos/formacao" class="mobile-link-sub">Forma√ß√£o</a>
                 </div>
             </div>
 
@@ -330,11 +341,11 @@
             <div class="container-custom">
                 <div style="margin-bottom: 2rem;">
                     <a href="../" style="color: var(--brand-500); text-decoration: none; font-weight: 600; display: inline-flex; align-items: center; gap: 0.5rem; margin-bottom: 2rem;">
-                        <i data-lucide="arrow-left" style="width: 18px; height: 18px;"></i> Voltar para Conte√∫dos
+                        <i data-lucide="arrow-left" style="width: 18px; height: 18px;"></i> Voltar para Conte˙dos
                     </a>
                 </div>
                 <h1 style="font-size: clamp(2.5rem, 5vw, 3.5rem); color: var(--brand-900); margin-bottom: 1.5rem; font-family: var(--font-serif);">Nossos Cursos</h1>
-                <p style="font-size: 1.25rem; color: var(--brand-800); max-width: 600px; opacity: 0.8;">Jornadas de transforma√ß√£o e aprendizado te√≥rico-pr√°tico para profissionais e para a vida.</p>
+                <p style="font-size: 1.25rem; color: var(--brand-800); max-width: 600px; opacity: 0.8;">Jornadas de transformaÁ„o e aprendizado teÛrico-pr·tico para profissionais e para a vida.</p>
             </div>
         </section>
 
@@ -347,16 +358,16 @@
                         <article style="display: flex; flex-direction: column; cursor: pointer;" onmouseover="this.querySelector('img').style.transform='scale(1.05)'" onmouseout="this.querySelector('img').style.transform='scale(1)'">
                             <div style="width: 100%; height: 240px; border-radius: 1.5rem; overflow: hidden; margin-bottom: 2rem; background: var(--brand-100);">
                                 <img src="https://images.unsplash.com/photo-1544716278-e513176f20b5?q=80&w=1974&auto=format&fit=crop" 
-                                     alt="Ebook Gr√°tis" 
+                                     alt="Ebook Gr·tis" 
                                      style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease;">
                             </div>
                             <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem; font-size: 0.875rem;">
                                 <span style="color: var(--brand-500); font-weight: 700;">Recurso Gratuito</span>
-                                <span style="color: #ccc;">‚Ä¢</span>
+                                <span style="color: #ccc;">ï</span>
                                 <span style="color: #666;">PDF</span>
                             </div>
-                            <h3 style="font-size: 1.5rem; color: var(--brand-900); margin-bottom: 1rem; line-height: 1.3;">Baixe o Ebook Gr√°tis: As Ordens da Ajuda</h3>
-                            <p style="color: #555; line-height: 1.6; margin-bottom: 1.5rem; font-size: 1rem;">Um guia pr√°tico para entender como equilibrar suas rela√ß√µes e encontrar paz no sistema familiar.</p>
+                            <h3 style="font-size: 1.5rem; color: var(--brand-900); margin-bottom: 1rem; line-height: 1.3;">Baixe o Ebook Gr·tis: As Ordens da Ajuda</h3>
+                            <p style="color: #555; line-height: 1.6; margin-bottom: 1.5rem; font-size: 1rem;">Um guia pr·tico para entender como equilibrar suas relaÁıes e encontrar paz no sistema familiar.</p>
                             <span style="color: var(--brand-500); font-weight: 700; text-decoration: underline; text-underline-offset: 4px;">Baixar agora</span>
                         </article>
                     </a>
@@ -371,11 +382,11 @@
                             </div>
                             <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem; font-size: 0.875rem;">
                                 <span style="color: var(--brand-500); font-weight: 700;">Treinamento</span>
-                                <span style="color: #ccc;">‚Ä¢</span>
+                                <span style="color: #ccc;">ï</span>
                                 <span style="color: #666;">Online</span>
                             </div>
                             <h3 style="font-size: 1.5rem; color: var(--brand-900); margin-bottom: 1rem; line-height: 1.3;">Aprenda mais sobre a Jornada do Renascimento</h3>
-                            <p style="color: #555; line-height: 1.6; margin-bottom: 1.5rem; font-size: 1rem;">O curso definitivo para quem busca transformar sua hist√≥ria pessoal e florescer no seu prop√≥sito.</p>
+                            <p style="color: #555; line-height: 1.6; margin-bottom: 1.5rem; font-size: 1rem;">O curso definitivo para quem busca transformar sua histÛria pessoal e florescer no seu propÛsito.</p>
                             <span style="color: var(--brand-500); font-weight: 700; text-decoration: underline; text-underline-offset: 4px;">Conhecer detalhes</span>
                         </article>
                     </a>
@@ -390,11 +401,11 @@
                             </div>
                             <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem; font-size: 0.875rem;">
                                 <span style="color: var(--brand-500); font-weight: 700;">Suporte</span>
-                                <span style="color: #ccc;">‚Ä¢</span>
+                                <span style="color: #ccc;">ï</span>
                                 <span style="color: #666;">Especializado</span>
                             </div>
                             <h3 style="font-size: 1.5rem; color: var(--brand-900); margin-bottom: 1rem; line-height: 1.3;">Busque ajuda com Cura Emocional</h3>
-                            <p style="color: #555; line-height: 1.6; margin-bottom: 1.5rem; font-size: 1rem;">Um espa√ßo seguro para tratar feridas profundas e recuperar seu equil√≠brio interior com aux√≠lio t√©cnico.</p>
+                            <p style="color: #555; line-height: 1.6; margin-bottom: 1.5rem; font-size: 1rem;">Um espaÁo seguro para tratar feridas profundas e recuperar seu equilÌbrio interior com auxÌlio tÈcnico.</p>
                             <span style="color: var(--brand-500); font-weight: 700; text-decoration: underline; text-underline-offset: 4px;">Falar com especialista</span>
                         </article>
                     </a>
@@ -461,7 +472,7 @@
                 <div>
                     <h4 style="font-family: 'Playfair Display', serif; font-size: 1.1rem; margin-bottom: 1.5rem; font-weight: 700; color: #FDFBFA !important;">Contato</h4>
                     <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 1.2rem;">
-                        <li style="display: flex; align-items: flex-start; gap: 0.75rem; color: #FDFBFA !important; opacity: 0.9;"><i data-lucide="map-pin" style="width: 18px; height: 18px; flex-shrink: 0; margin-top: 0.2rem;"></i><span>√ìrion Business &amp; Health Complex, Sala 3 - Goi√¢nia-GO</span></li>
+                        <li style="display: flex; align-items: flex-start; gap: 0.75rem; color: #FDFBFA !important; opacity: 0.9;"><i data-lucide="map-pin" style="width: 18px; height: 18px; flex-shrink: 0; margin-top: 0.2rem;"></i><span>Village, Goi√¢nia-GO</span></li>
                         <li style="display: flex; align-items: center; gap: 0.75rem; color: #FDFBFA !important; opacity: 0.9;"><i data-lucide="phone" style="width: 18px; height: 18px; flex-shrink: 0;"></i><span>(62) 99471-8809</span></li>
                         <li style="display: flex; align-items: flex-start; gap: 0.75rem; color: #FDFBFA !important; opacity: 0.9;"><i data-lucide="mail" style="width: 18px; height: 18px; flex-shrink: 0; margin-top: 0.2rem;"></i><span class="footer-nowrap">institutoanacandida@gmail.com</span></li>
                     </ul>
@@ -478,9 +489,10 @@
                 <!-- Col 5: Aviso Important -->
                 <div>
                     <h4 style="font-family: 'Playfair Display', serif; font-size: 1.1rem; margin-bottom: 1.5rem; font-weight: 700; color: #FDFBFA !important; display: flex; align-items: center; gap: 0.5rem;">
+                        <span style="width: 8px; height: 8px; background-color: var(--red-accent); border-radius: 50%; display: inline-block;"></span> 
                         Aviso Importante
                     </h4>
-                    <p style="opacity: 0.9; line-height: 1.6; font-size: 0.9rem; color: #FDFBFA !important;">Este site n√£o oferece atendimento de emerg√™ncia. Em caso de crise, procure o hospital mais pr√≥ximo ou ligue <strong>188 (CVV)</strong>.</p>
+                    <p style="opacity: 0.9; line-height: 1.6; font-size: 0.9rem; color: #FDFBFA !important;">Este site n√£o oferece atendimento de emerg√™ncia. Em caso de crise, procure o hospital mais pr√≥ximo ou ligue <span style="color: var(--red-accent); font-weight: 700;">188 (CVV)</span>.</p>
                 </div>
             </div>
             <div style="border-top: 1px solid rgba(253, 251, 250, 0.1); padding-top: 2rem; text-align: center;">

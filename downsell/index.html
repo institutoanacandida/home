@@ -1,10 +1,10 @@
-Ôªø<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Oferta especial: Audiobook de Medita√ß√µes Guiadas + Grupo de Networking.">
-    <title>Oferta Especial | Instituto Ana C√¢ndida</title>
+    <meta name="description" content="Oferta especial: Audiobook de MeditaÁıes Guiadas + Grupo de Networking.">
+    <title>Oferta Especial | Instituto Ana C‚ndida</title>
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -23,7 +23,8 @@
             --brand-500: #C19555;   /* Dourado Principal */
             --brand-100: #F0F4F2;   /* Verde Ultra Light */
             --brand-50: #FFFFFF;    /* Branco */
-}
+            --red-accent: #D93131;  /* Detalhe em Vermelho */
+        }
 
         /* Fixed Interactive Dropdowns */
         .nav-item-dropdown { position: relative; padding: 1rem 0; cursor: pointer; }
@@ -47,14 +48,14 @@
         .nav-item-dropdown:hover .chevron-icon { transform: rotate(180deg); opacity: 1; color: var(--brand-500); }
 
         /* Responsive Footer Grid */
-        .footer-grid {
-            display: grid; grid-template-columns: 1fr; gap: 2rem; margin-bottom: 4rem; 
+        .footer-grid { 
+            display: grid; grid-template-columns: 1fr; gap: 2.5rem; margin-bottom: 4rem; 
         }
         @media (min-width: 640px) {
-            .footer-grid { grid-template-columns: repeat(2, 1fr); gap: 2rem; }
+            .footer-grid { grid-template-columns: repeat(2, 1fr); gap: 2.5rem; }
         }
         @media (min-width: 1024px) {
-            .footer-grid { grid-template-columns: repeat(5, 1fr); gap: 1.5rem; }
+            .footer-grid { grid-template-columns: 0.8fr 0.6fr 1.5fr 2fr 2.4fr; gap: 2rem; }
             .footer-nowrap { white-space: nowrap; }
         }
 
@@ -179,11 +180,16 @@
         .btn-submit { width: 100%; padding: 1rem; background: var(--brand-900); color: white; border: none; border-radius: 9999px; font-weight: 700; cursor: pointer; transition: 0.3s; margin-top: 1rem; }
 
         /* Red Pulse Animation */
-        
+        @keyframes pulse-red {
+            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(217, 49, 49, 0.7); }
             70% { transform: scale(1); box-shadow: 0 0 0 6px rgba(217, 49, 49, 0); }
             100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(217, 49, 49, 0); }
         }
-        
+        .red-dot {
+            width: 8px; height: 8px; background-color: var(--red-accent); border-radius: 50%;
+            display: inline-block; position: absolute; top: -2px; right: -2px;
+            animation: pulse-red 2s infinite;
+        }
     </style>
     <!-- STYLES_END -->
     <link rel="stylesheet" href="css/styles.css">
@@ -241,6 +247,8 @@
                             <a href="../conteudos" class="dropdown-item">Vis√£o Geral</a>
                             <a href="../conteudos/blog" class="dropdown-item">Blog</a>
                             <a href="../conteudos/cursos" class="dropdown-item">Cursos</a>
+                            <a href="../conteudos/eventos" class="dropdown-item">Eventos</a>
+                            <a href="../conteudos/formacao" class="dropdown-item">Forma√ß√£o</a>
                         </div>
                     </div>
                     
@@ -251,6 +259,7 @@
 
                 <div class="hidden lg:block" style="position: relative;">
                     <a href="https://wa.me/5562994718809" target="_blank" class="btn-primary" style="padding: 0.6rem 1.5rem; font-size: 0.85rem;">Agendar</a>
+                    <span class="red-dot"></span>
                 </div>
                 
                 <button class="lg:hidden" style="background: none; border: none; cursor: pointer; color: #0A4834;" onclick="toggleMobileMenu()">
@@ -321,6 +330,8 @@
                     <a href="../conteudos" class="mobile-link-sub">Vis√£o Geral</a>
                     <a href="../conteudos/blog" class="mobile-link-sub">Blog</a>
                     <a href="../conteudos/cursos" class="mobile-link-sub">Cursos</a>
+                    <a href="../conteudos/eventos" class="mobile-link-sub">Eventos</a>
+                    <a href="../conteudos/formacao" class="mobile-link-sub">Forma√ß√£o</a>
                 </div>
             </div>
 
@@ -335,14 +346,14 @@
 
 <main class="container">
         <section class="hero" style="background-color: #F4EDE8;">
-            <h1>Sua evolu√ß√£o n√£o precisa parar aqui...</h1>
-            <p>Eu entendo que talvez o Videobook n√£o seja o que voc√™ busca agora, mas n√£o quero que voc√™ perca a oportunidade de ter o <strong>Audiobook</strong> e estar no nosso <strong>Grupo de Networking</strong>.</p>
+            <h1>Sua evoluÁ„o n„o precisa parar aqui...</h1>
+            <p>Eu entendo que talvez o Videobook n„o seja o que vocÍ busca agora, mas n„o quero que vocÍ perca a oportunidade de ter o <strong>Audiobook</strong> e estar no nosso <strong>Grupo de Networking</strong>.</p>
         </section>
 
         <div class="offer-card">
             <i class="fa-solid fa-headphones-simple" style="color: #483525;"></i>
-            <h2 style="color: #483525;">Audiobook de Medita√ß√µes + Grupo de Networking</h2>
-            <p style="margin-top: 15px;">Leve apenas o material em √°udio para ouvir onde quiser e garanta sua vaga na comunidade exclusiva do Instituto Ana C√¢ndida.</p>
+            <h2 style="color: #483525;">Audiobook de MeditaÁıes + Grupo de Networking</h2>
+            <p style="margin-top: 15px;">Leve apenas o material em ·udio para ouvir onde quiser e garanta sua vaga na comunidade exclusiva do Instituto Ana C‚ndida.</p>
 
             <div class="price-box">
                 <p class="price-old">De R$ 97,00</p>
@@ -350,11 +361,11 @@
             </div>
 
             <a href="https://pay.hotmart.com/PLACEHOLDER_DOWNSELL" class="btn-cta" target="_blank">Sim, quero apenas o Audiobook por R$57!</a>
-            <a href="../obrigado/" class="decline-link">N√£o, obrigado. Prefiro seguir apenas com o que j√° adquiri.</a>
+            <a href="../obrigado/" class="decline-link">N„o, obrigado. Prefiro seguir apenas com o que j· adquiri.</a>
 
             <div class="bonus-highlight">
                 <i class="fa-solid fa-users" style="color: #483525;"></i>
-                Acesso Vital√≠cio ao Grupo Incluso
+                Acesso VitalÌcio ao Grupo Incluso
             </div>
         </div>
     </main>
@@ -392,7 +403,7 @@
                 <div>
                     <h4 style="font-family: 'Playfair Display', serif; font-size: 1.1rem; margin-bottom: 1.5rem; font-weight: 700; color: #FDFBFA !important;">Contato</h4>
                     <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 1.2rem;">
-                        <li style="display: flex; align-items: flex-start; gap: 0.75rem; color: #FDFBFA !important; opacity: 0.9;"><i data-lucide="map-pin" style="width: 18px; height: 18px; flex-shrink: 0; margin-top: 0.2rem;"></i><span>√ìrion Business &amp; Health Complex, Sala 3 - Goi√¢nia-GO</span></li>
+                        <li style="display: flex; align-items: flex-start; gap: 0.75rem; color: #FDFBFA !important; opacity: 0.9;"><i data-lucide="map-pin" style="width: 18px; height: 18px; flex-shrink: 0; margin-top: 0.2rem;"></i><span>Village, Goi√¢nia-GO</span></li>
                         <li style="display: flex; align-items: center; gap: 0.75rem; color: #FDFBFA !important; opacity: 0.9;"><i data-lucide="phone" style="width: 18px; height: 18px; flex-shrink: 0;"></i><span>(62) 99471-8809</span></li>
                         <li style="display: flex; align-items: flex-start; gap: 0.75rem; color: #FDFBFA !important; opacity: 0.9;"><i data-lucide="mail" style="width: 18px; height: 18px; flex-shrink: 0; margin-top: 0.2rem;"></i><span class="footer-nowrap">institutoanacandida@gmail.com</span></li>
                     </ul>
@@ -409,9 +420,10 @@
                 <!-- Col 5: Aviso Important -->
                 <div>
                     <h4 style="font-family: 'Playfair Display', serif; font-size: 1.1rem; margin-bottom: 1.5rem; font-weight: 700; color: #FDFBFA !important; display: flex; align-items: center; gap: 0.5rem;">
+                        <span style="width: 8px; height: 8px; background-color: var(--red-accent); border-radius: 50%; display: inline-block;"></span> 
                         Aviso Importante
                     </h4>
-                    <p style="opacity: 0.9; line-height: 1.6; font-size: 0.9rem; color: #FDFBFA !important;">Este site n√£o oferece atendimento de emerg√™ncia. Em caso de crise, procure o hospital mais pr√≥ximo ou ligue <strong>188 (CVV)</strong>.</p>
+                    <p style="opacity: 0.9; line-height: 1.6; font-size: 0.9rem; color: #FDFBFA !important;">Este site n√£o oferece atendimento de emerg√™ncia. Em caso de crise, procure o hospital mais pr√≥ximo ou ligue <span style="color: var(--red-accent); font-weight: 700;">188 (CVV)</span>.</p>
                 </div>
             </div>
             <div style="border-top: 1px solid rgba(253, 251, 250, 0.1); padding-top: 2rem; text-align: center;">

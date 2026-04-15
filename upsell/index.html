@@ -1,9 +1,9 @@
-Ôªø<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Acelere sua cura emocional com o Audiobook e Videobook de Medita√ß√µes Guiadas.">
+    <meta name="description" content="Acelere sua cura emocional com o Audiobook e Videobook de MeditaÁıes Guiadas.">
     <title>Upsell Exclusivo | Desperte Seu Feminino</title>
 
     <!-- Google Fonts -->
@@ -23,7 +23,8 @@
             --brand-500: #C19555;   /* Dourado Principal */
             --brand-100: #F0F4F2;   /* Verde Ultra Light */
             --brand-50: #FFFFFF;    /* Branco */
-}
+            --red-accent: #D93131;  /* Detalhe em Vermelho */
+        }
 
         /* Fixed Interactive Dropdowns */
         .nav-item-dropdown { position: relative; padding: 1rem 0; cursor: pointer; }
@@ -47,14 +48,14 @@
         .nav-item-dropdown:hover .chevron-icon { transform: rotate(180deg); opacity: 1; color: var(--brand-500); }
 
         /* Responsive Footer Grid */
-        .footer-grid {
-            display: grid; grid-template-columns: 1fr; gap: 2rem; margin-bottom: 4rem; 
+        .footer-grid { 
+            display: grid; grid-template-columns: 1fr; gap: 2.5rem; margin-bottom: 4rem; 
         }
         @media (min-width: 640px) {
-            .footer-grid { grid-template-columns: repeat(2, 1fr); gap: 2rem; }
+            .footer-grid { grid-template-columns: repeat(2, 1fr); gap: 2.5rem; }
         }
         @media (min-width: 1024px) {
-            .footer-grid { grid-template-columns: repeat(5, 1fr); gap: 1.5rem; }
+            .footer-grid { grid-template-columns: 0.8fr 0.6fr 1.5fr 2fr 2.4fr; gap: 2rem; }
             .footer-nowrap { white-space: nowrap; }
         }
 
@@ -179,11 +180,16 @@
         .btn-submit { width: 100%; padding: 1rem; background: var(--brand-900); color: white; border: none; border-radius: 9999px; font-weight: 700; cursor: pointer; transition: 0.3s; margin-top: 1rem; }
 
         /* Red Pulse Animation */
-        
+        @keyframes pulse-red {
+            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(217, 49, 49, 0.7); }
             70% { transform: scale(1); box-shadow: 0 0 0 6px rgba(217, 49, 49, 0); }
             100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(217, 49, 49, 0); }
         }
-        
+        .red-dot {
+            width: 8px; height: 8px; background-color: var(--red-accent); border-radius: 50%;
+            display: inline-block; position: absolute; top: -2px; right: -2px;
+            animation: pulse-red 2s infinite;
+        }
     </style>
     <!-- STYLES_END -->
     <link rel="stylesheet" href="css/styles.css">
@@ -241,6 +247,8 @@
                             <a href="../conteudos" class="dropdown-item">Vis√£o Geral</a>
                             <a href="../conteudos/blog" class="dropdown-item">Blog</a>
                             <a href="../conteudos/cursos" class="dropdown-item">Cursos</a>
+                            <a href="../conteudos/eventos" class="dropdown-item">Eventos</a>
+                            <a href="../conteudos/formacao" class="dropdown-item">Forma√ß√£o</a>
                         </div>
                     </div>
                     
@@ -251,6 +259,7 @@
 
                 <div class="hidden lg:block" style="position: relative;">
                     <a href="https://wa.me/5562994718809" target="_blank" class="btn-primary" style="padding: 0.6rem 1.5rem; font-size: 0.85rem;">Agendar</a>
+                    <span class="red-dot"></span>
                 </div>
                 
                 <button class="lg:hidden" style="background: none; border: none; cursor: pointer; color: #0A4834;" onclick="toggleMobileMenu()">
@@ -321,6 +330,8 @@
                     <a href="../conteudos" class="mobile-link-sub">Vis√£o Geral</a>
                     <a href="../conteudos/blog" class="mobile-link-sub">Blog</a>
                     <a href="../conteudos/cursos" class="mobile-link-sub">Cursos</a>
+                    <a href="../conteudos/eventos" class="mobile-link-sub">Eventos</a>
+                    <a href="../conteudos/formacao" class="mobile-link-sub">Forma√ß√£o</a>
                 </div>
             </div>
 
@@ -338,32 +349,32 @@
         <!-- Hero Section -->
         <section class="hero" style="background-color: #F4EDE8;">
             <h1>Transforme Sua Jornada de Cura Emocional</h1>
-            <p>Acesso Imediato ao Audiobook + Videobook de Medita√ß√µes Guiadas e Networking Exclusivo.</p>
+            <p>Acesso Imediato ao Audiobook + Videobook de MeditaÁıes Guiadas e Networking Exclusivo.</p>
             <p style="font-size: 1.1rem; color: #B8893F; font-weight: 600;">Adquira agora por apenas R$97,00</p>
         </section>
 
         <!-- Video Section -->
         <div class="video-wrapper">
             <div class="video-container">
-                <iframe src="https://www.youtube.com/embed/PLACEHOLDER" title="V√≠deo da Autora" allowfullscreen></iframe>
+                <iframe src="https://www.youtube.com/embed/PLACEHOLDER" title="VÌdeo da Autora" allowfullscreen></iframe>
             </div>
         </div>
 
         <!-- Intro -->
         <div class="product-intro">
-            <p>Voc√™ come√ßou a jornada com <strong>Desperte Seu Feminino</strong> e est√° pronta para avan√ßar ainda mais no processo de cura emocional e transforma√ß√£o pessoal.</p>
-            <p>Este Audiobook e Videobook de Medita√ß√µes Guiadas s√£o a chave para uma experi√™ncia profunda, com pr√°ticas di√°rias que v√£o te ajudar a liberar bloqueios emocionais, fortalecer seu amor-pr√≥prio e alinhar sua energia feminina.</p>
+            <p>VocÍ comeÁou a jornada com <strong>Desperte Seu Feminino</strong> e est· pronta para avanÁar ainda mais no processo de cura emocional e transformaÁ„o pessoal.</p>
+            <p>Este Audiobook e Videobook de MeditaÁıes Guiadas s„o a chave para uma experiÍncia profunda, com pr·ticas di·rias que v„o te ajudar a liberar bloqueios emocionais, fortalecer seu amor-prÛprio e alinhar sua energia feminina.</p>
             
             <div class="feature-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px;">
                 <div class="feature-item">
                     <i class="fa-solid fa-headphones"></i>
                     <h3 style="color: #483525;">Audiobook</h3>
-                    <p>Aproveite as medita√ß√µes guiadas para libera√ß√£o de cren√ßas limitantes e conex√£o profunda.</p>
+                    <p>Aproveite as meditaÁıes guiadas para liberaÁ„o de crenÁas limitantes e conex„o profunda.</p>
                 </div>
                 <div class="feature-item">
                     <i class="fa-solid fa-video"></i>
                     <h3 style="color: #483525;">Videobook</h3>
-                    <p>Veja, ou√ßa e pratique com orienta√ß√£o visual para uma imers√£o total na experi√™ncia.</p>
+                    <p>Veja, ouÁa e pratique com orientaÁ„o visual para uma imers„o total na experiÍncia.</p>
                 </div>
             </div>
         </div>
@@ -372,10 +383,10 @@
         <div class="price-box">
             <p class="price-old">De R$ 197,00</p>
             <span class="price-new" style="color: #B8893F;">R$ 97,00</span>
-            <p>Esta oferta √© v√°lida por apenas 24 horas!</p>
+            <p>Esta oferta È v·lida por apenas 24 horas!</p>
             
-            <a href="https://pay.hotmart.com/PLACEHOLDER" class="btn-cta" target="_blank">Sim, quero meu acesso agora! üëá</a>
-            <a href="../downsell/" class="decline-link">N√£o tenho interesse agora, prefiro apenas o Audiobook</a>
+            <a href="https://pay.hotmart.com/PLACEHOLDER" class="btn-cta" target="_blank">Sim, quero meu acesso agora! ??</a>
+            <a href="../downsell/" class="decline-link">N„o tenho interesse agora, prefiro apenas o Audiobook</a>
         </div>
     </main>
 
@@ -412,7 +423,7 @@
                 <div>
                     <h4 style="font-family: 'Playfair Display', serif; font-size: 1.1rem; margin-bottom: 1.5rem; font-weight: 700; color: #FDFBFA !important;">Contato</h4>
                     <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 1.2rem;">
-                        <li style="display: flex; align-items: flex-start; gap: 0.75rem; color: #FDFBFA !important; opacity: 0.9;"><i data-lucide="map-pin" style="width: 18px; height: 18px; flex-shrink: 0; margin-top: 0.2rem;"></i><span>√ìrion Business &amp; Health Complex, Sala 3 - Goi√¢nia-GO</span></li>
+                        <li style="display: flex; align-items: flex-start; gap: 0.75rem; color: #FDFBFA !important; opacity: 0.9;"><i data-lucide="map-pin" style="width: 18px; height: 18px; flex-shrink: 0; margin-top: 0.2rem;"></i><span>Village, Goi√¢nia-GO</span></li>
                         <li style="display: flex; align-items: center; gap: 0.75rem; color: #FDFBFA !important; opacity: 0.9;"><i data-lucide="phone" style="width: 18px; height: 18px; flex-shrink: 0;"></i><span>(62) 99471-8809</span></li>
                         <li style="display: flex; align-items: flex-start; gap: 0.75rem; color: #FDFBFA !important; opacity: 0.9;"><i data-lucide="mail" style="width: 18px; height: 18px; flex-shrink: 0; margin-top: 0.2rem;"></i><span class="footer-nowrap">institutoanacandida@gmail.com</span></li>
                     </ul>
@@ -429,9 +440,10 @@
                 <!-- Col 5: Aviso Important -->
                 <div>
                     <h4 style="font-family: 'Playfair Display', serif; font-size: 1.1rem; margin-bottom: 1.5rem; font-weight: 700; color: #FDFBFA !important; display: flex; align-items: center; gap: 0.5rem;">
+                        <span style="width: 8px; height: 8px; background-color: var(--red-accent); border-radius: 50%; display: inline-block;"></span> 
                         Aviso Importante
                     </h4>
-                    <p style="opacity: 0.9; line-height: 1.6; font-size: 0.9rem; color: #FDFBFA !important;">Este site n√£o oferece atendimento de emerg√™ncia. Em caso de crise, procure o hospital mais pr√≥ximo ou ligue <strong>188 (CVV)</strong>.</p>
+                    <p style="opacity: 0.9; line-height: 1.6; font-size: 0.9rem; color: #FDFBFA !important;">Este site n√£o oferece atendimento de emerg√™ncia. Em caso de crise, procure o hospital mais pr√≥ximo ou ligue <span style="color: var(--red-accent); font-weight: 700;">188 (CVV)</span>.</p>
                 </div>
             </div>
             <div style="border-top: 1px solid rgba(253, 251, 250, 0.1); padding-top: 2rem; text-align: center;">

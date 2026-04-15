@@ -1,9 +1,9 @@
-Ôªø<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Limites na educa√ß√£o dos filhos: amor ou rigidez? | Instituto Ana C√¢ndida</title>
+    <title>Limites na educaÁ„o dos filhos: amor ou rigidez? | Instituto Ana C‚ndida</title>
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/article.css">
@@ -17,7 +17,8 @@
             --brand-500: #C19555;   /* Dourado Principal */
             --brand-100: #F0F4F2;   /* Verde Ultra Light */
             --brand-50: #FFFFFF;    /* Branco */
-}
+            --red-accent: #D93131;  /* Detalhe em Vermelho */
+        }
 
         /* Fixed Interactive Dropdowns */
         .nav-item-dropdown { position: relative; padding: 1rem 0; cursor: pointer; }
@@ -41,14 +42,14 @@
         .nav-item-dropdown:hover .chevron-icon { transform: rotate(180deg); opacity: 1; color: var(--brand-500); }
 
         /* Responsive Footer Grid */
-        .footer-grid {
-            display: grid; grid-template-columns: 1fr; gap: 2rem; margin-bottom: 4rem; 
+        .footer-grid { 
+            display: grid; grid-template-columns: 1fr; gap: 2.5rem; margin-bottom: 4rem; 
         }
         @media (min-width: 640px) {
-            .footer-grid { grid-template-columns: repeat(2, 1fr); gap: 2rem; }
+            .footer-grid { grid-template-columns: repeat(2, 1fr); gap: 2.5rem; }
         }
         @media (min-width: 1024px) {
-            .footer-grid { grid-template-columns: repeat(5, 1fr); gap: 1.5rem; }
+            .footer-grid { grid-template-columns: 0.8fr 0.6fr 1.5fr 2fr 2.4fr; gap: 2rem; }
             .footer-nowrap { white-space: nowrap; }
         }
 
@@ -173,11 +174,16 @@
         .btn-submit { width: 100%; padding: 1rem; background: var(--brand-900); color: white; border: none; border-radius: 9999px; font-weight: 700; cursor: pointer; transition: 0.3s; margin-top: 1rem; }
 
         /* Red Pulse Animation */
-        
+        @keyframes pulse-red {
+            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(217, 49, 49, 0.7); }
             70% { transform: scale(1); box-shadow: 0 0 0 6px rgba(217, 49, 49, 0); }
             100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(217, 49, 49, 0); }
         }
-        
+        .red-dot {
+            width: 8px; height: 8px; background-color: var(--red-accent); border-radius: 50%;
+            display: inline-block; position: absolute; top: -2px; right: -2px;
+            animation: pulse-red 2s infinite;
+        }
     </style>
     <!-- STYLES_END -->
 </head>
@@ -234,6 +240,8 @@
                             <a href="../../../conteudos" class="dropdown-item">Vis√£o Geral</a>
                             <a href="../../../conteudos/blog" class="dropdown-item">Blog</a>
                             <a href="../../../conteudos/cursos" class="dropdown-item">Cursos</a>
+                            <a href="../../../conteudos/eventos" class="dropdown-item">Eventos</a>
+                            <a href="../../../conteudos/formacao" class="dropdown-item">Forma√ß√£o</a>
                         </div>
                     </div>
                     
@@ -244,6 +252,7 @@
 
                 <div class="hidden lg:block" style="position: relative;">
                     <a href="https://wa.me/5562994718809" target="_blank" class="btn-primary" style="padding: 0.6rem 1.5rem; font-size: 0.85rem;">Agendar</a>
+                    <span class="red-dot"></span>
                 </div>
                 
                 <button class="lg:hidden" style="background: none; border: none; cursor: pointer; color: #0A4834;" onclick="toggleMobileMenu()">
@@ -314,6 +323,8 @@
                     <a href="../../../conteudos" class="mobile-link-sub">Vis√£o Geral</a>
                     <a href="../../../conteudos/blog" class="mobile-link-sub">Blog</a>
                     <a href="../../../conteudos/cursos" class="mobile-link-sub">Cursos</a>
+                    <a href="../../../conteudos/eventos" class="mobile-link-sub">Eventos</a>
+                    <a href="../../../conteudos/formacao" class="mobile-link-sub">Forma√ß√£o</a>
                 </div>
             </div>
 
@@ -330,44 +341,44 @@
         <header class="article-header">
             <div class="article-meta">
                 <span><i class="fa-solid fa-folder-open"></i> Parentalidade</span>
-                <span>‚Ä¢</span>
+                <span>ï</span>
                 <span><i class="fa-solid fa-clock"></i> 5 min de leitura</span>
-                <span>‚Ä¢</span>
+                <span>ï</span>
                 <span>05 Mar 2024</span>
             </div>
-            <h1>Limites na educa√ß√£o dos filhos: amor ou rigidez?</h1>
-            <img src="https://images.unsplash.com/photo-1484820540004-14229fe36ca4?q=80&w=1974&auto=format&fit=crop" alt="Limites na Educa√ß√£o" class="article-hero-img">
+            <h1>Limites na educaÁ„o dos filhos: amor ou rigidez?</h1>
+            <img src="https://images.unsplash.com/photo-1484820540004-14229fe36ca4?q=80&w=1974&auto=format&fit=crop" alt="Limites na EducaÁ„o" class="article-hero-img">
         </header>
 
         <section class="article-content">
-            <p>Educar um filho √© um dos desafios mais complexos da vida adulta. Em um mundo que oscila entre o autoritarismo do passado e a permissividade absoluta do presente, muitos pais se perguntam: <em>"Estou sendo r√≠gido demais ou amando de menos?"</em></p>
+            <p>Educar um filho È um dos desafios mais complexos da vida adulta. Em um mundo que oscila entre o autoritarismo do passado e a permissividade absoluta do presente, muitos pais se perguntam: <em>"Estou sendo rÌgido demais ou amando de menos?"</em></p>
             
-            <p>A resposta sist√™mica √© libertadora: colocar limites <strong>√©</strong> um ato de amor profundo. Na verdade, a falta de limites claros gera inseguran√ßa na crian√ßa, pois ela sente que n√£o h√° um porto seguro ou uma estrutura que a proteja.</p>
+            <p>A resposta sistÍmica È libertadora: colocar limites <strong>È</strong> um ato de amor profundo. Na verdade, a falta de limites claros gera inseguranÁa na crianÁa, pois ela sente que n„o h· um porto seguro ou uma estrutura que a proteja.</p>
 
-            <h2>A diferen√ßa entre Rigidez e Autoridade</h2>
-            <p>Rigidez √© puni√ß√£o sem explica√ß√£o, √© baseada no medo. Autoridade, por outro lado, √© orientada pela seguran√ßa e pelo desenvolvimento. Quando um pai coloca um limite, ele est√° dizendo: <em>"Eu sou o adulto, eu aguento o seu choro agora para que voc√™ esteja seguro amanh√£"</em>. No sistema familiar, os pais precisam ocupar o lugar de preced√™ncia para que os filhos possam ser apenas filhos.</p>
+            <h2>A diferenÁa entre Rigidez e Autoridade</h2>
+            <p>Rigidez È puniÁ„o sem explicaÁ„o, È baseada no medo. Autoridade, por outro lado, È orientada pela seguranÁa e pelo desenvolvimento. Quando um pai coloca um limite, ele est· dizendo: <em>"Eu sou o adulto, eu aguento o seu choro agora para que vocÍ esteja seguro amanh„"</em>. No sistema familiar, os pais precisam ocupar o lugar de precedÍncia para que os filhos possam ser apenas filhos.</p>
 
             <blockquote>
-                "Os limites s√£o como as margens de um rio: sem elas, a √°gua se espalha sem for√ßa e vira um p√¢ntano. Com margens firmes, o rio corre com energia e prop√≥sito."
+                "Os limites s„o como as margens de um rio: sem elas, a ·gua se espalha sem forÁa e vira um p‚ntano. Com margens firmes, o rio corre com energia e propÛsito."
             </blockquote>
 
-            <h2>Amor Sist√™mico: Dizer 'N√£o' tamb√©m √© incluir</h2>
-            <p>Muitos pais t√™m dificuldade em dizer n√£o porque carregam culpas do seu pr√≥prio passado. Talvez n√£o queiram "traumatizar" o filho como foram traumatizados. Por√©m, o trauma sist√™mico muitas vezes vem da <em>aus√™ncia</em> de orienta√ß√£o. A crian√ßa precisa saber onde termina o espa√ßo dela e onde come√ßa o do outro para desenvolver empatia e resili√™ncia.</p>
+            <h2>Amor SistÍmico: Dizer 'N„o' tambÈm È incluir</h2>
+            <p>Muitos pais tÍm dificuldade em dizer n„o porque carregam culpas do seu prÛprio passado. Talvez n„o queiram "traumatizar" o filho como foram traumatizados. PorÈm, o trauma sistÍmico muitas vezes vem da <em>ausÍncia</em> de orientaÁ„o. A crianÁa precisa saber onde termina o espaÁo dela e onde comeÁa o do outro para desenvolver empatia e resiliÍncia.</p>
 
-            <h2>Passos para um Limite Saud√°vel:</h2>
+            <h2>Passos para um Limite Saud·vel:</h2>
             <ul>
-                <li><strong>Consist√™ncia:</strong> O "n√£o" de hoje n√£o pode virar "sim" amanh√£ por cansa√ßo.</li>
-                <li><strong>Conex√£o antes da Corre√ß√£o:</strong> Abrace o sentimento da crian√ßa ("eu entendo que voc√™ est√° bravo") antes de reafirmar o limite ("mas agora √© hora de dormir").</li>
-                <li><strong>Alinhamento do Casal:</strong> O sistema funciona melhor quando pai e m√£e (ou cuidadores) est√£o na mesma p√°gina, evitando a din√¢mica do "policial bom e policial mau".</li>
+                <li><strong>ConsistÍncia:</strong> O "n„o" de hoje n„o pode virar "sim" amanh„ por cansaÁo.</li>
+                <li><strong>Conex„o antes da CorreÁ„o:</strong> Abrace o sentimento da crianÁa ("eu entendo que vocÍ est· bravo") antes de reafirmar o limite ("mas agora È hora de dormir").</li>
+                <li><strong>Alinhamento do Casal:</strong> O sistema funciona melhor quando pai e m„e (ou cuidadores) est„o na mesma p·gina, evitando a din‚mica do "policial bom e policial mau".</li>
             </ul>
 
             <div class="article-cta-box">
                 <h3>Dificuldades em estabelecer regras em casa?</h3>
                 <p>Nossos atendimentos de Parentalidade e Terapia Familiar ajudam a reequilibrar o sistema para que a harmonia volte a reinar.</p>
-                <a href="../../../terapia-sistemica/" class="btn-article-cta">Conhe√ßa nossos Servi√ßos</a>
+                <a href="../../../terapia-sistemica/" class="btn-article-cta">ConheÁa nossos ServiÁos</a>
             </div>
 
-            <p>Educar com equil√≠brio exige, acima de tudo, autoconhecimento. Ao olharmos para nossas pr√≥prias feridas sist√™micas, conseguimos dar aos nossos filhos o que eles realmente precisam: presen√ßa, amor e limites seguros.</p>
+            <p>Educar com equilÌbrio exige, acima de tudo, autoconhecimento. Ao olharmos para nossas prÛprias feridas sistÍmicas, conseguimos dar aos nossos filhos o que eles realmente precisam: presenÁa, amor e limites seguros.</p>
         </section>
     </main>
 
@@ -404,7 +415,7 @@
                 <div>
                     <h4 style="font-family: 'Playfair Display', serif; font-size: 1.1rem; margin-bottom: 1.5rem; font-weight: 700; color: #FDFBFA !important;">Contato</h4>
                     <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 1.2rem;">
-                        <li style="display: flex; align-items: flex-start; gap: 0.75rem; color: #FDFBFA !important; opacity: 0.9;"><i data-lucide="map-pin" style="width: 18px; height: 18px; flex-shrink: 0; margin-top: 0.2rem;"></i><span>√ìrion Business &amp; Health Complex, Sala 3 - Goi√¢nia-GO</span></li>
+                        <li style="display: flex; align-items: flex-start; gap: 0.75rem; color: #FDFBFA !important; opacity: 0.9;"><i data-lucide="map-pin" style="width: 18px; height: 18px; flex-shrink: 0; margin-top: 0.2rem;"></i><span>Village, Goi√¢nia-GO</span></li>
                         <li style="display: flex; align-items: center; gap: 0.75rem; color: #FDFBFA !important; opacity: 0.9;"><i data-lucide="phone" style="width: 18px; height: 18px; flex-shrink: 0;"></i><span>(62) 99471-8809</span></li>
                         <li style="display: flex; align-items: flex-start; gap: 0.75rem; color: #FDFBFA !important; opacity: 0.9;"><i data-lucide="mail" style="width: 18px; height: 18px; flex-shrink: 0; margin-top: 0.2rem;"></i><span class="footer-nowrap">institutoanacandida@gmail.com</span></li>
                     </ul>
@@ -421,9 +432,10 @@
                 <!-- Col 5: Aviso Important -->
                 <div>
                     <h4 style="font-family: 'Playfair Display', serif; font-size: 1.1rem; margin-bottom: 1.5rem; font-weight: 700; color: #FDFBFA !important; display: flex; align-items: center; gap: 0.5rem;">
+                        <span style="width: 8px; height: 8px; background-color: var(--red-accent); border-radius: 50%; display: inline-block;"></span> 
                         Aviso Importante
                     </h4>
-                    <p style="opacity: 0.9; line-height: 1.6; font-size: 0.9rem; color: #FDFBFA !important;">Este site n√£o oferece atendimento de emerg√™ncia. Em caso de crise, procure o hospital mais pr√≥ximo ou ligue <strong>188 (CVV)</strong>.</p>
+                    <p style="opacity: 0.9; line-height: 1.6; font-size: 0.9rem; color: #FDFBFA !important;">Este site n√£o oferece atendimento de emerg√™ncia. Em caso de crise, procure o hospital mais pr√≥ximo ou ligue <span style="color: var(--red-accent); font-weight: 700;">188 (CVV)</span>.</p>
                 </div>
             </div>
             <div style="border-top: 1px solid rgba(253, 251, 250, 0.1); padding-top: 2rem; text-align: center;">

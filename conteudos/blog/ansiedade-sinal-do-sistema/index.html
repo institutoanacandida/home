@@ -1,9 +1,9 @@
-Ôªø<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ansiedade: um sinal do sistema? | Instituto Ana C√¢ndida</title>
+    <title>Ansiedade: um sinal do sistema? | Instituto Ana C‚ndida</title>
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/article.css">
@@ -17,7 +17,8 @@
             --brand-500: #C19555;   /* Dourado Principal */
             --brand-100: #F0F4F2;   /* Verde Ultra Light */
             --brand-50: #FFFFFF;    /* Branco */
-}
+            --red-accent: #D93131;  /* Detalhe em Vermelho */
+        }
 
         /* Fixed Interactive Dropdowns */
         .nav-item-dropdown { position: relative; padding: 1rem 0; cursor: pointer; }
@@ -41,14 +42,14 @@
         .nav-item-dropdown:hover .chevron-icon { transform: rotate(180deg); opacity: 1; color: var(--brand-500); }
 
         /* Responsive Footer Grid */
-        .footer-grid {
-            display: grid; grid-template-columns: 1fr; gap: 2rem; margin-bottom: 4rem; 
+        .footer-grid { 
+            display: grid; grid-template-columns: 1fr; gap: 2.5rem; margin-bottom: 4rem; 
         }
         @media (min-width: 640px) {
-            .footer-grid { grid-template-columns: repeat(2, 1fr); gap: 2rem; }
+            .footer-grid { grid-template-columns: repeat(2, 1fr); gap: 2.5rem; }
         }
         @media (min-width: 1024px) {
-            .footer-grid { grid-template-columns: repeat(5, 1fr); gap: 1.5rem; }
+            .footer-grid { grid-template-columns: 0.8fr 0.6fr 1.5fr 2fr 2.4fr; gap: 2rem; }
             .footer-nowrap { white-space: nowrap; }
         }
 
@@ -173,11 +174,16 @@
         .btn-submit { width: 100%; padding: 1rem; background: var(--brand-900); color: white; border: none; border-radius: 9999px; font-weight: 700; cursor: pointer; transition: 0.3s; margin-top: 1rem; }
 
         /* Red Pulse Animation */
-        
+        @keyframes pulse-red {
+            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(217, 49, 49, 0.7); }
             70% { transform: scale(1); box-shadow: 0 0 0 6px rgba(217, 49, 49, 0); }
             100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(217, 49, 49, 0); }
         }
-        
+        .red-dot {
+            width: 8px; height: 8px; background-color: var(--red-accent); border-radius: 50%;
+            display: inline-block; position: absolute; top: -2px; right: -2px;
+            animation: pulse-red 2s infinite;
+        }
     </style>
     <!-- STYLES_END -->
 </head>
@@ -234,6 +240,8 @@
                             <a href="../../../conteudos" class="dropdown-item">Vis√£o Geral</a>
                             <a href="../../../conteudos/blog" class="dropdown-item">Blog</a>
                             <a href="../../../conteudos/cursos" class="dropdown-item">Cursos</a>
+                            <a href="../../../conteudos/eventos" class="dropdown-item">Eventos</a>
+                            <a href="../../../conteudos/formacao" class="dropdown-item">Forma√ß√£o</a>
                         </div>
                     </div>
                     
@@ -244,6 +252,7 @@
 
                 <div class="hidden lg:block" style="position: relative;">
                     <a href="https://wa.me/5562994718809" target="_blank" class="btn-primary" style="padding: 0.6rem 1.5rem; font-size: 0.85rem;">Agendar</a>
+                    <span class="red-dot"></span>
                 </div>
                 
                 <button class="lg:hidden" style="background: none; border: none; cursor: pointer; color: #0A4834;" onclick="toggleMobileMenu()">
@@ -314,6 +323,8 @@
                     <a href="../../../conteudos" class="mobile-link-sub">Vis√£o Geral</a>
                     <a href="../../../conteudos/blog" class="mobile-link-sub">Blog</a>
                     <a href="../../../conteudos/cursos" class="mobile-link-sub">Cursos</a>
+                    <a href="../../../conteudos/eventos" class="mobile-link-sub">Eventos</a>
+                    <a href="../../../conteudos/formacao" class="mobile-link-sub">Forma√ß√£o</a>
                 </div>
             </div>
 
@@ -329,10 +340,10 @@
 <main class="article-container">
         <header class="article-header">
             <div class="article-meta">
-                <span><i class="fa-solid fa-folder-open"></i> Sa√∫de Emocional</span>
-                <span>‚Ä¢</span>
+                <span><i class="fa-solid fa-folder-open"></i> Sa˙de Emocional</span>
+                <span>ï</span>
                 <span><i class="fa-solid fa-clock"></i> 7 min de leitura</span>
-                <span>‚Ä¢</span>
+                <span>ï</span>
                 <span>28 Fev 2024</span>
             </div>
             <h1>Ansiedade: um sinal do sistema?</h1>
@@ -340,30 +351,30 @@
         </header>
 
         <section class="article-content">
-            <p>Se voc√™ sofre com ansiedade constante, provavelmente j√° tentou de tudo: medita√ß√£o, rem√©dios, dietas ou simplesmente "tentar relaxar". Mas e se a ansiedade n√£o fosse algo <em>errado</em> com voc√™, mas sim um sinal de algo desequilibrado no seu <strong>sistema familiar</strong>?</p>
+            <p>Se vocÍ sofre com ansiedade constante, provavelmente j· tentou de tudo: meditaÁ„o, remÈdios, dietas ou simplesmente "tentar relaxar". Mas e se a ansiedade n„o fosse algo <em>errado</em> com vocÍ, mas sim um sinal de algo desequilibrado no seu <strong>sistema familiar</strong>?</p>
             
-            <p>Na Terapia Sist√™mica e nas Constela√ß√µes Familiares, observamos que o indiv√≠duo nunca est√° isolado. Somos como fios em uma imensa teia. Quando um fio est√° tenso demais, a vibra√ß√£o √© sentida em toda a rede. Muitas vezes, a ansiedade que carregamos √© uma "lealdade invis√≠vel" a dores n√£o resolvidas de nossos antepassados.</p>
+            <p>Na Terapia SistÍmica e nas ConstelaÁıes Familiares, observamos que o indivÌduo nunca est· isolado. Somos como fios em uma imensa teia. Quando um fio est· tenso demais, a vibraÁ„o È sentida em toda a rede. Muitas vezes, a ansiedade que carregamos È uma "lealdade invisÌvel" a dores n„o resolvidas de nossos antepassados.</p>
 
             <h2>O Sintoma como Mensageiro</h2>
-            <p>Imagine a luz do √≥leo acendendo no painel do carro. Voc√™ ficaria bravo com a l√¢mpada? Provavelmente n√£o, pois ela est√° te avisando que o motor precisa de aten√ß√£o. A ansiedade funciona de forma semelhante. Ela √© o sinal de que algo no sistema familiar precisa ser <em>visto, inclu√≠do ou ordenado</em>.</p>
+            <p>Imagine a luz do Ûleo acendendo no painel do carro. VocÍ ficaria bravo com a l‚mpada? Provavelmente n„o, pois ela est· te avisando que o motor precisa de atenÁ„o. A ansiedade funciona de forma semelhante. Ela È o sinal de que algo no sistema familiar precisa ser <em>visto, incluÌdo ou ordenado</em>.</p>
 
             <blockquote>
-                "O que n√£o √© resolvido pelos pais, os filhos carregam. E o que n√£o √© visto pelos filhos, vira sintoma no sistema."
+                "O que n„o È resolvido pelos pais, os filhos carregam. E o que n„o È visto pelos filhos, vira sintoma no sistema."
             </blockquote>
 
-            <h2>Lealdades Invis√≠veis</h2>
-            <p>Muitas pessoas ansiosas sentem um medo constante de que algo ruim v√° acontecer, mesmo quando tudo est√° bem. Sistemicamente, isso pode estar ligado a perdas traum√°ticas na fam√≠lia (como fal√™ncias, mortes precoces ou exclus√µes) que nunca foram processadas. A pessoa ansiosa sente que "n√£o tem permiss√£o" para ficar tranquila se houve tanto sofrimento antes dela.</p>
+            <h2>Lealdades InvisÌveis</h2>
+            <p>Muitas pessoas ansiosas sentem um medo constante de que algo ruim v· acontecer, mesmo quando tudo est· bem. Sistemicamente, isso pode estar ligado a perdas traum·ticas na famÌlia (como falÍncias, mortes precoces ou exclusıes) que nunca foram processadas. A pessoa ansiosa sente que "n„o tem permiss„o" para ficar tranquila se houve tanto sofrimento antes dela.</p>
 
-            <h2>Como a Terapia Sist√™mica Atua</h2>
-            <p>Diferente das abordagens que focam apenas em "controlar" a ansiedade, a abordagem sist√™mica busca a <strong>causa raiz</strong> na rede de rela√ß√µes. Ao dar um lugar para quem foi exclu√≠do e respeitar o destino daqueles que vieram antes, o indiv√≠duo sente que pode finalmente soltar a carga que n√£o √© sua. O sistema relaxa, e o sintoma (a ansiedade) perde a utilidade.</p>
+            <h2>Como a Terapia SistÍmica Atua</h2>
+            <p>Diferente das abordagens que focam apenas em "controlar" a ansiedade, a abordagem sistÍmica busca a <strong>causa raiz</strong> na rede de relaÁıes. Ao dar um lugar para quem foi excluÌdo e respeitar o destino daqueles que vieram antes, o indivÌduo sente que pode finalmente soltar a carga que n„o È sua. O sistema relaxa, e o sintoma (a ansiedade) perde a utilidade.</p>
 
             <div class="article-cta-box">
                 <h3>Cansado de apenas controlar os sintomas?</h3>
-                <p>Vamos olhar para o que o seu sistema est√° tentando dizer atrav√©s da sua ansiedade. Recupere sua paz interior.</p>
-                <a href="../../../terapia-sistemica/" class="btn-article-cta">Agende uma Consulta Sist√™mica</a>
+                <p>Vamos olhar para o que o seu sistema est· tentando dizer atravÈs da sua ansiedade. Recupere sua paz interior.</p>
+                <a href="../../../terapia-sistemica/" class="btn-article-cta">Agende uma Consulta SistÍmica</a>
             </div>
 
-            <p>A jornada para a cura da ansiedade sist√™mica come√ßa com um sim: sim para a vida como ela √©, e sim para a for√ßa que vem dos nossos antepassados, sem precisar carregar o peso deles. Voc√™ tem permiss√£o para ser feliz.</p>
+            <p>A jornada para a cura da ansiedade sistÍmica comeÁa com um sim: sim para a vida como ela È, e sim para a forÁa que vem dos nossos antepassados, sem precisar carregar o peso deles. VocÍ tem permiss„o para ser feliz.</p>
         </section>
     </main>
 
@@ -400,7 +411,7 @@
                 <div>
                     <h4 style="font-family: 'Playfair Display', serif; font-size: 1.1rem; margin-bottom: 1.5rem; font-weight: 700; color: #FDFBFA !important;">Contato</h4>
                     <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 1.2rem;">
-                        <li style="display: flex; align-items: flex-start; gap: 0.75rem; color: #FDFBFA !important; opacity: 0.9;"><i data-lucide="map-pin" style="width: 18px; height: 18px; flex-shrink: 0; margin-top: 0.2rem;"></i><span>√ìrion Business &amp; Health Complex, Sala 3 - Goi√¢nia-GO</span></li>
+                        <li style="display: flex; align-items: flex-start; gap: 0.75rem; color: #FDFBFA !important; opacity: 0.9;"><i data-lucide="map-pin" style="width: 18px; height: 18px; flex-shrink: 0; margin-top: 0.2rem;"></i><span>Village, Goi√¢nia-GO</span></li>
                         <li style="display: flex; align-items: center; gap: 0.75rem; color: #FDFBFA !important; opacity: 0.9;"><i data-lucide="phone" style="width: 18px; height: 18px; flex-shrink: 0;"></i><span>(62) 99471-8809</span></li>
                         <li style="display: flex; align-items: flex-start; gap: 0.75rem; color: #FDFBFA !important; opacity: 0.9;"><i data-lucide="mail" style="width: 18px; height: 18px; flex-shrink: 0; margin-top: 0.2rem;"></i><span class="footer-nowrap">institutoanacandida@gmail.com</span></li>
                     </ul>
@@ -417,9 +428,10 @@
                 <!-- Col 5: Aviso Important -->
                 <div>
                     <h4 style="font-family: 'Playfair Display', serif; font-size: 1.1rem; margin-bottom: 1.5rem; font-weight: 700; color: #FDFBFA !important; display: flex; align-items: center; gap: 0.5rem;">
+                        <span style="width: 8px; height: 8px; background-color: var(--red-accent); border-radius: 50%; display: inline-block;"></span> 
                         Aviso Importante
                     </h4>
-                    <p style="opacity: 0.9; line-height: 1.6; font-size: 0.9rem; color: #FDFBFA !important;">Este site n√£o oferece atendimento de emerg√™ncia. Em caso de crise, procure o hospital mais pr√≥ximo ou ligue <strong>188 (CVV)</strong>.</p>
+                    <p style="opacity: 0.9; line-height: 1.6; font-size: 0.9rem; color: #FDFBFA !important;">Este site n√£o oferece atendimento de emerg√™ncia. Em caso de crise, procure o hospital mais pr√≥ximo ou ligue <span style="color: var(--red-accent); font-weight: 700;">188 (CVV)</span>.</p>
                 </div>
             </div>
             <div style="border-top: 1px solid rgba(253, 251, 250, 0.1); padding-top: 2rem; text-align: center;">

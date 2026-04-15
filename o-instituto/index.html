@@ -1,13 +1,13 @@
-ï»¿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>O Instituto | Instituto Ana CÃ¢ndida</title>
-    <meta name="description" content="ConheÃ§a a histÃ³ria, missÃ£o e valores do Instituto Ana CÃ¢ndida. ReferÃªncia em Terapia SistÃªmica em GoiÃ¢nia.">
+    <title>O Instituto | Instituto Ana Cândida</title>
+    <meta name="description" content="Conheça a história, missão e valores do Instituto Ana Cândida. Referência em Terapia Sistêmica em Goiânia.">
     
     
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>ðŸŒ·</text></svg>">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>??</text></svg>">
     
     <link rel="stylesheet" href="../assets/style.css">
     <!-- STYLES_START -->
@@ -18,7 +18,8 @@
             --brand-500: #C19555;   /* Dourado Principal */
             --brand-100: #F0F4F2;   /* Verde Ultra Light */
             --brand-50: #FFFFFF;    /* Branco */
-}
+            --red-accent: #D93131;  /* Detalhe em Vermelho */
+        }
 
         /* Fixed Interactive Dropdowns */
         .nav-item-dropdown { position: relative; padding: 1rem 0; cursor: pointer; }
@@ -42,14 +43,14 @@
         .nav-item-dropdown:hover .chevron-icon { transform: rotate(180deg); opacity: 1; color: var(--brand-500); }
 
         /* Responsive Footer Grid */
-        .footer-grid {
-            display: grid; grid-template-columns: 1fr; gap: 2rem; margin-bottom: 4rem; 
+        .footer-grid { 
+            display: grid; grid-template-columns: 1fr; gap: 2.5rem; margin-bottom: 4rem; 
         }
         @media (min-width: 640px) {
-            .footer-grid { grid-template-columns: repeat(2, 1fr); gap: 2rem; }
+            .footer-grid { grid-template-columns: repeat(2, 1fr); gap: 2.5rem; }
         }
         @media (min-width: 1024px) {
-            .footer-grid { grid-template-columns: repeat(5, 1fr); gap: 1.5rem; }
+            .footer-grid { grid-template-columns: 0.8fr 0.6fr 1.5fr 2fr 2.4fr; gap: 2rem; }
             .footer-nowrap { white-space: nowrap; }
         }
 
@@ -174,11 +175,16 @@
         .btn-submit { width: 100%; padding: 1rem; background: var(--brand-900); color: white; border: none; border-radius: 9999px; font-weight: 700; cursor: pointer; transition: 0.3s; margin-top: 1rem; }
 
         /* Red Pulse Animation */
-        
+        @keyframes pulse-red {
+            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(217, 49, 49, 0.7); }
             70% { transform: scale(1); box-shadow: 0 0 0 6px rgba(217, 49, 49, 0); }
             100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(217, 49, 49, 0); }
         }
-        
+        .red-dot {
+            width: 8px; height: 8px; background-color: var(--red-accent); border-radius: 50%;
+            display: inline-block; position: absolute; top: -2px; right: -2px;
+            animation: pulse-red 2s infinite;
+        }
     </style>
     <!-- STYLES_END -->
 </head>
@@ -235,6 +241,8 @@
                             <a href="../conteudos" class="dropdown-item">VisÃ£o Geral</a>
                             <a href="../conteudos/blog" class="dropdown-item">Blog</a>
                             <a href="../conteudos/cursos" class="dropdown-item">Cursos</a>
+                            <a href="../conteudos/eventos" class="dropdown-item">Eventos</a>
+                            <a href="../conteudos/formacao" class="dropdown-item">FormaÃ§Ã£o</a>
                         </div>
                     </div>
                     
@@ -245,6 +253,7 @@
 
                 <div class="hidden lg:block" style="position: relative;">
                     <a href="https://wa.me/5562994718809" target="_blank" class="btn-primary" style="padding: 0.6rem 1.5rem; font-size: 0.85rem;">Agendar</a>
+                    <span class="red-dot"></span>
                 </div>
                 
                 <button class="lg:hidden" style="background: none; border: none; cursor: pointer; color: #0A4834;" onclick="toggleMobileMenu()">
@@ -315,6 +324,8 @@
                     <a href="../conteudos" class="mobile-link-sub">VisÃ£o Geral</a>
                     <a href="../conteudos/blog" class="mobile-link-sub">Blog</a>
                     <a href="../conteudos/cursos" class="mobile-link-sub">Cursos</a>
+                    <a href="../conteudos/eventos" class="mobile-link-sub">Eventos</a>
+                    <a href="../conteudos/formacao" class="mobile-link-sub">FormaÃ§Ã£o</a>
                 </div>
             </div>
 
@@ -333,50 +344,50 @@
             <div class="container-custom">
                 <h1 style="font-size: clamp(2.5rem, 5vw, 3.5rem); color: var(--brand-900); margin-bottom: 1.25rem; font-family: 'Playfair Display', serif;">O Instituto</h1>
                 <p style="font-size: 1.1rem; color: var(--brand-800); line-height: 1.8; opacity: 0.85;">
-                    Um espaÃ§o dedicado ao cuidado das relaÃ§Ãµes humanas, fundamentado na Ã©tica, na ciÃªncia e no acolhimento genuÃ­no. Nascemos do desejo de oferecer uma escuta qualificada e responsÃ¡vel, que vai alÃ©m do sintoma e alcanÃ§a os sistemas que nos constituem: a famÃ­lia, os vÃ­nculos, a histÃ³ria. Aqui, cada pessoa Ã© recebida com respeito Ã  sua singularidade e ao contexto em que vive.
+                    Um espaço dedicado ao cuidado das relações humanas, fundamentado na ética, na ciência e no acolhimento genuíno. Nascemos do desejo de oferecer uma escuta qualificada e responsável, que vai além do sintoma e alcança os sistemas que nos constituem: a família, os vínculos, a história. Aqui, cada pessoa é recebida com respeito à sua singularidade e ao contexto em que vive.
                 </p>
             </div>
         </section>
 
-        <!-- Nossa HistÃ³ria -->
+        <!-- Nossa História -->
         <section style="padding: 100px 0;">
             <div class="container-custom">
                 <div class="grid-2col">
                     <div>
-                        <h2 style="font-size: 2.5rem; color: var(--brand-900); margin-bottom: 2rem; font-family: 'Playfair Display', serif;">Nossa HistÃ³ria</h2>
+                        <h2 style="font-size: 2.5rem; color: var(--brand-900); margin-bottom: 2rem; font-family: 'Playfair Display', serif;">Nossa História</h2>
                         <div style="color: var(--brand-800); line-height: 1.8; font-size: 1.05rem;">
                             <p style="margin-bottom: 1.5rem;">
-                                O Instituto Ana CÃ¢ndida nasceu do desejo de criar um espaÃ§o de referÃªncia em Terapia SistÃªmica em GoiÃ¢nia. Fundado por profissionais apaixonados pelo estudo das relaÃ§Ãµes humanas, nosso instituto busca ir alÃ©m do consultÃ³rio tradicional.
+                                O Instituto Ana Cândida nasceu do desejo de criar um espaço de referência em Terapia Sistêmica em Goiânia. Fundado por profissionais apaixonados pelo estudo das relações humanas, nosso instituto busca ir além do consultório tradicional.
                             </p>
                             <p>
-                                Acreditamos que cada indivÃ­duo Ã© parte de um sistema maior, familiar, social, cultural. Por isso, nosso olhar nunca Ã© isolado. Buscamos compreender as conexÃµes, os padrÃµes e as potÃªncias de cada histÃ³ria que chega atÃ© nÃ³s.
+                                Acreditamos que cada indivíduo é parte de um sistema maior, familiar, social, cultural. Por isso, nosso olhar nunca é isolado. Buscamos compreender as conexões, os padrões e as potências de cada história que chega até nós.
                             </p>
                         </div>
                     </div>
                     <div>
                         <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=1200&auto=format&fit=crop" 
-                             alt="Instituto Ana CÃ¢ndida - espaÃ§o de atendimento" 
+                             alt="Instituto Ana Cândida - espaço de atendimento" 
                              style="width: 100%; height: 420px; object-fit: cover; border-radius: 1.5rem; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.12);">
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- MissÃ£o, VisÃ£o, Valores -->
+        <!-- Missão, Visão, Valores -->
         <section id="missao" style="padding: 100px 0; background-color: var(--brand-50);">
             <div class="container-custom">
                 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 2.5rem;">
                     <div style="background: white; padding: 3rem; border-radius: 1.5rem; border: 1px solid var(--brand-100);">
-                        <h3 style="font-family: 'Playfair Display', serif; font-size: 1.75rem; color: var(--brand-500); margin-bottom: 1.5rem;">MissÃ£o</h3>
-                        <p style="color: var(--brand-800); line-height: 1.7;">Promover saÃºde emocional e relacional atravÃ©s de um atendimento sistÃªmico de excelÃªncia, Ã©tico e humanizado.</p>
+                        <h3 style="font-family: 'Playfair Display', serif; font-size: 1.75rem; color: var(--brand-500); margin-bottom: 1.5rem;">Missão</h3>
+                        <p style="color: var(--brand-800); line-height: 1.7;">Promover saúde emocional e relacional através de um atendimento sistêmico de excelência, ético e humanizado.</p>
                     </div>
                     <div style="background: white; padding: 3rem; border-radius: 1.5rem; border: 1px solid var(--brand-100);">
-                        <h3 style="font-family: 'Playfair Display', serif; font-size: 1.75rem; color: var(--brand-500); margin-bottom: 1.5rem;">VisÃ£o</h3>
-                        <p style="color: var(--brand-800); line-height: 1.7;">Ser referÃªncia em Terapia SistÃªmica em GoiÃ¢nia, reconhecida pela qualidade do cuidado, pela formaÃ§Ã£o continuada da equipe e pelo impacto positivo nas famÃ­lias e comunidades que atendemos.</p>
+                        <h3 style="font-family: 'Playfair Display', serif; font-size: 1.75rem; color: var(--brand-500); margin-bottom: 1.5rem;">Visão</h3>
+                        <p style="color: var(--brand-800); line-height: 1.7;">Ser referência em Terapia Sistêmica em Goiânia, reconhecida pela qualidade do cuidado, pela formação continuada da equipe e pelo impacto positivo nas famílias e comunidades que atendemos.</p>
                     </div>
                     <div style="background: white; padding: 3rem; border-radius: 1.5rem; border: 1px solid var(--brand-100);">
                         <h3 style="font-family: 'Playfair Display', serif; font-size: 1.75rem; color: var(--brand-500); margin-bottom: 1.5rem;">Valores</h3>
-                        <p style="color: var(--brand-800); line-height: 1.7;">Ã‰tica, Confidencialidade, Respeito Ã  Diversidade, AtualizaÃ§Ã£o CientÃ­fica e Acolhimento.</p>
+                        <p style="color: var(--brand-800); line-height: 1.7;">Ética, Confidencialidade, Respeito à Diversidade, Atualização Científica e Acolhimento.</p>
                     </div>
                 </div>
             </div>
@@ -390,10 +401,10 @@
                     <div class="grid-2col-equal">
                         <div>
                             <h3 style="font-family: 'Playfair Display', serif; font-size: 1.3rem; color: var(--brand-900); margin-bottom: 1.25rem; font-weight: 700;">
-                                Ã‰tica e Confidencialidade
+                                Ética e Confidencialidade
                             </h3>
                             <p style="color: var(--brand-800); line-height: 1.8; font-size: 0.98rem;">
-                                O sigilo Ã© a base do nosso trabalho. Seguimos rigorosamente o cÃ³digo de Ã©tica profissional, garantindo um espaÃ§o seguro para vocÃª se expressar livremente.
+                                O sigilo é a base do nosso trabalho. Seguimos rigorosamente o código de ética profissional, garantindo um espaço seguro para você se expressar livremente.
                             </p>
                         </div>
                         <div>
@@ -401,7 +412,7 @@
                                 Triagem e Encaminhamento
                             </h3>
                             <p style="color: var(--brand-800); line-height: 1.8; font-size: 0.98rem;">
-                                Realizamos uma triagem inicial cuidadosa para direcionar vocÃª ao profissional da nossa equipe que melhor se adapta Ã  sua demanda especÃ­fica.
+                                Realizamos uma triagem inicial cuidadosa para direcionar você ao profissional da nossa equipe que melhor se adapta à sua demanda específica.
                             </p>
                         </div>
                     </div>
@@ -443,7 +454,7 @@
                 <div>
                     <h4 style="font-family: 'Playfair Display', serif; font-size: 1.1rem; margin-bottom: 1.5rem; font-weight: 700; color: #FDFBFA !important;">Contato</h4>
                     <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 1.2rem;">
-                        <li style="display: flex; align-items: flex-start; gap: 0.75rem; color: #FDFBFA !important; opacity: 0.9;"><i data-lucide="map-pin" style="width: 18px; height: 18px; flex-shrink: 0; margin-top: 0.2rem;"></i><span>Ã“rion Business &amp; Health Complex, Sala 3 - GoiÃ¢nia-GO</span></li>
+                        <li style="display: flex; align-items: flex-start; gap: 0.75rem; color: #FDFBFA !important; opacity: 0.9;"><i data-lucide="map-pin" style="width: 18px; height: 18px; flex-shrink: 0; margin-top: 0.2rem;"></i><span>Village, GoiÃ¢nia-GO</span></li>
                         <li style="display: flex; align-items: center; gap: 0.75rem; color: #FDFBFA !important; opacity: 0.9;"><i data-lucide="phone" style="width: 18px; height: 18px; flex-shrink: 0;"></i><span>(62) 99471-8809</span></li>
                         <li style="display: flex; align-items: flex-start; gap: 0.75rem; color: #FDFBFA !important; opacity: 0.9;"><i data-lucide="mail" style="width: 18px; height: 18px; flex-shrink: 0; margin-top: 0.2rem;"></i><span class="footer-nowrap">institutoanacandida@gmail.com</span></li>
                     </ul>
@@ -460,9 +471,10 @@
                 <!-- Col 5: Aviso Important -->
                 <div>
                     <h4 style="font-family: 'Playfair Display', serif; font-size: 1.1rem; margin-bottom: 1.5rem; font-weight: 700; color: #FDFBFA !important; display: flex; align-items: center; gap: 0.5rem;">
+                        <span style="width: 8px; height: 8px; background-color: var(--red-accent); border-radius: 50%; display: inline-block;"></span> 
                         Aviso Importante
                     </h4>
-                    <p style="opacity: 0.9; line-height: 1.6; font-size: 0.9rem; color: #FDFBFA !important;">Este site nÃ£o oferece atendimento de emergÃªncia. Em caso de crise, procure o hospital mais prÃ³ximo ou ligue <strong>188 (CVV)</strong>.</p>
+                    <p style="opacity: 0.9; line-height: 1.6; font-size: 0.9rem; color: #FDFBFA !important;">Este site nÃ£o oferece atendimento de emergÃªncia. Em caso de crise, procure o hospital mais prÃ³ximo ou ligue <span style="color: var(--red-accent); font-weight: 700;">188 (CVV)</span>.</p>
                 </div>
             </div>
             <div style="border-top: 1px solid rgba(253, 251, 250, 0.1); padding-top: 2rem; text-align: center;">

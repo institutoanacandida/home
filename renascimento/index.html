@@ -1,12 +1,12 @@
-Ôªø<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Renascimento | Instituto Ana C√¢ndida</title>
-    <meta name="description" content="Jornada de Reconex√£o Feminina com Ana C√¢ndida. Guia Gratuito, Atendimentos e Conte√∫dos.">
+    <title>Renascimento | Instituto Ana C‚ndida</title>
+    <meta name="description" content="Jornada de Reconex„o Feminina com Ana C‚ndida. Guia Gratuito, Atendimentos e Conte˙dos.">
     
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>üå∑</text></svg>">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>??</text></svg>">
     
     <link rel="stylesheet" href="../assets/style.css">
     <!-- STYLES_START -->
@@ -17,7 +17,8 @@
             --brand-500: #C19555;   /* Dourado Principal */
             --brand-100: #F0F4F2;   /* Verde Ultra Light */
             --brand-50: #FFFFFF;    /* Branco */
-}
+            --red-accent: #D93131;  /* Detalhe em Vermelho */
+        }
 
         /* Fixed Interactive Dropdowns */
         .nav-item-dropdown { position: relative; padding: 1rem 0; cursor: pointer; }
@@ -41,14 +42,14 @@
         .nav-item-dropdown:hover .chevron-icon { transform: rotate(180deg); opacity: 1; color: var(--brand-500); }
 
         /* Responsive Footer Grid */
-        .footer-grid {
-            display: grid; grid-template-columns: 1fr; gap: 2rem; margin-bottom: 4rem; 
+        .footer-grid { 
+            display: grid; grid-template-columns: 1fr; gap: 2.5rem; margin-bottom: 4rem; 
         }
         @media (min-width: 640px) {
-            .footer-grid { grid-template-columns: repeat(2, 1fr); gap: 2rem; }
+            .footer-grid { grid-template-columns: repeat(2, 1fr); gap: 2.5rem; }
         }
         @media (min-width: 1024px) {
-            .footer-grid { grid-template-columns: repeat(5, 1fr); gap: 1.5rem; }
+            .footer-grid { grid-template-columns: 0.8fr 0.6fr 1.5fr 2fr 2.4fr; gap: 2rem; }
             .footer-nowrap { white-space: nowrap; }
         }
 
@@ -173,11 +174,16 @@
         .btn-submit { width: 100%; padding: 1rem; background: var(--brand-900); color: white; border: none; border-radius: 9999px; font-weight: 700; cursor: pointer; transition: 0.3s; margin-top: 1rem; }
 
         /* Red Pulse Animation */
-        
+        @keyframes pulse-red {
+            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(217, 49, 49, 0.7); }
             70% { transform: scale(1); box-shadow: 0 0 0 6px rgba(217, 49, 49, 0); }
             100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(217, 49, 49, 0); }
         }
-        
+        .red-dot {
+            width: 8px; height: 8px; background-color: var(--red-accent); border-radius: 50%;
+            display: inline-block; position: absolute; top: -2px; right: -2px;
+            animation: pulse-red 2s infinite;
+        }
     </style>
     <!-- STYLES_END -->
 </head>
@@ -234,6 +240,8 @@
                             <a href="../conteudos" class="dropdown-item">Vis√£o Geral</a>
                             <a href="../conteudos/blog" class="dropdown-item">Blog</a>
                             <a href="../conteudos/cursos" class="dropdown-item">Cursos</a>
+                            <a href="../conteudos/eventos" class="dropdown-item">Eventos</a>
+                            <a href="../conteudos/formacao" class="dropdown-item">Forma√ß√£o</a>
                         </div>
                     </div>
                     
@@ -244,6 +252,7 @@
 
                 <div class="hidden lg:block" style="position: relative;">
                     <a href="https://wa.me/5562994718809" target="_blank" class="btn-primary" style="padding: 0.6rem 1.5rem; font-size: 0.85rem;">Agendar</a>
+                    <span class="red-dot"></span>
                 </div>
                 
                 <button class="lg:hidden" style="background: none; border: none; cursor: pointer; color: #0A4834;" onclick="toggleMobileMenu()">
@@ -314,6 +323,8 @@
                     <a href="../conteudos" class="mobile-link-sub">Vis√£o Geral</a>
                     <a href="../conteudos/blog" class="mobile-link-sub">Blog</a>
                     <a href="../conteudos/cursos" class="mobile-link-sub">Cursos</a>
+                    <a href="../conteudos/eventos" class="mobile-link-sub">Eventos</a>
+                    <a href="../conteudos/formacao" class="mobile-link-sub">Forma√ß√£o</a>
                 </div>
             </div>
 
@@ -329,11 +340,11 @@
 <main class="bio-container">
         <!-- Hero Section -->
         <div class="profile-img-wrap">
-            <img src="https://i.ibb.co/PZ83sDs3/Anna.png" alt="Ana C√¢ndida" class="profile-img-bio">
+            <img src="https://i.ibb.co/PZ83sDs3/Anna.png" alt="Ana C‚ndida" class="profile-img-bio">
         </div>
         
-        <h1 class="bio-title">Voc√™ n√£o est√° quebrada.<br>Voc√™ apenas se desconectou de si.</h1>
-        <p class="bio-subtitle">Ajudo mulheres maduras a reconstru√≠rem autoestima, fortalecerem limites e voltarem a se escolher.</p>
+        <h1 class="bio-title">VocÍ n„o est· quebrada.<br>VocÍ apenas se desconectou de si.</h1>
+        <p class="bio-subtitle">Ajudo mulheres maduras a reconstruÌrem autoestima, fortalecerem limites e voltarem a se escolher.</p>
 
         <div style="margin-bottom: 3.5rem;">
             <a href="#" onclick="openModal()" class="btn-primary" style="padding: 1.2rem 3rem;">Baixar Guia Gratuito</a>
@@ -345,7 +356,7 @@
                 "O problema nunca foi amar demais.<br>Foi se abandonar enquanto amava."
             </p>
             <p style="font-size: 1rem; opacity: 0.8; max-width: 450px; margin: 0 auto;">
-                Talvez voc√™ esteja cansada de ser forte o tempo todo. Voc√™ n√£o precisa se reconstruir do zero. Precisa despertar.
+                Talvez vocÍ esteja cansada de ser forte o tempo todo. VocÍ n„o precisa se reconstruir do zero. Precisa despertar.
             </p>
         </div>
 
@@ -353,7 +364,7 @@
         <div class="links-grid">
             <a href="#" onclick="openModal()" class="btn-bio-card">
                 <span class="btn-bio-label">Baixar Guia Gratuito</span>
-                <span class="btn-bio-subtext">Inicie sua jornada de reconex√£o feminina</span>
+                <span class="btn-bio-subtext">Inicie sua jornada de reconex„o feminina</span>
             </a>
 
             <a href="https://api.whatsapp.com/send/?phone=5562994718809&text=Oi%21+Vi+sobre+o+evento+Renascendo+a+Dois+e+senti+que+%C3%A9+pra+mim%E2%80%A6" target="_blank" class="btn-bio-card">
@@ -368,35 +379,35 @@
 
             <a href="../" class="btn-bio-card">
                 <span class="btn-bio-label">Site Oficial</span>
-                <span class="btn-bio-subtext">Conhe√ßa o Instituto Ana C√¢ndida</span>
+                <span class="btn-bio-subtext">ConheÁa o Instituto Ana C‚ndida</span>
             </a>
         </div>
 
         <!-- Value Proposition Grid -->
-        <h2 style="font-family: 'Playfair Display', serif; font-size: 1.6rem; margin-bottom: 2.5rem; color: var(--brand-900);">O que voc√™ encontra aqui:</h2>
+        <h2 style="font-family: 'Playfair Display', serif; font-size: 1.6rem; margin-bottom: 2.5rem; color: var(--brand-900);">O que vocÍ encontra aqui:</h2>
         <div class="value-grid-bio">
             <div class="value-item-bio">
-                <span style="font-size: 2rem; display: block; margin-bottom: 1rem;">üå∑</span>
-                <h3 style="font-size: 1.1rem; margin-bottom: 0.75rem; color: var(--brand-900);">Reconex√£o</h3>
-                <p style="font-size: 0.9rem; opacity: 0.8; line-height: 1.5;">Autoestima e resgate da sua verdadeira ess√™ncia.</p>
+                <span style="font-size: 2rem; display: block; margin-bottom: 1rem;">??</span>
+                <h3 style="font-size: 1.1rem; margin-bottom: 0.75rem; color: var(--brand-900);">Reconex„o</h3>
+                <p style="font-size: 0.9rem; opacity: 0.8; line-height: 1.5;">Autoestima e resgate da sua verdadeira essÍncia.</p>
             </div>
             <div class="value-item-bio">
-                <span style="font-size: 2rem; display: block; margin-bottom: 1rem;">üõ°Ô∏è</span>
+                <span style="font-size: 2rem; display: block; margin-bottom: 1rem;">???</span>
                 <h3 style="font-size: 1.1rem; margin-bottom: 0.75rem; color: var(--brand-900);">Limites</h3>
                 <p style="font-size: 0.9rem; opacity: 0.8; line-height: 1.5;">Aprenda a estabelecer limites sem sentir culpa.</p>
             </div>
             <div class="value-item-bio">
-                <span style="font-size: 2rem; display: block; margin-bottom: 1rem;">üïäÔ∏è</span>
+                <span style="font-size: 2rem; display: block; margin-bottom: 1rem;">???</span>
                 <h3 style="font-size: 1.1rem; margin-bottom: 0.75rem; color: var(--brand-900);">Maturidade</h3>
-                <p style="font-size: 0.9rem; opacity: 0.8; line-height: 1.5;">Relacionamentos mais equilibrados e saud√°veis.</p>
+                <p style="font-size: 0.9rem; opacity: 0.8; line-height: 1.5;">Relacionamentos mais equilibrados e saud·veis.</p>
             </div>
         </div>
 
         <!-- Authority Section -->
         <div style="margin-top: 3rem; border-top: 1px solid var(--brand-100); padding-top: 4rem; width: 100%;">
-            <h2 style="font-family: 'Playfair Display', serif; font-size: 2rem; margin-bottom: 1.5rem; color: var(--brand-900);">Sou Ana C√¢ndida</h2>
+            <h2 style="font-family: 'Playfair Display', serif; font-size: 2rem; margin-bottom: 1.5rem; color: var(--brand-900);">Sou Ana C‚ndida</h2>
             <p style="font-size: 1.05rem; line-height: 1.8; opacity: 0.8; max-width: 600px; margin: 0 auto;">
-                Terapeuta Especialista em Reconex√£o Feminina. Acompanho mulheres que se perderam emocionalmente e hoje desejam voltar a se escolher com maturidade e consci√™ncia, resgatando o protagonismo de suas vidas.
+                Terapeuta Especialista em Reconex„o Feminina. Acompanho mulheres que se perderam emocionalmente e hoje desejam voltar a se escolher com maturidade e consciÍncia, resgatando o protagonismo de suas vidas.
             </p>
         </div>
 
@@ -458,7 +469,7 @@
                 <div>
                     <h4 style="font-family: 'Playfair Display', serif; font-size: 1.1rem; margin-bottom: 1.5rem; font-weight: 700; color: #FDFBFA !important;">Contato</h4>
                     <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 1.2rem;">
-                        <li style="display: flex; align-items: flex-start; gap: 0.75rem; color: #FDFBFA !important; opacity: 0.9;"><i data-lucide="map-pin" style="width: 18px; height: 18px; flex-shrink: 0; margin-top: 0.2rem;"></i><span>√ìrion Business &amp; Health Complex, Sala 3 - Goi√¢nia-GO</span></li>
+                        <li style="display: flex; align-items: flex-start; gap: 0.75rem; color: #FDFBFA !important; opacity: 0.9;"><i data-lucide="map-pin" style="width: 18px; height: 18px; flex-shrink: 0; margin-top: 0.2rem;"></i><span>Village, Goi√¢nia-GO</span></li>
                         <li style="display: flex; align-items: center; gap: 0.75rem; color: #FDFBFA !important; opacity: 0.9;"><i data-lucide="phone" style="width: 18px; height: 18px; flex-shrink: 0;"></i><span>(62) 99471-8809</span></li>
                         <li style="display: flex; align-items: flex-start; gap: 0.75rem; color: #FDFBFA !important; opacity: 0.9;"><i data-lucide="mail" style="width: 18px; height: 18px; flex-shrink: 0; margin-top: 0.2rem;"></i><span class="footer-nowrap">institutoanacandida@gmail.com</span></li>
                     </ul>
@@ -475,9 +486,10 @@
                 <!-- Col 5: Aviso Important -->
                 <div>
                     <h4 style="font-family: 'Playfair Display', serif; font-size: 1.1rem; margin-bottom: 1.5rem; font-weight: 700; color: #FDFBFA !important; display: flex; align-items: center; gap: 0.5rem;">
+                        <span style="width: 8px; height: 8px; background-color: var(--red-accent); border-radius: 50%; display: inline-block;"></span> 
                         Aviso Importante
                     </h4>
-                    <p style="opacity: 0.9; line-height: 1.6; font-size: 0.9rem; color: #FDFBFA !important;">Este site n√£o oferece atendimento de emerg√™ncia. Em caso de crise, procure o hospital mais pr√≥ximo ou ligue <strong>188 (CVV)</strong>.</p>
+                    <p style="opacity: 0.9; line-height: 1.6; font-size: 0.9rem; color: #FDFBFA !important;">Este site n√£o oferece atendimento de emerg√™ncia. Em caso de crise, procure o hospital mais pr√≥ximo ou ligue <span style="color: var(--red-accent); font-weight: 700;">188 (CVV)</span>.</p>
                 </div>
             </div>
             <div style="border-top: 1px solid rgba(253, 251, 250, 0.1); padding-top: 2rem; text-align: center;">

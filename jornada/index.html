@@ -1,10 +1,10 @@
-ï»¿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Jornada de 7 Dias Para Voltar a Ser VocÃª. Desperte seu feminino com Ana CÃ¢ndida.">
-    <title>Desperte Seu Feminino | Ana CÃ¢ndida</title>
+    <meta name="description" content="Jornada de 7 Dias Para Voltar a Ser Você. Desperte seu feminino com Ana Cândida.">
+    <title>Desperte Seu Feminino | Ana Cândida</title>
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -25,7 +25,8 @@
             --brand-500: #C19555;   /* Dourado Principal */
             --brand-100: #F0F4F2;   /* Verde Ultra Light */
             --brand-50: #FFFFFF;    /* Branco */
-}
+            --red-accent: #D93131;  /* Detalhe em Vermelho */
+        }
 
         /* Fixed Interactive Dropdowns */
         .nav-item-dropdown { position: relative; padding: 1rem 0; cursor: pointer; }
@@ -49,14 +50,14 @@
         .nav-item-dropdown:hover .chevron-icon { transform: rotate(180deg); opacity: 1; color: var(--brand-500); }
 
         /* Responsive Footer Grid */
-        .footer-grid {
-            display: grid; grid-template-columns: 1fr; gap: 2rem; margin-bottom: 4rem; 
+        .footer-grid { 
+            display: grid; grid-template-columns: 1fr; gap: 2.5rem; margin-bottom: 4rem; 
         }
         @media (min-width: 640px) {
-            .footer-grid { grid-template-columns: repeat(2, 1fr); gap: 2rem; }
+            .footer-grid { grid-template-columns: repeat(2, 1fr); gap: 2.5rem; }
         }
         @media (min-width: 1024px) {
-            .footer-grid { grid-template-columns: repeat(5, 1fr); gap: 1.5rem; }
+            .footer-grid { grid-template-columns: 0.8fr 0.6fr 1.5fr 2fr 2.4fr; gap: 2rem; }
             .footer-nowrap { white-space: nowrap; }
         }
 
@@ -181,11 +182,16 @@
         .btn-submit { width: 100%; padding: 1rem; background: var(--brand-900); color: white; border: none; border-radius: 9999px; font-weight: 700; cursor: pointer; transition: 0.3s; margin-top: 1rem; }
 
         /* Red Pulse Animation */
-        
+        @keyframes pulse-red {
+            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(217, 49, 49, 0.7); }
             70% { transform: scale(1); box-shadow: 0 0 0 6px rgba(217, 49, 49, 0); }
             100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(217, 49, 49, 0); }
         }
-        
+        .red-dot {
+            width: 8px; height: 8px; background-color: var(--red-accent); border-radius: 50%;
+            display: inline-block; position: absolute; top: -2px; right: -2px;
+            animation: pulse-red 2s infinite;
+        }
     </style>
     <!-- STYLES_END -->
     <link rel="stylesheet" href="css/styles.css">
@@ -243,6 +249,8 @@
                             <a href="../conteudos" class="dropdown-item">VisÃ£o Geral</a>
                             <a href="../conteudos/blog" class="dropdown-item">Blog</a>
                             <a href="../conteudos/cursos" class="dropdown-item">Cursos</a>
+                            <a href="../conteudos/eventos" class="dropdown-item">Eventos</a>
+                            <a href="../conteudos/formacao" class="dropdown-item">FormaÃ§Ã£o</a>
                         </div>
                     </div>
                     
@@ -253,6 +261,7 @@
 
                 <div class="hidden lg:block" style="position: relative;">
                     <a href="https://wa.me/5562994718809" target="_blank" class="btn-primary" style="padding: 0.6rem 1.5rem; font-size: 0.85rem;">Agendar</a>
+                    <span class="red-dot"></span>
                 </div>
                 
                 <button class="lg:hidden" style="background: none; border: none; cursor: pointer; color: #0A4834;" onclick="toggleMobileMenu()">
@@ -323,6 +332,8 @@
                     <a href="../conteudos" class="mobile-link-sub">VisÃ£o Geral</a>
                     <a href="../conteudos/blog" class="mobile-link-sub">Blog</a>
                     <a href="../conteudos/cursos" class="mobile-link-sub">Cursos</a>
+                    <a href="../conteudos/eventos" class="mobile-link-sub">Eventos</a>
+                    <a href="../conteudos/formacao" class="mobile-link-sub">FormaÃ§Ã£o</a>
                 </div>
             </div>
 
@@ -338,37 +349,37 @@
 <main>
         <section class="hero" style="background-color: #F4EDE8;">
             <div class="container">
-                <h1>VocÃª nÃ£o estÃ¡ quebrada.<br>VocÃª apenas<br class="mobile-break"> se desconectou de si mesma.</h1>
-                <p>Em 7 dias, inicie um processo estruturado de reconexÃ£o emocional.</p>
-                <a href="#oferta" class="cta">ComeÃ§ar Minha
+                <h1>Você não está quebrada.<br>Você apenas<br class="mobile-break"> se desconectou de si mesma.</h1>
+                <p>Em 7 dias, inicie um processo estruturado de reconexão emocional.</p>
+                <a href="#oferta" class="cta">Começar Minha
                     Jornada</a>
             </div>
         </section>
 
-        <!-- IdentificaÃ§Ã£o (A Dor) -->
+        <!-- Identificação (A Dor) -->
         <section class="pain-points section-padding">
             <div class="container animate-on-scroll">
-                <h2 class="section-title text-center">Talvez vocÃª esteja cansada.</h2>
+                <h2 class="section-title text-center">Talvez você esteja cansada.</h2>
                 <div class="grid-2">
                     <div class="pain-text">
-                        <p class="mb-4">Cansada de ser a forte. Cansada de sustentar relaÃ§Ãµes sozinha. Cansada de sentir
+                        <p class="mb-4">Cansada de ser a forte. Cansada de sustentar relações sozinha. Cansada de sentir
                             que
                             sempre entrega mais do que recebe.</p>
-                        <p class="mb-4 lead">VocÃª aprendeu a suportar. Aprendeeu a compreender. Aprendeu a esperar.</p>
+                        <p class="mb-4 lead">Você aprendeu a suportar. Aprendeeu a compreender. Aprendeu a esperar.</p>
                         <p class="highlight-text">Mas no caminho foi se deixando para depois.</p>
-                        <p class="text-lg mt-4" style="color: var(--color-dourado-intenso); font-weight: 500;">VocÃª nÃ£o
-                            estÃ¡
-                            quebrada. VocÃª estÃ¡ desconectada.</p>
+                        <p class="text-lg mt-4" style="color: var(--color-dourado-intenso); font-weight: 500;">Você não
+                            está
+                            quebrada. Você está desconectada.</p>
                     </div>
                     <div class="pain-image">
-                        <img src="https://i.ibb.co/FLCB4M81/mulher-2.png" alt="Mulher em momento de reflexÃ£o"
+                        <img src="https://i.ibb.co/FLCB4M81/mulher-2.png" alt="Mulher em momento de reflexão"
                             class="img-fluid rounded-shadow">
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Virada de Chave (ConsciÃªncia) -->
+        <!-- Virada de Chave (Consciência) -->
         <section class="awareness section-padding text-center">
             <div class="container animate-on-scroll">
                 <h2 class="section-title">O problema nunca foi amar demais.<br>O problema foi se abandonar enquanto
@@ -376,10 +387,10 @@
                 </h2>
                 <div class="awareness-content" style="max-width: 800px; margin: 0 auto;">
                     <p class="awareness-text">
-                        VocÃª confundiu entrega com anulaÃ§Ã£o. Confundiu paciÃªncia com silÃªncio.
+                        Você confundiu entrega com anulação. Confundiu paciência com silêncio.
                     </p>
                     <div class="quote-box">
-                        <p>Despertar seu feminino nÃ£o Ã© virar outra mulher. Ã‰ voltar a ser quem vocÃª era antes de se
+                        <p>Despertar seu feminino não é virar outra mulher. É voltar a ser quem você era antes de se
                             calar.
                         </p>
                     </div>
@@ -387,20 +398,20 @@
             </div>
         </section>
 
-        <!-- Autoridade (Ana CÃ¢ndida) -->
+        <!-- Autoridade (Ana Cândida) -->
         <section id="autora" class="authority section-padding">
             <div class="container grid-2 reverse-mobile animate-on-scroll">
                 <div class="authority-image">
-                    <img src="https://i.ibb.co/PZ83sDs3/Anna.png" alt="Ana CÃ¢ndida - Terapeuta Especialista"
+                    <img src="https://i.ibb.co/PZ83sDs3/Anna.png" alt="Ana Cândida - Terapeuta Especialista"
                         class="img-fluid rounded-shadow">
                 </div>
                 <div class="authority-content">
-                    <h2 class="section-title">Eu tambÃ©m jÃ¡ me perdi.</h2>
+                    <h2 class="section-title">Eu também já me perdi.</h2>
                     <div class="authority-story">
-                        <p class="mb-4">Quebrei empresas. Vivi crises de pÃ¢nico. Convivi com ansiedade constante.</p>
-                        <p class="mb-4">AtÃ© que entendi: <strong>Eu nÃ£o precisava me reconstruir. Eu precisava
+                        <p class="mb-4">Quebrei empresas. Vivi crises de pânico. Convivi com ansiedade constante.</p>
+                        <p class="mb-4">Até que entendi: <strong>Eu não precisava me reconstruir. Eu precisava
                                 despertar.</strong></p>
-                        <p>Hoje, como Terapeuta Especialista em ReconexÃ£o Feminina, guio mulheres maduras nesse caminho
+                        <p>Hoje, como Terapeuta Especialista em Reconexão Feminina, guio mulheres maduras nesse caminho
                             de
                             volta para si mesmas.</p>
                     </div>
@@ -408,10 +419,10 @@
             </div>
         </section>
 
-        <!-- MÃ©todo (A Jornada de 7 Dias) -->
+        <!-- Método (A Jornada de 7 Dias) -->
         <section id="metodo" class="method section-padding">
             <div class="container animate-on-scroll">
-                <h2 class="section-title text-center">O MÃ©todo 7 Dias</h2>
+                <h2 class="section-title text-center">O Método 7 Dias</h2>
                 <p class="text-center mb-4"
                     style="max-width: 700px; margin: 0 auto 3rem; color: var(--color-marrom-suave);">Um passo a passo
                     gentil
@@ -423,7 +434,7 @@
                         <div class="day-badge">01</div>
                         <div class="day-content">
                             <h3>Reconhecer onde seu feminino adormeceu</h3>
-                            <p>Identifique o momento exato em que vocÃª parou de se priorizar.</p>
+                            <p>Identifique o momento exato em que você parou de se priorizar.</p>
                         </div>
                     </div>
 
@@ -431,7 +442,7 @@
                     <div class="timeline-item">
                         <div class="day-badge">02</div>
                         <div class="day-content">
-                            <h3>Identificar padrÃµes de dependÃªncia emocional</h3>
+                            <h3>Identificar padrões de dependência emocional</h3>
                             <p>Compreenda os ciclos que drenam sua energia vital.</p>
                         </div>
                     </div>
@@ -440,8 +451,8 @@
                     <div class="timeline-item">
                         <div class="day-badge">03</div>
                         <div class="day-content">
-                            <h3>Liberar programaÃ§Ãµes antigas</h3>
-                            <p>Solte as crenÃ§as limitantes que disseram quem vocÃª deveria ser.</p>
+                            <h3>Liberar programações antigas</h3>
+                            <p>Solte as crenças limitantes que disseram quem você deveria ser.</p>
                         </div>
                     </div>
 
@@ -449,8 +460,8 @@
                     <div class="timeline-item">
                         <div class="day-badge">04</div>
                         <div class="day-content">
-                            <h3>Reconectar com sua essÃªncia</h3>
-                            <p>Volte a ouvir a voz da sua intuiÃ§Ã£o e seus desejos reais.</p>
+                            <h3>Reconectar com sua essência</h3>
+                            <p>Volte a ouvir a voz da sua intuição e seus desejos reais.</p>
                         </div>
                     </div>
 
@@ -459,7 +470,7 @@
                         <div class="day-badge">05</div>
                         <div class="day-content">
                             <h3>Ativar autoestima interna</h3>
-                            <p>FortaleÃ§a seu valor independente da aprovaÃ§Ã£o externa.</p>
+                            <p>Fortaleça seu valor independente da aprovação externa.</p>
                         </div>
                     </div>
 
@@ -467,8 +478,8 @@
                     <div class="timeline-item">
                         <div class="day-badge">06</div>
                         <div class="day-content">
-                            <h3>Estabelecer limites com seguranÃ§a</h3>
-                            <p>Aprenda a dizer nÃ£o com amor e firmeza.</p>
+                            <h3>Estabelecer limites com segurança</h3>
+                            <p>Aprenda a dizer não com amor e firmeza.</p>
                         </div>
                     </div>
 
@@ -477,34 +488,34 @@
                         <div class="day-badge">07</div>
                         <div class="day-content">
                             <h3>Assumir nova postura emocional</h3>
-                            <p>Integre a mulher desperta em sua rotina diÃ¡ria.</p>
+                            <p>Integre a mulher desperta em sua rotina diária.</p>
                         </div>
                     </div>
                 </div>
 
                 <div class="text-center mt-4">
-                    <p class="highlight-text" style="font-size: 1.1rem;">Cada dia contÃ©m: ReflexÃµes â€¢ ExercÃ­cios
-                        prÃ¡ticos â€¢
-                        Perguntas terapÃªuticas â€¢ AÃ§Ãµes simples</p>
+                    <p class="highlight-text" style="font-size: 1.1rem;">Cada dia contém: Reflexões • Exercícios
+                        práticos •
+                        Perguntas terapêuticas • Ações simples</p>
                 </div>
             </div>
         </section>
 
-        <!-- Presentes (BÃ´nus) -->
+        <!-- Presentes (Bônus) -->
         <section class="bonuses section-padding">
             <div class="container animate-on-scroll">
-                <h2 class="section-title text-center">Presentes Especiais Para VocÃª</h2>
+                <h2 class="section-title text-center">Presentes Especiais Para Você</h2>
                 <div class="grid-2">
                     <div class="bonus-card">
                         <div class="bonus-icon"><i class="fa-solid fa-cloud-moon"></i></div>
-                        <h3>MeditaÃ§Ã£o Guiada de RegulaÃ§Ã£o Emocional</h3>
-                        <p>Para aqueles dias em que a ansiedade aperta e vocÃª precisa voltar ao eixo em poucos minutos.
+                        <h3>Meditação Guiada de Regulação Emocional</h3>
+                        <p>Para aqueles dias em que a ansiedade aperta e você precisa voltar ao eixo em poucos minutos.
                         </p>
                     </div>
                     <div class="bonus-card">
                         <div class="bonus-icon"><i class="fa-solid fa-calendar-check"></i></div>
                         <h3>Plano de Continuidade 30 Dias</h3>
-                        <p>Um guia prÃ¡tico para manter sua vibraÃ§Ã£o elevada e nÃ£o se perder novamente na rotina.</p>
+                        <p>Um guia prático para manter sua vibração elevada e não se perder novamente na rotina.</p>
                     </div>
                 </div>
             </div>
@@ -518,9 +529,9 @@
                     <div class="price-container">
                         <span class="price-old">Valor Total: R$ 311,00</span>
                         <span class="price-new" style="color: var(--color-dourado-intenso);">Hoje: R$ 67,00</span>
-                        <p class="mt-4" style="color: var(--color-marrom-suave);">Investimento consciente. Sem pressÃ£o.
+                        <p class="mt-4" style="color: var(--color-marrom-suave);">Investimento consciente. Sem pressão.
                             Sem
-                            urgÃªncia forÃ§ada.</p>
+                            urgência forçada.</p>
                     </div>
 
                     <a href="https://pay.hotmart.com/I104537986J?off=6rnjow7d&checkoutMode=10"
@@ -533,14 +544,14 @@
             </div>
         </section>
 
-        <!-- ObjeÃ§Ãµes (FAQ Style) -->
+        <!-- Objeções (FAQ Style) -->
         <section class="faq section-padding">
             <div class="container animate-on-scroll">
-                <h2 class="section-title text-center">DÃºvidas Frequentes</h2>
+                <h2 class="section-title text-center">Dúvidas Frequentes</h2>
                 <div class="faq-grid">
                     <div class="faq-item">
                         <button class="faq-question">
-                            NÃ£o tenho tempo
+                            Não tenho tempo
                             <i class="fa-solid fa-chevron-down"></i>
                         </button>
                         <div class="faq-answer">
@@ -550,11 +561,11 @@
 
                     <div class="faq-item">
                         <button class="faq-question">
-                            E se nÃ£o funcionar para mim?
+                            E se não funcionar para mim?
                             <i class="fa-solid fa-chevron-down"></i>
                         </button>
                         <div class="faq-answer">
-                            <p>O processo Ã© estruturado e validado. VocÃª caminha no seu ritmo, com seguranÃ§a.</p>
+                            <p>O processo é estruturado e validado. Você caminha no seu ritmo, com segurança.</p>
                         </div>
                     </div>
 
@@ -564,7 +575,7 @@
                             <i class="fa-solid fa-chevron-down"></i>
                         </button>
                         <div class="faq-answer">
-                            <p>Nosso mÃ©todo Ã© progressivo e seguro. VocÃª nÃ£o serÃ¡ exposta a nada que nÃ£o esteja pronta
+                            <p>Nosso método é progressivo e seguro. Você não será exposta a nada que não esteja pronta
                                 para
                                 lidar.</p>
                         </div>
@@ -576,7 +587,7 @@
         <!-- CTA Final -->
         <section class="final-cta section-padding text-center" style="background-color: var(--color-rosa-suave);">
             <div class="container animate-on-scroll">
-                <h2 class="section-title" style="color: var(--color-marrom-profundo);">Se algo dentro de vocÃª sentiu
+                <h2 class="section-title" style="color: var(--color-marrom-profundo);">Se algo dentro de você sentiu
                     verdade,<br>talvez seja hora de se escolher.</h2>
                 <a href="#oferta" class="btn btn-primary btn-lg mt-4">Quero Despertar Meu Feminino</a>
             </div>
@@ -617,7 +628,7 @@
                 <div>
                     <h4 style="font-family: 'Playfair Display', serif; font-size: 1.1rem; margin-bottom: 1.5rem; font-weight: 700; color: #FDFBFA !important;">Contato</h4>
                     <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 1.2rem;">
-                        <li style="display: flex; align-items: flex-start; gap: 0.75rem; color: #FDFBFA !important; opacity: 0.9;"><i data-lucide="map-pin" style="width: 18px; height: 18px; flex-shrink: 0; margin-top: 0.2rem;"></i><span>Ã“rion Business &amp; Health Complex, Sala 3 - GoiÃ¢nia-GO</span></li>
+                        <li style="display: flex; align-items: flex-start; gap: 0.75rem; color: #FDFBFA !important; opacity: 0.9;"><i data-lucide="map-pin" style="width: 18px; height: 18px; flex-shrink: 0; margin-top: 0.2rem;"></i><span>Village, GoiÃ¢nia-GO</span></li>
                         <li style="display: flex; align-items: center; gap: 0.75rem; color: #FDFBFA !important; opacity: 0.9;"><i data-lucide="phone" style="width: 18px; height: 18px; flex-shrink: 0;"></i><span>(62) 99471-8809</span></li>
                         <li style="display: flex; align-items: flex-start; gap: 0.75rem; color: #FDFBFA !important; opacity: 0.9;"><i data-lucide="mail" style="width: 18px; height: 18px; flex-shrink: 0; margin-top: 0.2rem;"></i><span class="footer-nowrap">institutoanacandida@gmail.com</span></li>
                     </ul>
@@ -634,9 +645,10 @@
                 <!-- Col 5: Aviso Important -->
                 <div>
                     <h4 style="font-family: 'Playfair Display', serif; font-size: 1.1rem; margin-bottom: 1.5rem; font-weight: 700; color: #FDFBFA !important; display: flex; align-items: center; gap: 0.5rem;">
+                        <span style="width: 8px; height: 8px; background-color: var(--red-accent); border-radius: 50%; display: inline-block;"></span> 
                         Aviso Importante
                     </h4>
-                    <p style="opacity: 0.9; line-height: 1.6; font-size: 0.9rem; color: #FDFBFA !important;">Este site nÃ£o oferece atendimento de emergÃªncia. Em caso de crise, procure o hospital mais prÃ³ximo ou ligue <strong>188 (CVV)</strong>.</p>
+                    <p style="opacity: 0.9; line-height: 1.6; font-size: 0.9rem; color: #FDFBFA !important;">Este site nÃ£o oferece atendimento de emergÃªncia. Em caso de crise, procure o hospital mais prÃ³ximo ou ligue <span style="color: var(--red-accent); font-weight: 700;">188 (CVV)</span>.</p>
                 </div>
             </div>
             <div style="border-top: 1px solid rgba(253, 251, 250, 0.1); padding-top: 2rem; text-align: center;">
