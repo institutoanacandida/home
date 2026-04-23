@@ -172,17 +172,41 @@
         .form-input { width: 100%; padding: 0.875rem 1rem; border: 1px solid var(--brand-100); border-radius: 0.75rem; font-family: inherit; transition: 0.3s; }
         .btn-submit { width: 100%; padding: 1rem; background: var(--brand-900); color: white; border: none; border-radius: 9999px; font-weight: 700; cursor: pointer; transition: 0.3s; margin-top: 1rem; }
 
-        /* Red Pulse Animation */
-        @keyframes pulse-red {
-            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(217, 49, 49, 0.7); }
-            70% { transform: scale(1); box-shadow: 0 0 0 6px rgba(217, 49, 49, 0); }
-            100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(217, 49, 49, 0); }
-        }
         .red-dot {
             width: 8px; height: 8px; background-color: var(--brand-500); border-radius: 50%;
             display: inline-block; position: absolute; top: -2px; right: -2px;
             animation: pulse-red 2s infinite;
         }
+
+        /* Formation Cards Equalization */
+        .formacao-card {
+            background: white;
+            border-radius: 2rem;
+            overflow: hidden;
+            border: 1px solid var(--brand-100);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+        .formacao-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 60px -12px rgba(10, 72, 52, 0.12);
+            border-color: var(--brand-500);
+        }
+        .formacao-card-header {
+            padding: 2.5rem 2rem;
+            position: relative;
+            overflow: hidden;
+            min-height: 280px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+        }
+        @media (min-width: 1024px) {
+            .formacao-card-header { min-height: 260px; }
+        }
+        .module-item { display: flex; gap: 0.75rem; align-items: flex-start; margin-bottom: 0.75rem; }
     </style>
     <!-- STYLES_END -->
 </head>
@@ -358,7 +382,7 @@
 
                     <!-- Card: Renascimento de Alto Nivel -->
                     <div class="formacao-card">
-                        <div style="background: linear-gradient(135deg, var(--brand-900) 0%, #C19555 100%); padding: 2.5rem 2rem; position: relative; overflow: hidden;">
+                        <div class="formacao-card-header" style="background: linear-gradient(135deg, var(--brand-900) 0%, #C19555 100%);">
                             <div style="position: absolute; top: -30px; right: -30px; width: 150px; height: 150px; border-radius: 50%; background: rgba(255,255,255,0.05);"></div>
                             <span class="pill pill-gold" style="margin-bottom: 1.5rem; display: inline-flex; color: white !important; border-color: rgba(255,255,255,0.3);">✦ Formação Exclusiva</span>
                             <h2 style="font-family: 'Playfair Display', serif; font-size: 1.75rem; color: #FDFBFA; line-height: 1.2; margin-bottom: 0.75rem;">Renascimento de Alto Nível</h2>
@@ -398,7 +422,7 @@
 
                     <!-- Card: Constelação Familiar e Empresarial -->
                     <div class="formacao-card">
-                        <div style="background: linear-gradient(135deg, #1A513E 0%, var(--brand-900) 100%); padding: 2.5rem 2rem; position: relative; overflow: hidden;">
+                        <div class="formacao-card-header" style="background: linear-gradient(135deg, #1A513E 0%, var(--brand-900) 100%);">
                             <div style="position: absolute; top: -30px; right: -30px; width: 150px; height: 150px; border-radius: 50%; background: rgba(255,255,255,0.05);"></div>
                             <span class="pill pill-green" style="margin-bottom: 1.5rem; display: inline-flex; border-color: rgba(255,255,255,0.3); color: rgba(253,251,250,0.9);">✦ Formação Profissional</span>
                             <h2 style="font-family: 'Playfair Display', serif; font-size: 1.75rem; color: #FDFBFA; line-height: 1.2; margin-bottom: 0.75rem;">Constelação Familiar e Empresarial</h2>
