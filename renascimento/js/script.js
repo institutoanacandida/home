@@ -1,5 +1,5 @@
 const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyLux1NnyhfaoWYxqYSDbknZ403x5uQ9wudXSoPo_zVkxhk83M6GgtVX1iapB2ZzSFaaQ/exec';
-const EBOOK_URL = 'ebook/';
+const EBOOK_URL = 'https://drive.google.com/file/d/1MZFlHEYBH6cgPgJkdBDlLNVaKWbEnPkG/view?usp=sharing';
 
 function openModal() {
     const modal = document.getElementById('captureModal');
