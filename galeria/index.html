@@ -185,6 +185,59 @@
             display: inline-block; position: absolute; top: -2px; right: -2px;
             animation: pulse-red 2s infinite;
         }
+        /* Gallery Filter Buttons */
+        .filter-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0.75rem;
+            margin: 2.5rem auto;
+            padding: 0.6rem;
+            background: white;
+            border-radius: 100px;
+            width: fit-content;
+            border: 1px solid var(--brand-100);
+            box-shadow: 0 4px 20px rgba(10, 72, 52, 0.05);
+        }
+        .filter-btn {
+            background: transparent;
+            border: none;
+            padding: 0.7rem 1.8rem;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--brand-900);
+            cursor: pointer;
+            border-radius: 100px;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            font-family: 'Montserrat', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .filter-btn:hover {
+            background: var(--brand-50);
+            color: var(--brand-500);
+            transform: translateY(-1px);
+        }
+        .filter-btn.active {
+            background: var(--brand-900);
+            color: white;
+            box-shadow: 0 10px 15px -3px rgba(10, 72, 52, 0.2);
+        }
+
+        @media (max-width: 640px) {
+            .filter-container {
+                border-radius: 1.5rem;
+                padding: 0.5rem;
+                justify-content: center;
+                width: 100%;
+            }
+            .filter-btn {
+                padding: 0.6rem 1.2rem;
+                font-size: 0.75rem;
+                flex: 1;
+                text-align: center;
+            }
+        }
     </style>
     <!-- STYLES_END -->
 </head>
@@ -346,7 +399,7 @@
         <!-- Filters -->
         <section style="padding: 20px 0 40px 0; background: var(--brand-50);">
             <div class="container-custom">
-                <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 1.2rem; margin-bottom: 2rem;">
+                <div class="filter-container">
                     <button class="filter-btn active" onclick="filterGallery('todos', this)">Todos</button>
                     <button class="filter-btn" onclick="filterGallery('espaco', this)">Espaço</button>
                     <button class="filter-btn" onclick="filterGallery('eventos', this)">Eventos</button>
